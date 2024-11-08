@@ -1,66 +1,26 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## Amorce
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Note: the school where the project is created, the HEPL from Liège, Belgium, is a french-speaking school. From this point, the instruction will be in French. Sorry.
 
-## About Laravel
+---
+### Description
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+L'amorce est une association Liégeoise qui crée/gère des projets pour la ville de Liège (exemple : Liège sans pubs). Souhaitant une meilleure qualité de vie pour ses membres, l'Amorce a besoin d'une application afin que ses membres s'y retrouvent mieux. Michael, un des 3 administrateurs de l'Amorce, est venu nous présenter son association ainsi que ses souhaits pour l'application. Il est important de noter que Michael est un contributeur à Laravel (le framework utilisé pour réaliser l'application).
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
+### Quelques mots sur le fonctionnement de l'Amorce
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Les membres de l'Amorce sont des personnes ayant fait au minimum une donation pendant 3 mois consécutifs.
+- L'Amorce élit des projets via des "détentes". Une détente est un groupe de 9 personnes membres de l'Amorce. Les détentes valident ou refusent les projets. Une personne peut choisir de faire partie à une détente sous certaines conditions : ne pas avoir fait partie à une détente pendant 1 an au minimum et fait des dons pendant 3 mois consécutifs et ne pas faire partie de la détente actuelle. Tous les X temps, les 3 + vieux membres de la détente sont "effacés" de la détente et 3 autres membres sont tirés au sort (seulement ceux qui remplissent les conditions).
+- L'Amorce compte différents fonds afin de financer les projets. Il existe 3 types de fonds : général, fonctionnement et spécifiques. Le fond général est le fond "de base" de l'Amorce, il stocke l'argent pour ses activités de financement. Le fond de fonctionnement est le fond qui permet au bon fonctionnement de l'Amorce (sert à payer l'hébergement web, les impressions…). Les fonds spécifiques servent à divers collectifs ou associations pour récolter de l'argent pour leurs propres besoins.
+- Les dons sont anonymisés. La base de donnée récupère le nom des donateurs, mais ne l'affiche jamais.
 
-## Learning Laravel
+---
+### Fonctionnalités
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- Seuls les membres de l'Amorce peuvent avoir accès à l'application (avoir un compte).
+- Ajout et/ou modification et/ou suppression de projets, fonds, dons, comptes rendus, To Do List (CRUD).
+- Profil (voir et modification)
+- Newsletter
+- Accueil/dashboard
+- Les administrateurs peuvent créer/supprimer des membres, importer des fichiers CSV et élire des personnes pour les détentes.
