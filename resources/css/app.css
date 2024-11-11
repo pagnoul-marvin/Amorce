@@ -1,3 +1,182 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+:root.light-theme {
+  --yellow_color: #FFC300;
+  --background_color: #FFFFFF;
+  --section_bg_color: #EFEFEF;
+  --item_bg_color: #CDCDCD;
+  --black_color: #FFFFFF;
+  --white_color: #000000;
+  --red_color: #E34234;
+  --green_color: #4ADB15;
+  --blue_color: #00BBFF;
+  --modal_bg_color: rgba(0, 0, 0, 0.75);
+  --line_color: rgba(0, 0, 0, 0.5);
+  --white_placeholder_color: rgba(0, 0, 0, 0.6);
+  --black_placeholder_color: rgba(255, 255, 255, 0.6);
+}
+
+:root.dark-theme {
+  --yellow_color: #FFC300;
+  --background_color: #1C1C1C;
+  --section_bg_color: #222222;
+  --item_bg_color: #464646;
+  --black_color: #000000;
+  --white_color: #FFFFFF;
+  --red_color: #E34234;
+  --green_color: #4ADB15;
+  --blue_color: #00BBFF;
+  --modal_bg_color: rgba(0, 0, 0, 0.75);
+  --line_color: rgba(255, 255, 255, 0.5);
+  --white_placeholder_color: rgba(255, 255, 255, 0.6);
+  --black_placeholder_color: rgba(0, 0, 0, 0.6);
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.hidden {
+  overflow: hidden !important;
+  font-size: 0 !important;
+  text-indent: -100000px !important;
+  position: absolute;
+}
+
+.hel_reg, .hel_bold {
+  font-family: "Helvetica", "Arial", sans-serif;
+}
+
+.hel_reg {
+  font-weight: normal;
+}
+
+.hel_bold {
+  font-weight: bold;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+}
+
+.button {
+  display: inline-block;
+  font-size: 1.25em;
+  border-radius: 0.5em;
+  color: var(--black_color);
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.3s ease-in-out;
+}
+.button:hover {
+  transform: scale(1.05);
+}
+
+.yellow_bg {
+  background-color: var(--yellow_color);
+}
+
+.themes {
+  flex-direction: row;
+  justify-content: center;
+  width: 84px;
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+.themes.light_is_active .themes_light {
+  background-image: url("../../public/img/light_active.png");
+  background-color: black;
+}
+.themes.light_is_active .themes_dark {
+  background-image: url("../../public/img/dark_non_active.png");
+  background-color: transparent;
+}
+.themes.dark_is_active .themes_light {
+  background-image: url("../../public/img/light_non_active.png");
+  background-color: transparent;
+}
+.themes.dark_is_active .themes_dark {
+  background-image: url("../../public/img/dark_active.png");
+  background-color: black;
+}
+.themes_light, .themes_dark {
+  height: 100%;
+  width: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 14px, 14px;
+  border: none;
+  cursor: pointer;
+}
+.themes_light {
+  border-radius: 20px 0 0 20px;
+}
+.themes_dark {
+  border-radius: 0 20px 20px 0;
+}
+
+.welcome_page_content {
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  gap: 10.5625em;
+}
+.welcome_page_content_button_and_themes {
+  gap: 1.875em;
+}
+.welcome_page_content_button_and_themes_button {
+  background-color: var(--black_color);
+  color: var(--white_color);
+  font-size: 1.875em;
+  border-radius: 0.333em;
+  padding: 0.9em 1.93em;
+}
+
+/*# sourceMappingURL=app.css.map */

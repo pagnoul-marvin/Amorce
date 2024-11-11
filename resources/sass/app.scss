@@ -1,0 +1,115 @@
+@import "variables";
+@import "reset";
+
+.hidden {
+    overflow: hidden !important;
+    font-size: 0 !important;
+    text-indent: -100000px !important;
+    position: absolute;
+}
+
+.hel_reg, .hel_bold {
+    font-family: 'Helvetica', 'Arial', sans-serif;
+}
+
+.hel_reg {
+    font-weight: normal;
+}
+
+.hel_bold {
+    font-weight: bold;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.button {
+    display: inline-block;
+    font-size: $text_sizeM;
+    border-radius: .5em;
+    color: var(--black_color);
+    text-align: center;
+    text-decoration: none;
+    transition: transform .3s ease-in-out;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.yellow_bg {
+    background-color: var(--yellow_color);
+}
+
+.themes {
+    flex-direction: row;
+    justify-content: center;
+    width: 84px;
+    height: 30px;
+    border-radius: 20px;
+    border: 1px solid black;
+
+    &.light_is_active {
+        .themes_light {
+            background-image: url("../../public/img/light_active.png");
+            background-color: black;
+        }
+        .themes_dark {
+            background-image: url("../../public/img/dark_non_active.png");
+            background-color: transparent;
+        }
+    }
+
+    &.dark_is_active {
+        .themes_light {
+            background-image: url("../../public/img/light_non_active.png");
+            background-color: transparent;
+        }
+        .themes_dark {
+            background-image: url("../../public/img/dark_active.png");
+            background-color: black;
+        }
+    }
+
+    &_light, &_dark {
+        height: 100%;
+        width: 50%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 14px, 14px;
+        border: none;
+        cursor: pointer;
+    }
+
+    &_light {
+        border-radius: 20px 0 0 20px;
+    }
+
+    &_dark {
+        border-radius: 0 20px 20px 0;
+    }
+}
+
+.welcome_page {
+    &_content {
+        width: 100vw;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+        gap: 10.5625em;
+
+        &_button_and_themes {
+            gap: 1.875em;
+
+            &_button {
+                background-color: var(--black_color);
+                color: var(--white_color);
+                font-size: $text_sizeL;
+                border-radius: .333em;
+                padding: .9em 1.93em;
+            }
+        }
+    }
+}
