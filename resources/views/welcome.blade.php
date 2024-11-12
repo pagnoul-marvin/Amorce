@@ -1,8 +1,5 @@
 <!doctype html>
-<html lang="fr"
-      x-data="{ theme: '{{ session('theme') }}' }"
-      x-bind:class="theme + '-theme'"
-      @theme-updated.window="theme = $event.detail[0].theme">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -15,7 +12,10 @@
     <title>Amorce</title>
     @vite('resources/css/app.css')
 </head>
-<body class="yellow_bg welcome_page">
+<body class="yellow_bg welcome_page body"
+      x-data="{ theme: '{{ session('theme') }}' }"
+      x-bind:class="theme + '-theme'"
+      @theme-updated.window="theme = $event.detail[0].theme">
 
 <h1 class="hidden">{{__('Se connecter à l\'Amorce')}}</h1>
 

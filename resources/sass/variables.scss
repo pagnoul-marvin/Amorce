@@ -1,11 +1,12 @@
 //COLORS
 
-:root.light-theme {
+.body.light-theme {
     --yellow_color : #FFC300;
     --background_color : #FFFFFF;
     --section_bg_color : #EFEFEF;
     --item_bg_color : #CDCDCD;
-    --black_color : #FFFFFF;
+    --black_color_switchable : #FFFFFF;
+    --black_color : #000000;
     --white_color : #000000;
     --red_color : #E34234;
     --green_color : #4ADB15;
@@ -16,11 +17,12 @@
     --black_placeholder_color : rgba(255, 255, 255, 0.6);
 }
 
-:root.dark-theme {
+.body.dark-theme {
     --yellow_color : #FFC300;
     --background_color : #1C1C1C;
     --section_bg_color : #222222;
     --item_bg_color : #464646;
+    --black_color_switchable : #000000;
     --black_color : #000000;
     --white_color : #FFFFFF;
     --red_color : #E34234;
