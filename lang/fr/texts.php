@@ -9,4 +9,13 @@ return [
     'connexion_form' => 'Formulaire de connection',
     'mail_address' => 'Adresse mail*',
     'password' => 'Mot de passe*',
+    'main_navigation' => 'Navigation principale',
+    'profile_navigation' => 'Navigation du profil',
+    'page_link' => 'Aller vers la page',
+    'home' => 'Accueil',
+    'projects' => 'Projets',
+    'todo_list' => 'To do list',
+    'reports' => 'Comptes-rendus',
+    'newsletter' => 'Newsletter',
+    'account_donation' => 'Fonds et dons'
 ];

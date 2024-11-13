@@ -33,11 +33,11 @@
     flex-direction: column;
 }
 
-.button, .go_back_btn {
+.button, .go_back_btn, .app_nav_main_list_item {
     text-decoration: none;
 }
 
-.button, .input_error_message_show_password_button, .themes_light, .themes_dark {
+.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content {
     cursor: pointer;
 }
 
@@ -265,6 +265,103 @@
         }
     }
 }
+
+.header {
+    background-color: var(--yellow_color);
+    height: calc(100vh - ($spaceXL * 2));
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 16.8125em; //269
+    padding: $spaceXL $spaceS $spaceXL $spaceM;
+
+    .app_nav {
+        justify-content: space-between;
+        height: 100%;
+
+        &_logo {
+            padding-left: $spaceXXS;
+        }
+
+        &_main {
+            &_list {
+                gap: $spaceXL;
+
+                &_item {
+                    position: relative;
+
+                    &.active {
+                        background-color: var(--main_nav_active_bg_color);
+                        padding: $spaceXS $spaceXS $spaceXS 0;
+                        border-radius: .625em;
+                    }
+
+                    &:hover {
+                        .app_nav_main_list_item_link {
+                            &::after {
+                                transform: scaleX(1);
+                                transform-origin: bottom left;
+                            }
+                        }
+                    }
+
+                    &_link {
+                        text-decoration: none;
+                        position: relative;
+                        font-size: $text_sizeM;
+                        color: var(--black_color);
+                        padding-left: $spaceXXS;
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            bottom: 0;
+                            left: $spaceXXS;
+                            width: calc(100% - $spaceXXS);
+                            height: 2px;
+                            background-color: var(--black_color);
+                            transform: scaleX(0);
+                            transform-origin: bottom right;
+                            transition: transform 0.3s ease;
+                        }
+                    }
+                }
+            }
+        }
+
+        &_theme_switcher_and_profile {
+            gap: $spaceXL;
+            padding-left: $spaceXXS;
+
+            &_content {
+                gap: $spaceXS;
+                flex-direction: row;
+                align-items: center;
+
+                &_image {
+                    height: 55px;
+                    width: 55px;
+                    border-radius: 50%;
+                }
+
+                &_text {
+                    .profile_info {
+
+                        &:first-of-type {
+                            font-size: $text_size;
+
+                        }
+
+                        &:last-of-type {
+                            font-size: $text_sizeXS;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 
 
 

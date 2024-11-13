@@ -12,11 +12,14 @@
     @vite('resources/css/app.css')
 </head>
 
-<body>
+<body class="body"
+      x-data="{ theme: '{{ session('theme', 'light') }}' }"
+      x-bind:class="theme + '-theme'"
+      @theme-updated.window="theme = $event.detail[0].theme">
 
     <h1 class="hidden">Amorce</h1>
 
-<header>
+<header class="header">
 
     <x-navigations.main/>
 

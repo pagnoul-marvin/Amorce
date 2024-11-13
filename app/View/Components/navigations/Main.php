@@ -2,6 +2,8 @@
 
 namespace App\View\Components\navigations;
 
+use App\Models\User;
+use Auth;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -11,18 +13,17 @@ class Main extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public string $title ='', public array $links = [])
+    public function __construct(public string $main_nav_title = '', public array $main_links = [], public ?User $user = null)
     {
-        $this->title = 'Navigation principale';
-        $this->links = [
-            ['name' => 'Accueil', 'url' => '/accueil'],
-            ['name' => 'Projets', 'url' => '/projets'],
-            ['name' => 'Todo list', 'url' => '/todolist'],
-            ['name' => 'Comptes rendus', 'url' => '/comptes-rendus'],
-            ['name' => 'Newsletter', 'url' => '/newsletter'],
-            ['name' => 'Fonds et dons', 'url' => '/fonds-et-dons'],
-            ['name' => 'Profil', 'url' => '/profil'],
-            ['name' => 'Espace administrateur', 'url' => '/espace-administrateur'],
+        $this->user = Auth::user();
+        $this->main_nav_title = __('text.main_navigation');
+        $this->main_links = [
+            ['name' => __('texts.home'), 'url' => '/accueil'],
+            ['name' => __('texts.projects'), 'url' => '/projets'],
+            ['name' => __('texts.todo_list'), 'url' => '/todolist'],
+            ['name' => __('texts.reports'), 'url' => '/comptes-rendus'],
+            ['name' => __('texts.newsletter'), 'url' => '/newsletter'],
+            ['name' => __('texts.account_donation'), 'url' => '/fonds-et-dons'],
         ];
     }
 

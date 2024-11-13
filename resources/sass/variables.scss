@@ -1,51 +1,56 @@
 //COLORS
 
 .body.light-theme {
-    --yellow_color : #FFC300;
-    --background_color : #FFFFFF;
-    --section_bg_color : #EFEFEF;
-    --item_bg_color : #CDCDCD;
-    --black_color_switchable : #FFFFFF;
-    --black_color : #000000;
-    --white_color : #000000;
-    --red_color : #E34234;
-    --green_color : #4ADB15;
-    --blue_color : #00BBFF;
-    --modal_bg_color : rgba(0, 0, 0, 0.75);
-    --line_color : rgba(0, 0, 0, 0.5);
-    --white_placeholder_color : rgba(0, 0, 0, 0.6);
-    --black_placeholder_color : rgba(255, 255, 255, 0.6);
+    --yellow_color: #FFC300;
+    --background_color: #FFFFFF;
+    --section_bg_color: #EFEFEF;
+    --item_bg_color: #CDCDCD;
+    --black_color_switchable: #FFFFFF;
+    --black_color: #000000;
+    --white_color: #000000;
+    --red_color: #E34234;
+    --green_color: #4ADB15;
+    --blue_color: #00BBFF;
+    --modal_bg_color: rgba(0, 0, 0, 0.75);
+    --line_color: rgba(0, 0, 0, 0.5);
+    --white_placeholder_color: rgba(0, 0, 0, 0.6);
+    --black_placeholder_color: rgba(255, 255, 255, 0.6);
+    --main_nav_active_bg_color: rgba(0, 0, 0, 0.25);
 }
 
 .body.dark-theme {
-    --yellow_color : #FFC300;
-    --background_color : #1C1C1C;
-    --section_bg_color : #222222;
-    --item_bg_color : #464646;
-    --black_color_switchable : #000000;
-    --black_color : #000000;
-    --white_color : #FFFFFF;
-    --red_color : #E34234;
-    --green_color : #4ADB15;
-    --blue_color : #00BBFF;
-    --modal_bg_color : rgba(0, 0, 0, 0.75);
-    --line_color : rgba(255, 255, 255, 0.5);
-    --white_placeholder_color : rgba(255, 255, 255, 0.6);
-    --black_placeholder_color : rgba(0, 0, 0, 0.6);
+    --yellow_color: #FFC300;
+    --background_color: #1C1C1C;
+    --section_bg_color: #222222;
+    --item_bg_color: #464646;
+    --black_color_switchable: #000000;
+    --black_color: #000000;
+    --white_color: #FFFFFF;
+    --red_color: #E34234;
+    --green_color: #4ADB15;
+    --blue_color: #00BBFF;
+    --modal_bg_color: rgba(0, 0, 0, 0.75);
+    --line_color: rgba(255, 255, 255, 0.5);
+    --white_placeholder_color: rgba(255, 255, 255, 0.6);
+    --black_placeholder_color: rgba(0, 0, 0, 0.6);
+    --main_nav_active_bg_color: rgba(0, 0, 0, 0.25);
 }
 
 
 // FONT-SIZES
-$text_size : 1em;
-$text_sizeS : $text_size * .9375; //15
-$text_sizeM : $text_size * 1.25; //20
-$text_sizeL : $text_size * 1.875; //30
+$text_size: 1em;
+$text_sizeXS: $text_size * .625; //10
+$text_sizeS: $text_size * .9375; //15
+$text_sizeM: $text_size * 1.25; //20
+$text_sizeL: $text_size * 1.875; //30
 
 
 //SPACES
-$space : 1em;
-$spaceXS : $space * .9375; //15
-$spaceS : $space * 1.25; //20
-$spaceM : $space * 1.875; //30
-$spaceL : $space * 2.1875; //35
-$spaceXL : $space * 2.5; //40
+$space: 1em;
+$spaceXXS: $space * .625;//10
+$spaceXS: $space * .9375; //15
+$spaceS: $space * 1.25; //20
+$spaceM: $space * 1.875; //30
+$spaceL: $space * 2.1875; //35
+$spaceXL: $space * 2.5; //40
+$spaceXXL: $space * 3.125; //50
