@@ -7,7 +7,7 @@
 
         <input class="input" type="{{$showPassword ? 'text' : 'password'}}" id="{{$id}}" name="{{$id}}"
                @if($placeholder) placeholder="{{$placeholder}}" @endif
-               @if($required) required @endif>
+               @if($required) required @endif value="{{old($id)}}">
 
         <button type="button" wire:click="togglePasswordVisibility" class="input_error_message_show_password_button">
 
