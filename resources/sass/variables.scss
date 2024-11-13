@@ -37,5 +37,15 @@
 
 // FONT-SIZES
 $text_size : 1em;
+$text_sizeS : $text_size * .9375; //15
 $text_sizeM : $text_size * 1.25; //20
 $text_sizeL : $text_size * 1.875; //30
+
+
+//SPACES
+$space : 1em;
+$spaceXS : $space * .9375; //15
+$spaceS : $space * 1.25; //20
+$spaceM : $space * 1.875; //30
+$spaceL : $space * 2.1875; //35
+$spaceXL : $space * 2.5; //40

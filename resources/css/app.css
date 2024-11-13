@@ -113,17 +113,96 @@ table {
   flex-direction: column;
 }
 
-.button {
-  display: inline-block;
-  font-size: 1.25em;
-  border-radius: 0.5em;
-  color: var(--black_color_switchable);
-  text-align: center;
+.button, .go_back_btn {
   text-decoration: none;
+}
+
+.button, .input_error_message_show_password_button, .themes_light, .themes_dark {
+  cursor: pointer;
+}
+
+.button {
+  font-size: 1.25em;
+  text-align: center;
+  color: var(--black_color_switchable);
   transition: transform 0.3s ease-in-out;
+  padding: 0.8em 0;
 }
 .button:hover {
   transform: scale(1.05);
+}
+
+.label, .go_back_btn, .input, .forgot_password {
+  font-size: 1.25em;
+}
+
+.go_back_btn {
+  color: var(--white_color);
+  align-items: center;
+  flex-direction: row;
+}
+
+.button, .input {
+  border-radius: 0.5em;
+}
+
+.input_checkbox {
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 0.625em;
+}
+
+.label {
+  color: var(--white_color);
+}
+
+.input_error_message {
+  gap: 0.3125em;
+  position: relative;
+}
+.input_error_message .input {
+  border: 1px solid var(--white_color);
+  padding: 0.8em 1em;
+  background-color: transparent;
+  color: var(--white_color);
+}
+.input_error_message .input[type=checkbox] {
+  appearance: auto;
+  height: 24px;
+  width: 24px;
+}
+.input_error_message .error_message {
+  color: var(--red_color);
+  font-size: 0.9375em;
+}
+.input_error_message_show_password_button {
+  background-color: transparent;
+  position: absolute;
+  top: calc(50% - 12px);
+  right: 20px;
+  border: none;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+}
+
+.stay_connected_forgot_password {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.stay_connected_forgot_password .label {
+  font-weight: normal;
+}
+.stay_connected_forgot_password .forgot_password {
+  color: var(--white_color);
+}
+
+.submit_btn {
+  background-color: var(--yellow_color);
+  border: none;
+  color: var(--black_color);
 }
 
 .themes {
@@ -153,7 +232,6 @@ table {
 .themes_light, .themes_dark {
   flex-grow: 1;
   border: none;
-  cursor: pointer;
   position: relative;
 }
 .themes_light .svg, .themes_dark .svg {
@@ -191,6 +269,44 @@ table {
   font-size: 1.875em;
   border-radius: 0.333em;
   padding: 0.9em 1.93em;
+}
+
+.login_page {
+  flex-direction: row-reverse;
+  height: 100vh;
+}
+.login_page_logo_bg, .login_page_content {
+  flex: 1;
+}
+.login_page_logo_bg {
+  background-color: var(--yellow_color);
+  align-items: center;
+  justify-content: center;
+}
+.login_page_content {
+  flex-direction: column-reverse;
+  padding: 3.125em;
+}
+.login_page_content .login_section {
+  align-self: center;
+  flex-grow: 1;
+  justify-content: center;
+}
+.login_page_content .login_section_form {
+  gap: 2.1875em;
+  width: 29.6875em;
+}
+.login_page_content .login_section_form_label_and_input {
+  gap: 2.5em;
+}
+.login_page_content .login_section_form_content {
+  gap: 0.9375em;
+}
+.login_page_content .login_section_form_stay_connected_forgot_password_and_button {
+  gap: 1.875em;
+}
+.login_page_content .go_back_nav {
+  align-self: flex-start;
 }
 
 /*# sourceMappingURL=app.css.map */

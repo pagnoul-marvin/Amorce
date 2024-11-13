@@ -12,15 +12,25 @@
     <title>Amorce</title>
     @vite('resources/css/app.css')
 </head>
-<body class="body" x-bind:class="{{ session('theme') }} + '-theme'">
+<body class="body {{ session('theme', 'light') }}-theme">
 
 <h1 class="hidden">{{__('Se connecter à l\'Amorce')}}</h1>
 
-<main>
+<main class="login_page flex">
 
-    <x-buttons.go-back-button/>
+    <div class="login_page_logo_bg flex">
 
-    {{$slot}}
+        <img src="{{asset('img/logo650x269.png')}}" alt="Logo de l'Amorce" width="650" height="269">
+
+    </div>
+
+    <div class="login_page_content flex">
+
+        {{$slot}}
+
+        <x-buttons.go-back-button text="Revenir vers la page de bienvenue" href="/"/>
+
+    </div>
 
 </main>
 

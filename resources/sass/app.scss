@@ -10,6 +10,7 @@
 
 .body {
     background-color: var(--background_color);
+
     &.yellow_bg {
         background-color: var(--yellow_color);
     }
@@ -32,18 +33,103 @@
     flex-direction: column;
 }
 
-.button {
-    display: inline-block;
-    font-size: $text_sizeM;
-    border-radius: .5em;
-    color: var(--black_color_switchable);
-    text-align: center;
+.button, .go_back_btn {
     text-decoration: none;
+}
+
+.button, .input_error_message_show_password_button, .themes_light, .themes_dark {
+    cursor: pointer;
+}
+
+.button {
+    font-size: $text_sizeM;
+    text-align: center;
+    color: var(--black_color_switchable);
     transition: transform .3s ease-in-out;
+    padding: .8em 0;
 
     &:hover {
         transform: scale(1.05);
     }
+}
+
+.label, .go_back_btn, .input, .forgot_password {
+    font-size: $text_sizeM;
+}
+
+.go_back_btn {
+    color: var(--white_color);
+    align-items: center;
+    flex-direction: row;
+}
+
+.button, .input {
+    border-radius: .5em;
+}
+
+.input_checkbox {
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: .625em;
+}
+
+.label {
+    color: var(--white_color);
+}
+
+.input_error_message {
+    gap: 0.3125em; //5
+    position: relative;
+
+    .input {
+        border: 1px solid var(--white_color);
+        padding: .8em 1em;
+        background-color: transparent;
+        color: var(--white_color);
+
+        &[type = 'checkbox'] {
+            appearance: auto;
+            height: 24px;
+            width: 24px;
+        }
+    }
+
+    .error_message {
+        color: var(--red_color);
+        font-size: $text_sizeS;
+    }
+
+    &_show_password_button {
+        background-color: transparent;
+        position: absolute;
+        top: calc(50% - 24px / 2);
+        right: 20px;
+        border: none;
+        display: inline-block;
+        width: 24px;
+        height: 24px;
+        padding: 0;
+    }
+}
+
+.stay_connected_forgot_password {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    .label {
+        font-weight: normal;
+    }
+
+    .forgot_password {
+        color: var(--white_color);
+    }
+}
+
+.submit_btn {
+    background-color: var(--yellow_color);
+    border: none;
+    color: var(--black_color);
 }
 
 .themes {
@@ -84,7 +170,6 @@
     &_light, &_dark {
         flex-grow: 1;
         border: none;
-        cursor: pointer;
         position: relative;
 
         .svg {
@@ -96,7 +181,7 @@
             overflow: visible;
 
             &.move {
-               top: 200%;
+                top: 200%;
             }
         }
     }
@@ -132,3 +217,54 @@
         }
     }
 }
+
+.login_page {
+    flex-direction: row-reverse;
+    height: 100vh;
+
+    &_logo_bg, &_content {
+        flex: 1;
+    }
+
+    &_logo_bg {
+        background-color: var(--yellow_color);
+        align-items: center;
+        justify-content: center;
+    }
+
+    &_content {
+        flex-direction: column-reverse;
+        padding: 3.125em;
+
+        .login_section {
+            align-self: center;
+            flex-grow: 1;
+            justify-content: center;
+
+            &_form {
+                gap: $spaceL;
+                width: 29.6875em; //475
+
+                &_label_and_input {
+                    gap: $spaceXL;
+                }
+
+                &_content {
+                    gap: $spaceXS;
+                }
+
+                &_stay_connected_forgot_password_and_button {
+                    gap: $spaceM;
+                }
+
+            }
+        }
+
+        .go_back_nav {
+            align-self: flex-start;
+        }
+    }
+}
+
+
+

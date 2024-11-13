@@ -13,22 +13,22 @@
     @vite('resources/css/app.css')
 </head>
 <body class="yellow_bg welcome_page body"
-      x-data="{ theme: '{{ session('theme') }}' }"
+      x-data="{ theme: '{{ session('theme', 'light') }}' }"
       x-bind:class="theme + '-theme'"
       @theme-updated.window="theme = $event.detail[0].theme">
 
-<h1 class="hidden">{{__('Se connecter à l\'Amorce')}}</h1>
+<h1 class="hidden">{{__('texts.sign_in_to_amorce')}}</h1>
 
 <main class="flex welcome_page_content">
 
-    <img src="{{asset('img/logo650x269.png')}}" alt="Logo de l'Amorce" width="650" height="269">
+    <img src="{{asset('img/logo650x269.png')}}" alt="{{__('texts.amorce_logo')}}" width="650" height="269">
 
     <div class="flex welcome_page_content_button_and_themes">
 
         <livewire:theme-switcher/>
 
-        <a class="button welcome_page_content_button_and_themes_button hel_bold" href="/se-connecter"
-           title="Aller vers la page de connection à l'Amorce">{{__('Se connecter')}}</a>
+        <a class="button welcome_page_content_button_and_themes_button hel_bold" href="{{route('login')}}"
+           title="Aller vers la page de connection à l'Amorce">{{__('texts.sign_in')}}</a>
 
     </div>
 

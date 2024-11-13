@@ -1,12 +1,12 @@
 <?php
 
-namespace App\View\Components\buttons;
+namespace App\View\Components\form;
 
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class GoBackButton extends Component
+class SubmitButton extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +21,6 @@ class GoBackButton extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.buttons.go-back-button');
+        return view('components.form.submit-button');
     }
 }
