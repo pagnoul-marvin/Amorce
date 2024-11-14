@@ -1,5 +1,6 @@
-@import "variables";
 @import "reset";
+@import "variables";
+@import "modal_transitions";
 
 .hidden {
     overflow: hidden !important;
@@ -10,10 +11,6 @@
 
 .body {
     background-color: var(--background_color);
-
-    &.yellow_bg {
-        background-color: var(--yellow_color);
-    }
 }
 
 .hel_reg, .hel_bold {
@@ -33,12 +30,24 @@
     flex-direction: column;
 }
 
+.header, .body.yellow_bg, .submit_btn, .app_nav_theme_switcher_and_profile_content_modal, .login_page_logo_bg {
+    background-color: var(--yellow_color);
+}
+
 .button, .go_back_btn, .app_nav_main_list_item, .app_nav_theme_switcher_and_profile_content_modal_list_item_link {
     text-decoration: none;
 }
 
 .button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn {
     cursor: pointer;
+}
+
+.app_nav_main_list_item.active, .app_nav_theme_switcher_and_profile_content.active, .app_nav_theme_switcher_and_profile_content:hover {
+    background-color: var(--main_nav_active_bg_color);
+}
+
+.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link {
+    font-size: $text_sizeM;
 }
 
 .button {
@@ -51,10 +60,6 @@
     &:hover {
         transform: scale(1.05);
     }
-}
-
-.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn {
-    font-size: $text_sizeM;
 }
 
 .go_back_btn {
@@ -127,7 +132,6 @@
 }
 
 .submit_btn {
-    background-color: var(--yellow_color);
     border: none;
     color: var(--black_color);
 }
@@ -227,7 +231,6 @@
     }
 
     &_logo_bg {
-        background-color: var(--yellow_color);
         align-items: center;
         justify-content: center;
     }
@@ -267,13 +270,29 @@
 }
 
 .header {
-    background-color: var(--yellow_color);
-    height: calc(100vh - ($spaceXL * 2));
+    height: calc(100vh - ($spaceXL * 2) + $spaceXS);
     position: fixed;
     top: 0;
     left: 0;
-    width: 16.8125em; //269
-    padding: $spaceXL $spaceS $spaceXL $spaceM;
+    width: calc(16.8125em - $spaceS - $spaceM); //269
+    padding: $spaceXL $spaceS calc($spaceXL - $spaceXS) $spaceM;
+
+    .app_nav_main_list_item_link, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_theme_switcher_and_profile_content_modal_list_item_link {
+        text-decoration: none;
+        position: relative;
+        color: var(--black_color);
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            height: 2px;
+            background-color: var(--black_color);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease;
+        }
+    }
 
     .app_nav {
         justify-content: space-between;
@@ -285,44 +304,30 @@
 
         &_main {
             &_list {
-                gap: $spaceXL;
+                gap: calc($spaceXL - ($spaceXS * 2));
 
                 &_item {
                     position: relative;
+                    padding: $spaceXS $spaceXS $spaceXS 0;
+                    border-radius: .625em;
 
-                    &.active {
-                        background-color: var(--main_nav_active_bg_color);
-                        padding: $spaceXS $spaceXS $spaceXS 0;
-                        border-radius: .625em;
-                    }
-
-                    &:hover {
-                        .app_nav_main_list_item_link {
-                            &::after {
-                                transform: scaleX(1);
-                                transform-origin: bottom left;
+                    &.inactive {
+                        &:hover {
+                            .app_nav_main_list_item_link {
+                                &::after {
+                                    transform: scaleX(1);
+                                    transform-origin: bottom left;
+                                }
                             }
                         }
                     }
 
                     &_link {
-                        text-decoration: none;
-                        position: relative;
-                        font-size: $text_sizeM;
-                        color: var(--black_color);
                         padding-left: $spaceXXS;
 
                         &::after {
-                            content: '';
-                            position: absolute;
-                            bottom: 0;
                             left: $spaceXXS;
                             width: calc(100% - $spaceXXS);
-                            height: 2px;
-                            background-color: var(--black_color);
-                            transform: scaleX(0);
-                            transform-origin: bottom right;
-                            transition: transform 0.3s ease;
                         }
                     }
                 }
@@ -331,18 +336,24 @@
 
         &_theme_switcher_and_profile {
             gap: $spaceXL;
-            padding-left: $spaceXXS;
+
+            .themes, &_content_image {
+                margin-left: $spaceXXS;
+            }
 
             &_content {
                 gap: $spaceXS;
                 flex-direction: row;
                 align-items: center;
                 position: relative;
+                padding: $spaceXS $spaceXS $spaceXS 0;
+                border-radius: .625em;
 
                 &_image {
+                    min-width: 55px;
                     height: 55px;
-                    width: 55px;
                     border-radius: 50%;
+                    overflow: hidden;
                 }
 
                 &_text {
@@ -350,7 +361,6 @@
 
                         &:first-of-type {
                             font-size: $text_size;
-
                         }
 
                         &:last-of-type {
@@ -362,12 +372,11 @@
                 &_modal {
                     border-radius: .625em;
                     padding: $spaceS;
-                    background-color: var(--yellow_color);
                     box-shadow: -4px 4px 8px var(--main_nav_active_bg_color);
                     z-index: 1;
-                    position: absolute;
-                    right: -100%;
-                    bottom: -70%;
+                    position: fixed;
+                    left: 16em;
+                    bottom: 0;
 
                     &_list {
                         gap: $spaceXXS;
@@ -376,7 +385,12 @@
                             width: 100%;
 
                             &:hover {
-
+                                .app_nav_theme_switcher_and_profile_content_modal_list_item_link, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn {
+                                    &::after {
+                                        transform: scaleX(1);
+                                        transform-origin: bottom left;
+                                    }
+                                }
                             }
 
                             &:not(:last-of-type) {
@@ -384,16 +398,17 @@
                                 padding-bottom: $spaceXXS;
                             }
 
-                            &_link {
-                                color: var(--black_color);
-                            }
-
                             &_form_btn {
                                 border: none;
                                 background: none;
-                                color: var(--black_color);
-                                font-size: $text_sizeM;
                                 padding: 0;
+                            }
+
+                            &_form_btn, &_link {
+                                &::after {
+                                    left: 0;
+                                    width: 100%;
+                                }
                             }
                         }
                     }
@@ -402,7 +417,5 @@
         }
     }
 }
-
-
 
 

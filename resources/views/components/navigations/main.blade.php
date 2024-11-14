@@ -26,11 +26,15 @@
 
         <livewire:theme-switcher/>
 
-        <div class="app_nav_theme_switcher_and_profile_content flex"
+        <div class="app_nav_theme_switcher_and_profile_content flex {{ request()->segment(1) == '/profil' || request()->segment(1) == '/espace-administrateur' ? 'active' : 'inactive' }}"
              @click="$dispatch('toggleProfileModalVisibility')">
 
-            <img class="app_nav_theme_switcher_and_profile_content_image" src="{{asset('img/photo_profil.png')}}"
-                 alt="photo de profil">
+            <div class="app_nav_theme_switcher_and_profile_content_image">
+
+                <img src="{{asset('img/photo_profil.png')}}"
+                     alt="photo de profil">
+
+            </div>
 
             <div class="app_nav_theme_switcher_and_profile_content_text">
 

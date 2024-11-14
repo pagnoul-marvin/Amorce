@@ -1,2 +1,2 @@
-@props(['text'])
-<button class="submit_btn button" type="submit">{{$text}}</button>
+@props(['text', 'class'])
+<button class="hel_bold {{$class}}" title="{{$text}}" type="submit">{{$text}}</button>

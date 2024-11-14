@@ -27,7 +27,7 @@
 
                 <x-form.stay-connected-and-forgot-password/>
 
-                <x-form.submit-button :text="__('texts.sign_in')"/>
+                <x-form.submit-button :text="__('texts.sign_in')" class="submit_btn button"/>
 
             </div>
 
