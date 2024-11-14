@@ -2,24 +2,34 @@
 
 namespace App\Livewire\Modals;
 
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Application;
 use Livewire\Component;
 
 class ProfileModal extends Component
 {
-    public $isOpen = false;
+    public bool $isOpen = false;
+    public string $title;
+    public array $links;
+    protected $listeners = ['toggleProfileModalVisibility' => 'toggleProfileModalVisibility'];
 
-    public function render()
+    public function mount(): void
+    {
+        $this->title = __('texts.profile_navigation');
+        $this->links = [
+          ['name' => 'Profil', 'url' => '/profil'],
+          ['name' => 'Espace administrateur', 'url' => '/espace-administrateur'],
+        ];
+    }
+
+    public function render(): Application|Factory|View|\Illuminate\View\View
     {
         return view('livewire.modals.profile-modal');
     }
 
-    public function openModal(): void
+    public function toggleProfileModalVisibility(): void
     {
-        $this->isOpen = true;
-    }
-
-    public function closeModal(): void
-    {
-        $this->isOpen = false;
+        $this->isOpen = !$this->isOpen;
     }
 }

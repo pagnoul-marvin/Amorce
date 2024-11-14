@@ -18,4 +18,5 @@ return [
     'reports' => 'Reports',
     'newsletter' => 'Newsletter',
     'account_donation' => 'Accounts and donations',
+    'logout' => 'Logout',
 ];

@@ -33,11 +33,11 @@
     flex-direction: column;
 }
 
-.button, .go_back_btn, .app_nav_main_list_item {
+.button, .go_back_btn, .app_nav_main_list_item, .app_nav_theme_switcher_and_profile_content_modal_list_item_link {
     text-decoration: none;
 }
 
-.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content {
+.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn {
     cursor: pointer;
 }
 
@@ -53,7 +53,7 @@
     }
 }
 
-.label, .go_back_btn, .input, .forgot_password {
+.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn {
     font-size: $text_sizeM;
 }
 
@@ -337,6 +337,7 @@
                 gap: $spaceXS;
                 flex-direction: row;
                 align-items: center;
+                position: relative;
 
                 &_image {
                     height: 55px;
@@ -354,6 +355,46 @@
 
                         &:last-of-type {
                             font-size: $text_sizeXS;
+                        }
+                    }
+                }
+
+                &_modal {
+                    border-radius: .625em;
+                    padding: $spaceS;
+                    background-color: var(--yellow_color);
+                    box-shadow: -4px 4px 8px var(--main_nav_active_bg_color);
+                    z-index: 1;
+                    position: absolute;
+                    right: -100%;
+                    bottom: -70%;
+
+                    &_list {
+                        gap: $spaceXXS;
+
+                        &_item {
+                            width: 100%;
+
+                            &:hover {
+
+                            }
+
+                            &:not(:last-of-type) {
+                                border-bottom: 1px solid var(--black_line_color);
+                                padding-bottom: $spaceXXS;
+                            }
+
+                            &_link {
+                                color: var(--black_color);
+                            }
+
+                            &_form_btn {
+                                border: none;
+                                background: none;
+                                color: var(--black_color);
+                                font-size: $text_sizeM;
+                                padding: 0;
+                            }
                         }
                     }
                 }

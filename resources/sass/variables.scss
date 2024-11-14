@@ -1,5 +1,4 @@
 //COLORS
-
 .body.light-theme {
     --yellow_color: #FFC300;
     --background_color: #FFFFFF;
@@ -12,12 +11,12 @@
     --green_color: #4ADB15;
     --blue_color: #00BBFF;
     --modal_bg_color: rgba(0, 0, 0, 0.75);
-    --line_color: rgba(0, 0, 0, 0.5);
+    --line_color_switchable: rgba(0, 0, 0, 0.5);
     --white_placeholder_color: rgba(0, 0, 0, 0.6);
     --black_placeholder_color: rgba(255, 255, 255, 0.6);
     --main_nav_active_bg_color: rgba(0, 0, 0, 0.25);
+    --black_line_color : rgba(0, 0, 0, 0.5);
 }
-
 .body.dark-theme {
     --yellow_color: #FFC300;
     --background_color: #1C1C1C;
@@ -30,10 +29,11 @@
     --green_color: #4ADB15;
     --blue_color: #00BBFF;
     --modal_bg_color: rgba(0, 0, 0, 0.75);
-    --line_color: rgba(255, 255, 255, 0.5);
+    --line_color_switchable: rgba(255, 255, 255, 0.5);
     --white_placeholder_color: rgba(255, 255, 255, 0.6);
     --black_placeholder_color: rgba(0, 0, 0, 0.6);
     --main_nav_active_bg_color: rgba(0, 0, 0, 0.25);
+    --black_line_color : rgba(0, 0, 0, 0.5);
 }
 
 

@@ -18,7 +18,7 @@
                         <style>
                             .cls-1 {
                                 fill: none;
-                                stroke: #fff;
+                                stroke: var(--white_color);
                                 stroke-linecap: round;
                                 stroke-linejoin: round;
                                 stroke-width: 2.5px;
@@ -37,7 +37,7 @@
                         <style>
                             .cls-1 {
                                 fill: none;
-                                stroke: #fff;
+                                stroke: var(--white_color);
                                 stroke-linecap: round;
                                 stroke-linejoin: round;
                                 stroke-width: 2.5px;

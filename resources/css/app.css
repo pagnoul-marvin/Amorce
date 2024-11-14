@@ -10,10 +10,11 @@
   --green_color: #4ADB15;
   --blue_color: #00BBFF;
   --modal_bg_color: rgba(0, 0, 0, 0.75);
-  --line_color: rgba(0, 0, 0, 0.5);
+  --line_color_switchable: rgba(0, 0, 0, 0.5);
   --white_placeholder_color: rgba(0, 0, 0, 0.6);
   --black_placeholder_color: rgba(255, 255, 255, 0.6);
   --main_nav_active_bg_color: rgba(0, 0, 0, 0.25);
+  --black_line_color: rgba(0, 0, 0, 0.5);
 }
 
 .body.dark-theme {
@@ -28,10 +29,11 @@
   --green_color: #4ADB15;
   --blue_color: #00BBFF;
   --modal_bg_color: rgba(0, 0, 0, 0.75);
-  --line_color: rgba(255, 255, 255, 0.5);
+  --line_color_switchable: rgba(255, 255, 255, 0.5);
   --white_placeholder_color: rgba(255, 255, 255, 0.6);
   --black_placeholder_color: rgba(0, 0, 0, 0.6);
   --main_nav_active_bg_color: rgba(0, 0, 0, 0.25);
+  --black_line_color: rgba(0, 0, 0, 0.5);
 }
 
 html, body, div, span, applet, object, iframe,
@@ -115,11 +117,11 @@ table {
   flex-direction: column;
 }
 
-.button, .go_back_btn, .app_nav_main_list_item {
+.button, .go_back_btn, .app_nav_main_list_item, .app_nav_theme_switcher_and_profile_content_modal_list_item_link {
   text-decoration: none;
 }
 
-.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content {
+.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn {
   cursor: pointer;
 }
 
@@ -134,7 +136,7 @@ table {
   transform: scale(1.05);
 }
 
-.label, .go_back_btn, .input, .forgot_password {
+.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn {
   font-size: 1.25em;
 }
 
@@ -369,6 +371,7 @@ table {
   gap: 0.9375em;
   flex-direction: row;
   align-items: center;
+  position: relative;
 }
 .header .app_nav_theme_switcher_and_profile_content_image {
   height: 55px;
@@ -380,6 +383,36 @@ table {
 }
 .header .app_nav_theme_switcher_and_profile_content_text .profile_info:last-of-type {
   font-size: 0.625em;
+}
+.header .app_nav_theme_switcher_and_profile_content_modal {
+  border-radius: 0.625em;
+  padding: 1.25em;
+  background-color: var(--yellow_color);
+  box-shadow: -4px 4px 8px var(--main_nav_active_bg_color);
+  z-index: 1;
+  position: absolute;
+  right: -100%;
+  bottom: -70%;
+}
+.header .app_nav_theme_switcher_and_profile_content_modal_list {
+  gap: 0.625em;
+}
+.header .app_nav_theme_switcher_and_profile_content_modal_list_item {
+  width: 100%;
+}
+.header .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type) {
+  border-bottom: 1px solid var(--black_line_color);
+  padding-bottom: 0.625em;
+}
+.header .app_nav_theme_switcher_and_profile_content_modal_list_item_link {
+  color: var(--black_color);
+}
+.header .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn {
+  border: none;
+  background: none;
+  color: var(--black_color);
+  font-size: 1.25em;
+  padding: 0;
 }
 
 /*# sourceMappingURL=app.css.map */

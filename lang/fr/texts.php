@@ -17,5 +17,6 @@ return [
     'todo_list' => 'To do list',
     'reports' => 'Comptes-rendus',
     'newsletter' => 'Newsletter',
-    'account_donation' => 'Fonds et dons'
+    'account_donation' => 'Fonds et dons',
+    'logout' => 'Se déconnecter',
 ];

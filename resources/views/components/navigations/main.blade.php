@@ -27,7 +27,7 @@
         <livewire:theme-switcher/>
 
         <div class="app_nav_theme_switcher_and_profile_content flex"
-             wire:click="dispatchTo('modals.profile-modal', 'openModal')">
+             @click="$dispatch('toggleProfileModalVisibility')">
 
             <img class="app_nav_theme_switcher_and_profile_content_image" src="{{asset('img/photo_profil.png')}}"
                  alt="photo de profil">
@@ -38,6 +38,8 @@
                 <span class="hel_reg profile_info">{{$user->email}}</span>
 
             </div>
+
+            <livewire:modals.profile-modal/>
 
         </div>
 
