@@ -19,4 +19,6 @@ return [
     'newsletter' => 'Newsletter',
     'account_donation' => 'Fonds et dons',
     'logout' => 'Se déconnecter',
+    'home_page_title' => 'Bonjour,',
+    'home_page_description' => 'Voici le résumé général de vos activités'
 ];

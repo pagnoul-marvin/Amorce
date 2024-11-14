@@ -138,7 +138,7 @@ table {
   flex-direction: column;
 }
 
-.header, .body.yellow_bg, .submit_btn, .app_nav_theme_switcher_and_profile_content_modal, .login_page_logo_bg {
+.header, .body.yellow_bg, .submit_btn, .app_nav_theme_switcher_and_profile_content_modal, .login_page_logo_bg, .footer {
   background-color: var(--yellow_color);
 }
 
@@ -154,7 +154,7 @@ table {
   background-color: var(--main_nav_active_bg_color);
 }
 
-.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link {
+.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description {
   font-size: 1.25em;
 }
 
@@ -446,6 +446,28 @@ table {
 .header .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn::after, .header .app_nav_theme_switcher_and_profile_content_modal_list_item_link::after {
   left: 0;
   width: 100%;
+}
+
+.page_title {
+  font-size: 1.875em;
+  margin-bottom: 0.6667em;
+}
+
+.main, .footer {
+  margin-left: 16.8125em;
+}
+
+.footer {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3.125em 1.875em;
+  width: calc(100vw - 3.75em - 16.8125em);
+}
+
+.main {
+  padding: 3.125em;
+  color: var(--white_color);
 }
 
 /*# sourceMappingURL=app.css.map */

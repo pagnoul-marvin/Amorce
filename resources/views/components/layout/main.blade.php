@@ -25,11 +25,13 @@
 
 </header>
 
-<main>
+<main class="main">
 
     {{$slot}}
 
 </main>
+
+<x-footer/>
 
 </body>
 </html>

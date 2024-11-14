@@ -19,4 +19,6 @@ return [
     'newsletter' => 'Newsletter',
     'account_donation' => 'Accounts and donations',
     'logout' => 'Logout',
+    'home_page_title' => 'Hello,',
+    'home_page_description' => 'Here is the summary of your activities'
 ];
