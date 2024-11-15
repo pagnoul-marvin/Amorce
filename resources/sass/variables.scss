@@ -47,10 +47,13 @@ $text_sizeL: $text_size * 1.875; //30
 
 //SPACES
 $space: 1em;
+$spaceXXXS: $space * 0.3125;//5
 $spaceXXS: $space * .625;//10
 $spaceXS: $space * .9375; //15
 $spaceS: $space * 1.25; //20
+$spaceSPLUS : $space * 1.5625; //25
 $spaceM: $space * 1.875; //30
 $spaceL: $space * 2.1875; //35
 $spaceXL: $space * 2.5; //40
 $spaceXXL: $space * 3.125; //50
+$spaceDoubleXXL: $spaceXXL * 2; //100

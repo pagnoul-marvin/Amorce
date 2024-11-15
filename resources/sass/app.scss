@@ -46,8 +46,12 @@
     background-color: var(--main_nav_active_bg_color);
 }
 
-.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description {
+.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link {
     font-size: $text_sizeM;
+}
+
+.welcome_page_content_button_and_themes_button, .page_title, .section_title {
+    font-size: $text_sizeL;
 }
 
 .button {
@@ -136,6 +140,13 @@
     color: var(--black_color);
 }
 
+.section {
+    background-color: var(--section_bg_color);
+    padding: $spaceXXL;
+    gap: $spaceDoubleXXL;
+    border-radius: 1.25em;
+}
+
 .themes {
     flex-direction: row;
     justify-content: center;
@@ -214,7 +225,6 @@
             &_button {
                 background-color: var(--black_color_switchable);
                 color: var(--white_color);
-                font-size: $text_sizeL;
                 border-radius: .333em;
                 padding: .9em 1.93em;
             }
@@ -269,6 +279,23 @@
     }
 }
 
+.app_nav_main_list_item_link, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_theme_switcher_and_profile_content_modal_list_item_link, .todo_list_section_content_list_item_link {
+    text-decoration: none;
+    position: relative;
+    color: var(--black_color);
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        height: 2px;
+        background-color: var(--black_color);
+        transform: scaleX(0);
+        transform-origin: bottom right;
+        transition: transform 0.3s ease;
+    }
+}
+
 .header {
     height: calc(100vh - ($spaceXL * 2) + $spaceXS);
     position: fixed;
@@ -276,23 +303,6 @@
     left: 0;
     width: calc(16.8125em - $spaceS - $spaceM); //269
     padding: $spaceXL $spaceS calc($spaceXL - $spaceXS) $spaceM;
-
-    .app_nav_main_list_item_link, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_theme_switcher_and_profile_content_modal_list_item_link {
-        text-decoration: none;
-        position: relative;
-        color: var(--black_color);
-
-        &::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            height: 2px;
-            background-color: var(--black_color);
-            transform: scaleX(0);
-            transform-origin: bottom right;
-            transition: transform 0.3s ease;
-        }
-    }
 
     .app_nav {
         justify-content: space-between;
@@ -418,9 +428,12 @@
     }
 }
 
-.page_title {
-    font-size: $text_sizeL;
-    margin-bottom: 0.6667em;
+.page_title_and_description {
+    margin-bottom: $spaceXXL;
+
+    .page_title {
+        margin-bottom: 0.6667em;
+    }
 }
 
 .main, .footer {
@@ -440,7 +453,57 @@
     color: var(--white_color);
 }
 
-.test {
-    margin-bottom: 20px;
+.home_sections_container {
+    flex-direction: row;
+    gap: $spaceS;
+
+    .todo_list_section {
+        &_title_and_buttons {
+
+        }
+
+        &_content {
+            &_list {
+                gap: $spaceSPLUS;
+
+                &_item {
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+
+                    &:not(:last-of-type) {
+                        padding-bottom: $spaceSPLUS;
+                        border-bottom: 1px solid var(--line_color_switchable);
+                    }
+
+                    &_link {
+                        color: var(--white_color);
+
+                        &::after {
+                            background-color: var(--white_color);
+                            left: 0;
+                            width: 100%;
+                        }
+
+                        &:hover {
+                            &::after {
+                                transform: scaleX(1);
+                                transform-origin: bottom left;
+                            }
+                        }
+                    }
+
+                    &_profile_pictures_list {
+                        flex-direction: row;
+                        gap: $spaceXXXS;
+
+                        &_item {
+
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 

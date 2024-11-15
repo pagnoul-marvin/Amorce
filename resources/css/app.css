@@ -154,8 +154,12 @@ table {
   background-color: var(--main_nav_active_bg_color);
 }
 
-.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description {
+.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link {
   font-size: 1.25em;
+}
+
+.welcome_page_content_button_and_themes_button, .page_title, .section_title {
+  font-size: 1.875em;
 }
 
 .button {
@@ -237,6 +241,13 @@ table {
   color: var(--black_color);
 }
 
+.section {
+  background-color: var(--section_bg_color);
+  padding: 3.125em;
+  gap: 6.25em;
+  border-radius: 1.25em;
+}
+
 .themes {
   flex-direction: row;
   justify-content: center;
@@ -298,7 +309,6 @@ table {
 .welcome_page_content_button_and_themes_button {
   background-color: var(--black_color_switchable);
   color: var(--white_color);
-  font-size: 1.875em;
   border-radius: 0.333em;
   padding: 0.9em 1.93em;
 }
@@ -340,20 +350,12 @@ table {
   align-self: flex-start;
 }
 
-.header {
-  height: calc(100vh - 5em + 0.9375em);
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 13.6875em;
-  padding: 2.5em 1.25em 1.5625em 1.875em;
-}
-.header .app_nav_main_list_item_link, .header .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .header .app_nav_theme_switcher_and_profile_content_modal_list_item_link {
+.app_nav_main_list_item_link, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_theme_switcher_and_profile_content_modal_list_item_link, .todo_list_section_content_list_item_link {
   text-decoration: none;
   position: relative;
   color: var(--black_color);
 }
-.header .app_nav_main_list_item_link::after, .header .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn::after, .header .app_nav_theme_switcher_and_profile_content_modal_list_item_link::after {
+.app_nav_main_list_item_link::after, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn::after, .app_nav_theme_switcher_and_profile_content_modal_list_item_link::after, .todo_list_section_content_list_item_link::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -362,6 +364,15 @@ table {
   transform: scaleX(0);
   transform-origin: bottom right;
   transition: transform 0.3s ease;
+}
+
+.header {
+  height: calc(100vh - 5em + 0.9375em);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 13.6875em;
+  padding: 2.5em 1.25em 1.5625em 1.875em;
 }
 .header .app_nav {
   justify-content: space-between;
@@ -448,8 +459,10 @@ table {
   width: 100%;
 }
 
-.page_title {
-  font-size: 1.875em;
+.page_title_and_description {
+  margin-bottom: 3.125em;
+}
+.page_title_and_description .page_title {
   margin-bottom: 0.6667em;
 }
 
@@ -470,8 +483,37 @@ table {
   color: var(--white_color);
 }
 
-.test {
-  margin-bottom: 20px;
+.home_sections_container {
+  flex-direction: row;
+  gap: 1.25em;
+}
+.home_sections_container .todo_list_section_content_list {
+  gap: 1.5625em;
+}
+.home_sections_container .todo_list_section_content_list_item {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.home_sections_container .todo_list_section_content_list_item:not(:last-of-type) {
+  padding-bottom: 1.5625em;
+  border-bottom: 1px solid var(--line_color_switchable);
+}
+.home_sections_container .todo_list_section_content_list_item_link {
+  color: var(--white_color);
+}
+.home_sections_container .todo_list_section_content_list_item_link::after {
+  background-color: var(--white_color);
+  left: 0;
+  width: 100%;
+}
+.home_sections_container .todo_list_section_content_list_item_link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+.home_sections_container .todo_list_section_content_list_item_profile_pictures_list {
+  flex-direction: row;
+  gap: 0.3125em;
 }
 
 /*# sourceMappingURL=app.css.map */

@@ -20,5 +20,6 @@ return [
     'account_donation' => 'Accounts and donations',
     'logout' => 'Logout',
     'home_page_title' => 'Hello,',
-    'home_page_description' => 'Here is the summary of your activities'
+    'home_page_description' => 'Here is the summary of your activities',
+    'todo_list_title' => 'Your todo list for today'
 ];

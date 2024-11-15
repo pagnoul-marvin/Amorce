@@ -20,5 +20,6 @@ return [
     'account_donation' => 'Fonds et dons',
     'logout' => 'Se déconnecter',
     'home_page_title' => 'Bonjour,',
-    'home_page_description' => 'Voici le résumé général de vos activités'
+    'home_page_description' => 'Voici le résumé général de vos activités',
+    'todo_list_title' => 'Votre todo list d\'aujourd\'hui',
 ];
