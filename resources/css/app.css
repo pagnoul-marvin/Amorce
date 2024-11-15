@@ -470,4 +470,8 @@ table {
   color: var(--white_color);
 }
 
+.test {
+  margin-bottom: 20px;
+}
+
 /*# sourceMappingURL=app.css.map */

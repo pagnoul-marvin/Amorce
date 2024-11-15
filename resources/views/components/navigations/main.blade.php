@@ -38,7 +38,7 @@
 
             <div class="app_nav_theme_switcher_and_profile_content_text">
 
-                <span class="hel_reg profile_info">{{$user->name}}</span>
+                <span class="hel_reg profile_info">{{$user->firstname}} {{$user->lastname}}</span>
                 <span class="hel_reg profile_info">{{$user->email}}</span>
 
             </div>
