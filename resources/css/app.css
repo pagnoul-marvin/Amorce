@@ -146,7 +146,7 @@ table {
   text-decoration: none;
 }
 
-.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn {
+.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn {
   cursor: pointer;
 }
 
@@ -158,10 +158,6 @@ table {
   font-size: 1.25em;
 }
 
-.welcome_page_content_button_and_themes_button, .page_title, .section_title {
-  font-size: 1.875em;
-}
-
 .button {
   font-size: 1.25em;
   text-align: center;
@@ -169,8 +165,30 @@ table {
   transition: transform 0.3s ease-in-out;
   padding: 0.8em 0;
 }
-.button:hover {
+
+.welcome_page_content_button_and_themes_button, .page_title, .section_title {
+  font-size: 1.875em;
+}
+
+.button:hover, .modal_btn:hover {
   transform: scale(1.05);
+}
+
+.modal_btn {
+  border: none;
+  width: 55px;
+  height: 47px;
+  border-radius: 0.625em;
+  background-color: var(--yellow_color);
+}
+.modal_btn.delete {
+  background-color: var(--red_color);
+}
+.modal_btn.settings {
+  background-color: var(--blue_color);
+}
+.modal_btn.checked {
+  background-color: var(--green_color);
 }
 
 .go_back_btn {
@@ -246,6 +264,14 @@ table {
   padding: 3.125em;
   gap: 6.25em;
   border-radius: 1.25em;
+}
+
+.section_title_and_button {
+  flex-direction: row;
+  justify-content: space-between;
+}
+.section_title_and_button .section_title {
+  flex-basis: 377px;
 }
 
 .themes {
@@ -486,9 +512,17 @@ table {
 .home_sections_container {
   flex-direction: row;
   gap: 1.25em;
+  height: 718px;
+}
+.home_sections_container .section {
+  flex: 1;
+}
+.home_sections_container .todo_list_section_content {
+  height: 500px;
+  overflow: scroll;
 }
 .home_sections_container .todo_list_section_content_list {
-  gap: 1.5625em;
+  gap: 1.875em;
 }
 .home_sections_container .todo_list_section_content_list_item {
   flex-direction: row;
@@ -496,11 +530,15 @@ table {
   align-items: center;
 }
 .home_sections_container .todo_list_section_content_list_item:not(:last-of-type) {
-  padding-bottom: 1.5625em;
+  padding-bottom: 1.875em;
   border-bottom: 1px solid var(--line_color_switchable);
 }
 .home_sections_container .todo_list_section_content_list_item_link {
   color: var(--white_color);
+  flex-basis: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .home_sections_container .todo_list_section_content_list_item_link::after {
   background-color: var(--white_color);
@@ -514,6 +552,13 @@ table {
 .home_sections_container .todo_list_section_content_list_item_profile_pictures_list {
   flex-direction: row;
   gap: 0.3125em;
+  align-items: flex-end;
+}
+.home_sections_container .todo_list_section_content_list_item_profile_pictures_list_item {
+  width: 36px;
+  height: 36px;
+  overflow: hidden;
+  border-radius: 50%;
 }
 
 /*# sourceMappingURL=app.css.map */

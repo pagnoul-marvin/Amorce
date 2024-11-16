@@ -23,6 +23,7 @@ class User extends Authenticatable
     protected $fillable = [
         'firstname',
         'lastname',
+        'picture',
         'email',
         'password',
     ];
@@ -58,8 +59,8 @@ class User extends Authenticatable
     public function getTasksForToday()
     {
         return $this->tasks()
-        ->where('date', today())
-        ->where('completed', '=', false)
+        //->where('date', today())
+        //->where('completed', '=', false)
         ->with('users')
         ->get()
             ->map(function ($task) {

@@ -22,4 +22,8 @@ return [
     'home_page_title' => 'Bonjour,',
     'home_page_description' => 'Voici le résumé général de vos activités',
     'todo_list_title' => 'Votre todo list d\'aujourd\'hui',
+    'no_tasks_for_today' => 'Vous n\'avez encore aucune tâche',
+    'add_a_task_for_today' => 'Ajouter une tâche pour aujourd\'hui',
+    'make_this_task_completed' => 'Rendre cette tâche terminée',
+    'profile_photo' => 'Photo de profil de',
 ];

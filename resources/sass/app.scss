@@ -38,7 +38,7 @@
     text-decoration: none;
 }
 
-.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn {
+.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn {
     cursor: pointer;
 }
 
@@ -50,19 +50,41 @@
     font-size: $text_sizeM;
 }
 
-.welcome_page_content_button_and_themes_button, .page_title, .section_title {
-    font-size: $text_sizeL;
-}
-
 .button {
     font-size: $text_sizeM;
     text-align: center;
     color: var(--black_color_switchable);
     transition: transform .3s ease-in-out;
     padding: .8em 0;
+}
 
+.welcome_page_content_button_and_themes_button, .page_title, .section_title {
+    font-size: $text_sizeL;
+}
+
+.button, .modal_btn {
     &:hover {
         transform: scale(1.05);
+    }
+}
+
+.modal_btn {
+    border: none;
+    width: 55px;
+    height: 47px;
+    border-radius: .625em;
+    background-color: var(--yellow_color);
+
+    &.delete {
+        background-color: var(--red_color);
+    }
+
+    &.settings {
+        background-color: var(--blue_color);
+    }
+
+    &.checked {
+        background-color: var(--green_color);
     }
 }
 
@@ -145,6 +167,15 @@
     padding: $spaceXXL;
     gap: $spaceDoubleXXL;
     border-radius: 1.25em;
+}
+
+.section_title_and_button {
+    flex-direction: row;
+    justify-content: space-between;
+
+    .section_title {
+        flex-basis: 377px;
+    }
 }
 
 .themes {
@@ -456,15 +487,19 @@
 .home_sections_container {
     flex-direction: row;
     gap: $spaceS;
+    height: 718px;
+
+    .section {
+        flex: 1;
+    }
 
     .todo_list_section {
-        &_title_and_buttons {
-
-        }
-
         &_content {
+            height: 500px;
+            overflow: scroll;
+
             &_list {
-                gap: $spaceSPLUS;
+                gap: $spaceM;
 
                 &_item {
                     flex-direction: row;
@@ -472,12 +507,16 @@
                     align-items: center;
 
                     &:not(:last-of-type) {
-                        padding-bottom: $spaceSPLUS;
+                        padding-bottom: $spaceM;
                         border-bottom: 1px solid var(--line_color_switchable);
                     }
 
                     &_link {
                         color: var(--white_color);
+                        flex-basis: 120px;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
 
                         &::after {
                             background-color: var(--white_color);
@@ -496,9 +535,13 @@
                     &_profile_pictures_list {
                         flex-direction: row;
                         gap: $spaceXXXS;
+                        align-items: flex-end;
 
                         &_item {
-
+                            width: 36px;
+                            height: 36px;
+                            overflow: hidden;
+                            border-radius: 50%;
                         }
                     }
                 }
@@ -506,4 +549,3 @@
         }
     }
 }
-

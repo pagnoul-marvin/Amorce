@@ -21,5 +21,9 @@ return [
     'logout' => 'Logout',
     'home_page_title' => 'Hello,',
     'home_page_description' => 'Here is the summary of your activities',
-    'todo_list_title' => 'Your todo list for today'
+    'todo_list_title' => 'Your todo list for today',
+    'no_tasks_for_today' => 'You don\'t have any tasks yet',
+    'add_a_task_for_today' => 'Add a task for today',
+    'make_this_task_completed' => 'Make this task completed',
+    'profile_photo' => 'Profile photo of',
 ];
