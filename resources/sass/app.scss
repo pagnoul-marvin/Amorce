@@ -38,7 +38,7 @@
     text-decoration: none;
 }
 
-.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type = 'file']::file-selector-button {
+.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type = 'file']::file-selector-button, .success_message_close {
     cursor: pointer;
 }
 
@@ -46,7 +46,7 @@
     background-color: var(--main_nav_active_bg_color);
 }
 
-.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link {
+.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text {
     font-size: $text_sizeM;
 }
 
@@ -70,10 +70,10 @@
 
 .modal_btn {
     border: none;
-    width: 55px;
-    height: 47px;
+    padding: .75em 1em;
     border-radius: .625em;
     background-color: var(--yellow_color);
+    display: inline-block;
 
     &.delete {
         background-color: var(--red_color);
@@ -85,6 +85,23 @@
 
     &.checked {
         background-color: var(--green_color);
+    }
+}
+
+.success_message {
+    background-color: var(--green_color);
+    padding: $spaceS;
+    border-radius: .625em;
+    flex-direction: row;
+    justify-content: space-between;
+    z-index: 1;
+    align-items: center;
+    gap: $spaceM;
+    position: absolute;
+    right: 0;
+    top: 0;
+    &_text {
+        color: var(--black_color);
     }
 }
 
@@ -188,6 +205,7 @@
 .section_title_and_button {
     flex-direction: row;
     justify-content: space-between;
+    align-items: flex-start;
 
     .section_title {
         flex-basis: 377px;
@@ -342,6 +360,7 @@
 .header {
     height: calc(100vh - ($spaceXL * 2) + $spaceXS);
     position: fixed;
+    z-index: 1;
     top: 0;
     left: 0;
     width: calc(16.8125em - $spaceS - $spaceM); //269
@@ -426,7 +445,6 @@
                     border-radius: .625em;
                     padding: $spaceS;
                     box-shadow: -4px 4px 8px var(--main_nav_active_bg_color);
-                    z-index: 1;
                     position: fixed;
                     left: 16em;
                     bottom: 0;
@@ -565,6 +583,7 @@
 .profile_form_section {
     gap: $spaceDoubleXXL;
     align-items: center;
+    position: relative;
 
     &_profile_picture_container {
         width: 200px;
@@ -589,3 +608,5 @@
         }
     }
 }
+
+

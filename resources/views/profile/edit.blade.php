@@ -13,7 +13,8 @@
 
         </div>
 
-        <form class="profile_form_section_form flex" enctype="multipart/form-data" action="" method="POST">
+        <form class="profile_form_section_form flex" enctype="multipart/form-data" action="{{route('profile.update')}}"
+              method="POST">
 
             @csrf
             @method('PATCH')
@@ -31,18 +32,20 @@
                                     required="required" class="profile_form_section_form_label_and_input_container"/>
 
             <livewire:show-password id="password" :label="__('texts.password')" :value="$user->password"
-                                    :placeholder="false" required="required" class="profile_form_section_form_label_and_input_container"/>
+                                    :placeholder="false" required="required"
+                                    class="profile_form_section_form_label_and_input_container"/>
 
-
-            <x-form.label-and-input type="file" id="picture" :label="__('texts.profile_photo_form')" :value="$user->picture"
+            <x-form.label-and-input type="file" id="picture" :label="__('texts.profile_photo_form')" :value="false"
                                     :placeholder="false"
-                                    required="required" class="profile_form_section_form_label_and_input_container"/>
+                                    :required="false" class="profile_form_section_form_label_and_input_container"/>
 
             <x-form.submit-button :text="__('texts.modify')" class="submit_btn button"/>
 
         </form>
 
+        <livewire:success-message :text="__('texts.profile_updated')"/>
 
     </section>
+
 
 </x-layout.main>

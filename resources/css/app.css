@@ -86,28 +86,28 @@ table {
   --black_line_color: rgba(0, 0, 0, 0.5);
 }
 
-.profile-modal-transition {
+.profile-modal-transition, .success-message-transition {
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-.profile-modal-enter {
+.profile-modal-enter, .profile-modal-leave-active, .success-message-enter, .success-message-leave-active {
   opacity: 0;
+}
+
+.profile-modal-enter-active, .profile-modal-leave, .success-message-enter-active, .success-message-leave {
+  opacity: 1;
+}
+
+.profile-modal-enter, .profile-modal-leave-active {
   transform: translateX(-10%);
 }
 
-.profile-modal-enter-active {
-  opacity: 1;
+.profile-modal-enter-active, .profile-modal-leave, .success-message-enter-active, .success-message-leave {
   transform: translateX(0);
 }
 
-.profile-modal-leave {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.profile-modal-leave-active {
-  opacity: 0;
-  transform: translateX(-10%);
+.success-message-enter, .success-message-leave-active {
+  transform: translateX(10%);
 }
 
 .hidden {
@@ -146,7 +146,7 @@ table {
   text-decoration: none;
 }
 
-.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type=file]::file-selector-button {
+.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type=file]::file-selector-button, .success_message_close {
   cursor: pointer;
 }
 
@@ -154,7 +154,7 @@ table {
   background-color: var(--main_nav_active_bg_color);
 }
 
-.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link {
+.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text {
   font-size: 1.25em;
 }
 
@@ -176,10 +176,10 @@ table {
 
 .modal_btn {
   border: none;
-  width: 55px;
-  height: 47px;
+  padding: 0.75em 1em;
   border-radius: 0.625em;
   background-color: var(--yellow_color);
+  display: inline-block;
 }
 .modal_btn.delete {
   background-color: var(--red_color);
@@ -189,6 +189,23 @@ table {
 }
 .modal_btn.checked {
   background-color: var(--green_color);
+}
+
+.success_message {
+  background-color: var(--green_color);
+  padding: 1.25em;
+  border-radius: 0.625em;
+  flex-direction: row;
+  justify-content: space-between;
+  z-index: 1;
+  align-items: center;
+  gap: 1.875em;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.success_message_text {
+  color: var(--black_color);
 }
 
 .go_back_btn {
@@ -282,6 +299,7 @@ table {
 .section_title_and_button {
   flex-direction: row;
   justify-content: space-between;
+  align-items: flex-start;
 }
 .section_title_and_button .section_title {
   flex-basis: 377px;
@@ -405,6 +423,7 @@ table {
 .header {
   height: calc(100vh - 5em + 0.9375em);
   position: fixed;
+  z-index: 1;
   top: 0;
   left: 0;
   width: 13.6875em;
@@ -466,7 +485,6 @@ table {
   border-radius: 0.625em;
   padding: 1.25em;
   box-shadow: -4px 4px 8px var(--main_nav_active_bg_color);
-  z-index: 1;
   position: fixed;
   left: 16em;
   bottom: 0;
@@ -574,6 +592,7 @@ table {
 .profile_form_section {
   gap: 6.25em;
   align-items: center;
+  position: relative;
 }
 .profile_form_section_profile_picture_container {
   width: 200px;

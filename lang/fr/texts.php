@@ -11,7 +11,7 @@ return [
     'firstname' => 'Prénom*',
     'mail_address' => 'Adresse mail*',
     'password' => 'Mot de passe*',
-    'profile_photo_form' => 'Photo de profil*',
+    'profile_photo_form' => 'Photo de profil',
     'main_navigation' => 'Navigation principale',
     'profile_navigation' => 'Navigation du profil',
     'page_link' => 'Aller vers la page',
@@ -35,4 +35,5 @@ return [
     'profile' => 'profil',
     'profile_form' => 'Formulaire du profil',
     'modify' => 'Modifier',
+    'profile_updated' => 'Votre profil a été modifié avec succès !'
 ];

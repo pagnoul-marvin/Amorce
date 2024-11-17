@@ -1,23 +1,24 @@
-.profile-modal-transition {
+.profile-modal-transition, .success-message-transition {
     transition: opacity 0.3s ease-in-out, transform .3s ease-in-out;
 }
 
-.profile-modal-enter {
+.profile-modal-enter, .profile-modal-leave-active, .success-message-enter, .success-message-leave-active {
     opacity: 0;
+}
+
+.profile-modal-enter-active, .profile-modal-leave, .success-message-enter-active, .success-message-leave {
+    opacity: 1;
+}
+
+.profile-modal-enter, .profile-modal-leave-active {
     transform: translateX(-10%);
 }
 
-.profile-modal-enter-active {
-    opacity: 1;
+.profile-modal-enter-active, .profile-modal-leave, .success-message-enter-active, .success-message-leave {
     transform: translateX(0);
 }
 
-.profile-modal-leave {
-    opacity: 1;
-    transform: translateX(0);
+.success-message-enter, .success-message-leave-active {
+    transform: translateX(10%);
 }
 
-.profile-modal-leave-active {
-    opacity: 0;
-    transform: translateX(-10%);
-}

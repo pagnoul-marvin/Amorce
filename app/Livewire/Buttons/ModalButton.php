@@ -6,8 +6,10 @@ use Livewire\Component;
 
 class ModalButton extends Component
 {
+    public $button_or_link;
     public $title;
     public $type;
+    public $href;
 
     public function render()
     {

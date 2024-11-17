@@ -16,3 +16,4 @@ Route::get('/accueil', [HomeController::class, 'index'])->middleware(['auth', 'v
 
 require __DIR__.'/auth.php';
 require __DIR__.'/profile.php';
+require __DIR__.'/tasks.php';
