@@ -38,7 +38,7 @@
     text-decoration: none;
 }
 
-.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn {
+.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type = 'file']::file-selector-button {
     cursor: pointer;
 }
 
@@ -94,6 +94,10 @@
     flex-direction: row;
 }
 
+.input_label_container {
+    gap: $spaceXS;
+}
+
 .button, .input {
     border-radius: .5em;
 }
@@ -122,6 +126,18 @@
             appearance: auto;
             height: 24px;
             width: 24px;
+        }
+
+        &[type = 'file'] {
+            &::file-selector-button {
+                background-color: var(--yellow_color);
+                border: none;
+                position: absolute;
+                right: -5px;
+                top: 0;
+                height: 100%;
+                border-radius: 0 .5em .5em 0;
+            }
         }
     }
 
@@ -291,10 +307,6 @@
 
                 &_label_and_input {
                     gap: $spaceXL;
-                }
-
-                &_content {
-                    gap: $spaceXS;
                 }
 
                 &_stay_connected_forgot_password_and_button {
@@ -546,6 +558,34 @@
                     }
                 }
             }
+        }
+    }
+}
+
+.profile_form_section {
+    gap: $spaceDoubleXXL;
+    align-items: center;
+
+    &_profile_picture_container {
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        border-radius: 50%;
+    }
+
+    &_form {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: $spaceXL 5.8125em;
+
+        &_label_and_input_container {
+            flex-basis: calc(50% - 5.8125em);
+        }
+
+        .submit_btn {
+            flex-basis: calc(50% - 4.65em);
         }
     }
 }

@@ -11,6 +11,7 @@ class ShowPassword extends Component
 {
     public $id;
     public $label;
+    public $value;
     public $placeholder;
     public $required;
     public $class;

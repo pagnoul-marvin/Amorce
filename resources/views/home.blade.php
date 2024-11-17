@@ -1,7 +1,7 @@
 <x-layout.main>
 
     <x-page-title-and-description :title="__('texts.home_page_title')" :description="__('texts.home_page_description')"
-                                  :model="$user->firstname"/>
+                                  :bold_part="$user->firstname"/>
 
     <div class="home_sections_container flex">
 
@@ -24,7 +24,7 @@
 
                             <li class="todo_list_section_content_list_item flex">
 
-                                <a href="" title=""
+                                <a href="" title="{{__('texts.see_details')}} {{$task->title}}"
                                    class="todo_list_section_content_list_item_link hel_reg">{{$task->title}}</a>
 
                                 <ul class="todo_list_section_content_list_item_profile_pictures_list flex">

@@ -1,29 +1,48 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+<x-layout.main>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
-            </div>
+    <x-page-title-and-description :title="__('texts.your')" :description="__('texts.see_or_modify_your_profile')"
+                                  :bold_part="__('texts.profile')"/>
 
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
-                </div>
-            </div>
+    <section class="profile_form_section flex">
 
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
-                </div>
-            </div>
+        <h2 class="hidden">{{__('texts.profile_form')}}</h2>
+
+        <div class="profile_form_section_profile_picture_container">
+
+            <img src="{{asset($user->picture)}}" alt="{{__('texts.profile_photo')}} {{$user->firstname}}">
+
         </div>
-    </div>
-</x-app-layout>
+
+        <form class="profile_form_section_form flex" enctype="multipart/form-data" action="" method="POST">
+
+            @csrf
+            @method('PATCH')
+
+            <x-form.label-and-input type="text" id="lastname" :label="__('texts.lastname')" :value="$user->lastname"
+                                    :placeholder="false"
+                                    required="required" class="profile_form_section_form_label_and_input_container"/>
+
+            <x-form.label-and-input type="text" id="firstname" :label="__('texts.firstname')" :value="$user->firstname"
+                                    :placeholder="false"
+                                    required="required" class="profile_form_section_form_label_and_input_container"/>
+
+            <x-form.label-and-input type="email" id="email" :label="__('texts.mail_address')" :value="$user->email"
+                                    :placeholder="false"
+                                    required="required" class="profile_form_section_form_label_and_input_container"/>
+
+            <livewire:show-password id="password" :label="__('texts.password')" :value="$user->password"
+                                    :placeholder="false" required="required" class="profile_form_section_form_label_and_input_container"/>
+
+
+            <x-form.label-and-input type="file" id="picture" :label="__('texts.profile_photo_form')" :value="$user->picture"
+                                    :placeholder="false"
+                                    required="required" class="profile_form_section_form_label_and_input_container"/>
+
+            <x-form.submit-button :text="__('texts.modify')" class="submit_btn button"/>
+
+        </form>
+
+
+    </section>
+
+</x-layout.main>

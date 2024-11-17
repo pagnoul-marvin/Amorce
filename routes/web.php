@@ -8,7 +8,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/accueil', [HomeController::class, 'index'])->name('home');
+Route::get('/accueil', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
 
 /*Route::get('/dashboard', function () {
     return view('dashboard');

@@ -12,11 +12,13 @@
 
                 <x-form.label-and-input class="login_section_form_content" type="email" id="email"
                                         :label="__('texts.mail_address')"
+                                        :value="false"
                                         placeholder="patrick@exemple.com" required/>
 
                 <livewire:show-password
                     id="password"
                     :label="__('texts.password')"
+                    :value="false"
                     :placeholder="false"
                     required="required"
                     class="login_section_form_content" />
