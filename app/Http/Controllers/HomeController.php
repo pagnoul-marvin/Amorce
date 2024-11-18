@@ -11,6 +11,7 @@ class HomeController extends Controller
     {
         $user = Auth::user();
         $tasks = $user?->getTasksForToday();
-        return view('home', compact('user', 'tasks'));
+        $actual_detente = '';
+        return view('home', compact('user', 'tasks', 'actual_detente'));
     }
 }

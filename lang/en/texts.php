@@ -36,4 +36,7 @@ return [
     'profile_form' => 'Profile form',
     'modify' => 'Modify',
     'profile_updated' => 'Your profile has been successfully modified !',
+    'actual_detente' => 'Actual detente',
+    'create_and_exchange_between_funds' => 'Create and exchange between funds and see all the donations',
+    'funds' => 'Funds',
 ];

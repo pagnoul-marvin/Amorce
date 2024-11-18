@@ -35,5 +35,8 @@ return [
     'profile' => 'profil',
     'profile_form' => 'Formulaire du profil',
     'modify' => 'Modifier',
-    'profile_updated' => 'Votre profil a été modifié avec succès !'
+    'profile_updated' => 'Votre profil a été modifié avec succès !',
+    'actual_detente' => 'La détente actuelle',
+    'create_and_exchange_between_funds' => 'Créer et échanger entre fonds et voir les donations',
+    'funds' => 'Les fonds'
 ];

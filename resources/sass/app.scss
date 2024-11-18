@@ -13,12 +13,16 @@
     background-color: var(--background_color);
 }
 
-.hel_reg, .hel_bold {
+.hel_reg, .hel_reg_it, .hel_bold {
     font-family: 'Helvetica', 'Arial', sans-serif;
 }
 
 .hel_reg {
     font-weight: normal;
+}
+
+.hel_reg_it {
+    font-style: italic;
 }
 
 .hel_bold {
@@ -34,7 +38,7 @@
     background-color: var(--yellow_color);
 }
 
-.button, .go_back_btn, .app_nav_main_list_item, .app_nav_theme_switcher_and_profile_content_modal_list_item_link {
+.button, .go_back_btn, .app_nav_main_list_item, .app_nav_theme_switcher_and_profile_content_modal_list_item_link, .funds_section_lists_container_in_process_list_item_link, .funds_section_lists_container_enclosed_list_item_link {
     text-decoration: none;
 }
 
@@ -46,7 +50,7 @@
     background-color: var(--main_nav_active_bg_color);
 }
 
-.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text {
+.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link {
     font-size: $text_sizeM;
 }
 
@@ -100,6 +104,7 @@
     position: absolute;
     right: 0;
     top: 0;
+
     &_text {
         color: var(--black_color);
     }
@@ -605,6 +610,42 @@
 
         .submit_btn {
             flex-basis: calc(50% - 4.65em);
+        }
+    }
+}
+
+.funds_section {
+    &_lists_container {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 5.9375em;
+
+        &_in_process_list, &_enclosed_list {
+            gap: $spaceS;
+            flex: 1;
+
+            &_item {
+                background-color: var(--item_bg_color);
+                border-radius: .625em;
+                padding: 0.9375em 1.25em;
+                gap: .75em;
+
+                &_amount_text {
+                    font-size: $text_sizeS;
+                }
+
+                &_link {
+                    color: var(--white_color);
+                }
+            }
+        }
+
+        &_in_process_list {
+
+        }
+
+        &_enclosed_list {
+
         }
     }
 }

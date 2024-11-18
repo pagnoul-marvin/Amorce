@@ -67,7 +67,7 @@
 
                 @else
 
-                    <p>{{__('texts.no_tasks_for_today')}}</p>
+                    <p class="hel_bold todo_list_section_content_no_tasks">{{__('texts.no_tasks_for_today')}}</p>
 
                 @endif
 
@@ -77,6 +77,13 @@
 
         <section class="section">
 
+            <h2 class="section_title hel_bold">{{__('texts.actual_detente')}}</h2>
+
+            <ul>
+
+
+
+            </ul>
 
         </section>
 

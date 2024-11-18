@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Detente;
+use App\Models\Fund;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Database\Seeder;
@@ -13,28 +15,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Créer 4 utilisateurs
         $users = User::factory(4)
-            ->has(Task::factory()->count(7), 'tasks') // Chaque utilisateur a 5 tâches
+            ->has(Task::factory()->count(7), 'tasks')
             ->create();
 
         foreach ($users as $user) {
             // Assigner le propriétaire à ses propres tâches
             $user->tasks->each(function ($task) use ($user) {
-                $task->user_id = $user->id; // Assigner l'utilisateur comme propriétaire de la tâche
+                $task->user_id = $user->id;
                 $task->save();
 
                 // Assigner entre 1 et 3 autres utilisateurs (mais pas le propriétaire)
                 $usersToAssign = User::where('id', '!=', $user->id)
-                    ->inRandomOrder() // Mélanger les utilisateurs
-                    ->take(rand(1, 3)) // Prendre entre 1 et 3 utilisateurs
-                    ->pluck('id'); // Extraire uniquement les IDs des utilisateurs
+                    ->inRandomOrder()
+                    ->take(rand(1, 3))
+                    ->pluck('id');
 
                 $task->users()->attach($usersToAssign);
             });
         }
 
-        // Créer un utilisateur spécifique (Marvin) avec 5 tâches
+
         $marvin = User::factory()
             ->has(Task::factory()->count(7), 'tasks')
             ->create([
@@ -45,16 +46,32 @@ class DatabaseSeeder extends Seeder
             ]);
 
         $marvin->tasks->each(function ($task) use ($marvin) {
-            $task->user_id = $marvin->id; // Assigner Marvin comme propriétaire de la tâche
+            $task->user_id = $marvin->id;
             $task->save();
 
-            // Assigner entre 1 et 3 autres utilisateurs (mais pas Marvin lui-même)
             $usersToAssign = User::where('id', '!=', $marvin->id)
-                ->inRandomOrder() // Mélanger les utilisateurs
-                ->take(rand(1, 4)) // Prendre entre 1 et 3 utilisateurs
-                ->pluck('id'); // Extraire uniquement les IDs des utilisateurs
+                ->inRandomOrder()
+                ->take(rand(1, 4))
+                ->pluck('id');
 
-            $task->users()->attach($usersToAssign); // Assigner les utilisateurs à la tâche
+            $task->users()->attach($usersToAssign);
         });
+
+        Detente::factory(10)->create();
+        Fund::factory(5)->create();
+
+        Fund::factory()->create([
+            'name' => 'General',
+            'description' => 'Le fond général est le fond de base de l\'Amorce',
+            'pourcentage' => 0,
+            'enclosed' => false
+        ]);
+
+        Fund::factory()->create([
+            'name' => 'Fonctionnement',
+            'description' => 'Le fond de fonctionnement est le fond qui gère l\'argent qui permet le bon fonctionnement de l\'Amorce' ,
+            'pourcentage' => 0,
+            'enclosed' => false
+        ]);
     }
 }
