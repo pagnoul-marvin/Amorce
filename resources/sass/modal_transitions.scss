@@ -1,12 +1,12 @@
-.profile-modal-transition, .success-message-transition {
+.profile-modal-transition, .success-message-transition, .add-fund-transition {
     transition: opacity 0.3s ease-in-out, transform .3s ease-in-out;
 }
 
-.profile-modal-enter, .profile-modal-leave-active, .success-message-enter, .success-message-leave-active {
+.profile-modal-enter, .profile-modal-leave-active, .success-message-enter, .success-message-leave-active, .add-fund-enter, .add-fund-leave-active{
     opacity: 0;
 }
 
-.profile-modal-enter-active, .profile-modal-leave, .success-message-enter-active, .success-message-leave {
+.profile-modal-enter-active, .profile-modal-leave, .success-message-enter-active, .success-message-leave,  .add-fund-enter-active, .add-fund-leave {
     opacity: 1;
 }
 
@@ -21,4 +21,6 @@
 .success-message-enter, .success-message-leave-active {
     transform: translateX(10%);
 }
+
+
 

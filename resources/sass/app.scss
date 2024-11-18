@@ -42,7 +42,7 @@
     text-decoration: none;
 }
 
-.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type = 'file']::file-selector-button, .success_message_close {
+.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type = 'file']::file-selector-button, .close {
     cursor: pointer;
 }
 
@@ -111,7 +111,7 @@
 }
 
 .go_back_btn {
-    color: var(--white_color);
+    color: var(--white_color_switchable);
     align-items: center;
     flex-direction: row;
 }
@@ -131,7 +131,7 @@
 }
 
 .label {
-    color: var(--white_color);
+    color: var(--white_color_switchable);
 }
 
 .input_error_message {
@@ -139,10 +139,10 @@
     position: relative;
 
     .input {
-        border: 1px solid var(--white_color);
+        border: 1px solid var(--white_color_switchable);
         padding: .8em 1em;
         background-color: transparent;
-        color: var(--white_color);
+        color: var(--white_color_switchable);
 
         &[type = 'checkbox'] {
             appearance: auto;
@@ -191,7 +191,31 @@
     }
 
     .forgot_password {
-        color: var(--white_color);
+        color: var(--white_color_switchable);
+    }
+}
+
+.list_title_and_button_container {
+    gap: $spaceXXL;
+    flex: 1;
+
+    .button_title_container {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: $spaceM;
+
+        &:has(:not(div.button_title_container_button_container)) {
+            height: 2.9375em;
+        }
+
+        &_title {
+            font-size: $text_sizeL;
+        }
+
+        &_button_container {
+            flex-direction: row;
+            gap: $spaceXS;
+        }
     }
 }
 
@@ -294,7 +318,7 @@
 
             &_button {
                 background-color: var(--black_color_switchable);
-                color: var(--white_color);
+                color: var(--white_color_switchable);
                 border-radius: .333em;
                 padding: .9em 1.93em;
             }
@@ -345,7 +369,7 @@
     }
 }
 
-.app_nav_main_list_item_link, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_theme_switcher_and_profile_content_modal_list_item_link, .todo_list_section_content_list_item_link {
+.app_nav_main_list_item_link, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_theme_switcher_and_profile_content_modal_list_item_link, .todo_list_section_content_list_item_link, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link {
     text-decoration: none;
     position: relative;
     color: var(--black_color);
@@ -516,7 +540,7 @@
 
 .main {
     padding: $spaceXXL;
-    color: var(--white_color);
+    color: var(--white_color_switchable);
 }
 
 .home_sections_container {
@@ -547,14 +571,14 @@
                     }
 
                     &_link {
-                        color: var(--white_color);
+                        color: var(--white_color_switchable);
                         flex-basis: 120px;
                         overflow: hidden;
                         text-overflow: ellipsis;
                         white-space: nowrap;
 
                         &::after {
-                            background-color: var(--white_color);
+                            background-color: var(--white_color_switchable);
                             left: 0;
                             width: 100%;
                         }
@@ -622,32 +646,96 @@
 
         &_in_process_list, &_enclosed_list {
             gap: $spaceS;
-            flex: 1;
+            height: 22.1875em;
+            overflow: scroll;
 
             &_item {
                 background-color: var(--item_bg_color);
                 border-radius: .625em;
                 padding: 0.9375em 1.25em;
-                gap: .75em;
 
                 &_amount_text {
                     font-size: $text_sizeS;
+                    margin-bottom: .75em;
                 }
 
                 &_link {
-                    color: var(--white_color);
+                    color: var(--white_color_switchable);
+
+                    &::after {
+                        background-color: var(--white_color_switchable);
+                        left: 0;
+                        width: 100%;
+                    }
+
+                    &:hover {
+                        &::after {
+                            transform: scaleX(1);
+                            transform-origin: bottom left;
+                        }
+                    }
                 }
             }
-        }
-
-        &_in_process_list {
-
-        }
-
-        &_enclosed_list {
-
         }
     }
 }
 
+.modal_section {
+    position: fixed;
+    z-index: 1;
+    background-color: var(--modal_bg_color);
+    top: 0;
+    left: 16.8125em;
+    height: 100vh;
+    width: calc(100vw - 16.8125em);
+    justify-content: center;
+    align-items: center;
+    color: var(--black_color);
 
+    &_content {
+        background-color: var(--yellow_color);
+        padding: $spaceXXL;
+        gap: $spaceDoubleXXL;
+        border-radius: 1.25em;
+
+        &_title_and_close_container {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: $spaceM;
+
+            &_title {
+                font-size: $text_sizeL;
+            }
+        }
+
+        &_form {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: $spaceXL $spaceM;
+            width: 40.625em;
+
+            &_input_label_container, &_submit_btn {
+                flex: 1;
+            }
+
+            &_input_label_container {
+                .input, .label {
+                    color: var(--black_color);
+                    border-color: var(--black_color);
+
+                    &::placeholder {
+                        color: var(--black_placeholder_color);
+                    }
+                }
+            }
+
+            &_submit_btn {
+                border: none;
+                color: var(--white_color);
+                background-color: var(--black_color);
+            }
+        }
+    }
+}

@@ -11,6 +11,7 @@ class SuccessMessage extends Component
 {
     public $text;
     public $visible;
+    protected $listeners = ['closeSuccessMessage' => 'closeSuccessMessage'];
 
     public function mount(): void
     {

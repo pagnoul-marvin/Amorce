@@ -11,7 +11,7 @@
 
                 <h2 class="section_title hel_bold">{{__('texts.todo_list_title')}}</h2>
 
-                <livewire:buttons.modal-button button_or_link="link" type="add" :title="__('texts.add_a_task_for_today')" href="#"/>
+                <livewire:buttons.modal-button button_or_link="link" type="add" :title="__('texts.add_a_task_for_today')" href="#" :to="false" :event="false"/>
 
             </div>
 
@@ -55,8 +55,8 @@
 
                                     <input type="hidden" name="completed" value="{{ $task->completed ? 0 : 1 }}">
 
-                                    <livewire:buttons.modal-button button_or_link="button" type="checked"
-                                                                   :title="__('texts.make_this_task_completed')" :href="false"/>
+                                    <livewire:buttons.modal-button button_or_link="button_submit" type="checked"
+                                                                   :title="__('texts.make_this_task_completed')" :href="false" :to="false" :event="false"/>
 
                                 </form>
 

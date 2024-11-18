@@ -5,15 +5,17 @@
     --section_bg_color: #EFEFEF;
     --item_bg_color: #CDCDCD;
     --black_color_switchable: #FFFFFF;
+    --white_color: #FFFFFF;
     --black_color: #000000;
-    --white_color: #000000;
+    --white_color_switchable: #000000;
     --red_color: #E34234;
     --green_color: #4ADB15;
     --blue_color: #00BBFF;
     --modal_bg_color: rgba(0, 0, 0, 0.75);
     --line_color_switchable: rgba(0, 0, 0, 0.5);
     --white_placeholder_color: rgba(0, 0, 0, 0.6);
-    --black_placeholder_color: rgba(255, 255, 255, 0.6);
+    --black_placeholder_color: rgba(0, 0, 0, 0.6);
+    --black_placeholder_color_switchable: rgba(255, 255, 255, 0.6);
     --main_nav_active_bg_color: rgba(0, 0, 0, 0.25);
     --black_line_color : rgba(0, 0, 0, 0.5);
 }
@@ -25,6 +27,7 @@
     --black_color_switchable: #000000;
     --black_color: #000000;
     --white_color: #FFFFFF;
+    --white_color_switchable: #FFFFFF;
     --red_color: #E34234;
     --green_color: #4ADB15;
     --blue_color: #00BBFF;
@@ -32,6 +35,7 @@
     --line_color_switchable: rgba(255, 255, 255, 0.5);
     --white_placeholder_color: rgba(255, 255, 255, 0.6);
     --black_placeholder_color: rgba(0, 0, 0, 0.6);
+    --black_placeholder_color_switchable: rgba(0, 0, 0, 0.6);
     --main_nav_active_bg_color: rgba(0, 0, 0, 0.25);
     --black_line_color : rgba(0, 0, 0, 0.5);
 }

@@ -38,5 +38,17 @@ return [
     'profile_updated' => 'Votre profil a été modifié avec succès !',
     'actual_detente' => 'La détente actuelle',
     'create_and_exchange_between_funds' => 'Créer et échanger entre fonds et voir les donations',
-    'funds' => 'Les fonds'
+    'funds' => 'Les fonds',
+    'enclosed' => 'Clôturés',
+    'in_process' => 'En cours',
+    'perform_exchange' => 'Effectuer un échange entre fonds',
+    'create_fund' => 'Créer un fond',
+    'the' => 'Les',
+    'funds_and_donations' => 'fonds et donations',
+    'name' => 'Nom*',
+    'pourcentage' => 'Pourcentage*',
+    'description' => 'Description*',
+    'create' => 'Créer'
+
+
 ];

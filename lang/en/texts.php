@@ -39,4 +39,14 @@ return [
     'actual_detente' => 'Actual detente',
     'create_and_exchange_between_funds' => 'Create and exchange between funds and see all the donations',
     'funds' => 'Funds',
+    'enclosed' => 'Enclosed',
+    'in_process' => 'In process',
+    'perform_exchange' => 'Perform an exchange between funds',
+    'create_fund' => 'Create a fund',
+    'the' => 'The',
+    'funds_and_donations' => 'funds and donations',
+    'name' => 'Name*',
+    'pourcentage' => 'Pourcentage*',
+    'description' => 'Description*',
+    'create' => 'Create'
 ];

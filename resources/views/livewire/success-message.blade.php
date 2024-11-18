@@ -9,9 +9,6 @@
 
     <p class="success_message_text hel_reg">{{$text}}</p>
 
-    <div class="success_message_close" wire:click="closeSuccessMessage">
+    <livewire:icons.close to="success-message" event="closeSuccessMessage"/>
 
-        <x-icons.close/>
-
-    </div>
 </div>
