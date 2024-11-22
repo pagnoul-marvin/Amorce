@@ -14,11 +14,7 @@ class FundAndDonationController extends Controller
      */
     public function index()
     {
-        $funds = Fund::all();
-        $donations = Donation::all();
-        $in_process_funds = $funds->where('enclosed', '=', 0);
-        $enclosed_funds = $funds->where('enclosed', '=', 1);
-        return view('funds_and_donations.index', compact('in_process_funds', 'enclosed_funds', 'donations'));
+        return view('funds_and_donations.index');
     }
 
     /**

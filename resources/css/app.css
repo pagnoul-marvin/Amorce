@@ -125,7 +125,7 @@ table {
   background-color: var(--background_color);
 }
 
-.hel_reg, .hel_reg_it, .hel_bold {
+.hel_reg, .hel_reg_it, .hel_bold, .hel_reg_underline {
   font-family: "Helvetica", "Arial", sans-serif;
 }
 
@@ -165,7 +165,7 @@ table {
   background-color: var(--main_nav_active_bg_color);
 }
 
-.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link {
+.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .table {
   font-size: 1.25em;
 }
 
@@ -317,19 +317,26 @@ table {
 
 .table {
   border-collapse: separate;
-  border-spacing: 0 1.5625em;
+  border-spacing: 0 1.25em;
 }
-.table_body_item {
-  text-align: center;
+.table_head_item {
+  text-align: left;
 }
-.table_body_item:not(:last-child) {
-  border: 1px solid var(--line_color_switchable);
+.table_head_item:last-of-type {
+  text-align: right;
 }
-.table_body_item_longtext {
-  text-overflow: ellipsis;
-  overflow: hidden;
+.table_body_item:first-of-type_text, .table_body_item:first-of-type_longtext {
+  padding-top: 2.5em;
 }
-
+.table_body_item_text, .table_body_item_longtext {
+  border-bottom: 1px solid var(--line_color_switchable);
+  padding: 1.25em 0;
+  width: 30%;
+}
+.table_body_item_text:last-of-type {
+  text-align: right;
+  width: 10%;
+}
 .submit_btn {
   border: none;
   color: var(--black_color);
@@ -749,6 +756,53 @@ table {
   border: none;
   color: var(--white_color);
   background-color: var(--black_color);
+}
+
+.custom-pagination {
+  display: flex;
+  align-items: center;
+  gap: 1.875em;
+}
+.custom-pagination .circle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--yellow_color);
+  color: var(--black_color);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  border: none;
+}
+.custom-pagination .circle-btn .icon {
+  width: 24px;
+  height: 24px;
+}
+.custom-pagination .circle-btn:hover {
+  transform: scale(1.05);
+}
+.custom-pagination .circle-btn.disabled {
+  background-color: var(--yellow_color);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+.custom-pagination .dotted-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.3125em;
+}
+.custom-pagination .dotted-line .dot {
+  width: 40px;
+  height: 10px;
+  border-radius: 10px;
+  background-color: var(--white_color);
+}
+.custom-pagination .dotted-line .dot.active {
+  background-color: var(--yellow_color);
+  opacity: 1;
 }
 
 /*# sourceMappingURL=app.css.map */

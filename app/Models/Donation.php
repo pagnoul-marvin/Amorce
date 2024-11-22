@@ -21,7 +21,7 @@ class Donation extends Model
     protected function casts(): array
     {
         return [
-            'created_at' => 'date:d M Y',
+            'created_at' => 'date:d F Y',
         ];
     }
     public function funds(): HasMany
