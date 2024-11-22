@@ -19,7 +19,7 @@
                         <style>
                             .cls-3 {
                                 fill: none;
-                                stroke: var(--white_color);
+                                stroke: var(--white_color_switchable);
                                 stroke-linecap: round;
                                 stroke-linejoin: round;
                                 stroke-width: 2.5px;
@@ -38,7 +38,7 @@
                         <style>
                             .cls-3 {
                                 fill: none;
-                                stroke: var(--white_color);
+                                stroke: var(--white_color_switchable);
                                 stroke-linecap: round;
                                 stroke-linejoin: round;
                                 stroke-width: 2.5px;
