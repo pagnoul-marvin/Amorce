@@ -55,5 +55,10 @@ return [
     'exchange' => 'Exchange',
     'make_this_fund_enclosed' => 'Make this fund enclosed',
     'make_this_fund_opened' => 'Make this fund opened',
-    'donations' => 'Donations'
+    'donations' => 'Donations',
+    'add_donations' => 'Add donations',
+    'fund_table' => 'Fund',
+    'amount_table' => 'Amount',
+    'date' => 'Date',
+    'communication' => 'Communication',
 ];

@@ -19,6 +19,10 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade');
         });
+
+        Schema::table('donations', function (Blueprint $table) {
+            $table->foreign('fund_id')->references('id')->on('funds')->onDelete('cascade');
+        });
     }
 
     /**
@@ -33,6 +37,10 @@ return new class extends Migration
         Schema::table('task_users', function (Blueprint $table) {
             $table->dropForeign('user_id');
             $table->dropForeign('task_id');
+        });
+
+        Schema::table('donations', function (Blueprint $table) {
+            $table->dropForeign('fund_id');
         });
     }
 };

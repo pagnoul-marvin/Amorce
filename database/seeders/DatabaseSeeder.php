@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Detente;
+use App\Models\Donation;
 use App\Models\Fund;
 use App\Models\Task;
 use App\Models\User;
@@ -73,5 +74,12 @@ class DatabaseSeeder extends Seeder
             'pourcentage' => 0,
             'enclosed' => false
         ]);
+
+        $donations = Donation::factory(100)->create();
+
+        foreach ($donations as $donation) {
+            $donation->fund_id = Fund::all()->random()->id;
+            $donation->save();
+        }
     }
 }

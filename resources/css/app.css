@@ -132,6 +132,9 @@ table {
 .hel_reg {
   font-weight: normal;
 }
+.hel_reg_underline {
+  text-decoration: underline;
+}
 
 .hel_reg_it {
   font-style: italic;
@@ -293,7 +296,7 @@ table {
 }
 
 .list_title_and_button_container {
-  gap: 3.125em;
+  gap: 1.875em;
   flex: 1;
 }
 .list_title_and_button_container .button_title_container {
@@ -312,6 +315,21 @@ table {
   gap: 0.9375em;
 }
 
+.table {
+  border-collapse: separate;
+  border-spacing: 0 1.5625em;
+}
+.table_body_item {
+  text-align: center;
+}
+.table_body_item:not(:last-child) {
+  border: 1px solid var(--line_color_switchable);
+}
+.table_body_item_longtext {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
 .submit_btn {
   border: none;
   color: var(--black_color);
@@ -320,7 +338,7 @@ table {
 .section {
   background-color: var(--section_bg_color);
   padding: 3.125em;
-  gap: 6.25em;
+  gap: 3.125em;
   border-radius: 1.25em;
 }
 .section.space {
@@ -650,7 +668,7 @@ table {
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 5.9375em;
+  gap: 2.5em;
 }
 .funds_section_lists_container_in_process_list, .funds_section_lists_container_enclosed_list {
   gap: 1.25em;

@@ -19,6 +19,10 @@
 
 .hel_reg {
     font-weight: normal;
+
+    &_underline {
+        text-decoration: underline;
+    }
 }
 
 .hel_reg_it {
@@ -196,7 +200,7 @@
 }
 
 .list_title_and_button_container {
-    gap: $spaceXXL;
+    gap: $spaceM;
     flex: 1;
 
     .button_title_container {
@@ -219,6 +223,26 @@
     }
 }
 
+.table {
+    border-collapse: separate;
+    border-spacing: 0 $spaceSPLUS;
+
+    &_body {
+        &_item {
+            text-align: center;
+
+            &:not(:last-child) {
+                border: 1px solid var(--line_color_switchable);
+            }
+
+            &_longtext {
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+        }
+    }
+}
+
 .submit_btn {
     border: none;
     color: var(--black_color);
@@ -227,8 +251,9 @@
 .section {
     background-color: var(--section_bg_color);
     padding: $spaceXXL;
-    gap: $spaceDoubleXXL;
+    gap: $spaceXXL;
     border-radius: 1.25em;
+
     &.space {
         margin-bottom: $spaceS;
     }
@@ -647,7 +672,7 @@
         flex-direction: row;
         justify-content: space-between;
         flex-wrap: wrap;
-        gap: 5.9375em;
+        gap: $spaceXL;
 
         &_in_process_list, &_enclosed_list {
             gap: $spaceS;

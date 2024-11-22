@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FundGetEnclosedOrOpenedRequest;
+use App\Models\Donation;
 use App\Models\Fund;
 use Illuminate\Http\Request;
 
@@ -14,9 +15,10 @@ class FundAndDonationController extends Controller
     public function index()
     {
         $funds = Fund::all();
+        $donations = Donation::all();
         $in_process_funds = $funds->where('enclosed', '=', 0);
         $enclosed_funds = $funds->where('enclosed', '=', 1);
-        return view('funds_and_donations.index', compact('in_process_funds', 'enclosed_funds'));
+        return view('funds_and_donations.index', compact('in_process_funds', 'enclosed_funds', 'donations'));
     }
 
     /**

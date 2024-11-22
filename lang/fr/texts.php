@@ -56,4 +56,9 @@ return [
     'make_this_fund_enclosed' => 'Rendre ce fond clotûré',
     'make_this_fund_opened' => 'Rendre ce fond ouvert',
     'donations' => 'Les dons',
+    'add_donations' => 'Ajouter des donations',
+    'fund_table' => 'Fond',
+    'amount_table' => 'Montant',
+    'date' => 'Date',
+    'communication' => 'Communication',
 ];
