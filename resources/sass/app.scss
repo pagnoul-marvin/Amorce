@@ -229,6 +229,9 @@
     padding: $spaceXXL;
     gap: $spaceDoubleXXL;
     border-radius: 1.25em;
+    &.space {
+        margin-bottom: $spaceS;
+    }
 }
 
 .section_title_and_button {

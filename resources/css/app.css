@@ -323,6 +323,9 @@ table {
   gap: 6.25em;
   border-radius: 1.25em;
 }
+.section.space {
+  margin-bottom: 1.25em;
+}
 
 .section_title_and_button {
   flex-direction: row;

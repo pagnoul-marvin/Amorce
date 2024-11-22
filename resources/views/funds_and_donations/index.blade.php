@@ -3,7 +3,7 @@
     <x-page-title-and-description :title="__('texts.the')" :description="__('texts.create_and_exchange_between_funds')"
                                   :bold_part="__('texts.funds_and_donations')"/>
 
-    <section class="section flex funds_section">
+    <section class="section space flex funds_section">
 
         <h2 class="section_title hel_bold">{{__('texts.funds')}}</h2>
 
