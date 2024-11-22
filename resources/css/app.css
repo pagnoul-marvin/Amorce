@@ -90,15 +90,15 @@ table {
   --black_line_color: rgba(0, 0, 0, 0.5);
 }
 
-.profile-modal-transition, .success-message-transition, .add-fund-transition {
+.profile-modal-transition, .success-message-transition, .modal-transition {
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-.profile-modal-enter, .profile-modal-leave-active, .success-message-enter, .success-message-leave-active, .add-fund-enter, .add-fund-leave-active {
+.profile-modal-enter, .profile-modal-leave-active, .success-message-enter, .success-message-leave-active, .modal-enter, .modal-leave-active {
   opacity: 0;
 }
 
-.profile-modal-enter-active, .profile-modal-leave, .success-message-enter-active, .success-message-leave, .add-fund-enter-active, .add-fund-leave {
+.profile-modal-enter-active, .profile-modal-leave, .success-message-enter-active, .success-message-leave, .modal-enter-active, .modal-leave {
   opacity: 1;
 }
 
@@ -568,13 +568,13 @@ table {
 .home_sections_container {
   flex-direction: row;
   gap: 1.25em;
-  height: 718px;
+  flex-wrap: wrap;
 }
 .home_sections_container .section {
   flex: 1;
 }
 .home_sections_container .todo_list_section_content {
-  height: 500px;
+  height: 31.25em;
   overflow: scroll;
 }
 .home_sections_container .todo_list_section_content_list {
@@ -584,6 +584,7 @@ table {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 .home_sections_container .todo_list_section_content_list_item:not(:last-of-type) {
   padding-bottom: 1.875em;
@@ -591,7 +592,7 @@ table {
 }
 .home_sections_container .todo_list_section_content_list_item_link {
   color: var(--white_color_switchable);
-  flex-basis: 120px;
+  flex-basis: 6em;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -645,6 +646,7 @@ table {
 .funds_section_lists_container {
   flex-direction: row;
   justify-content: space-between;
+  flex-wrap: wrap;
   gap: 5.9375em;
 }
 .funds_section_lists_container_in_process_list, .funds_section_lists_container_enclosed_list {
@@ -656,6 +658,10 @@ table {
   background-color: var(--item_bg_color);
   border-radius: 0.625em;
   padding: 0.9375em 1.25em;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25em;
 }
 .funds_section_lists_container_in_process_list_item_amount_text, .funds_section_lists_container_enclosed_list_item_amount_text {
   font-size: 0.9375em;

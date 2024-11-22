@@ -1,10 +1,10 @@
 <section class="modal_section flex" x-data="{open: @entangle('isOpen')}" x-show="open"
-         x-transition:enter="add-fund-transition"
-         x-transition:enter-start="add-fund-enter"
-         x-transition:enter-end="add-fund-enter-active"
-         x-transition:leave="add-fund-transition"
-         x-transition:leave-start="add-fund-leave"
-         x-transition:leave-end="add-fund-leave-active">
+         x-transition:enter="modal-transition"
+         x-transition:enter-start="modal-enter"
+         x-transition:enter-end="modal-enter-active"
+         x-transition:leave="modal-transition"
+         x-transition:leave-start="modal-leave"
+         x-transition:leave-end="modal-leave-active">
 
     <div class="modal_section_content flex">
 

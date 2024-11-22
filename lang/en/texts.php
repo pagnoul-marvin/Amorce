@@ -48,5 +48,12 @@ return [
     'name' => 'Name*',
     'pourcentage' => 'Pourcentage*',
     'description' => 'Description*',
-    'create' => 'Create'
+    'create' => 'Create',
+    'from' => 'De*',
+    'to' => 'To*',
+    'amount' => 'Amount*',
+    'exchange' => 'Exchange',
+    'make_this_fund_enclosed' => 'Make this fund enclosed',
+    'make_this_fund_opened' => 'Make this fund opened',
+    'donations' => 'Donations'
 ];

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\FundGetEnclosedOrOpenedRequest;
 use App\Models\Fund;
 use Illuminate\Http\Request;
 
@@ -56,6 +57,12 @@ class FundAndDonationController extends Controller
     public function update(Request $request, string $id)
     {
         //
+    }
+
+    public function makeFundEnclosedOrOpened(FundGetEnclosedOrOpenedRequest $request, Fund $fund)
+    {
+        $fund->update($request->validated());
+        return to_route('funds_and_donations.index');
     }
 
     /**

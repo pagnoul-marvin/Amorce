@@ -546,7 +546,7 @@
 .home_sections_container {
     flex-direction: row;
     gap: $spaceS;
-    height: 718px;
+    flex-wrap: wrap;
 
     .section {
         flex: 1;
@@ -554,7 +554,7 @@
 
     .todo_list_section {
         &_content {
-            height: 500px;
+            height: 31.25em; //500
             overflow: scroll;
 
             &_list {
@@ -564,6 +564,7 @@
                     flex-direction: row;
                     justify-content: space-between;
                     align-items: center;
+                    flex-wrap: wrap;
 
                     &:not(:last-of-type) {
                         padding-bottom: $spaceM;
@@ -572,7 +573,7 @@
 
                     &_link {
                         color: var(--white_color_switchable);
-                        flex-basis: 120px;
+                        flex-basis: 6em;
                         overflow: hidden;
                         text-overflow: ellipsis;
                         white-space: nowrap;
@@ -642,6 +643,7 @@
     &_lists_container {
         flex-direction: row;
         justify-content: space-between;
+        flex-wrap: wrap;
         gap: 5.9375em;
 
         &_in_process_list, &_enclosed_list {
@@ -653,6 +655,10 @@
                 background-color: var(--item_bg_color);
                 border-radius: .625em;
                 padding: 0.9375em 1.25em;
+                flex-direction: row;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: $spaceS;
 
                 &_amount_text {
                     font-size: $text_sizeS;

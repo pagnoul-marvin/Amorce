@@ -48,7 +48,12 @@ return [
     'name' => 'Nom*',
     'pourcentage' => 'Pourcentage*',
     'description' => 'Description*',
-    'create' => 'Créer'
-
-
+    'create' => 'Créer',
+    'from' => 'De*',
+    'to' => 'Vers*',
+    'amount' => 'Montant*',
+    'exchange' => 'Echanger',
+    'make_this_fund_enclosed' => 'Rendre ce fond clotûré',
+    'make_this_fund_opened' => 'Rendre ce fond ouvert',
+    'donations' => 'Les dons',
 ];
