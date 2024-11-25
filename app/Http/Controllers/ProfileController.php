@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Livewire\SuccessMessage;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -16,8 +17,7 @@ class ProfileController extends Controller
      */
     public function edit(): View
     {
-        $user = Auth::user();
-        return view('profile.edit', compact('user'));
+        return view('livewire.profile-edit');
     }
 
     /**
@@ -33,7 +33,7 @@ class ProfileController extends Controller
 
         $request->user()->save();
 
-        return to_route('profile.edit')->with('status', 'success');
+        return to_route('profile.edit');
     }
 
     /**

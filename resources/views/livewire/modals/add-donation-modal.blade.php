@@ -21,7 +21,7 @@
             @csrf
 
             <x-form.input type="text" id="name" :label="__('texts.name')" placeholder="ASBL SEF" :value="false" required="required" class="modal_section_content_form_input_label_container"/>
-            <x-form.input type="date" id="date" :label="__('texts.date')" :placeholder="false" :value="false" required="required" class="modal_section_content_form_input_label_container"/>
+            <x-form.input type="date" id="date" :label="__('texts.date_form')" :placeholder="false" :value="false" required="required" class="modal_section_content_form_input_label_container"/>
             <x-form.textarea-input id="communication" :label="__('texts.communication')" placeholder="Un petit don qui fait plaisir" :value="false" :required="false" class="modal_section_content_form_input_label_container"/>
             <x-form.submit-button :text="__('texts.add')" class="modal_section_content_form_submit_btn button"/>
 

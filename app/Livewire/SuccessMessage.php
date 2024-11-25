@@ -10,17 +10,17 @@ use Livewire\Component;
 class SuccessMessage extends Component
 {
     public $text;
-    public $visible;
-    protected $listeners = ['closeSuccessMessage' => 'closeSuccessMessage'];
-
-    public function mount(): void
-    {
-        $this->visible = session('status') === 'success';
-    }
+    public $visible = false;
+    protected $listeners = ['closeSuccessMessage' => 'closeSuccessMessage', 'openSuccessMessage' => 'openSuccessMessage'];
 
     public function render(): Application|Factory|View|\Illuminate\View\View
     {
         return view('livewire.success-message');
+    }
+
+    public function openSuccessMessage(): void
+    {
+        $this->visible = true;
     }
 
     public function closeSuccessMessage(): void

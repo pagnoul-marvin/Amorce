@@ -260,7 +260,8 @@ table {
 }
 .input_error_message .input[type=file]::file-selector-button {
   background-color: var(--yellow_color);
-  border: none;
+  border: 1px solid var(--white_color_switchable);
+  box-shadow: none;
   position: absolute;
   right: -5px;
   top: 0;
@@ -752,6 +753,10 @@ table {
 }
 .modal_section_content_form_input_label_container .input::placeholder {
   color: var(--black_placeholder_color);
+}
+.modal_section_content_form_input_label_container .input[type=file]::file-selector-button {
+  background-color: var(--black_color);
+  color: var(--white_color);
 }
 .modal_section_content_form_input_label_container select.input {
   appearance: none;

@@ -23,7 +23,7 @@
 
                 @foreach($in_process_funds as $fund)
 
-                    <li class="funds_section_lists_container_in_process_list_item flex" draggable="true">
+                    <li class="funds_section_lists_container_in_process_list_item flex">
 
                         <div class="funds_section_lists_container_in_process_list_item_name_and_amount_container">
 
@@ -68,7 +68,7 @@
 
                 @foreach($enclosed_funds as $fund)
 
-                    <li class="funds_section_lists_container_enclosed_list_item flex" draggable="true">
+                    <li class="funds_section_lists_container_enclosed_list_item flex">
 
                         <div>
 

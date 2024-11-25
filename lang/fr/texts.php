@@ -63,4 +63,7 @@ return [
     'communication' => 'Communication',
     'add_donation_manually' => 'Ajouter un don manuellement',
     'import' => 'Importer un fichier',
-];
+    'add' => 'Ajouter',
+    'date_form' => 'Date*',
+    'file' => 'Importer un fichier (CSV uniquement)*'
+ ];

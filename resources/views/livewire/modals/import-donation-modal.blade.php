@@ -20,7 +20,7 @@
 
             @csrf
 
-            <x-form.input type="text" id="file" :label="__('texts.name')" :placeholder="false" :value="false" required="required" class="modal_section_content_form_input_label_container"/>
+            <x-form.input type="file" id="file" :label="__('texts.file')" :placeholder="false" :value="false" required="required" class="modal_section_content_form_input_label_container"/>
             <x-form.submit-button :text="__('texts.import')" class="modal_section_content_form_submit_btn button"/>
 
         </form>

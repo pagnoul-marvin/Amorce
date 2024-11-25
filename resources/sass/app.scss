@@ -157,7 +157,8 @@
         &[type = 'file'] {
             &::file-selector-button {
                 background-color: var(--yellow_color);
-                border: none;
+                border: 1px solid var(--white_color_switchable);
+                box-shadow: none;
                 position: absolute;
                 right: -5px;
                 top: 0;
@@ -786,6 +787,12 @@
                 .input {
                     &::placeholder {
                         color: var(--black_placeholder_color);
+                    }
+                    &[type = 'file'] {
+                        &::file-selector-button {
+                            background-color: var(--black_color);
+                            color: var(--white_color);
+                        }
                     }
                 }
 
