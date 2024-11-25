@@ -10,9 +10,9 @@
 
         <div class="modal_section_content_title_and_close_container flex">
 
-            <h2 class="modal_section_content_title_and_close_container_title hel_bold">{{__('texts.create_fund')}}</h2>
+            <h2 class="modal_section_content_title_and_close_container_title hel_bold">{{__('texts.add_donation_manually')}}</h2>
 
-            <livewire:icons.close to="modals.add-fund-modal" event="closeModal"/>
+            <livewire:icons.close to="modals.add-donation-modal" event="closeModal"/>
 
         </div>
 
@@ -21,12 +21,13 @@
             @csrf
 
             <x-form.input type="text" id="name" :label="__('texts.name')" placeholder="ASBL SEF" :value="false" required="required" class="modal_section_content_form_input_label_container"/>
-            <x-form.input type="number" id="pourcentage" :label="__('texts.pourcentage')" placeholder="10" :value="false" required="required" class="modal_section_content_form_input_label_container"/>
-            <x-form.textarea-input id="description" :label="__('texts.description')" placeholder="Le fond ... est le fond qui sert à ..." :value="false" required="required" class="modal_section_content_form_input_label_container"/>
-            <x-form.submit-button :text="__('texts.create')" class="modal_section_content_form_submit_btn button"/>
+            <x-form.input type="date" id="date" :label="__('texts.date')" :placeholder="false" :value="false" required="required" class="modal_section_content_form_input_label_container"/>
+            <x-form.textarea-input id="communication" :label="__('texts.communication')" placeholder="Un petit don qui fait plaisir" :value="false" :required="false" class="modal_section_content_form_input_label_container"/>
+            <x-form.submit-button :text="__('texts.add')" class="modal_section_content_form_submit_btn button"/>
 
         </form>
 
     </div>
 
 </section>
+

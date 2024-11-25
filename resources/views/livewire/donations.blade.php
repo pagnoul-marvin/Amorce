@@ -4,7 +4,9 @@
 
         <h2 class="section_title hel_bold">{{__('texts.donations')}}</h2>
 
-        <livewire:buttons.modal-button type="add" :title="__('texts.add_donations')" :to="false" :event="false"/>
+        <livewire:buttons.modal-button type="add" :title="__('texts.add_donations')" to="modals.add-or-import-donation-modal" event="toggleVisibility"/>
+
+        <livewire:modals.add-or-import-donation-modal/>
 
     </div>
 

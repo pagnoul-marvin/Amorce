@@ -61,4 +61,6 @@ return [
     'amount_table' => 'Montant',
     'date' => 'Date',
     'communication' => 'Communication',
+    'add_donation_manually' => 'Ajouter un don manuellement',
+    'import' => 'Importer un fichier',
 ];

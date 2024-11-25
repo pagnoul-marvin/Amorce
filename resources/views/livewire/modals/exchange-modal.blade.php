@@ -10,7 +10,7 @@
 
         <div class="modal_section_content_title_and_close_container flex">
 
-            <h2 class="modal_section_content_title_and_close_container_title hel_bold">{{__('texts.create_fund')}}</h2>
+            <h2 class="modal_section_content_title_and_close_container_title hel_bold">{{__('texts.perform_exchange')}}</h2>
 
             <livewire:icons.close to="modals.exchange-modal" event="closeModal"/>
 
@@ -20,9 +20,28 @@
 
             @csrf
 
-            <x-form.label-and-input type="text" id="from" :label="__('texts.from')" :placeholder="false" :value="false" required="required" class="modal_section_content_form_input_label_container"/>
-            <x-form.label-and-input type="text" id="to" :label="__('texts.to')" :placeholder="false" :value="false" required="required" class="modal_section_content_form_input_label_container"/>
-            <x-form.label-and-input type="number" id="amount" :label="__('texts.amount')" placeholder="10" :value="false" required="required" class="modal_section_content_form_input_label_container"/>
+            <x-form.select-input type="text" id="from" :label="__('texts.from')" :placeholder="false" :value="false" required="required" class="modal_section_content_form_input_label_container">
+
+                @foreach($users as $user)
+
+                    <option class="option" value="{{$user->id}}">{{$user->firstname}} {{$user->lastname}}</option>
+
+                @endforeach
+
+            </x-form.select-input>
+
+            <x-form.select-input type="text" id="to" :label="__('texts.to')" :placeholder="false" :value="false" required="required" class="modal_section_content_form_input_label_container">
+
+                @foreach($users as $user)
+
+                    <option class="option" value="{{$user->id}}">{{$user->firstname}} {{$user->lastname}}</option>
+
+                @endforeach
+
+            </x-form.select-input>
+
+            <x-form.input type="number" id="amount" :label="__('texts.amount')" placeholder="10" :value="false" required="required" class="modal_section_content_form_input_label_container"/>
+
             <x-form.submit-button :text="__('texts.exchange')" class="modal_section_content_form_submit_btn button"/>
 
         </form>

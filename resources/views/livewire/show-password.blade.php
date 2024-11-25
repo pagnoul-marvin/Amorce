@@ -1,6 +1,6 @@
 @props(['id', 'label', 'value', 'placeholder', 'required', 'class'])
 
-<div @if($class) class="{{$class}} input_label_container flex" @endif>
+<x-layout.label-and-input :class="$class">
 
     <label class="label hel_bold" for="{{$id}}">{{$label}}</label>
     <div class="input_error_message flex">
@@ -59,5 +59,5 @@
 
     </div>
 
-</div>
 
+</x-layout.label-and-input>

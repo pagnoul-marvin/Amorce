@@ -19,15 +19,15 @@
             @csrf
             @method('PATCH')
 
-            <x-form.label-and-input type="text" id="lastname" :label="__('texts.lastname')" :value="$user->lastname"
+            <x-form.input type="text" id="lastname" :label="__('texts.lastname')" :value="$user->lastname"
                                     :placeholder="false"
                                     required="required" class="profile_form_section_form_label_and_input_container"/>
 
-            <x-form.label-and-input type="text" id="firstname" :label="__('texts.firstname')" :value="$user->firstname"
+            <x-form.input type="text" id="firstname" :label="__('texts.firstname')" :value="$user->firstname"
                                     :placeholder="false"
                                     required="required" class="profile_form_section_form_label_and_input_container"/>
 
-            <x-form.label-and-input type="email" id="email" :label="__('texts.mail_address')" :value="$user->email"
+            <x-form.input type="email" id="email" :label="__('texts.mail_address')" :value="$user->email"
                                     :placeholder="false"
                                     required="required" class="profile_form_section_form_label_and_input_container"/>
 
@@ -35,7 +35,7 @@
                                     :placeholder="false" required="required"
                                     class="profile_form_section_form_label_and_input_container"/>
 
-            <x-form.label-and-input type="file" id="picture" :label="__('texts.profile_photo_form')" :value="false"
+            <x-form.input type="file" id="picture" :label="__('texts.profile_photo_form')" :value="false"
                                     :placeholder="false"
                                     :required="false" class="profile_form_section_form_label_and_input_container"/>
 

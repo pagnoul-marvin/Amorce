@@ -61,4 +61,6 @@ return [
     'amount_table' => 'Amount',
     'date' => 'Date',
     'communication' => 'Communication',
+    'add_donation_manually' => 'Add donation manually',
+    'import' => 'Import a file',
 ];

@@ -12,4 +12,8 @@
 
     <livewire:modals.exchange-modal/>
 
+    <livewire:modals.add-donation-modal/>
+
+    <livewire:modals.import-donation-modal/>
+
 </x-layout.main>

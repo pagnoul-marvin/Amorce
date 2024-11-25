@@ -10,7 +10,7 @@
 
             <div class="login_section_form_label_and_input flex">
 
-                <x-form.label-and-input class="login_section_form_content" type="email" id="email"
+                <x-form.input class="login_section_form_content" type="email" id="email"
                                         :label="__('texts.mail_address')"
                                         :value="false"
                                         placeholder="patrick@exemple.com" required/>
