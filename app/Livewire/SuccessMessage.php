@@ -18,8 +18,9 @@ class SuccessMessage extends Component
         return view('livewire.success-message');
     }
 
-    public function openSuccessMessage(): void
+    public function openSuccessMessage(string $text): void
     {
+        $this->text = $text;
         $this->visible = true;
     }
 

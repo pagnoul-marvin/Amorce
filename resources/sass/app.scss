@@ -46,7 +46,7 @@
     text-decoration: none;
 }
 
-.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type = 'file']::file-selector-button, .close, .add_donations_manually_or_import_list_item_text {
+.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type = 'file']::file-selector-button, .close, .add_donations_manually_or_import_list_item_text, .dot {
     cursor: pointer;
 }
 
@@ -599,6 +599,7 @@
     flex-direction: row;
     gap: $spaceS;
     flex-wrap: wrap;
+    position: relative;
 
     .section {
         flex: 1;
@@ -692,6 +693,8 @@
 }
 
 .funds_section {
+    position: relative;
+
     &_lists_container {
         flex-direction: row;
         justify-content: space-between;
@@ -816,6 +819,7 @@
 .custom-pagination {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: $spaceM;
 
     .circle-btn {
@@ -854,10 +858,13 @@
         gap: $spaceXXXS;
 
         .dot {
+            border: none;
             width: 40px;
-            height: 10px;
+            height: 40px;
             border-radius: 10px;
             background-color: var(--white_color_switchable);
+            color: var(--black_color_switchable);
+            font-size: $text_sizeS;
 
             &.active {
                 background-color: var(--yellow_color);

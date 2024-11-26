@@ -18,7 +18,7 @@ class DonationFactory extends Factory
     {
         return [
             'name' => $this->faker->name(),
-            'communication' => $this->faker->paragraph(rand(1, 5)),
+            'note' => $this->faker->paragraph(rand(1, 5)),
             'amount' => $this->faker->numberBetween(1, 50),
         ];
     }

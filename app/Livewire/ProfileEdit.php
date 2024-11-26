@@ -19,6 +19,7 @@ class ProfileEdit extends Component
     public function save()
     {
         $this->form->update();
-        $this->dispatch('openSuccessMessage');
+        $this->dispatch('openSuccessMessage', 'Votre profil a été mis à jour avec succès !');
+        $this->dispatch('profileUpdated', $this->form->firstname, $this->form->lastname, $this->form->email);
     }
 }

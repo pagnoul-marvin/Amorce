@@ -28,7 +28,7 @@ class ProfileForm extends Form
     public function rules(): array
     {
         return [
-            'firstname' => ['required', 'string', 'max:255'],
+            'firstname' => ['required', 'string', 'max:255', 'min:3'],
             'lastname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore(Auth::id()),],
             'password' => ['required'],

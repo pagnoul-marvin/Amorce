@@ -1,20 +1,15 @@
 <?php
 
-namespace App\View\Components\navigations;
+namespace App\Livewire\Navigations;
 
-use App\Models\User;
-use Auth;
-use Closure;
-use Illuminate\Contracts\View\View;
-use Illuminate\View\Component;
+use Livewire\Component;
 
 class Main extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct(public string $main_nav_title = '', public array $main_links = [])
-    {
+    public $main_nav_title;
+    public $main_links;
+
+    public function mount() {
         $this->main_nav_title = __('text.main_navigation');
         $this->main_links = [
             ['name' => __('texts.home'), 'url' => '/accueil'],
@@ -26,11 +21,4 @@ class Main extends Component
         ];
     }
 
-    /**
-     * Get the view / contents that represent the component.
-     */
-    public function render(): View|Closure|string
-    {
-        return view('components.navigations.main');
-    }
 }

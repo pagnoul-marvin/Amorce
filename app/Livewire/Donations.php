@@ -3,7 +3,6 @@
 namespace App\Livewire;
 
 use App\Models\Donation;
-use Livewire\Attributes\Computed;
 use Livewire\Component;
 use Livewire\WithPagination;
 
@@ -13,7 +12,11 @@ class Donations extends Component
 
     public function render()
     {
-        $donations = Donation::orderby('created_at')->paginate(6);
-        return view('livewire.donations', compact('donations'));
+        $donations = Donation::orderby('created_at')->paginate(10);
+        return view('livewire.donations', [
+            'donations' => $donations
+        ]);
     }
 }
+
+

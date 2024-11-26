@@ -1,5 +1,4 @@
-<x-layout.main>
-
+<div>
     <x-page-title-and-description :title="__('texts.home_page_title')" :description="__('texts.home_page_description')"
                                   :bold_part="Auth::user()->firstname"/>
 
@@ -9,7 +8,7 @@
 
             <div class="todo_list_section_title_and_buttons flex section_title_and_button">
 
-                <h2 class="section_title hel_bold">{{__('texts.todo_list_title')}}</h2>
+                <h2 class="section_title hel_bold">{{__('texts.todo_list_title')}} ({{count($tasks)}} items)</h2>
 
                 <x-buttons.link type="add" :title="__('texts.add_a_task_for_today')" href="#"/>
 
@@ -17,12 +16,12 @@
 
             <div class="todo_list_section_content">
 
-                @if(count($tasks) > 0)
+                @if(count($this->tasks) > 0)
 
                     <ul class="todo_list_section_content_list flex">
-                        @foreach($tasks as $task)
+                        @foreach($this->tasks as $task)
 
-                            <livewire:task-completed :$task/>
+                            <livewire:task-completed :$task wire:key="task-completed-{{$task->id}}"/>
 
                         @endforeach
                     </ul>
@@ -34,6 +33,7 @@
                 @endif
 
             </div>
+
 
         </section>
 
@@ -52,5 +52,5 @@
 
     </div>
 
-</x-layout.main>
+</div>
 

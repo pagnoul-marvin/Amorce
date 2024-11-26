@@ -1,14 +1,14 @@
 <?php
 
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProfileController;
+
+use App\Livewire\Home;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/accueil', [HomeController::class, 'index'])->middleware(['auth', 'verified'])->name('home');
+Route::get('/accueil', Home::class)->middleware(['auth', 'verified'])->name('home');
 
 /*Route::get('/dashboard', function () {
     return view('dashboard');

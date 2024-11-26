@@ -157,7 +157,7 @@ table {
   text-decoration: none;
 }
 
-.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type=file]::file-selector-button, .close, .add_donations_manually_or_import_list_item_text {
+.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type=file]::file-selector-button, .close, .add_donations_manually_or_import_list_item_text, .dot {
   cursor: pointer;
 }
 
@@ -599,6 +599,7 @@ table {
   flex-direction: row;
   gap: 1.25em;
   flex-wrap: wrap;
+  position: relative;
 }
 .home_sections_container .section {
   flex: 1;
@@ -673,6 +674,9 @@ table {
   flex-basis: calc(50% - 4.65em);
 }
 
+.funds_section {
+  position: relative;
+}
 .funds_section_lists_container {
   flex-direction: row;
   justify-content: space-between;
@@ -773,6 +777,7 @@ table {
 .custom-pagination {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 1.875em;
 }
 .custom-pagination .circle-btn {
@@ -807,10 +812,13 @@ table {
   gap: 0.3125em;
 }
 .custom-pagination .dotted-line .dot {
+  border: none;
   width: 40px;
-  height: 10px;
+  height: 40px;
   border-radius: 10px;
   background-color: var(--white_color_switchable);
+  color: var(--black_color_switchable);
+  font-size: 0.9375em;
 }
 .custom-pagination .dotted-line .dot.active {
   background-color: var(--yellow_color);

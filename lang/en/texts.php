@@ -60,10 +60,11 @@ return [
     'fund_table' => 'Fund',
     'amount_table' => 'Amount',
     'date' => 'Date',
-    'communication' => 'Communication',
+    'note' => 'Note',
     'add_donation_manually' => 'Add donation manually',
     'import' => 'Import a file',
     'add' => 'Add',
     'date_form' => 'Date*',
-    'file' => 'Import a file (CSV only)*'
+    'file' => 'Import a file (CSV only)*',
+    'page' => 'Go to page',
 ];

@@ -1,5 +1,6 @@
-@props(['text'])
-<div class="success_message flex" x-data="{visible : @entangle('visible')}" x-show="visible"
+<div class="success_message flex"
+     x-data="{open: @entangle('visible')}"
+     x-show="open"
      x-transition:enter="success-message-transition"
      x-transition:enter-start="success-message-enter"
      x-transition:enter-end="success-message-enter-active"

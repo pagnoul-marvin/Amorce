@@ -3,22 +3,29 @@
 namespace App\Livewire;
 
 use App\Models\Fund;
+use Auth;
 use Livewire\Component;
 
 class Funds extends Component
 {
-    private $funds;
     public $enclosed_funds;
-    public $in_process_funds;
-    public function mount()
+    public $opened_funds;
+
+    protected $listeners = ['fundEnclosed' => 'fundEnclosed', 'fundOpened' => 'fundOpened'];
+
+    public function mount(): void
     {
-        $this->funds = Fund::all();
-        $this->in_process_funds = $this->funds->where('enclosed', '=', 0);
-        $this->enclosed_funds = $this->funds->where('enclosed', '=', 1);
+        $this->enclosed_funds = Fund::where('enclosed', true)->orderBy('id')->get();
+        $this->opened_funds = Fund::where('enclosed', false)->orderBy('id')->get();
     }
 
-    public function render()
+    public function fundEnclosed(): void
     {
-        return view('livewire.funds');
+        $this->enclosed_funds = Fund::all()->where('enclosed', '=', '1');
+    }
+
+    public function fundOpened(): void
+    {
+        $this->opened_funds = Fund::all()->where('enclosed', '=', '0');
     }
 }

@@ -7,36 +7,67 @@
         <h2 class="hidden">{{ __('texts.profile_form') }}</h2>
 
         <div class="profile_form_section_profile_picture_container">
-            <img src="{{ asset(Auth::user()->picture) }}" alt="{{ __('texts.profile_photo') }} {{ Auth::user()->firstname }}">
+            <img src="{{ asset(Auth::user()->picture) }}"
+                 alt="{{ __('texts.profile_photo') }} {{ Auth::user()->firstname }}">
         </div>
 
         <form class="profile_form_section_form flex" wire:submit="save">
 
-            <label for="firstname">Prénom :</label>
-            <input type="text" wire:model.blur="form.firstname">
-            @error('form.firstname') <span class="error">{{ $message }}</span> @enderror
+            <x-layout.input-label-container id="firstname" class="profile_form_section_form_label_and_input_container" :label="__('texts.firstname')">
 
-            <label for="lastname">Nom :</label>
-            <input type="text" wire:model.blur="form.lastname">
-            @error('form.lastname') <span class="error">{{ $message }}</span> @enderror
+                <input class="input" type="text" id="firstname" wire:model.blur="form.firstname"
+                       required value="{{old('form.firstname')}}">
 
-            <label for="email">Mail</label>
-            <input type="email" wire:model.blur="form.email">
-            @error('form.email') <span class="error">{{ $message }}</span> @enderror
+                @error('form.firstname')
+                <x-input-error :messages="$errors->get('form.firstname')"/>
+                @enderror
 
-            <label for="password">Mot de passe</label>
-            <input type="password" wire:model.blur="form.password">
-            @error('form.password') <span class="error">{{ $message }}</span> @enderror
+            </x-layout.input-label-container>
+            <x-layout.input-label-container id="lastname" class="profile_form_section_form_label_and_input_container" :label="__('texts.lastname')">
 
-            <label for="picture">Photo de profil</label>
-            <input type="file" wire:model.blur="form.picture">
-            @error('form.picture') <span class="error">{{ $message }}</span> @enderror
+                <input class="input" type="text" id="lastname" wire:model.blur="form.lastname"
+                       required value="{{old('form.lastname')}}">
 
-            <x-form.submit-button :text="__('texts.modify')" :class="false"/>
+                @error('form.lastname')
+                <x-input-error :messages="$errors->get('form.lastname')"/>
+                @enderror
+
+            </x-layout.input-label-container>
+            <x-layout.input-label-container id="email" class="profile_form_section_form_label_and_input_container" :label="__('texts.mail_address')">
+
+                <input class="input" type="email" id="email" wire:model.blur="form.email"
+                       required value="{{old('form.email')}}">
+
+                @error('form.email')
+                <x-input-error :messages="$errors->get('form.email')"/>
+                @enderror
+
+            </x-layout.input-label-container>
+            <x-layout.input-label-container id="password" class="profile_form_section_form_label_and_input_container" :label="__('texts.password')">
+
+                <input class="input" type="password" id="password" wire:model.blur="form.password"
+                       required value="{{old('form.password')}}">
+
+                @error('form.password')
+                <x-input-error :messages="$errors->get('form.password')"/>
+                @enderror
+
+            </x-layout.input-label-container>
+            <x-layout.input-label-container id="picture" class="profile_form_section_form_label_and_input_container" :label="__('texts.profile_photo_form')">
+
+                <input class="input" type="file" id="picture" value="{{old('form.picture')}}">
+
+                @error('form.picture')
+                <x-input-error :messages="$errors->get('form.picture')"/>
+                @enderror
+
+            </x-layout.input-label-container>
+
+            <x-form.submit-button :text="__('texts.modify')" class="profile_form_section_form_submit_btn submit_btn button"/>
 
         </form>
 
-        <livewire:success-message :text="__('texts.profile_updated')"/>
+        <livewire:success-message/>
 
     </section>
 </div>

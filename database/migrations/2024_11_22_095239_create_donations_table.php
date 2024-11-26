@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->unsignedBigInteger('fund_id')->default(1);
-            $table->longText('communication')->nullable();
+            $table->longText('note')->nullable();
             $table->unsignedBigInteger('amount');
             $table->timestamps();
         });

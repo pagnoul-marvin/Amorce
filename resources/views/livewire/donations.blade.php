@@ -17,7 +17,7 @@
         <tr>
             <th class="hel_reg_underline table_head_item">{{__('texts.date')}}</th>
             <th class="hel_reg_underline table_head_item">{{__('texts.fund_table')}}</th>
-            <th class="hel_reg_underline table_head_item">{{__('texts.communication')}}</th>
+            <th class="hel_reg_underline table_head_item">{{__('texts.note')}}</th>
             <th class="hel_reg_underline table_head_item">{{__('texts.amount_table')}}</th>
         </tr>
 
@@ -34,8 +34,8 @@
                         datetime="{{$donation->created_at->toDateString()}}">{{$donation->created_at->format('d F Y')}}</time>
                 </td>
                 <td class="hel_reg table_body_item_text">{{$donation->name}}</td>
-                <td title="{{$donation->communication}}"
-                    class="hel_reg table_body_item_longtext">{{$donation->communication}}</td>
+                <td title="{{$donation->note}}"
+                    class="hel_reg table_body_item_longtext">{{$donation->note}}</td>
                 <td class="hel_reg table_body_item_text">{{$donation->amount}}&euro;</td>
 
             </tr>

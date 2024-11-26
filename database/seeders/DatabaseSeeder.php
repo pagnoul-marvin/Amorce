@@ -59,7 +59,6 @@ class DatabaseSeeder extends Seeder
         });
 
         Detente::factory(10)->create();
-        Fund::factory(5)->create();
 
         Fund::factory()->create([
             'name' => 'General',
@@ -75,7 +74,9 @@ class DatabaseSeeder extends Seeder
             'enclosed' => false
         ]);
 
-        $donations = Donation::factory(100)->create();
+        Fund::factory(5)->create();
+
+        $donations = Donation::factory(200)->create();
 
         foreach ($donations as $donation) {
             $donation->fund_id = Fund::all()->random()->id;
