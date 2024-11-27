@@ -2,11 +2,13 @@
 
 namespace App\Livewire\Modals;
 
+use App\Livewire\Forms\DonationForm;
 use Livewire\Component;
 
-class ImportDonationModal extends Component
+class DonationImportModal extends Component
 {
     public bool $isOpen = false;
+    public DonationForm $form;
 
     protected $listeners = ['openModal' => 'openModal', 'closeModal' => 'closeModal'];
 
@@ -20,8 +22,8 @@ class ImportDonationModal extends Component
         $this->isOpen = false;
     }
 
-    public function render()
+    public function save()
     {
-        return view('livewire.modals.import-donation-modal');
+
     }
 }

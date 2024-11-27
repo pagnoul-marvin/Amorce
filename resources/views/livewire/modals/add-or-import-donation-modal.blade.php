@@ -7,7 +7,7 @@
      x-transition:leave-end="modal-leave-active">
 
     <ul class="flex add_donations_manually_or_import_list">
-        <li class="add_donations_manually_or_import_list_item"><p wire:click="dispatchTo('modals.add-donation-modal', 'openModal')" class="hel_bold add_donations_manually_or_import_list_item_text">{{__('texts.add_donation_manually')}}</p></li>
-        <li class="add_donations_manually_or_import_list_item"><p wire:click="dispatchTo('modals.import-donation-modal', 'openModal')" class="hel_bold add_donations_manually_or_import_list_item_text">{{__('texts.import')}}</p></li>
+        <li class="add_donations_manually_or_import_list_item"><p wire:click="dispatchTo('modals.donation-create-modal', 'openModal')" class="hel_bold add_donations_manually_or_import_list_item_text">{{__('texts.add_donation_manually')}}</p></li>
+        <li class="add_donations_manually_or_import_list_item"><p wire:click="dispatchTo('modals.donation-import-modal', 'openModal')" class="hel_bold add_donations_manually_or_import_list_item_text">{{__('texts.import')}}</p></li>
     </ul>
 </div>

@@ -11,24 +11,46 @@ class FundForm extends Form
     #[Validate]
     public $enclosed;
 
+    #[Validate]
+    public $name;
+
+    #[Validate]
+    public $description;
+
+    #[Validate]
+    public $amount;
+
+    #[Validate]
+    public $pourcentage;
+
     public $fund;
 
-    public function rules()
+    public function rules(): array
     {
         return [
-          'enclosed' => ['required', 'boolean'],
+            'name' => 'required|max:255',
+            'description' => 'required',
+            'amount' => 'required|numeric|min:0',
+            'pourcentage' => 'required|numeric|min:0',
+            'enclosed' => 'required|boolean',
         ];
     }
 
-    public function setFund(Fund $fund)
+    public function setFund(Fund $fund): void
     {
         $this->fund = $fund;
         $this->enclosed = !$fund->enclosed;
     }
 
-    public function update()
+    public function update(): void
     {
         $this->validate();
-        $this->fund->update(['enclosed' => $this->enclosed]);
+        $this->fund->update($this->all());
+    }
+
+    public function store(): void
+    {
+        $this->validate();
+        Fund::create($this->all());
     }
 }

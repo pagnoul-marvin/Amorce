@@ -748,8 +748,8 @@ table {
   gap: 2.5em 1.875em;
   width: 40.625em;
 }
-.modal_section_content_form_input_label_container, .modal_section_content_form_submit_btn {
-  flex: 1;
+.modal_section_content_form_input_label_container, .modal_section_content_form_submit_btn_container {
+  flex-basis: calc(50% - 1.875em);
 }
 .modal_section_content_form_input_label_container .input, .modal_section_content_form_input_label_container .label {
   color: var(--black_color);
@@ -767,11 +767,13 @@ table {
   background-image: url("../icons/arrow_down.svg");
   background-position: right 1.25em center;
   background-repeat: no-repeat;
+  width: 14.65em;
 }
-.modal_section_content_form_submit_btn {
+.modal_section_content_form_submit_btn_container_submit_btn {
   border: none;
   color: var(--white_color);
   background-color: var(--black_color);
+  width: 100%;
 }
 
 .custom-pagination {
@@ -822,7 +824,7 @@ table {
 }
 .custom-pagination .dotted-line .dot.active {
   background-color: var(--yellow_color);
-  opacity: 1;
+  color: var(--black_color);
 }
 
 .add_donations_manually_or_import {

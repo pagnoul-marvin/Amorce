@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger('fund_id')->default(1);
             $table->longText('note')->nullable();
             $table->unsignedBigInteger('amount');
+            $table->timestamp('date');
             $table->timestamps();
         });
     }

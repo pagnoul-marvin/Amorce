@@ -63,6 +63,7 @@ return [
     'note' => 'Note',
     'add_donation_manually' => 'Add donation manually',
     'import' => 'Import a file',
+    'import_btn' => 'Import',
     'add' => 'Add',
     'date_form' => 'Date*',
     'file' => 'Import a file (CSV only)*',

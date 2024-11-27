@@ -777,8 +777,8 @@
             gap: $spaceXL $spaceM;
             width: 40.625em;
 
-            &_input_label_container, &_submit_btn {
-                flex: 1;
+            &_input_label_container, &_submit_btn_container {
+                flex-basis: calc(50% - $spaceM);
             }
 
             &_input_label_container {
@@ -791,6 +791,7 @@
                     &::placeholder {
                         color: var(--black_placeholder_color);
                     }
+
                     &[type = 'file'] {
                         &::file-selector-button {
                             background-color: var(--black_color);
@@ -804,13 +805,18 @@
                     background-image: url("../icons/arrow_down.svg");
                     background-position: right $spaceS center;
                     background-repeat: no-repeat;
+                    width: 14.65em;
                 }
             }
 
-            &_submit_btn {
-                border: none;
-                color: var(--white_color);
-                background-color: var(--black_color);
+            &_submit_btn_container {
+
+                &_submit_btn {
+                    border: none;
+                    color: var(--white_color);
+                    background-color: var(--black_color);
+                    width: 100%;
+                }
             }
         }
     }
@@ -868,7 +874,7 @@
 
             &.active {
                 background-color: var(--yellow_color);
-                opacity: 1;
+                color: var(--black_color);
             }
         }
     }

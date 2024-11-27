@@ -20,6 +20,7 @@ class DonationFactory extends Factory
             'name' => $this->faker->name(),
             'note' => $this->faker->paragraph(rand(1, 5)),
             'amount' => $this->faker->numberBetween(1, 50),
+            'date' => $this->faker->dateTimeBetween('-2 days', now()),
         ];
     }
 }

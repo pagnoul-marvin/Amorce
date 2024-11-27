@@ -13,9 +13,9 @@
                 <div class="button_title_container_button_container flex">
 
                     <livewire:buttons.modal-button type="exchange" :title="__('texts.perform_exchange')"
-                                                   to="modals.exchange-modal" event="openModal"/>
+                                                   to="modals.fund-exchange-modal" event="openModal" wire:key="exchange-btw-fund-btn"/>
                     <livewire:buttons.modal-button type="add" :title="__('texts.create_fund')"
-                                                   to="modals.add-fund-modal" event="openModal"/>
+                                                   to="modals.fund-create-modal" event="openModal" wire:key="create-fund-btn"/>
 
                 </div>
 
@@ -58,6 +58,6 @@
 
     </div>
 
-    <livewire:success-message/>
+    <livewire:success-message wire:key="fund-enclosed-or-opened-success-message"/>
 
 </section>

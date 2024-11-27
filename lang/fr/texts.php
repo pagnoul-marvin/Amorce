@@ -63,6 +63,7 @@ return [
     'note' => 'Note',
     'add_donation_manually' => 'Ajouter un don manuellement',
     'import' => 'Importer un fichier',
+    'import_btn' => 'Importer',
     'add' => 'Ajouter',
     'date_form' => 'Date*',
     'file' => 'Importer un fichier (CSV uniquement)*',

@@ -31,7 +31,7 @@
 
                 <td class="hel_reg table_body_item_text">
                     <time
-                        datetime="{{$donation->created_at->toDateString()}}">{{$donation->created_at->format('d F Y')}}</time>
+                        datetime="{{$donation->date->toDateString()}}">{{$donation->date->format('d F Y')}}</time>
                 </td>
                 <td class="hel_reg table_body_item_text">{{$donation->name}}</td>
                 <td title="{{$donation->note}}"

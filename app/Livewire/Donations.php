@@ -12,7 +12,7 @@ class Donations extends Component
 
     public function render()
     {
-        $donations = Donation::orderby('created_at')->paginate(10);
+        $donations = Donation::orderby('date', 'desc')->paginate(10);
         return view('livewire.donations', [
             'donations' => $donations
         ]);
