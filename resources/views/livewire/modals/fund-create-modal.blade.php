@@ -46,7 +46,7 @@
 
             </x-layout.input-label-container>
 
-            <x-form.submit-button :text="__('texts.create')" class="modal_section_content_form_submit_btn_container_submit_btn button"/>
+            <x-form.submit-button :text="__('texts.create')" div_class="modal_section_content_form_submit_btn_container" btn_class="modal_section_content_form_submit_btn_container_submit_btn button"/>
 
         </form>
 

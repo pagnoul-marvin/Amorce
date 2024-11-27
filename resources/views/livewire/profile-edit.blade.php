@@ -63,7 +63,7 @@
 
             </x-layout.input-label-container>
 
-            <x-form.submit-button :text="__('texts.modify')" class="profile_form_section_form_submit_btn submit_btn button"/>
+            <x-form.submit-button :text="__('texts.modify')" div_class="profile_form_section_form_label_and_input_container" btn_class="profile_form_section_form_submit_btn submit_btn button"/>
 
         </form>
 

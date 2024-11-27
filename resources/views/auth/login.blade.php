@@ -21,7 +21,7 @@
                     :value="false"
                     :placeholder="false"
                     required="required"
-                    class="login_section_form_content" />
+                    class="login_section_form_content"/>
 
             </div>
 
@@ -29,7 +29,7 @@
 
                 <x-form.stay-connected-and-forgot-password/>
 
-                <x-form.submit-button :text="__('texts.sign_in')" class="submit_btn button"/>
+                <x-form.submit-button :text="__('texts.sign_in')" div_class="login_section_form_stay_connected_forgot_password_and_button_btn_container" btn_class="login_section_form_stay_connected_forgot_password_and_button_btn_container_btn submit_btn button"/>
 
             </div>
 

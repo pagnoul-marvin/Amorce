@@ -29,8 +29,8 @@
 
                     @csrf
 
-                    <x-form.submit-button :text="__('texts.logout')"
-                                          class="app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn"/>
+                    <x-form.submit-button :text="__('texts.logout')" div_class=""
+                                          btn_class="app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn"/>
 
                 </form>
 

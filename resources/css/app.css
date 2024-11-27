@@ -458,6 +458,12 @@ table {
 .login_page_content .login_section_form_stay_connected_forgot_password_and_button {
   gap: 1.875em;
 }
+.login_page_content .login_section_form_stay_connected_forgot_password_and_button_btn_container {
+  flex: 1;
+}
+.login_page_content .login_section_form_stay_connected_forgot_password_and_button_btn_container_btn {
+  width: 100%;
+}
 .login_page_content .go_back_nav {
   align-self: flex-start;
 }
@@ -671,7 +677,7 @@ table {
   flex-basis: calc(50% - 5.8125em);
 }
 .profile_form_section_form .submit_btn {
-  flex-basis: calc(50% - 4.65em);
+  width: 100%;
 }
 
 .funds_section {

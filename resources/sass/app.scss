@@ -410,6 +410,14 @@
 
                 &_stay_connected_forgot_password_and_button {
                     gap: $spaceM;
+
+                    &_btn_container {
+                        flex: 1;
+
+                        &_btn {
+                            width: 100%;
+                        }
+                    }
                 }
 
             }
@@ -687,7 +695,7 @@
         }
 
         .submit_btn {
-            flex-basis: calc(50% - 4.65em);
+            width: 100%;
         }
     }
 }
