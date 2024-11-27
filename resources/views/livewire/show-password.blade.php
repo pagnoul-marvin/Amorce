@@ -1,4 +1,4 @@
-@props(['id', 'label', 'value', 'placeholder', 'required', 'class'])
+@props(['id', 'label', 'value', 'class'])
 
 <x-layout.label-and-input :class="$class">
 
@@ -6,8 +6,7 @@
     <div class="input_error_message flex">
 
         <input class="input" type="{{$showPassword ? 'text' : 'password'}}" id="{{$id}}" name="{{$id}}"
-               @if($placeholder) placeholder="{{$placeholder}}" @endif
-               @if($required) required @endif
+               required
                @if($value) value="{{$value}}" @else value="{{old($id)}}" @endif>
 
         <button type="button" wire:click="togglePasswordVisibility" class="input_error_message_show_password_button">

@@ -19,8 +19,6 @@
                     id="password"
                     :label="__('texts.password')"
                     :value="false"
-                    :placeholder="false"
-                    required="required"
                     class="login_section_form_content"/>
 
             </div>
