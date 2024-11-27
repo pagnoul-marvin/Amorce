@@ -7,7 +7,7 @@
 
         @foreach($task->users->take(3) as $user)
 
-            <li class="todo_list_section_content_list_item_profile_pictures_list_item">
+            <li class="todo_list_section_content_list_item_profile_pictures_list_item" wire:key="task-user-{{$user->id}}">
                 <img
                     class="todo_list_section_content_list_item_profile_pictures_list_item_img"
                     src="{{asset($user->picture)}}" alt="{{__('texts.profile_photo')}} {{$user->firstname}}"
@@ -28,8 +28,7 @@
 
         <input type="hidden" wire:model.blur="form.completed">
 
-        <x-buttons.submit-button button_or_link="button_submit" type="checked"
-                                 :title="__('texts.make_this_task_completed')"/>
+        <x-buttons.submit-button type="checked" :title="__('texts.make_this_task_completed')"/>
 
     </form>
 

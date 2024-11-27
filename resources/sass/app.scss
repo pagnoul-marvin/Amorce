@@ -619,7 +619,7 @@
             overflow: scroll;
 
             &_list {
-                gap: $spaceM;
+                gap: $spaceXXS;
 
                 &_item {
                     flex-direction: row;
@@ -628,7 +628,7 @@
                     flex-wrap: wrap;
 
                     &:not(:last-of-type) {
-                        padding-bottom: $spaceM;
+                        padding-bottom: $spaceXXS;
                         border-bottom: 1px solid var(--line_color_switchable);
                     }
 
@@ -814,6 +814,7 @@
                     background-position: right $spaceS center;
                     background-repeat: no-repeat;
                     width: 14.65em;
+                    padding-right: $spaceXXL;
                 }
             }
 

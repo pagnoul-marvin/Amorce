@@ -615,7 +615,7 @@ table {
   overflow: scroll;
 }
 .home_sections_container .todo_list_section_content_list {
-  gap: 1.875em;
+  gap: 0.625em;
 }
 .home_sections_container .todo_list_section_content_list_item {
   flex-direction: row;
@@ -624,7 +624,7 @@ table {
   flex-wrap: wrap;
 }
 .home_sections_container .todo_list_section_content_list_item:not(:last-of-type) {
-  padding-bottom: 1.875em;
+  padding-bottom: 0.625em;
   border-bottom: 1px solid var(--line_color_switchable);
 }
 .home_sections_container .todo_list_section_content_list_item_link {
@@ -774,6 +774,7 @@ table {
   background-position: right 1.25em center;
   background-repeat: no-repeat;
   width: 14.65em;
+  padding-right: 3.125em;
 }
 .modal_section_content_form_submit_btn_container_submit_btn {
   border: none;

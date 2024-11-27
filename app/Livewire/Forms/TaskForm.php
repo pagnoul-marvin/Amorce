@@ -11,12 +11,24 @@ class TaskForm extends Form
     #[Validate]
     public $completed;
 
+    #[Validate]
+    public $title;
+
+    #[Validate]
+    public $date;
+
+    #[Validate]
+    public $description;
+
     public $task;
 
     public function rules(): array
     {
         return [
-            'completed' => ['required', 'boolean'],
+            'completed' => 'required|boolean',
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'date' => 'required|date',
         ];
     }
 
@@ -24,6 +36,9 @@ class TaskForm extends Form
     {
         $this->task = $task;
         $this->completed = !$task->completed;
+        $this->title = $task->title;
+        $this->description = $task->description;
+        $this->date = $task->date;
     }
 
     public function update(): void

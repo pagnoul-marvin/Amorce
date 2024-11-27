@@ -40,6 +40,10 @@ class FundForm extends Form
     {
         $this->fund = $fund;
         $this->enclosed = !$fund->enclosed;
+        $this->name = $fund->name;
+        $this->description = $fund->description;
+        $this->pourcentage = $fund->pourcentage;
+        $this->amount = $fund->amount;
     }
 
     public function update(): void

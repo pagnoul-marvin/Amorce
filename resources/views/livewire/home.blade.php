@@ -10,7 +10,8 @@
 
                 <h2 class="section_title hel_bold">{{__('texts.todo_list_title')}} ({{count($tasks)}} items)</h2>
 
-                <x-buttons.link type="add" :title="__('texts.add_a_task_for_today')" href="#"/>
+                <livewire:buttons.modal-button type="add" :title="__('texts.add_a_task_for_today')"
+                                               to="modals.task-create-for-today-modal" event="openModal" wire:key="task-create-for-today-modal-open-btn"/>
 
             </div>
 
@@ -34,7 +35,6 @@
 
             </div>
 
-
         </section>
 
         <section class="section">
@@ -48,9 +48,11 @@
 
         </section>
 
-        <livewire:success-message/>
+        <livewire:success-message wire:key="task-completed-success-message"/>
 
     </div>
+
+    <livewire:modals.task-create-for-today-modal wire:key="task-create-for-today-modal"/>
 
 </div>
 

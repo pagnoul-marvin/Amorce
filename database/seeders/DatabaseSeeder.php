@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Enum\UserRoles;
 use App\Models\Detente;
 use App\Models\Donation;
 use App\Models\Fund;
@@ -17,7 +18,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $users = User::factory(4)
-            ->has(Task::factory()->count(7), 'tasks')
+            ->has(Task::factory()->count(15), 'tasks')
             ->create();
 
         foreach ($users as $user) {
@@ -38,12 +39,13 @@ class DatabaseSeeder extends Seeder
 
 
         $marvin = User::factory()
-            ->has(Task::factory()->count(7), 'tasks')
+            ->has(Task::factory()->count(15), 'tasks')
             ->create([
                 'firstname' => 'Marvin',
                 'lastname' => 'Pagnoul',
                 'email' => 'marvinpagnoul@icloud.com',
-                'password' => 'Admin1234@'
+                'password' => 'Admin1234@',
+                'role' => UserRoles::Admin->value
             ]);
 
         $marvin->tasks->each(function ($task) use ($marvin) {

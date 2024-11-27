@@ -68,4 +68,5 @@ return [
     'date_form' => 'Date*',
     'file' => 'Importer un fichier (CSV uniquement)*',
     'page' => 'Aller à la page',
+    'title' => 'Titre*',
  ];
