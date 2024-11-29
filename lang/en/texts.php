@@ -69,4 +69,10 @@ return [
     'file' => 'Import a file (CSV only)*',
     'page' => 'Go to page',
     'title' => 'Title*',
+    'contenders' => 'Contenders',
+    'smth' => 'Something',
+    'do_smth' => 'I have to do something',
+    'funds_form' => 'Fund*',
+    'donation_location' => 'This donation was made to the general fund',
+    'fund_serve' => 'This fund will be used to ...',
 ];

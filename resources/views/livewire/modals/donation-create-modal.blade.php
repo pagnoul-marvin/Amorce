@@ -18,7 +18,7 @@
 
         <form wire:submit="save" class="modal_section_content_form flex">
 
-            <x-layout.input-label-container id="date" class="modal_section_content_form_input_label_container" :label="__('texts.date')">
+            <x-layout.input-label-container id="date" class="modal_section_content_form_input_label_container" :label="__('texts.date_form')">
 
                 <input class="input" type="date" id="name" wire:model.blur="form.date" required value="{{old('form.date')}}">
 
@@ -29,7 +29,7 @@
             </x-layout.input-label-container>
             <x-layout.input-label-container id="amount" class="modal_section_content_form_input_label_container" :label="__('texts.amount')">
 
-                <input class="input" type="number" id="amount" wire:model.blur="form.amount" required value="{{old('form.amount')}}">
+                <input class="input" type="number" id="amount" wire:model.blur="form.amount" required placeholder="10" value="{{old('form.amount')}}">
 
                 @error('form.amount')
                 <x-input-error :messages="$errors->get('form.amount')"/>
@@ -38,11 +38,28 @@
             </x-layout.input-label-container>
             <x-layout.input-label-container id="note" class="modal_section_content_form_input_label_container" :label="__('texts.note')">
 
-                <textarea class="input" id="note" wire:model.blur="form.note" required value="{{old('form.note')}}">
+                <textarea class="input" id="note" wire:model.blur="form.note" placeholder="{{__('texts.donation_location')}}" required value="{{old('form.note')}}">
 
 
 
                 </textarea>
+
+                @error('form.note')
+                <x-input-error :messages="$errors->get('form.note')"/>
+                @enderror
+
+            </x-layout.input-label-container>
+            <x-layout.input-label-container id="fund" class="modal_section_content_form_input_label_container" :label="__('texts.funds_form')">
+
+                <select class="input" id="fund" wire:model.blur="form.fund_id" required value="{{old('form.note')}}">
+
+                    @foreach($funds as $fund)
+
+                        <option class="option">{{$fund->name}}</option>
+
+                    @endforeach
+
+                </select>
 
                 @error('form.note')
                 <x-input-error :messages="$errors->get('form.note')"/>

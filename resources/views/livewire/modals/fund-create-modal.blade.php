@@ -20,7 +20,7 @@
 
             <x-layout.input-label-container id="name" class="modal_section_content_form_input_label_container" :label="__('texts.name')">
 
-                <input class="input" type="text" id="name" wire:model.blur="form.name" required value="{{old('form.name')}}">
+                <input class="input" type="text" id="name" wire:model.blur="form.name" placeholder="Fond spécifique" required value="{{old('form.name')}}">
 
                 @error('form.name')
                 <x-input-error :messages="$errors->get('form.name')"/>
@@ -29,7 +29,7 @@
             </x-layout.input-label-container>
             <x-layout.input-label-container id="pourcentage" class="modal_section_content_form_input_label_container" :label="__('texts.pourcentage')">
 
-                <input class="input" type="number" id="pourcentage" wire:model.blur="form.pourcentage" required value="{{old('form.pourcentage')}}">
+                <input class="input" type="number" id="pourcentage" wire:model.blur="form.pourcentage" placeholder="10" required value="{{old('form.pourcentage')}}">
 
                 @error('form.pourcentage')
                 <x-input-error :messages="$errors->get('form.pourcentage')"/>
@@ -38,7 +38,7 @@
             </x-layout.input-label-container>
             <x-layout.input-label-container id="description" class="modal_section_content_form_input_label_container" :label="__('texts.description')">
 
-                <textarea class="input" id="description" wire:model.blur="form.description" required value="{{old('form.description')}}"></textarea>
+                <textarea class="input" id="description" wire:model.blur="form.description" placeholder="{{__('texts.fund_serve')}}" required value="{{old('form.description')}}"></textarea>
 
                 @error('form.description')
                 <x-input-error :messages="$errors->get('form.description')"/>

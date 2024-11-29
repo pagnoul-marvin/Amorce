@@ -20,7 +20,7 @@
 
             <x-layout.input-label-container id="title" class="modal_section_content_form_input_label_container" :label="__('texts.title')">
 
-                <input class="input" id="title" wire:model.blur="form.title" required value="{{old('form.title')}}">
+                <input class="input" id="title" wire:model.blur="form.title" placeholder="{{__('texts.smth')}}" required value="{{old('form.title')}}">
 
                 @error('form.title')
                 <x-input-error :messages="$errors->get('form.title')"/>
@@ -29,14 +29,14 @@
             </x-layout.input-label-container>
             <x-layout.input-label-container id="description" class="modal_section_content_form_input_label_container" :label="__('texts.description')">
 
-                <input class="input" id="description" wire:model.blur="form.description" required value="{{old('form.description')}}">
+                <textarea class="input" id="description" wire:model.blur="form.description" placeholder="{{__('texts.do_smth')}}" required value="{{old('form.description')}}"></textarea>
 
                 @error('form.description')
                 <x-input-error :messages="$errors->get('form.description')"/>
                 @enderror
 
             </x-layout.input-label-container>
-            <x-layout.input-label-container id="amount" class="modal_section_content_form_input_label_container" :label="__('texts.amount')">
+            <x-layout.input-label-container id="amount" class="modal_section_content_form_input_label_container" :label="__('texts.contenders')">
 
                 <select class="input" type="number" id="amount" wire:model.blur="form.amount" required value="{{old('form.amount')}}">
 

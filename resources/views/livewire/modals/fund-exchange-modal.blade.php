@@ -54,7 +54,7 @@
             </x-layout.input-label-container>
             <x-layout.input-label-container id="amount" class="modal_section_content_form_input_label_container" :label="__('texts.amount')">
 
-                <input class="input" type="number" id="amount" wire:model.blur="form.amount" required value="{{old('form.amount')}}">
+                <input class="input" type="number" placeholder="10" id="amount" wire:model.blur="form.amount" required value="{{old('form.amount')}}">
 
                 @error('form.amount')
                 <x-input-error :messages="$errors->get('form.amount')"/>
