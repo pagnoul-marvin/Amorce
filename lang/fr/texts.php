@@ -75,4 +75,5 @@ return [
     'funds_form' => 'Fond*',
     'donation_location' => 'Ce don a été fait au fond général',
     'fund_serve' => 'Ce fond servira à ...',
+    'search' => 'Rechercher',
 ];

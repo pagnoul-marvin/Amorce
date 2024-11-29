@@ -12,49 +12,80 @@
 
             <h2 class="modal_section_content_title_and_close_container_title hel_bold">{{__('texts.add_a_task_for_today')}}</h2>
 
-            <livewire:icons.close to="modals.task-create-for-today-modal" event="closeModal" wire:key="task-create-for-today-modal-close-icon"/>
+            <livewire:icons.close to="modals.task-create-for-today-modal" event="closeModal"
+                                  wire:key="task-create-for-today-modal-close-icon"/>
 
         </div>
 
         <form wire:submit="save" class="modal_section_content_form flex">
 
-            <x-layout.input-label-container id="title" class="modal_section_content_form_input_label_container" :label="__('texts.title')">
+            <x-layout.input-label-container id="title" class="modal_section_content_form_input_label_container"
+                                            :label="__('texts.title')">
 
-                <input class="input" id="title" wire:model.blur="form.title" placeholder="{{__('texts.smth')}}" required value="{{old('form.title')}}">
+                <input class="input" id="title" wire:model.blur="form.title" placeholder="{{__('texts.smth')}}" required
+                       value="{{old('form.title')}}">
 
                 @error('form.title')
                 <x-input-error :messages="$errors->get('form.title')"/>
                 @enderror
 
             </x-layout.input-label-container>
-            <x-layout.input-label-container id="description" class="modal_section_content_form_input_label_container" :label="__('texts.description')">
+            <x-layout.input-label-container id="description" class="modal_section_content_form_input_label_container"
+                                            :label="__('texts.description')">
 
-                <textarea class="input" id="description" wire:model.blur="form.description" placeholder="{{__('texts.do_smth')}}" required value="{{old('form.description')}}"></textarea>
+                <textarea class="input" id="description" wire:model.blur="form.description"
+                          placeholder="{{__('texts.do_smth')}}" required value="{{old('form.description')}}"></textarea>
 
                 @error('form.description')
                 <x-input-error :messages="$errors->get('form.description')"/>
                 @enderror
 
             </x-layout.input-label-container>
-            <x-layout.input-label-container id="amount" class="modal_section_content_form_input_label_container" :label="__('texts.contenders')">
+            <div class="form_user_list_container flex">
 
-                <select class="input" type="number" id="amount" wire:model.blur="form.amount" required value="{{old('form.amount')}}">
+                <p class="hel_bold form_user_list_container_title">{{__('texts.contenders')}}</p>
+
+                <label class="hidden" for="search">{{__('texts.search')}}</label>
+                <input class="search_form_input" placeholder="{{__('texts.search')}}" type="text" id="search"
+                       name="search" wire:model.live="search">
+
+                <ul class="form_user_list flex">
 
                     @foreach($users as $user)
 
-                        <option class="option">{{$user->role}} &ndash; {{$user->firstname}} {{$user->lastname}}</option>
+                        <li wire:key="task-create-for-today-user-{{$user->id}}" class="form_user_list_item flex">
+
+                            <input type="checkbox" id="user-{{$user->id}}">
+                            <label for="user-{{$user->id}}" class="flex form_user_list_item_label">
+
+                                <div class="form_user_list_item_label_role">
+
+                                    <p class="hel_reg_it">{{$user->role}}</p>
+
+                                </div>
+
+                                <div class="form_user_list_item_label_username_and_picture_container flex">
+
+                                    <img class="form_user_list_item_label_username_and_picture_container_picture"
+                                         src="{{asset($user->picture)}}"
+                                         alt="{{__('texts.profile_photo')}} {{$user->firstname}}">
+                                    <p class="hel_reg">{{$user->firstname}} {{$user->lastname}}</p>
+
+                                </div>
+
+                            </label>
+
+                        </li>
 
                     @endforeach
 
-                </select>
+                </ul>
 
-                @error('form.amount')
-                <x-input-error :messages="$errors->get('form.amount')"/>
-                @enderror
+            </div>
 
-            </x-layout.input-label-container>
-
-            <x-form.submit-button :text="__('texts.exchange')" div_class="modal_section_content_form_submit_btn_container" btn_class="modal_section_content_form_submit_btn_container_submit_btn button"/>
+            <x-form.submit-button :text="__('texts.create')"
+                                  div_class="modal_section_content_form_submit_btn_container"
+                                  btn_class="modal_section_content_form_submit_btn_container_submit_btn button"/>
 
         </form>
 

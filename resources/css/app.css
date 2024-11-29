@@ -165,7 +165,7 @@ table {
   background-color: var(--main_nav_active_bg_color);
 }
 
-.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .table, .add_donations_manually_or_import_list_item {
+.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .table, .add_donations_manually_or_import_list_item, .form_user_list_container_title, .search_form_input {
   font-size: 1.25em;
 }
 
@@ -860,6 +860,56 @@ table {
 .add_donations_manually_or_import_list_item_text:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
+}
+
+.form_user_list_container {
+  gap: 0.9375em;
+  flex-basis: calc(50% - 1.875em);
+}
+.form_user_list_container .form_user_list {
+  gap: 0.9375em;
+  height: 12.5em;
+  overflow: scroll;
+  border: 1px solid var(--black_color);
+  border-radius: 0.625em;
+  padding: 1em 1.25em;
+}
+.form_user_list_container .form_user_list_item {
+  flex-direction: row;
+  align-items: center;
+  gap: 1.875em;
+}
+.form_user_list_container .form_user_list_item:not(:last-of-type) {
+  border-bottom: 1px solid var(--black_line_color);
+  padding-bottom: 0.625em;
+}
+.form_user_list_container .form_user_list_item_label {
+  gap: 0.9375em;
+}
+.form_user_list_container .form_user_list_item_label_username_and_picture_container {
+  flex-direction: row;
+  gap: 0.9375em;
+  align-items: center;
+}
+.form_user_list_container .form_user_list_item_label_username_and_picture_container_picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.search_form_input {
+  background-color: transparent;
+  border-bottom: 1px solid var(--black_color);
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  background-image: url("../icons/search_icon.svg");
+  background-position: left center;
+  background-repeat: no-repeat;
+  padding: 5px 29px;
+}
+.search_form_input::placeholder {
+  color: var(--black_color);
 }
 
 /*# sourceMappingURL=app.css.map */

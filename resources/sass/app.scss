@@ -54,7 +54,7 @@
     background-color: var(--main_nav_active_bg_color);
 }
 
-.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .table, .add_donations_manually_or_import_list_item {
+.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .table, .add_donations_manually_or_import_list_item, .form_user_list_container_title, .search_form_input {
     font-size: $text_sizeM;
 }
 
@@ -925,3 +925,61 @@
         }
     }
 }
+
+.form_user_list_container {
+    gap: $spaceXS;
+    flex-basis: calc(50% - $spaceM);
+
+    .form_user_list {
+        gap: $spaceXS;
+        height: 12.5em;
+        overflow: scroll;
+        border: 1px solid var(--black_color);
+        border-radius: .625em;
+        padding: $space $spaceS;
+
+        &_item {
+            flex-direction: row;
+            align-items: center;
+            gap: $spaceM;
+
+            &:not(:last-of-type) {
+                border-bottom: 1px solid var(--black_line_color);
+                padding-bottom: $spaceXXS;
+            }
+
+            &_label {
+                gap: $spaceXS;
+
+                &_username_and_picture_container {
+                    flex-direction: row;
+                    gap: $spaceXS;
+                    align-items: center;
+
+                    &_picture {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.search_form_input {
+    background-color: transparent;
+    border-bottom: 1px solid var(--black_color);
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    background-image: url("../icons/search_icon.svg");
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding: 5px 29px;
+
+    &::placeholder {
+        color: var(--black_color);
+    }
+}
+
