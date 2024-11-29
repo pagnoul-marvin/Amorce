@@ -14,6 +14,10 @@ class FundExchangeModal extends Component
 
     protected $listeners = ['openModal' => 'openModal', 'closeModal' => 'closeModal'];
 
+    public function mount(): void
+    {
+        $this->funds = Fund::all();
+    }
     public function openModal(): void
     {
         $this->isOpen = true;
@@ -26,11 +30,6 @@ class FundExchangeModal extends Component
 
     public function save(): void
     {
-
-    }
-
-    public function mount(): void
-    {
-        $this->funds = Fund::all();
+        $this->form->store();
     }
 }

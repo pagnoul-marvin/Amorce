@@ -20,35 +20,35 @@
 
             <x-layout.input-label-container id="from" class="modal_section_content_form_input_label_container" :label="__('texts.from')">
 
-                <select class="input"  id="from" wire:model.blur="form.from" required value="{{old('form.from')}}">
+                <select class="input" id="from" wire:model.blur="form.from_fund" required value="{{old('form.from_fund')}}">
 
                     @foreach($funds as $fund)
 
-                        <option class="option" value="{{$fund->id}}" wire:key="from-{{$fund->id}}">{{$fund->name}} {{$fund->amount}}&euro;</option>
+                        <option class="option" wire:model.blur="form.from_fund" value="{{$fund->id}}" wire:key="from-{{$fund->id}}">{{$fund->name}} {{$fund->amount}}&euro;</option>
 
                     @endforeach
 
                 </select>
 
-                @error('form.from')
-                <x-input-error :messages="$errors->get('form.from')"/>
+                @error('form.from_fund')
+                <x-input-error :messages="$errors->get('form.from_fund')"/>
                 @enderror
 
             </x-layout.input-label-container>
             <x-layout.input-label-container id="to" class="modal_section_content_form_input_label_container" :label="__('texts.to')">
 
-                <select class="input" id="to" wire:model.blur="form.to" required value="{{old('form.to')}}">
+                <select class="input" id="to" wire:model.blur="form.to_fund" required value="{{old('form.to_fund')}}">
 
                     @foreach($funds as $fund)
 
-                        <option class="option" value="{{$fund->id}}" wire:key="to-{{$fund->id}}">{{$fund->name}} {{$fund->amount}}&euro;</option>
+                        <option class="option" wire:model.blur="form.to" wire:key="to-{{$fund->id}}">{{$fund->name}} {{$fund->amount}}&euro;</option>
 
                     @endforeach
 
                 </select>
 
-                @error('form.to')
-                <x-input-error :messages="$errors->get('form.to')"/>
+                @error('form.to_fund')
+                <x-input-error :messages="$errors->get('form.to_fund')"/>
                 @enderror
 
             </x-layout.input-label-container>

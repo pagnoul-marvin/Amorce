@@ -27,6 +27,8 @@ class FundCreateModal extends Component
     {
         $this->form->store();
         $this->form->reset();
+        $this->dispatch('closeModal');
         $this->dispatch('openSuccessMessage', 'Le fond a été créé avec succès !');
+        $this->dispatch('fundOpened');
     }
 }

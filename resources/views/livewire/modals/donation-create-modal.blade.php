@@ -20,7 +20,7 @@
 
             <x-layout.input-label-container id="date" class="modal_section_content_form_input_label_container" :label="__('texts.date_form')">
 
-                <input class="input" type="date" id="name" wire:model.blur="form.date" required value="{{old('form.date')}}">
+                <input class="input" type="date" id="date" wire:model.blur="form.date" required value="{{old('form.date')}}">
 
                 @error('form.date')
                 <x-input-error :messages="$errors->get('form.date')"/>

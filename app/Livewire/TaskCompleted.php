@@ -20,7 +20,7 @@ class TaskCompleted extends Component
     public function save(): void
     {
         $this->form->update();
-        $this->dispatch('taskCompleted');
+        $this->dispatch('refreshTasks');
         $this->dispatch('openSuccessMessage', 'La tâche '. $this->task->title .' a été achevée avec succès !');
     }
 

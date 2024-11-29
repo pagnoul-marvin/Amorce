@@ -52,6 +52,4 @@
 
     </div>
 
-    <livewire:success-message wire:key="fund-create-modal-success-message"/>
-
 </section>

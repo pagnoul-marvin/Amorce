@@ -55,7 +55,7 @@
 
                         <li wire:key="task-create-for-today-user-{{$user->id}}" class="form_user_list_item flex">
 
-                            <input type="checkbox" id="user-{{$user->id}}">
+                            <input type="checkbox" id="user-{{$user->id}}" wire:model.blur="form.participants" value="{{$user->id}}">
                             <label for="user-{{$user->id}}" class="flex form_user_list_item_label">
 
                                 <div class="form_user_list_item_label_role">
@@ -94,6 +94,3 @@
     <livewire:success-message wire:key="task-create-for-today-modal-success-message"/>
 
 </section>
-
-
-

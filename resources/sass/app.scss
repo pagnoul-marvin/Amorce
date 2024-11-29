@@ -926,11 +926,11 @@
     }
 }
 
-.form_user_list_container {
+.form_user_list_container, .form_fund_list_container {
     gap: $spaceXS;
     flex-basis: calc(50% - $spaceM);
 
-    .form_user_list {
+    .form_user_list, .form_fund_list {
         gap: $spaceXS;
         height: 12.5em;
         overflow: scroll;

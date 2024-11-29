@@ -7,8 +7,10 @@ use App\Models\Detente;
 use App\Models\Donation;
 use App\Models\Fund;
 use App\Models\Task;
+use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Arr;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,7 +20,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $users = User::factory(4)
-            ->has(Task::factory()->count(15), 'tasks')
+            ->has(Task::factory()->count(50), 'tasks')
             ->create();
 
         foreach ($users as $user) {
@@ -37,9 +39,8 @@ class DatabaseSeeder extends Seeder
             });
         }
 
-
         $marvin = User::factory()
-            ->has(Task::factory()->count(15), 'tasks')
+            ->has(Task::factory()->count(50), 'tasks')
             ->create([
                 'firstname' => 'Marvin',
                 'lastname' => 'Pagnoul',
@@ -71,7 +72,7 @@ class DatabaseSeeder extends Seeder
 
         Fund::factory()->create([
             'name' => 'Fonctionnement',
-            'description' => 'Le fond de fonctionnement est le fond qui gère l\'argent qui permet le bon fonctionnement de l\'Amorce' ,
+            'description' => 'Le fond de fonctionnement est le fond qui gère l\'argent qui permet le bon fonctionnement de l\'Amorce',
             'pourcentage' => 0,
             'enclosed' => false
         ]);
@@ -83,6 +84,14 @@ class DatabaseSeeder extends Seeder
         foreach ($donations as $donation) {
             $donation->fund_id = Fund::all()->random()->id;
             $donation->save();
+        }
+
+        $transactions = Transaction::factory(200)->create();
+        foreach ($transactions as $transaction) {
+            $from_funds = Fund::all()->pluck('id')->random();
+            $to_funds = Fund::all()->where('id', '!=', $from_funds->id)->pluck('id')->random();
+            $transaction->fromFund()->attach($from_funds);
+            $transaction->toFund()->attach($to_funds);
         }
     }
 }

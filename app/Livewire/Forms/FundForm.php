@@ -25,6 +25,11 @@ class FundForm extends Form
 
     public $fund;
 
+    #[Validate]
+    public $from_fund;
+    #[Validate]
+    public $to_fund;
+
     public function rules(): array
     {
         return [
@@ -33,6 +38,8 @@ class FundForm extends Form
             'amount' => 'required|numeric|min:0',
             'pourcentage' => 'required|numeric|min:0',
             'enclosed' => 'required|boolean',
+            'from_fund' => 'required',
+            'to_fund' => 'required',
         ];
     }
 
@@ -54,7 +61,16 @@ class FundForm extends Form
 
     public function store(): void
     {
+        $this->amount = 0;
+        $this->enclosed = false;
         $this->validate();
         Fund::create($this->all());
     }
+
+    public function exchange(): void
+    {
+        $this->validate();
+
+    }
+
 }

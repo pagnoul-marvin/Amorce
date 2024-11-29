@@ -20,6 +20,7 @@ class TaskFactory extends Factory
             'title' => $this->faker->sentence(rand(1, 5)),
             'description' => $this->faker->paragraph(rand(1, 5)),
             'completed' => $this->faker->boolean(30),
+            'date' => $this->faker->dateTimeBetween('-10 days', '+10 days'),
         ];
     }
 }

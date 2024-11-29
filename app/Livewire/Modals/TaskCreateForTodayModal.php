@@ -45,4 +45,13 @@ class TaskCreateForTodayModal extends Component
     {
         $this->isOpen = false;
     }
+
+    public function save(): void
+    {
+        $this->form->store();
+        $this->form->reset();
+        $this->dispatch('closeModal');
+        $this->dispatch('refreshTasks');
+        $this->dispatch('openSuccessMessage', 'La tâche a été créé avec succès !');
+    }
 }

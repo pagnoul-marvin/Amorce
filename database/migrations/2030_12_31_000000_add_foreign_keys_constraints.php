@@ -23,6 +23,11 @@ return new class extends Migration
         Schema::table('donations', function (Blueprint $table) {
             $table->foreign('fund_id')->references('id')->on('funds')->onDelete('cascade');
         });
+
+        Schema::table('transactions', function (Blueprint $table) {
+            $table->foreign('from_fund_id')->references('id')->on('funds')->onDelete('cascade');
+            $table->foreign('to_fund_id')->references('id')->on('funds')->onDelete('cascade');
+        });
     }
 
     /**
@@ -30,7 +35,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('jiris', function (Blueprint $table) {
+        Schema::table('tasks', function (Blueprint $table) {
             $table->dropForeign('user_id');
         });
 
@@ -41,6 +46,11 @@ return new class extends Migration
 
         Schema::table('donations', function (Blueprint $table) {
             $table->dropForeign('fund_id');
+        });
+
+        Schema::table('transactions', function (Blueprint $table) {
+            $table->dropForeign('from_fund_id');
+            $table->dropForeign('to_fund_id');
         });
     }
 };

@@ -9,14 +9,14 @@ class Home extends Component
 {
     public $tasks;
 
-    protected $listeners = ['taskCompleted' => 'taskCompleted'];
+    protected $listeners = ['refreshTasks' => 'refreshTasks'];
 
     public function mount(): void
     {
         $this->tasks = Auth::user()?->getTasksForToday();
     }
 
-    public function taskCompleted(): void
+    public function refreshTasks(): void
     {
         $this->tasks = Auth::user()?->getTasksForToday();
     }

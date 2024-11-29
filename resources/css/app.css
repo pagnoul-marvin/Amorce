@@ -862,11 +862,11 @@ table {
   transform-origin: bottom left;
 }
 
-.form_user_list_container {
+.form_user_list_container, .form_fund_list_container {
   gap: 0.9375em;
   flex-basis: calc(50% - 1.875em);
 }
-.form_user_list_container .form_user_list {
+.form_user_list_container .form_user_list, .form_user_list_container .form_fund_list, .form_fund_list_container .form_user_list, .form_fund_list_container .form_fund_list {
   gap: 0.9375em;
   height: 12.5em;
   overflow: scroll;
@@ -874,24 +874,24 @@ table {
   border-radius: 0.625em;
   padding: 1em 1.25em;
 }
-.form_user_list_container .form_user_list_item {
+.form_user_list_container .form_user_list_item, .form_user_list_container .form_fund_list_item, .form_fund_list_container .form_user_list_item, .form_fund_list_container .form_fund_list_item {
   flex-direction: row;
   align-items: center;
   gap: 1.875em;
 }
-.form_user_list_container .form_user_list_item:not(:last-of-type) {
+.form_user_list_container .form_user_list_item:not(:last-of-type), .form_user_list_container .form_fund_list_item:not(:last-of-type), .form_fund_list_container .form_user_list_item:not(:last-of-type), .form_fund_list_container .form_fund_list_item:not(:last-of-type) {
   border-bottom: 1px solid var(--black_line_color);
   padding-bottom: 0.625em;
 }
-.form_user_list_container .form_user_list_item_label {
+.form_user_list_container .form_user_list_item_label, .form_user_list_container .form_fund_list_item_label, .form_fund_list_container .form_user_list_item_label, .form_fund_list_container .form_fund_list_item_label {
   gap: 0.9375em;
 }
-.form_user_list_container .form_user_list_item_label_username_and_picture_container {
+.form_user_list_container .form_user_list_item_label_username_and_picture_container, .form_user_list_container .form_fund_list_item_label_username_and_picture_container, .form_fund_list_container .form_user_list_item_label_username_and_picture_container, .form_fund_list_container .form_fund_list_item_label_username_and_picture_container {
   flex-direction: row;
   gap: 0.9375em;
   align-items: center;
 }
-.form_user_list_container .form_user_list_item_label_username_and_picture_container_picture {
+.form_user_list_container .form_user_list_item_label_username_and_picture_container_picture, .form_user_list_container .form_fund_list_item_label_username_and_picture_container_picture, .form_fund_list_container .form_user_list_item_label_username_and_picture_container_picture, .form_fund_list_container .form_fund_list_item_label_username_and_picture_container_picture {
   width: 40px;
   height: 40px;
   border-radius: 50%;
