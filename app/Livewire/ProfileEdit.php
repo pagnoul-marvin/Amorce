@@ -11,12 +11,12 @@ class ProfileEdit extends Component
     use WithFileUploads;
     public ProfileForm $form;
 
-    public function mount()
+    public function mount(): void
     {
         $this->form->setUser();
     }
 
-    public function save()
+    public function save(): void
     {
         $this->form->update();
         $this->dispatch('openSuccessMessage', 'Votre profil a été mis à jour avec succès !');

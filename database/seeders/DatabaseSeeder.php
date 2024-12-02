@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Enum\UserRoles;
-use App\Models\Detente;
 use App\Models\Donation;
 use App\Models\Fund;
 use App\Models\Task;

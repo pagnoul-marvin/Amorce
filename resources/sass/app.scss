@@ -509,6 +509,15 @@
                 margin-left: $spaceXXS;
             }
 
+            &_content_image {
+                align-items: center;
+                justify-content: center;
+
+                &_img {
+                    height: 100%;
+                }
+            }
+
             &_content {
                 gap: $spaceXS;
                 flex-direction: row;
@@ -670,6 +679,12 @@
                             height: 36px;
                             overflow: hidden;
                             border-radius: 50%;
+                            align-items: center;
+                            justify-content: center;
+
+                            &_img {
+                                height: 100%;
+                            }
                         }
                     }
                 }
@@ -688,6 +703,12 @@
         height: 200px;
         overflow: hidden;
         border-radius: 50%;
+        align-items: center;
+        justify-content: center;
+
+        &_img {
+            height: 100%;
+        }
     }
 
     &_form {
@@ -703,6 +724,7 @@
 
         .submit_btn {
             width: 100%;
+            height: 100%;
         }
     }
 }
