@@ -14,7 +14,7 @@ class DonationCreateModal extends Component
 
     protected $listeners = ['openModal' => 'openModal', 'closeModal' => 'closeModal'];
 
-    public function mount()
+    public function mount(): void
     {
         $this->funds = Fund::all();
     }
@@ -26,5 +26,14 @@ class DonationCreateModal extends Component
     public function closeModal(): void
     {
         $this->isOpen = false;
+    }
+
+    public function save(): void
+    {
+        $this->form->store();
+        $this->form->reset();
+        $this->dispatch('closeModal');
+        $this->dispatch('donations');
+        $this->dispatch('openSuccessMessage', 'Le don a été ajouté avec succès !');
     }
 }

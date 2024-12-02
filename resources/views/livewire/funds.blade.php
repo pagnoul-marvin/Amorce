@@ -58,6 +58,4 @@
 
     </div>
 
-    <livewire:success-message wire:key="fund-enclosed-or-opened-success-message"/>
-
 </section>

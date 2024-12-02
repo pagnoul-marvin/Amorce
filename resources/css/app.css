@@ -211,9 +211,9 @@ table {
   z-index: 1;
   align-items: center;
   gap: 1.875em;
-  position: absolute;
-  right: 0;
-  top: 0;
+  position: fixed;
+  right: 3.125em;
+  top: 3.125em;
 }
 .success_message_text {
   color: var(--black_color);
@@ -338,6 +338,16 @@ table {
   text-align: right;
   width: 10%;
 }
+.table_body_item_longtext {
+  max-width: 100px;
+}
+.table_body_item_longtext_text {
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .submit_btn {
   border: none;
   color: var(--black_color);
@@ -680,9 +690,6 @@ table {
   width: 100%;
 }
 
-.funds_section {
-  position: relative;
-}
 .funds_section_lists_container {
   flex-direction: row;
   justify-content: space-between;
@@ -763,6 +770,7 @@ table {
 }
 .modal_section_content_form_input_label_container .input::placeholder {
   color: var(--black_placeholder_color);
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 .modal_section_content_form_input_label_container .input[type=file]::file-selector-button {
   background-color: var(--black_color);

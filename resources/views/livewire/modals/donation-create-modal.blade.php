@@ -51,18 +51,18 @@
             </x-layout.input-label-container>
             <x-layout.input-label-container id="fund" class="modal_section_content_form_input_label_container" :label="__('texts.funds_form')">
 
-                <select class="input" id="fund" wire:model.blur="form.fund_id" required value="{{old('form.note')}}">
+                <select class="input" id="fund" wire:model.blur="form.fund_id" required value="{{old('form.fund_id')}}">
 
                     @foreach($funds as $fund)
 
-                        <option class="option">{{$fund->name}}</option>
+                        <option class="option" value="{{$fund->id}}">{{$fund->name}}</option>
 
                     @endforeach
 
                 </select>
 
-                @error('form.note')
-                <x-input-error :messages="$errors->get('form.note')"/>
+                @error('form.fund_id')
+                <x-input-error :messages="$errors->get('form.fund_id')"/>
                 @enderror
 
             </x-layout.input-label-container>
@@ -72,8 +72,6 @@
         </form>
 
     </div>
-
-    <livewire:success-message wire:key="donation-crate-modal-success-message"/>
 
 </section>
 

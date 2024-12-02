@@ -25,7 +25,7 @@
 
         <tbody class="table_body">
 
-        @foreach($donations as $donation)
+        @foreach($this->donations as $donation)
 
             <tr class="hel_reg table_body_item" wire:key="{{$donation->id}}">
 
@@ -33,9 +33,10 @@
                     <time
                         datetime="{{$donation->date->toDateString()}}">{{$donation->date->format('d F Y')}}</time>
                 </td>
-                <td class="hel_reg table_body_item_text">{{$donation->name}}</td>
-                <td title="{{$donation->note}}"
-                    class="hel_reg table_body_item_longtext">{{$donation->note}}</td>
+                <td class="hel_reg table_body_item_text">{{$donation->fund->name}}</td>
+                <td title="{{$donation->note}}" class="hel_reg table_body_item_longtext">
+                    <p class="hel_reg table_body_item_longtext_text">{{$donation->note}}</p>
+                </td>
                 <td class="hel_reg table_body_item_text">{{$donation->amount}}&euro;</td>
 
             </tr>
@@ -46,7 +47,7 @@
 
     </table>
 
-    {{ $donations->links('vendor.livewire.custom', data:['scrollTo'=>false]) }}
+    {{ $this->donations->links('vendor.livewire.custom', data:['scrollTo'=>false]) }}
 
 </section>
 

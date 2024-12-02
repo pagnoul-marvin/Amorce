@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('amount');
             $table->unsignedBigInteger('from_fund_id');
             $table->unsignedBigInteger('to_fund_id');
-            $table->unsignedBigInteger('amount');
             $table->timestamps();
         });
     }

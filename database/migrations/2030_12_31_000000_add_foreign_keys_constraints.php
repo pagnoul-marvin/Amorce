@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -20,13 +19,12 @@ return new class extends Migration
             $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade');
         });
 
-        Schema::table('donations', function (Blueprint $table) {
-            $table->foreign('fund_id')->references('id')->on('funds')->onDelete('cascade');
-        });
-
         Schema::table('transactions', function (Blueprint $table) {
             $table->foreign('from_fund_id')->references('id')->on('funds')->onDelete('cascade');
             $table->foreign('to_fund_id')->references('id')->on('funds')->onDelete('cascade');
+        });
+        Schema::table('donations', function (Blueprint $table) {
+            $table->foreign('fund_id')->references('id')->on('funds')->onDelete('cascade');
         });
     }
 
@@ -42,10 +40,6 @@ return new class extends Migration
         Schema::table('task_users', function (Blueprint $table) {
             $table->dropForeign('user_id');
             $table->dropForeign('task_id');
-        });
-
-        Schema::table('donations', function (Blueprint $table) {
-            $table->dropForeign('fund_id');
         });
 
         Schema::table('transactions', function (Blueprint $table) {

@@ -22,6 +22,7 @@ class SuccessMessage extends Component
     {
         $this->text = $text;
         $this->visible = true;
+        $this->dispatch('start-success-message-timer');
     }
 
     public function closeSuccessMessage(): void

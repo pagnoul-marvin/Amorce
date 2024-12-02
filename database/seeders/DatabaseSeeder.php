@@ -10,7 +10,6 @@ use App\Models\Task;
 use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Arr;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,12 +23,10 @@ class DatabaseSeeder extends Seeder
             ->create();
 
         foreach ($users as $user) {
-            // Assigner le propriétaire à ses propres tâches
             $user->tasks->each(function ($task) use ($user) {
                 $task->user_id = $user->id;
                 $task->save();
 
-                // Assigner entre 1 et 3 autres utilisateurs (mais pas le propriétaire)
                 $usersToAssign = User::where('id', '!=', $user->id)
                     ->inRandomOrder()
                     ->take(rand(1, 3))
@@ -61,37 +58,45 @@ class DatabaseSeeder extends Seeder
             $task->users()->attach($usersToAssign);
         });
 
-        Detente::factory(10)->create();
-
-        Fund::factory()->create([
+        $general_fund = Fund::factory()
+            ->has(Donation::factory(10), 'donations')
+            ->create([
             'name' => 'General',
             'description' => 'Le fond général est le fond de base de l\'Amorce',
             'pourcentage' => 0,
             'enclosed' => false
         ]);
 
-        Fund::factory()->create([
+        $fonctionnement_fund = Fund::factory()
+            ->has(Donation::factory(10), 'donations')
+            ->create([
             'name' => 'Fonctionnement',
             'description' => 'Le fond de fonctionnement est le fond qui gère l\'argent qui permet le bon fonctionnement de l\'Amorce',
             'pourcentage' => 0,
             'enclosed' => false
         ]);
 
-        Fund::factory(5)->create();
+        $funds = Fund::factory(5)
+            ->has(Donation::factory(10), 'donations')
+            ->create();
 
-        $donations = Donation::factory(200)->create();
+        $general_fund->donations->each(function ($donation) use ($general_fund) {
+           $donation->fund_id = $general_fund;
+        });
 
-        foreach ($donations as $donation) {
-            $donation->fund_id = Fund::all()->random()->id;
-            $donation->save();
+        $fonctionnement_fund->donations->each(function ($donation) use ($fonctionnement_fund) {
+            $donation->fund_id = $fonctionnement_fund;
+        });
+
+        foreach ($funds as $fund) {
+            $fund->donations->each(function ($donation) use ($fund) {
+                $donation->fund_id = $fund;
+            });
         }
 
-        $transactions = Transaction::factory(200)->create();
-        foreach ($transactions as $transaction) {
-            $from_funds = Fund::all()->pluck('id')->random();
-            $to_funds = Fund::all()->where('id', '!=', $from_funds->id)->pluck('id')->random();
-            $transaction->fromFund()->attach($from_funds);
-            $transaction->toFund()->attach($to_funds);
-        }
+        Transaction::factory(200)->create([
+            'from_fund_id' => Fund::all()->random()->id,
+            'to_fund_id' => Fund::all()->random()->id,
+        ]);
     }
 }

@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Donation extends Model
@@ -12,10 +14,10 @@ class Donation extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'fund_id',
-        'communication',
+        'date',
+        'note',
         'amount',
+        'fund_id'
     ];
 
     protected function casts(): array
@@ -24,8 +26,8 @@ class Donation extends Model
             'date' => 'date:d F Y',
         ];
     }
-    public function funds(): HasMany
+    public function fund(): belongsTo
     {
-        return $this->hasMany(Fund::class);
+        return $this->belongsTo(Fund::class);
     }
 }

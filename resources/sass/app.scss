@@ -105,9 +105,9 @@
     z-index: 1;
     align-items: center;
     gap: $spaceM;
-    position: absolute;
-    right: 0;
-    top: 0;
+    position: fixed;
+    right: $spaceXXL;
+    top: $spaceXXL;
 
     &_text {
         color: var(--black_color);
@@ -260,7 +260,14 @@
             }
 
             &_longtext {
+                max-width: 100px;
 
+                &_text {
+                    width: 100%;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
             }
         }
     }
@@ -701,8 +708,6 @@
 }
 
 .funds_section {
-    position: relative;
-
     &_lists_container {
         flex-direction: row;
         justify-content: space-between;
@@ -798,6 +803,7 @@
                 .input {
                     &::placeholder {
                         color: var(--black_placeholder_color);
+                        font-family: 'Helvetica', 'Arial', sans-serif;
                     }
 
                     &[type = 'file'] {
