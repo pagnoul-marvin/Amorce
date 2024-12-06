@@ -15,7 +15,7 @@
         <thead class="table_head">
 
         <tr>
-            <th class="hel_reg_underline table_head_item">{{__('texts.date')}}</th>
+            <th class="hel_reg_underline table_head_item" wire:click="switchOrderOfDate">{{__('texts.date')}}</th>
             <th class="hel_reg_underline table_head_item">{{__('texts.fund_table')}}</th>
             <th class="hel_reg_underline table_head_item">{{__('texts.note')}}</th>
             <th class="hel_reg_underline table_head_item">{{__('texts.amount_table')}}</th>
@@ -37,7 +37,7 @@
                 <td title="{{$donation->note}}" class="hel_reg table_body_item_longtext">
                     <p class="hel_reg table_body_item_longtext_text">{{$donation->note}}</p>
                 </td>
-                <td class="hel_reg table_body_item_text">{{$donation->amount}}&euro;</td>
+                <td class="hel_reg table_body_item_text">{{number_format($donation->amount/100, 2, ',', ' ')}}&euro;</td>
 
             </tr>
 

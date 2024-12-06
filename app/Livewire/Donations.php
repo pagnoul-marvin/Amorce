@@ -11,16 +11,17 @@ class Donations extends Component
 {
     use WithPagination;
     protected $listeners = ['donations' => 'donations'];
+    public $orderDirection = 'desc';
 
     #[Computed]
     public function donations()
     {
-        return Donation::orderBy('date', 'desc')->paginate(10);
+        return Donation::orderBy('date', $this->orderDirection)->paginate(10);
     }
 
-    public function render()
+    public function switchOrderOfDate(): void
     {
-        return view('livewire.donations');
+        $this->orderDirection = $this->orderDirection === 'desc' ? 'asc' : 'desc';
     }
 }
 

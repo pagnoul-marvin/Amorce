@@ -157,7 +157,7 @@ table {
   text-decoration: none;
 }
 
-.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type=file]::file-selector-button, .close, .add_donations_manually_or_import_list_item_text, .dot {
+.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type=file]::file-selector-button, .close, .add_donations_manually_or_import_list_item_text, .dot, .table_head_item:first-of-type {
   cursor: pointer;
 }
 
@@ -322,6 +322,9 @@ table {
 }
 .table_head_item {
   text-align: left;
+}
+.table_head_item:first-of-type {
+  user-select: none;
 }
 .table_head_item:last-of-type {
   text-align: right;
@@ -540,7 +543,7 @@ table {
   justify-content: center;
 }
 .header .app_nav_theme_switcher_and_profile_content_image_img {
-  height: 100%;
+  width: 100%;
 }
 .header .app_nav_theme_switcher_and_profile_content {
   gap: 0.9375em;
@@ -674,7 +677,7 @@ table {
   justify-content: center;
 }
 .home_sections_container .todo_list_section_content_list_item_profile_pictures_list_item_img {
-  height: 100%;
+  width: 100%;
 }
 
 .profile_form_section {
@@ -691,7 +694,7 @@ table {
   justify-content: center;
 }
 .profile_form_section_profile_picture_container_img {
-  height: 100%;
+  width: 100%;
 }
 .profile_form_section_form {
   flex-direction: row;
@@ -793,6 +796,7 @@ table {
 .modal_section_content_form_input_label_container .input[type=file]::file-selector-button {
   background-color: var(--black_color);
   color: var(--white_color);
+  border-color: var(--black_color);
 }
 .modal_section_content_form_input_label_container select.input {
   appearance: none;

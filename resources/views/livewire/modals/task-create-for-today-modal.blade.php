@@ -67,7 +67,7 @@
                                 <div class="form_user_list_item_label_username_and_picture_container flex">
 
                                     <img class="form_user_list_item_label_username_and_picture_container_picture"
-                                         src="{{asset($user->picture)}}"
+                                         src="{{$user->picture ? asset($user->picture) : asset('img/photo_profile.jpg')}}"
                                          alt="{{__('texts.profile_photo')}} {{$user->firstname}}">
                                     <p class="hel_reg">{{$user->firstname}} {{$user->lastname}}</p>
 

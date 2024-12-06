@@ -16,16 +16,14 @@
 
         </div>
 
-        <form wire:submit="save" class="modal_section_content_form flex">
-
-            @csrf
+        <form wire:submit="save" class="modal_section_content_form flex" enctype="multipart/form-data">
 
             <x-layout.input-label-container id="csv" class="modal_section_content_form_input_label_container" :label="__('texts.file')">
 
-                <input class="input" type="file" id="csv" wire:model.blur="" required value="{{old('')}}">
+                <input class="input" type="file" id="csv" required wire:model.blur="form.csv">
 
-                @error('')
-                <x-input-error :messages="$errors->get('')"/>
+                @error('form.csv')
+                <x-input-error :messages="$errors->get('form.csv')"/>
                 @enderror
 
             </x-layout.input-label-container>

@@ -8,25 +8,9 @@
 
         <div class="profile_form_section_profile_picture_container flex">
 
-            @if(Auth::user()->picture)
-
-                <img class="profile_form_section_profile_picture_container_img"
-                     srcset="{{asset('users/'.Auth::id().'/large/'.basename(Auth::user()->picture))}} 720w,
-                {{asset('users/'.Auth::id().'/medium/'.basename(Auth::user()->picture))}} 500w,
-                {{asset('users/'.Auth::id().'/small/'.basename(Auth::user()->picture))}} 300w"
-                     sizes="(max-width: 800px) 300px, (max-width: 1000px) 500px, 720px"
-                     src="{{ asset(Auth::user()->picture) }}"
-                     alt="{{ __('texts.profile_photo') }} {{ Auth::user()->firstname }}">
-            @else
-
-                <img class="profile_form_section_profile_picture_container_img" srcset="
-                        {{asset('img/photo_720.jpg')}} 720w,
-                {{asset('img/photo_500.jpg')}} 500w,
-                {{asset('img/photo_300.jpg')}} 300w"
-                     sizes="(max-width: 800px) 300px,(max-width: 1000px) 500px, 720px"
-                     src="{{ asset('img/photo_720.jpg') }}"
-                     alt="{{ __('texts.profile_photo') }} {{ Auth::user()->firstname }}">
-            @endif
+            <img class="profile_form_section_profile_picture_container_img"
+                 src="{{ Auth::user()->picture ? asset('users/'.Auth::id().'/picture/'.basename(Auth::user()->picture)) : asset('img/photo_profile.jpg') }}"
+                 alt="{{ __('texts.profile_photo') }} {{ Auth::user()->firstname }}">
 
         </div>
 

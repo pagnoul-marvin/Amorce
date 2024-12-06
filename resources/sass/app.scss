@@ -46,7 +46,7 @@
     text-decoration: none;
 }
 
-.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type = 'file']::file-selector-button, .close, .add_donations_manually_or_import_list_item_text, .dot {
+.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type = 'file']::file-selector-button, .close, .add_donations_manually_or_import_list_item_text, .dot, .table_head_item:first-of-type {
     cursor: pointer;
 }
 
@@ -231,6 +231,10 @@
     &_head {
         &_item {
             text-align: left;
+
+            &:first-of-type {
+                user-select: none;
+            }
 
             &:last-of-type {
                 text-align: right;
@@ -514,7 +518,7 @@
                 justify-content: center;
 
                 &_img {
-                    height: 100%;
+                    width: 100%;
                 }
             }
 
@@ -683,7 +687,7 @@
                             justify-content: center;
 
                             &_img {
-                                height: 100%;
+                                width: 100%;
                             }
                         }
                     }
@@ -707,7 +711,7 @@
         justify-content: center;
 
         &_img {
-            height: 100%;
+            width: 100%;
         }
     }
 
@@ -832,6 +836,7 @@
                         &::file-selector-button {
                             background-color: var(--black_color);
                             color: var(--white_color);
+                            border-color: var(--black_color);
                         }
                     }
                 }
