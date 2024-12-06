@@ -14,9 +14,10 @@ return new class extends Migration
         Schema::create('donations', function (Blueprint $table) {
             $table->id();
             $table->longText('note')->nullable();
-            $table->unsignedBigInteger('amount');
+            $table->BigInteger('amount');
             $table->timestamp('date');
             $table->unsignedBigInteger('fund_id')->default(0);
+            $table->string('hash')->nullable();
             $table->timestamps();
         });
     }

@@ -22,7 +22,6 @@ class FundFactory extends Factory
             'amount' => $this->faker->numberBetween(500, 10000),
             'pourcentage' => $this->faker->numberBetween(0,10),
             'enclosed' => $this->faker->boolean(),
-            'account_number' => $this->faker->creditCardNumber,
         ];
     }
 }

@@ -76,4 +76,5 @@ return [
     'donation_location' => 'Ce don a été fait au fond général',
     'fund_serve' => 'Ce fond servira à ...',
     'search' => 'Rechercher',
+    'link_a_transaction_to_a_fund' => 'Lier une transaction à un fond',
 ];

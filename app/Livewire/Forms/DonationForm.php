@@ -46,35 +46,36 @@ class DonationForm extends Form
         Donation::create($this->except('csv'));
     }
 
-    public function storeCSV(): void
+    public function manageCSV(): void
     {
-        $this->fund_id = 1;
-        $this->amount = 0;
-        $this->date = now();
-        $this->validate();
+        $this->validateOnly('csv');
         $handle = fopen($this->csv->path(), 'r');
+        $transactionsNeedToBeLinked = session('transactionsNeedToBeLinked', []);
 
         while (!feof($handle)) {
-            $datas = [];
+            $datas = fgetcsv($handle);
+            $str = '';
+            if($datas){
+                $str = implode(',', $datas);
+            }
+            $hash = md5($str);
 
-            $column_data = fgetcsv($handle);
-            if ($column_data === false) {
-                break;
+            if ($hash === Donation::where('hash', $hash)) {
+                continue;
+            } else {
+                session(['transactionsNeedToBeLinked' => $datas]);
             }
 
-            $datas[] = $column_data;
+            $transactionsNeedToBeLinked[] = $datas;
 
-            foreach ($datas as $data) {
-                $this->date = Carbon::parse($data[0])->format('Y-m-d');
-                $this->amount = intval(floatval(str_replace(',', '.', $column_data[2])) * 100);
-                //$fund = $data[4];
-                //$this->fund_id = Fund::where('account_number', $fund)->value('id');
-                //if (!$this->fund_id) {
-                  //  throw new \Exception("Fund not found");
-                //}
-            }
-            Donation::create($this->except('csv'));
+            //$toCreate = [
+                //'hash' => $hash,
+               // 'date' => Carbon::parse($datas[0])->format('Y-m-d'),
+               // 'amount' => floatval(str_replace(',', '.', $datas[2])) * 100,
+            //];
+            //Donation::create($toCreate);
         }
         fclose($handle);
+        session(['transactionsNeedToBeLinked' => $transactionsNeedToBeLinked]);
     }
 }

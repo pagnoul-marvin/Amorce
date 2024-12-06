@@ -19,10 +19,6 @@ return new class extends Migration {
             $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade');
         });
 
-        Schema::table('transactions', function (Blueprint $table) {
-            $table->foreign('from_fund_id')->references('id')->on('funds')->onDelete('cascade');
-            $table->foreign('to_fund_id')->references('id')->on('funds')->onDelete('cascade');
-        });
         Schema::table('donations', function (Blueprint $table) {
             $table->foreign('fund_id')->references('id')->on('funds')->onDelete('cascade');
         });
@@ -42,9 +38,8 @@ return new class extends Migration {
             $table->dropForeign('task_id');
         });
 
-        Schema::table('transactions', function (Blueprint $table) {
-            $table->dropForeign('from_fund_id');
-            $table->dropForeign('to_fund_id');
+        Schema::table('donations', function (Blueprint $table) {
+            $table->dropForeign('fund_id');
         });
     }
 };

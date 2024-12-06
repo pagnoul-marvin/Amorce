@@ -92,10 +92,5 @@ class DatabaseSeeder extends Seeder
                 $donation->fund_id = $fund;
             });
         }
-
-        Transaction::factory(200)->create([
-            'from_fund_id' => Fund::all()->random()->id,
-            'to_fund_id' => Fund::all()->random()->id,
-        ]);
     }
 }

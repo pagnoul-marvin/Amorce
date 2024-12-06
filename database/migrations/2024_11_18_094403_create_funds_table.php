@@ -17,7 +17,6 @@ return new class extends Migration
             $table->longText('description');
             $table->unsignedbigInteger('amount')->default(0);
             $table->unsignedBigInteger('pourcentage');
-            $table->string('account_number');
             $table->boolean('enclosed')->default(false);
             $table->timestamps();
         });

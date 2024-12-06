@@ -26,10 +26,8 @@ class DonationImportModal extends Component
 
     public function save(): void
     {
-        $this->form->storeCSV();
-        $this->form->reset();
+        $this->form->manageCSV();
         $this->dispatch('closeModal');
-        $this->dispatch('openSuccessMessage', 'Le fichier CSV a été importé avec succès !');
-        $this->dispatch('donations');
+        $this->dispatch('openLinkATransactionToAFund');
     }
 }

@@ -15,6 +15,8 @@
 
     <livewire:modals.donation-import-modal wire:key="funds-and-donations-import-donation-modal"/>
 
+    <livewire:modals.link-a-transaction-to-a-fund-modal wire:key="link-a-transaction-to-a-fund-modal"/>
+
     <livewire:success-message wire:key="funds-donations-success-message"/>
 
 </div>

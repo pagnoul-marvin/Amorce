@@ -76,4 +76,5 @@ return [
     'donation_location' => 'This donation was made to the general fund',
     'fund_serve' => 'This fund will be used to ...',
     'search' => 'Search',
+    'link_a_transaction_to_a_fund' => 'Link a transaction to a fund',
 ];
