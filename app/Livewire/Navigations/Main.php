@@ -9,8 +9,9 @@ class Main extends Component
     public $main_nav_title;
     public $main_links;
 
-    public function mount() {
-        $this->main_nav_title = __('text.main_navigation');
+    public function mount(): void
+    {
+        $this->main_nav_title = __('texts.main_navigation');
         $this->main_links = [
             ['name' => __('texts.home'), 'url' => '/accueil'],
             ['name' => __('texts.projects'), 'url' => '/projets'],
