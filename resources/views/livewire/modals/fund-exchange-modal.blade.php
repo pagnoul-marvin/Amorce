@@ -12,19 +12,26 @@
 
             <h2 class="modal_section_content_title_and_close_container_title hel_bold">{{__('texts.perform_exchange')}}</h2>
 
-            <livewire:icons.close to="modals.fund-exchange-modal" event="closeModal" wire:key="fund-exchange-modal-close-icon"/>
+            <livewire:icons.close to="modals.fund-exchange-modal" event="closeModal"
+                                  wire:key="fund-exchange-modal-close-icon"/>
 
         </div>
 
         <form wire:submit="save" class="modal_section_content_form flex">
 
-            <x-layout.input-label-container id="from" class="modal_section_content_form_input_label_container" :label="__('texts.from')">
+            <x-layout.input-label-container id="from" class="modal_section_content_form_input_label_container"
+                                            :label="__('texts.from')">
 
-                <select class="input" id="from" wire:model.blur="form.from_fund" required value="{{old('form.from_fund')}}">
+                <select class="input" id="from" wire:model.blur="form.from_fund" required
+                        value="{{old('form.from_fund')}}">
+
+                    <option class="option">{{__('texts.choose_a_fund')}}</option>
 
                     @foreach($funds as $fund)
 
-                        <option class="option" wire:model.blur="form.from_fund" value="{{$fund->id}}" wire:key="from-{{$fund->id}}">{{$fund->name}} {{$fund->amount}}&euro;</option>
+                        <option class="option" wire:model.blur="form.from_fund" value="{{$fund->id}}"
+                                wire:key="from-{{$fund->id}}">{{$fund->name}} {{$fund->amount}}&euro;
+                        </option>
 
                     @endforeach
 
@@ -35,13 +42,18 @@
                 @enderror
 
             </x-layout.input-label-container>
-            <x-layout.input-label-container id="to" class="modal_section_content_form_input_label_container" :label="__('texts.to')">
+            <x-layout.input-label-container id="to" class="modal_section_content_form_input_label_container"
+                                            :label="__('texts.to')">
 
                 <select class="input" id="to" wire:model.blur="form.to_fund" required value="{{old('form.to_fund')}}">
 
+                    <option class="option">{{__('texts.choose_a_fund')}}</option>
+
                     @foreach($funds as $fund)
 
-                        <option class="option" wire:model.blur="form.to" wire:key="to-{{$fund->id}}">{{$fund->name}} {{$fund->amount}}&euro;</option>
+                        <option class="option" wire:model.blur="form.to" wire:key="to-{{$fund->id}}">
+                            {{$fund->name}} {{$fund->amount}}&euro;
+                        </option>
 
                     @endforeach
 
@@ -52,9 +64,11 @@
                 @enderror
 
             </x-layout.input-label-container>
-            <x-layout.input-label-container id="amount" class="modal_section_content_form_input_label_container" :label="__('texts.amount')">
+            <x-layout.input-label-container id="amount" class="modal_section_content_form_input_label_container"
+                                            :label="__('texts.amount')">
 
-                <input class="input" type="number" placeholder="10" id="amount" wire:model.blur="form.amount" required value="{{old('form.amount')}}">
+                <input class="input" type="number" placeholder="10" id="amount" wire:model.blur="form.amount" required
+                       value="{{old('form.amount')}}">
 
                 @error('form.amount')
                 <x-input-error :messages="$errors->get('form.amount')"/>
@@ -62,7 +76,9 @@
 
             </x-layout.input-label-container>
 
-            <x-form.submit-button :text="__('texts.exchange')" div_class="modal_section_content_form_submit_btn_container" btn_class="modal_section_content_form_submit_btn_container_submit_btn button"/>
+            <x-form.submit-button :text="__('texts.exchange')"
+                                  div_class="modal_section_content_form_submit_btn_container"
+                                  btn_class="modal_section_content_form_submit_btn_container_submit_btn button"/>
 
         </form>
 

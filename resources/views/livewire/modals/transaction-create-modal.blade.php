@@ -12,42 +12,52 @@
 
             <h2 class="modal_section_content_title_and_close_container_title hel_bold">{{__('texts.add_donation_manually')}}</h2>
 
-            <livewire:icons.close to="modals.transaction-create-modal" event="closeModal" wire:key="transaction-create-modal-close-icon"/>
+            <livewire:icons.close to="modals.transaction-create-modal" event="closeModal"
+                                  wire:key="transaction-create-modal-close-icon"/>
 
         </div>
 
         <form wire:submit="save" class="modal_section_content_form flex">
 
-            <x-layout.input-label-container id="date" class="modal_section_content_form_input_label_container" :label="__('texts.date_form')">
+            <x-layout.input-label-container id="date" class="modal_section_content_form_input_label_container"
+                                            :label="__('texts.date_form')">
 
-                <input class="input" type="date" id="date" wire:model.blur="form.date" required value="{{old('form.date')}}">
+                <input class="input" type="date" id="date" wire:model.blur="form.date" required
+                       value="{{old('form.date')}}">
 
                 @error('form.date')
                 <x-input-error :messages="$errors->get('form.date')"/>
                 @enderror
 
             </x-layout.input-label-container>
-            <x-layout.input-label-container id="amount" class="modal_section_content_form_input_label_container" :label="__('texts.amount')">
+            <x-layout.input-label-container id="amount" class="modal_section_content_form_input_label_container"
+                                            :label="__('texts.amount')">
 
-                <input class="input" type="number" id="amount" wire:model.blur="form.amount" required placeholder="10" value="{{old('form.amount')}}">
+                <input class="input" type="number" id="amount" wire:model.blur="form.amount" required placeholder="10"
+                       value="{{old('form.amount')}}">
 
                 @error('form.amount')
                 <x-input-error :messages="$errors->get('form.amount')"/>
                 @enderror
 
             </x-layout.input-label-container>
-            <x-layout.input-label-container id="note" class="modal_section_content_form_input_label_container" :label="__('texts.note')">
+            <x-layout.input-label-container id="note" class="modal_section_content_form_input_label_container"
+                                            :label="__('texts.note')">
 
-                <textarea class="input" id="note" wire:model.blur="form.note" placeholder="{{__('texts.transactions_location')}}"></textarea>
+                <textarea class="input" id="note" wire:model.blur="form.note"
+                          placeholder="{{__('texts.transactions_location')}}"></textarea>
 
                 @error('form.note')
                 <x-input-error :messages="$errors->get('form.note')"/>
                 @enderror
 
             </x-layout.input-label-container>
-            <x-layout.input-label-container id="fund" class="modal_section_content_form_input_label_container" :label="__('texts.funds_form')">
+            <x-layout.input-label-container id="fund" class="modal_section_content_form_input_label_container"
+                                            :label="__('texts.funds_form')">
 
                 <select class="input" id="fund" wire:model.blur="form.fund_id" required value="{{old('form.fund_id')}}">
+
+                    <option class="option">{{__('texts.choose_a_fund')}}</option>
 
                     @foreach($funds as $fund)
 
@@ -63,7 +73,8 @@
 
             </x-layout.input-label-container>
 
-            <x-form.submit-button :text="__('texts.add')" div_class="modal_section_content_form_submit_btn_container" btn_class="modal_section_content_form_submit_btn_container_submit_btn button"/>
+            <x-form.submit-button :text="__('texts.add')" div_class="modal_section_content_form_submit_btn_container"
+                                  btn_class="modal_section_content_form_submit_btn_container_submit_btn button"/>
 
         </form>
 

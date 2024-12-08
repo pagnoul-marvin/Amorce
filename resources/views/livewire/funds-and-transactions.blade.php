@@ -15,7 +15,7 @@
 
     <livewire:modals.transaction-import-modal wire:key="funds-and-transactions-import-donation-modal"/>
 
-    <!-- TODO ajouter la modal pour lier une transaction du CSV à un fond -->
+    <livewire:modals.link-a-transaction-to-a-fund-modal wire:key="link-a-transaction-to-a-fund-modal"/>
 
     <livewire:success-message wire:key="funds-transactions-success-message"/>
 

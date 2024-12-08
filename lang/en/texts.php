@@ -78,4 +78,5 @@ return [
     'search' => 'Search',
     'link_a_transaction_to_a_fund' => 'Link a transaction to a fund',
     'transactions_pagination' => 'Transactions pagination',
+    'choose_a_fund' => 'Choose a fund',
 ];

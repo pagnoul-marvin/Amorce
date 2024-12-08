@@ -12,37 +12,57 @@
 
             <h2 class="modal_section_content_title_and_close_container_title hel_bold">{{__('texts.link_a_transaction_to_a_fund')}}</h2>
 
-            <livewire:icons.close to="modals.link-a-transaction-to-a-fund-modal" event="closeModal" wire:key="link-a-transaction-to-a-fund-modal-close-icon"/>
+            <livewire:icons.close to="modals.link-a-transaction-to-a-fund-modal" event="closeModal"
+                                  wire:key="link-a-transaction-to-a-fund-modal-close-icon"/>
 
         </div>
 
-            @foreach($transactionsNeedToBeLinked as $transaction)
+        @if(count($this->transactions) > 0)
 
-                <form wire:submit="save" class="modal_section_content_form flex">
+            <div>
 
-                    <x-layout.input-label-container id="fund" class="modal_section_content_form_input_label_container" :label="__('texts.funds_form')">
+                <p>Voici la transaction a ajouté :</p>
 
-                        <select class="input" id="fund" wire:model.blur="form.fund_id" required>
+                <div class="flex">
 
-                            @foreach($funds as $fund)
+                    <p>Date : {{$this->transactions[$transactionCounter][0]}}</p>
+                    <p>Montant : {{$this->transactions[$transactionCounter][2]}}</p>
+                    <p>Note : {{$this->transactions[$transactionCounter][8]}}</p>
 
-                                <option class="option" value="{{$fund->id}}">{{$fund->name}}</option>
+                </div>
 
-                            @endforeach
+            </div>
 
-                        </select>
+            <form wire:submit="save" class="modal_section_content_form flex">
 
-                        @error('form.fund_id')
-                        <x-input-error :messages="$errors->get('form.fund_id')"/>
-                        @enderror
+                <x-layout.input-label-container id="fund" class="modal_section_content_form_input_label_container"
+                                                :label="__('texts.funds_form')">
 
-                    </x-layout.input-label-container>
+                    <select class="input" id="fund" wire:model.blur="form.fund_id" required>
 
-                    <x-form.submit-button :text="__('texts.add')" div_class="modal_section_content_form_submit_btn_container" btn_class="modal_section_content_form_submit_btn_container_submit_btn button"/>
+                        <option class="option">{{__('texts.choose_a_fund')}}</option>
 
-                </form>
+                        @foreach($funds as $fund)
 
-            @endforeach
+                            <option class="option" value="{{$fund->id}}">{{$fund->name}}</option>
+
+                        @endforeach
+
+                    </select>
+
+                    @error('form.fund_id')
+                    <x-input-error :messages="$errors->get('form.fund_id')"/>
+                    @enderror
+
+                </x-layout.input-label-container>
+
+                <x-form.submit-button :text="__('texts.add')"
+                                      div_class="modal_section_content_form_submit_btn_container"
+                                      btn_class="modal_section_content_form_submit_btn_container_submit_btn button"/>
+
+            </form>
+
+        @endif
 
     </div>
 
