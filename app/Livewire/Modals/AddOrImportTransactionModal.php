@@ -4,7 +4,7 @@ namespace App\Livewire\Modals;
 
 use Livewire\Component;
 
-class AddOrImportDonationModal extends Component
+class AddOrImportTransactionModal extends Component
 {
     public bool $isOpen = false;
     protected $listeners = ['toggleVisibility' => 'toggleVisibility'];
@@ -16,6 +16,6 @@ class AddOrImportDonationModal extends Component
 
     public function render()
     {
-        return view('livewire.modals.add-or-import-donation-modal');
+        return view('livewire.modals.add-or-import-transaction-modal');
     }
 }

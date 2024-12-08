@@ -12,7 +12,7 @@
 
             <h2 class="modal_section_content_title_and_close_container_title hel_bold">{{__('texts.import')}}</h2>
 
-            <livewire:icons.close to="modals.donation-import-modal" event="closeModal" wire:key="donation-import-modal-close-icon"/>
+            <livewire:icons.close to="modals.transaction-import-modal" event="closeModal" wire:key="transaction-import-modal-close-icon"/>
 
         </div>
 

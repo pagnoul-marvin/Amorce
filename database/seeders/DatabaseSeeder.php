@@ -3,10 +3,9 @@
 namespace Database\Seeders;
 
 use App\Enum\UserRoles;
-use App\Models\Donation;
+use App\Models\Transaction;
 use App\Models\Fund;
 use App\Models\Task;
-use App\Models\Transaction;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -58,7 +57,7 @@ class DatabaseSeeder extends Seeder
         });
 
         $general_fund = Fund::factory()
-            ->has(Donation::factory(10), 'donations')
+            ->has(Transaction::factory(10), 'donations')
             ->create([
             'name' => 'General',
             'description' => 'Le fond général est le fond de base de l\'Amorce',
@@ -67,7 +66,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $fonctionnement_fund = Fund::factory()
-            ->has(Donation::factory(10), 'donations')
+            ->has(Transaction::factory(10), 'donations')
             ->create([
             'name' => 'Fonctionnement',
             'description' => 'Le fond de fonctionnement est le fond qui gère l\'argent qui permet le bon fonctionnement de l\'Amorce',
@@ -76,7 +75,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $funds = Fund::factory(5)
-            ->has(Donation::factory(10), 'donations')
+            ->has(Transaction::factory(10), 'donations')
             ->create();
 
         $general_fund->donations->each(function ($donation) use ($general_fund) {

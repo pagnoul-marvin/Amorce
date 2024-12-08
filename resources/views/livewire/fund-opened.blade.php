@@ -6,7 +6,7 @@
             {{$fund->amount}}&euro;</p>
 
         <a class="funds_section_lists_container_in_process_list_item_link hel_reg" wire:navigate
-           href="{{route('funds_and_donations.show', $fund)}}"
+           href="{{route('funds_and_transactions.show', $fund)}}"
            title="{{__('texts.see_details')}} {{$fund->name}}">{{$fund->name}} &ndash; {{$fund->pourcentage}}
             %</a>
 

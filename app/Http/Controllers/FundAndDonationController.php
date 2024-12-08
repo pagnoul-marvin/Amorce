@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FundGetEnclosedOrOpenedRequest;
-use App\Models\Donation;
+use App\Models\Transaction;
 use App\Models\Fund;
 use Illuminate\Http\Request;
 

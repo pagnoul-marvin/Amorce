@@ -2,21 +2,21 @@
 
 namespace App\Livewire;
 
-use App\Models\Donation;
+use App\Models\Transaction;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Donations extends Component
+class Transactions extends Component
 {
     use WithPagination;
-    protected $listeners = ['donations' => 'donations'];
+    protected $listeners = ['transactions' => 'transactions'];
     public $orderDirection = 'desc';
 
     #[Computed]
-    public function donations()
+    public function transactions()
     {
-        return Donation::orderBy('date', $this->orderDirection)->paginate(10);
+        return Transaction::orderBy('date', $this->orderDirection)->paginate(10);
     }
 
     public function switchOrderOfDate(): void

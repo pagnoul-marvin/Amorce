@@ -2,12 +2,11 @@
 
 namespace App\Livewire\Forms;
 
-use App\Models\Donation;
-use Carbon\Carbon;
+use App\Models\Transaction;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
-class DonationForm extends Form
+class TransactionForm extends Form
 {
     #[Validate]
     public $note;
@@ -43,7 +42,7 @@ class DonationForm extends Form
         $this->validateOnly('amount');
         $this->validateOnly('fund_id');
         $this->validateOnly('date');
-        Donation::create($this->except('csv'));
+        Transaction::create($this->except('csv'));
     }
 
     public function manageCSV(): void
@@ -60,7 +59,7 @@ class DonationForm extends Form
             }
             $hash = md5($str);
 
-            if ($hash === Donation::where('hash', $hash)) {
+            if ($hash === Transaction::where('hash', $hash)) {
                 continue;
             } else {
                 session(['transactionsNeedToBeLinked' => $datas]);
@@ -73,7 +72,7 @@ class DonationForm extends Form
                // 'date' => Carbon::parse($datas[0])->format('Y-m-d'),
                // 'amount' => floatval(str_replace(',', '.', $datas[2])) * 100,
             //];
-            //Donation::create($toCreate);
+            //Transaction::create($toCreate);
         }
         fclose($handle);
         session(['transactionsNeedToBeLinked' => $transactionsNeedToBeLinked]);

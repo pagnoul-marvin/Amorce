@@ -22,7 +22,7 @@ class Fund extends Model
 
     public function donations(): HasMany
     {
-        return $this->hasMany(Donation::class);
+        return $this->hasMany(Transaction::class);
     }
 
     public function transactions(): belongsToMany

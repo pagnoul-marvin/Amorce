@@ -2,15 +2,15 @@
 
 namespace App\Livewire\Modals;
 
-use App\Livewire\Forms\DonationForm;
+use App\Livewire\Forms\TransactionForm;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
-class DonationImportModal extends Component
+class TransactionImportModal extends Component
 {
     use WithFileUploads;
     public $isOpen = false;
-    public DonationForm $form;
+    public TransactionForm $form;
 
     protected $listeners = ['openModal' => 'openModal', 'closeModal' => 'closeModal'];
 

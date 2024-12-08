@@ -17,7 +17,7 @@ class Main extends Component
             ['name' => __('texts.todo_list'), 'url' => '/todolist'],
             ['name' => __('texts.reports'), 'url' => '/comptes-rendus'],
             ['name' => __('texts.newsletter'), 'url' => '/newsletter'],
-            ['name' => __('texts.account_donation'), 'url' => '/fonds-et-dons'],
+            ['name' => __('texts.account_transactions'), 'url' => '/fonds-et-transactions'],
         ];
     }
 

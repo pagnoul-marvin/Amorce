@@ -12,7 +12,7 @@
 
             <h2 class="modal_section_content_title_and_close_container_title hel_bold">{{__('texts.add_donation_manually')}}</h2>
 
-            <livewire:icons.close to="modals.donation-create-modal" event="closeModal" wire:key="donation-create-modal-close-icon"/>
+            <livewire:icons.close to="modals.transaction-create-modal" event="closeModal" wire:key="transaction-create-modal-close-icon"/>
 
         </div>
 
@@ -38,7 +38,7 @@
             </x-layout.input-label-container>
             <x-layout.input-label-container id="note" class="modal_section_content_form_input_label_container" :label="__('texts.note')">
 
-                <textarea class="input" id="note" wire:model.blur="form.note" placeholder="{{__('texts.donation_location')}}"></textarea>
+                <textarea class="input" id="note" wire:model.blur="form.note" placeholder="{{__('texts.transactions_location')}}"></textarea>
 
                 @error('form.note')
                 <x-input-error :messages="$errors->get('form.note')"/>

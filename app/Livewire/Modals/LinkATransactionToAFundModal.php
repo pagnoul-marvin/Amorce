@@ -2,14 +2,14 @@
 
 namespace App\Livewire\Modals;
 
-use App\Livewire\Forms\DonationForm;
+use App\Livewire\Forms\TransactionForm;
 use App\Models\Fund;
 use Livewire\Component;
 
 class LinkATransactionToAFundModal extends Component
 {
     public $funds;
-    public DonationForm $form;
+    public TransactionForm $form;
     public $transactionsNeedToBeLinked;
     public $isOpen = false;
 
