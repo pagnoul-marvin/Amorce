@@ -54,11 +54,18 @@ class FundForm extends Form
         $this->pourcentage = $fund->pourcentage;
     }
 
+    public function updateStatus(): void
+    {
+        $this->validateOnly('enclosed');
+        $this->fund->update($this->only('enclosed'));
+    }
+
     public function update(): void
     {
-        $this->amount = 0;
         $this->from_fund = 0;
         $this->to_fund = 0;
+        $this->amount = 0;
+        $this->enclosed = $this->fund->enclosed;
         $this->validate();
         $this->fund->update($this->except('amount', 'from_fund', 'to_fund'));
     }

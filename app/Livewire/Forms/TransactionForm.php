@@ -23,7 +23,7 @@ class TransactionForm extends Form
     #[Validate]
     public $csv;
 
-    public $donation;
+    public $transaction;
 
     public function rules(): array
     {
@@ -81,5 +81,10 @@ class TransactionForm extends Form
         }
         fclose($handle);
         session(['transactionsNeedToBeLinked' => $transactionsNeedToBeLinked]);
+    }
+
+    public function delete(Transaction $transaction): void
+    {
+        $transaction->delete();
     }
 }

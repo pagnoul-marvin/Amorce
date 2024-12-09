@@ -268,6 +268,14 @@ table {
   height: 100%;
   border-radius: 0 0.5em 0.5em 0;
 }
+.input_error_message .input[type=number]::-webkit-inner-spin-button, .input_error_message .input[type=number]::-webkit-outer-spin-button {
+  appearance: none;
+}
+.input_error_message .input[id=pourcentage], .input_error_message .input[id=amount] {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: right 1.25em center;
+}
 .input_error_message .error_message {
   color: var(--red_color);
   font-size: 0.9375em;
@@ -334,8 +342,8 @@ table {
 }
 .table_body_item_text, .table_body_item_longtext {
   border-bottom: 1px solid var(--line_color_switchable);
-  padding: 1.25em 0;
-  width: 30%;
+  padding: 1.25em 1em 1.25em 0;
+  width: 33%;
 }
 .table_body_item_text:last-of-type {
   text-align: right;
@@ -364,6 +372,9 @@ table {
 }
 .section.space {
   margin-bottom: 1.25em;
+}
+.section.space_up {
+  margin-top: 2.5em;
 }
 
 .section_title_and_button {
@@ -680,12 +691,12 @@ table {
   width: 100%;
 }
 
-.profile_form_section {
+.profile_form_section, .fund_details_section {
   gap: 6.25em;
   align-items: center;
   position: relative;
 }
-.profile_form_section_profile_picture_container {
+.profile_form_section_profile_picture_container, .fund_details_section_profile_picture_container {
   width: 200px;
   height: 200px;
   overflow: hidden;
@@ -693,22 +704,26 @@ table {
   align-items: center;
   justify-content: center;
 }
-.profile_form_section_profile_picture_container_img {
+.profile_form_section_profile_picture_container_img, .fund_details_section_profile_picture_container_img {
   width: 100%;
 }
-.profile_form_section_form {
+.profile_form_section_form, .fund_details_section_form {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-end;
   gap: 2.5em 5.8125em;
 }
-.profile_form_section_form_label_and_input_container {
+.profile_form_section_form_label_and_input_container, .fund_details_section_form_label_and_input_container {
   flex-basis: calc(50% - 5.8125em);
 }
-.profile_form_section_form .submit_btn {
+.profile_form_section_form .submit_btn, .fund_details_section_form .submit_btn {
   width: 100%;
   height: 100%;
+}
+
+.fund_details_section {
+  align-items: flex-start;
 }
 
 .funds_section_lists_container {
@@ -792,6 +807,9 @@ table {
   color: var(--black_color);
   border-color: var(--black_color);
 }
+.modal_section_content_form_input_label_container .input {
+  resize: vertical;
+}
 .modal_section_content_form_input_label_container .input::placeholder {
   color: var(--black_placeholder_color);
   font-family: "Helvetica", "Arial", sans-serif;
@@ -800,6 +818,12 @@ table {
   background-color: var(--black_color);
   color: var(--white_color);
   border-color: var(--black_color);
+}
+.modal_section_content_form_input_label_container .input[id=pourcentage] {
+  background-image: url("../icons/black_pourcentage_icon.svg");
+}
+.modal_section_content_form_input_label_container .input[id=amount] {
+  background-image: url("../icons/black_euro_icon.svg");
 }
 .modal_section_content_form_input_label_container select.input {
   appearance: none;
@@ -943,6 +967,23 @@ table {
 }
 .search_form_input::placeholder {
   color: var(--black_color);
+}
+
+.input_icon {
+  position: absolute;
+  right: 1.25em;
+  top: calc(50% - 8px);
+}
+
+.fund_transactions_section .table_body_item_text, .fund_transactions_section .table_body_item_longtext {
+  width: 20%;
+}
+.fund_transactions_section .table_body_item_text:nth-of-type(4) {
+  width: 10%;
+}
+.fund_transactions_section .table .submit_btn {
+  font-size: unset;
+  padding: 0.9375em;
 }
 
 /*# sourceMappingURL=app.css.map */

@@ -27,7 +27,7 @@ class FundOpened extends Component
     public function save(): void
     {
         if (number_format($this->fund->transactions->sum('amount') / 100, 2, '.', ' ') == 0) {
-            $this->form->update();
+            $this->form->updateStatus();
             $this->dispatch('openSuccessMessage', 'Le fond ' . $this->fund->name . ' a été clotûré avec succès !');
             $this->dispatch('fundOpened');
             $this->dispatch('fundEnclosed');

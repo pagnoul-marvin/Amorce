@@ -44,7 +44,7 @@
             <x-layout.input-label-container id="note" class="modal_section_content_form_input_label_container"
                                             :label="__('texts.note')">
 
-                <textarea class="input" id="note" wire:model.blur="form.note"
+                <textarea rows="5" class="input" id="note" wire:model.blur="form.note"
                           placeholder="{{__('texts.transactions_location')}}"></textarea>
 
                 @error('form.note')

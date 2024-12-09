@@ -80,5 +80,10 @@ return [
     'transactions_pagination' => 'Transactions pagination',
     'choose_a_fund' => 'Choose a fund',
     'understand' => 'I understand',
-    'fund_error' => 'Impossible to make this fund enclosed'
+    'fund_error' => 'Impossible to make this fund enclosed',
+    'see_and_modify_the_fund' => 'See the details and modify the chosen fund',
+    'the_fund' => 'The fund',
+    'go_back' => 'Go back',
+    'delete' => 'Delete',
+    'transactions_linked_to' => 'Transactions linked to',
 ];

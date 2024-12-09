@@ -166,6 +166,16 @@
                 border-radius: 0 .5em .5em 0;
             }
         }
+
+        &[type = 'number']::-webkit-inner-spin-button, &[type = 'number']::-webkit-outer-spin-button {
+            appearance: none;
+        }
+
+        &[id = 'pourcentage'], &[id = amount] {
+            position: relative;
+            background-repeat: no-repeat;
+            background-position: right $spaceS center;
+        }
     }
 
     .error_message {
@@ -252,8 +262,8 @@
 
             &_text, &_longtext {
                 border-bottom: 1px solid var(--line_color_switchable);
-                padding: 1.25em 0;
-                width: 30%;
+                padding: 1.25em 1em 1.25em 0;
+                width: 33%;
             }
 
             &_text {
@@ -290,6 +300,10 @@
 
     &.space {
         margin-bottom: $spaceS;
+    }
+
+    &.space_up {
+        margin-top: $spaceXL;
     }
 }
 
@@ -697,7 +711,7 @@
     }
 }
 
-.profile_form_section {
+.profile_form_section, .fund_details_section {
     gap: $spaceDoubleXXL;
     align-items: center;
     position: relative;
@@ -731,6 +745,10 @@
             height: 100%;
         }
     }
+}
+
+.fund_details_section {
+    align-items: flex-start;
 }
 
 .funds_section {
@@ -831,6 +849,8 @@
                 }
 
                 .input {
+                    resize: vertical;
+
                     &::placeholder {
                         color: var(--black_placeholder_color);
                         font-family: 'Helvetica', 'Arial', sans-serif;
@@ -842,6 +862,14 @@
                             color: var(--white_color);
                             border-color: var(--black_color);
                         }
+                    }
+
+                    &[id = 'pourcentage'] {
+                        background-image: url("../icons/black_pourcentage_icon.svg");
+                    }
+
+                    &[id = 'amount'] {
+                        background-image: url("../icons/black_euro_icon.svg");
                     }
                 }
 
@@ -1020,3 +1048,31 @@
     }
 }
 
+.input_icon {
+    position: absolute;
+    right: $spaceS;
+    top: calc(50% - 8px);
+}
+
+.fund_transactions_section {
+    .table {
+        &_body {
+            &_item {
+                &_text, &_longtext {
+                    width: 20%;
+                }
+
+                &_text {
+                    &:nth-of-type(4) {
+                        width: 10%;
+                    }
+                }
+            }
+        }
+
+        & .submit_btn {
+            font-size: unset;
+            padding: $spaceXS;
+        }
+    }
+}

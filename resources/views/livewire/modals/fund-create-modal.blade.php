@@ -38,7 +38,7 @@
             </x-layout.input-label-container>
             <x-layout.input-label-container id="description" class="modal_section_content_form_input_label_container" :label="__('texts.description')">
 
-                <textarea class="input" id="description" wire:model.blur="form.description" placeholder="{{__('texts.fund_serve')}}" required value="{{old('form.description')}}"></textarea>
+                <textarea rows="5" class="input" id="description" wire:model.blur="form.description" placeholder="{{__('texts.fund_serve')}}" required value="{{old('form.description')}}"></textarea>
 
                 @error('form.description')
                 <x-input-error :messages="$errors->get('form.description')"/>

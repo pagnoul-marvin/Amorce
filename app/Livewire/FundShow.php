@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Livewire\Forms\FundForm;
 use App\Models\Fund;
 use Livewire\Component;
 

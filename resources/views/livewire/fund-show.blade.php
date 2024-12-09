@@ -1,5 +1,15 @@
-<x-page-title-and-description title="Les" :description="__('texts.create_and_exchange_between_funds')"
-                              bold_part="comptes et les dons"/>
+<div>
+
+    <x-page-title-and-description :title="__('texts.the_fund')" :description="__('texts.see_and_modify_the_fund')"
+                                  :bold_part="$fund->name"/>
 
 
-{{$fund->name}}
+    <livewire:navigations.go-back-nav :text="__('texts.go_back')" :href="route('funds_and_transactions.index')"/>
+
+    <livewire:fund-edit :$fund/>
+
+    <livewire:fund-transactions :$fund/>
+
+    <livewire:success-message wire:key="fund-show-success-message"/>
+
+</div>

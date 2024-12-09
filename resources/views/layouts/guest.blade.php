@@ -28,7 +28,7 @@
 
         {{$slot}}
 
-        <x-buttons.go-back-button text="Revenir vers la page de bienvenue" href="/"/>
+        <livewire:navigations.go-back-nav :text="__('texts.go_back')" :href="route('welcome')"/>
 
     </div>
 

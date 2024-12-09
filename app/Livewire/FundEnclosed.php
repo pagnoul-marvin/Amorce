@@ -20,7 +20,7 @@ class FundEnclosed extends Component
 
     public function save(): void
     {
-        $this->form->update();
+        $this->form->updateStatus();
         $this->dispatch('openSuccessMessage', 'Le fond ' . $this->fund->name . ' a été ouvert avec succès !');
         $this->dispatch('fundOpened');
         $this->dispatch('fundEnclosed');

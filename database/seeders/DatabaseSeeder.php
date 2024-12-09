@@ -57,7 +57,7 @@ class DatabaseSeeder extends Seeder
         });
 
         $general_fund = Fund::factory()
-            ->has(Transaction::factory(10), 'transactions')
+            ->has(Transaction::factory(20), 'transactions')
             ->create([
             'name' => 'General',
             'description' => 'Le fond général est le fond de base de l\'Amorce',
@@ -66,7 +66,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $fonctionnement_fund = Fund::factory()
-            ->has(Transaction::factory(10), 'transactions')
+            ->has(Transaction::factory(20), 'transactions')
             ->create([
             'name' => 'Fonctionnement',
             'description' => 'Le fond de fonctionnement est le fond qui gère l\'argent qui permet le bon fonctionnement de l\'Amorce',
@@ -74,9 +74,12 @@ class DatabaseSeeder extends Seeder
             'enclosed' => false
         ]);
 
-        $funds = Fund::factory(5)
-            ->has(Transaction::factory(10), 'transactions')
-            ->create();
+        $opened_funds = Fund::factory(5)
+            ->has(Transaction::factory(20), 'transactions')
+            ->create(['enclosed' => false]);
+
+        Fund::factory(5)
+            ->create(['enclosed' => true]);
 
         $general_fund->transactions->each(function ($transaction) use ($general_fund) {
            $transaction->fund_id = $general_fund;
@@ -86,7 +89,7 @@ class DatabaseSeeder extends Seeder
             $transaction->fund_id = $fonctionnement_fund;
         });
 
-        foreach ($funds as $fund) {
+        foreach ($opened_funds as $fund) {
             $fund->transactions->each(function ($transaction) use ($fund) {
                 $transaction->fund_id = $fund;
             });

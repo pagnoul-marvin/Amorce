@@ -80,5 +80,10 @@ return [
     'transactions_pagination' => 'Pagination des transactions',
     'choose_a_fund' => 'Choisissez un fond',
     'understand' => 'J\'ai compris',
-    'fund_error' => 'Impossible de clôturer le fond'
+    'fund_error' => 'Impossible de clôturer le fond',
+    'see_and_modify_the_fund' => 'Voir les détails et modifier le fond choisi',
+    'the_fund' => 'Le fond',
+    'go_back' => 'Revenir en arrière',
+    'delete' => 'Supprimer',
+    'transactions_linked_to' => 'Les transactions liées à',
 ];
