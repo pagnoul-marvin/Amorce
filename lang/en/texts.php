@@ -79,4 +79,6 @@ return [
     'link_a_transaction_to_a_fund' => 'Link a transaction to a fund',
     'transactions_pagination' => 'Transactions pagination',
     'choose_a_fund' => 'Choose a fund',
+    'understand' => 'I understand',
+    'fund_error' => 'Impossible to make this fund enclosed'
 ];

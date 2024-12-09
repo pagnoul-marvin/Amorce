@@ -19,7 +19,6 @@ class FundFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'description' => $this->faker->paragraph(rand(1,5)),
-            'amount' => $this->faker->numberBetween(500, 10000),
             'pourcentage' => $this->faker->numberBetween(0,10),
             'enclosed' => $this->faker->boolean(),
         ];

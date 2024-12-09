@@ -19,4 +19,6 @@
 
     <livewire:success-message wire:key="funds-transactions-success-message"/>
 
+    <livewire:modals.not-allowed-message-modal wire:key="not-allowed-message-modal"/>
+
 </div>

@@ -43,27 +43,26 @@ class FundForm extends Form
         $this->name = $fund->name;
         $this->description = $fund->description;
         $this->pourcentage = $fund->pourcentage;
-        $this->amount = $fund->amount;
     }
 
     public function update(): void
     {
+        $this->amount = 0;
         $this->validate();
-        $this->fund->update($this->all());
+        $this->fund->update($this->except('amount'));
     }
 
     public function store(): void
     {
-        $this->enclosed = false;
         $this->amount = 0;
+        $this->enclosed = false;
         $this->validate();
-        Fund::create($this->all());
+        Fund::create($this->except('amount'));
     }
 
     public function exchange(): void
     {
         $this->validate();
-
     }
 
 }

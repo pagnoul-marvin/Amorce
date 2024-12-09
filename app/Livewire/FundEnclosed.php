@@ -15,12 +15,13 @@ class FundEnclosed extends Component
     {
         $this->fund = $fund;
         $this->form->setFund($fund);
+        $this->fund->amount = $fund->transactions->sum('amount');
     }
 
     public function save(): void
     {
         $this->form->update();
-        $this->dispatch('openSuccessMessage', 'Le fond '. $this->fund->name .' a été ouvert avec succès !');
+        $this->dispatch('openSuccessMessage', 'Le fond ' . $this->fund->name . ' a été ouvert avec succès !');
         $this->dispatch('fundOpened');
         $this->dispatch('fundEnclosed');
     }

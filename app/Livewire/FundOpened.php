@@ -15,13 +15,20 @@ class FundOpened extends Component
     {
         $this->fund = $fund;
         $this->form->setFund($fund);
+        $this->fund->amount = $fund->transactions()->sum('amount');
     }
 
     public function save(): void
     {
-        $this->form->update();
-        $this->dispatch('openSuccessMessage', 'Le fond '. $this->fund->name .' a été clotûré avec succès !');
-        $this->dispatch('fundOpened');
-        $this->dispatch('fundEnclosed');
+        if ($this->fund->amount === 0) {
+            $this->form->update();
+            $this->dispatch('openSuccessMessage', 'Le fond ' . $this->fund->name . ' a été clotûré avec succès !');
+            $this->dispatch('fundOpened');
+            $this->dispatch('fundEnclosed');
+        } else {
+            $this->dispatch('openNotAllowedMessageModal', 'Le fond ' . $this->fund->name . ' contient encore de l\'argent');
+            $this->dispatch('fundOpened');
+            $this->fund->amount = $this->fund->transactions()->sum('amount');
+        }
     }
 }

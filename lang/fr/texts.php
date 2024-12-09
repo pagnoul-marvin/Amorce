@@ -79,4 +79,6 @@ return [
     'link_a_transaction_to_a_fund' => 'Lier une transaction à un fond',
     'transactions_pagination' => 'Pagination des transactions',
     'choose_a_fund' => 'Choisissez un fond',
+    'understand' => 'J\'ai compris',
+    'fund_error' => 'Impossible de clôturer le fond'
 ];

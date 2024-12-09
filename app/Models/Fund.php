@@ -20,13 +20,8 @@ class Fund extends Model
         'enclosed',
     ];
 
-    public function donations(): HasMany
+    public function transactions(): HasMany
     {
         return $this->hasMany(Transaction::class);
-    }
-
-    public function transactions(): belongsToMany
-    {
-        return $this->belongsToMany(Transaction::class, FundTransaction::class);
     }
 }
