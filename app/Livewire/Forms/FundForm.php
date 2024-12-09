@@ -77,7 +77,7 @@ class FundForm extends Form
     {
         $this->enclosed = false;
         $this->name = false;
-        $this->description = 'Échange d\'argent';
+        $this->description = 'Échange d\'argent de '. Fund::find($this->from_fund)->name. ' vers '. Fund::find($this->to_fund)->name;
         $this->pourcentage = 0;
         $this->validate();
 

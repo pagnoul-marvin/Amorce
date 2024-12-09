@@ -10,7 +10,7 @@
 
         <div class="modal_section_content_title_and_close_container flex">
 
-            <h2 class="modal_section_content_title_and_close_container_title hel_bold">{{__('texts.add_donation_manually')}}</h2>
+            <h2 class="modal_section_content_title_and_close_container_title hel_bold">{{__('texts.add_transaction_manually')}}</h2>
 
             <livewire:icons.close to="modals.transaction-create-modal" event="closeModal"
                                   wire:key="transaction-create-modal-close-icon"/>
@@ -33,7 +33,7 @@
             <x-layout.input-label-container id="amount" class="modal_section_content_form_input_label_container"
                                             :label="__('texts.amount')">
 
-                <input class="input" type="number" id="amount" wire:model.blur="form.amount" required placeholder="10"
+                <input class="input" type="number" step="any" id="amount" wire:model.blur="form.amount" required placeholder="10"
                        value="{{old('form.amount')}}">
 
                 @error('form.amount')

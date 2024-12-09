@@ -42,7 +42,12 @@ class TransactionForm extends Form
         $this->validateOnly('amount');
         $this->validateOnly('fund_id');
         $this->validateOnly('date');
-        Transaction::create($this->except('csv'));
+        Transaction::create([
+            'note' => $this->note,
+            'amount' => $this->amount * 100,
+            'fund_id' => $this->fund_id,
+            'date' => $this->date,
+        ]);
     }
 
     public function manageCSV(): void
@@ -54,7 +59,7 @@ class TransactionForm extends Form
         while (!feof($handle)) {
             $datas = fgetcsv($handle);
             $str = '';
-            if($datas){
+            if ($datas) {
                 $str = implode(',', $datas);
             }
             $hash = md5($str);
@@ -68,9 +73,9 @@ class TransactionForm extends Form
             $transactionsNeedToBeLinked[] = $datas;
 
             //$toCreate = [
-                //'hash' => $hash,
-               // 'date' => Carbon::parse($datas[0])->format('Y-m-d'),
-               // 'amount' => floatval(str_replace(',', '.', $datas[2])) * 100,
+            //'hash' => $hash,
+            // 'date' => Carbon::parse($datas[0])->format('Y-m-d'),
+            // 'amount' => floatval(str_replace(',', '.', $datas[2])) * 100,
             //];
             //Transaction::create($toCreate);
         }
