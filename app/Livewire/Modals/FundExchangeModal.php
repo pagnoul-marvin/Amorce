@@ -16,7 +16,7 @@ class FundExchangeModal extends Component
 
     public function mount(): void
     {
-        $this->funds = Fund::all();
+        $this->funds = Fund::where('enclosed', false)->get();
     }
     public function openModal(): void
     {
@@ -30,6 +30,11 @@ class FundExchangeModal extends Component
 
     public function save(): void
     {
-        $this->form->store();
+        $this->form->exchange();
+        $this->form->reset();
+        $this->dispatch('closeModal');
+        $this->dispatch('getFundAmount');
+        $this->dispatch('transactions');
+        $this->dispatch('openSuccessMessage', 'L\'échange a bien été éffectué !');
     }
 }

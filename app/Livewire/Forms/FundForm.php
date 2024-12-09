@@ -3,6 +3,7 @@
 namespace App\Livewire\Forms;
 
 use App\Models\Fund;
+use App\Models\Transaction;
 use Livewire\Attributes\Validate;
 use Livewire\Form;
 
@@ -23,6 +24,12 @@ class FundForm extends Form
     #[Validate]
     public $pourcentage;
 
+    #[Validate]
+    public $from_fund;
+
+    #[Validate]
+    public $to_fund;
+
     public $fund;
 
     public function rules(): array
@@ -33,6 +40,8 @@ class FundForm extends Form
             'amount' => 'required|numeric|min:0',
             'pourcentage' => 'required|numeric|min:0',
             'enclosed' => 'required|boolean',
+            'from_fund' => 'required',
+            'to_fund' => 'required',
         ];
     }
 
@@ -48,21 +57,42 @@ class FundForm extends Form
     public function update(): void
     {
         $this->amount = 0;
+        $this->from_fund = 0;
+        $this->to_fund = 0;
         $this->validate();
-        $this->fund->update($this->except('amount'));
+        $this->fund->update($this->except('amount', 'from_fund', 'to_fund'));
     }
 
     public function store(): void
     {
         $this->amount = 0;
+        $this->from_fund = 0;
+        $this->to_fund = 0;
         $this->enclosed = false;
         $this->validate();
-        Fund::create($this->except('amount'));
+        Fund::create($this->except('amount', 'from_fund', 'to_fund'));
     }
 
     public function exchange(): void
     {
+        $this->enclosed = false;
+        $this->name = false;
+        $this->description = 'Échange d\'argent';
+        $this->pourcentage = 0;
         $this->validate();
-    }
 
+        Transaction::create([
+            'amount' => -$this->amount * 100,
+            'fund_id' => $this->from_fund,
+            'note' => $this->description,
+            'date' => now()
+        ]);
+
+        Transaction::create([
+            'amount' => $this->amount * 100,
+            'fund_id' => $this->to_fund,
+            'note' => $this->description,
+            'date' => now()
+        ]);
+    }
 }

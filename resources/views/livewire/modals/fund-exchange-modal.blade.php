@@ -30,7 +30,7 @@
                     @foreach($funds as $fund)
 
                         <option class="option" wire:model.blur="form.from_fund" value="{{$fund->id}}"
-                                wire:key="from-{{$fund->id}}">{{$fund->name}} {{$fund->amount}}&euro;
+                                wire:key="from-{{$fund->id}}">{{$fund->name}} {{number_format($fund->transactions->sum('amount')/100, 2, ',', ' ')}}&euro;
                         </option>
 
                     @endforeach
@@ -51,8 +51,8 @@
 
                     @foreach($funds as $fund)
 
-                        <option class="option" wire:model.blur="form.to" wire:key="to-{{$fund->id}}">
-                            {{$fund->name}} {{$fund->amount}}&euro;
+                        <option class="option" wire:model.blur="form.to_fund" value="{{$fund->id}}" wire:key="to-{{$fund->id}}">
+                            {{$fund->name}} {{number_format($fund->transactions->sum('amount')/100, 2, ',', ' ')}}&euro;
                         </option>
 
                     @endforeach
@@ -67,7 +67,7 @@
             <x-layout.input-label-container id="amount" class="modal_section_content_form_input_label_container"
                                             :label="__('texts.amount')">
 
-                <input class="input" type="number" placeholder="10" id="amount" wire:model.blur="form.amount" required
+                <input class="input" type="number" step="any" placeholder="10" id="amount" wire:model.blur="form.amount" required
                        value="{{old('form.amount')}}">
 
                 @error('form.amount')

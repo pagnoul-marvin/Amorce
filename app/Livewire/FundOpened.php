@@ -10,17 +10,23 @@ class FundOpened extends Component
 {
     public FundForm $form;
     public $fund;
+    protected $listeners = ['getFundAmount' => 'getFundAmount'];
 
     public function mount(Fund $fund): void
     {
         $this->fund = $fund;
         $this->form->setFund($fund);
-        $this->fund->amount = $fund->transactions()->sum('amount');
+        $this->fund->amount = $fund->transactions->sum('amount');
+    }
+
+    public function getFundAmount(): void
+    {
+        $this->fund->amount = $this->fund->transactions->sum('amount');
     }
 
     public function save(): void
     {
-        if ($this->fund->amount*100 === 0) {
+        if (number_format($this->fund->transactions->sum('amount') / 100, 2, '.', ' ') == 0) {
             $this->form->update();
             $this->dispatch('openSuccessMessage', 'Le fond ' . $this->fund->name . ' a été clotûré avec succès !');
             $this->dispatch('fundOpened');
