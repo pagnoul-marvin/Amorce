@@ -986,4 +986,9 @@ table {
   padding: 0.9375em;
 }
 
+.table_icon_invisible {
+  visibility: hidden;
+  position: absolute;
+}
+
 /*# sourceMappingURL=app.css.map */

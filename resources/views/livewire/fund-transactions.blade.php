@@ -7,7 +7,21 @@
         <thead class="table_head">
 
             <tr>
-                <th class="hel_reg_underline table_head_item" wire:click="switchOrderOfDate">{{__('texts.date')}}</th>
+                <th class="hel_reg_underline table_head_item" wire:click="switchOrderOfDate">{{__('texts.date')}}
+                    <svg class="{{$icon_visible ? '' : 'table_icon_invisible'}}" width="22" height="18" viewBox="0 0 22 18" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <style>
+                                .table_icon {
+                                    fill: var(--white_color_switchable);
+                                }
+                            </style>
+                        </defs>
+                        <path class="table_icon" d="M11 18L21.3923 0L0.607696 0L11 18Z"/>
+                    </svg>
+                    <svg class="{{$icon_visible ? 'table_icon_invisible' : ''}}" width="22" height="18" viewBox="0 0 22 18" xmlns="http://www.w3.org/2000/svg">
+                        <path class="table_icon" d="M11 0L0.607697 18H21.3923L11 0Z"/>
+                    </svg>
+                </th>
                 <th class="hel_reg_underline table_head_item">{{__('texts.fund_table')}}</th>
                 <th class="hel_reg_underline table_head_item">{{__('texts.note')}}</th>
                 <th class="hel_reg_underline table_head_item">{{__('texts.amount_table')}}</th>
