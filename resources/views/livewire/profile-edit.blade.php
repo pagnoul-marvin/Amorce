@@ -78,7 +78,7 @@
 
         </form>
 
-        <livewire:success-message/>
+        <livewire:messages.success-message wire:key="profile-success-message"/>
 
     </section>
 </div>

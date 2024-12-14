@@ -36,6 +36,15 @@ class TransactionForm extends Form
         ];
     }
 
+    public function setTransaction(Transaction $transaction): void
+    {
+        $this->transaction = $transaction;
+        $this->note = $transaction->note;
+        $this->amount = $transaction->amount;
+        $this->fund_id = $transaction->fund_id;
+        $this->date = $transaction->date;
+    }
+
     public function store(): void
     {
         $this->validateOnly('note');

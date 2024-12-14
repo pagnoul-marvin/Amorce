@@ -48,7 +48,7 @@
 
         </section>
 
-        <livewire:success-message wire:key="task-completed-success-message"/>
+        <livewire:messages.success-message wire:key="task-completed-success-message"/>
 
     </div>
 

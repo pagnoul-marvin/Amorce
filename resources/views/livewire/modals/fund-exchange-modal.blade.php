@@ -84,7 +84,7 @@
 
     </div>
 
-    <livewire:success-message wire:key="fund-exchange-modal-success-message"/>
+    <livewire:messages.success-message wire:key="fund-exchange-modal-success-message"/>
 
 </section>
 

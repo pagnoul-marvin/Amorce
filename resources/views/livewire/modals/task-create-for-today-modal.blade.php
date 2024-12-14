@@ -91,6 +91,6 @@
 
     </div>
 
-    <livewire:success-message wire:key="task-create-for-today-modal-success-message"/>
+    <livewire:messages.success-message wire:key="task-create-for-today-modal-success-message"/>
 
 </section>

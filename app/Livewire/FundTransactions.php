@@ -2,8 +2,6 @@
 
 namespace App\Livewire;
 
-use App\Livewire\Forms\TransactionForm;
-use App\Models\Transaction;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -13,11 +11,10 @@ class FundTransactions extends Component
     use WithPagination;
 
     public $fund;
-    public TransactionForm $form;
     public $orderDirection = 'desc';
     public $icon_visible = true;
 
-    protected $listeners = ['transactions' => 'transactions'];
+    protected $listeners = ['transactions' => 'transactions', 'fund' => 'mount'];
 
     public function mount($fund): void
     {
@@ -34,13 +31,5 @@ class FundTransactions extends Component
     {
         $this->orderDirection = $this->orderDirection === 'desc' ? 'asc' : 'desc';
         $this->icon_visible = !$this->icon_visible;
-    }
-
-    public function save($transaction_id): void
-    {
-        $transaction = Transaction::find($transaction_id);
-        $this->form->delete($transaction);
-        $this->dispatch('openSuccessMessage', 'La transaction a bien été supprimée !');
-        $this->dispatch('transactions');
     }
 }

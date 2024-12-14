@@ -229,6 +229,10 @@ table {
   gap: 0.9375em;
 }
 
+.input {
+  resize: vertical;
+}
+
 .button, .input {
   border-radius: 0.5em;
 }
@@ -348,6 +352,7 @@ table {
 .table_body_item_text:last-of-type {
   text-align: right;
   width: 10%;
+  padding-right: 0;
 }
 .table_body_item_longtext {
   max-width: 100px;
@@ -807,9 +812,6 @@ table {
   color: var(--black_color);
   border-color: var(--black_color);
 }
-.modal_section_content_form_input_label_container .input {
-  resize: vertical;
-}
 .modal_section_content_form_input_label_container .input::placeholder {
   color: var(--black_placeholder_color);
   font-family: "Helvetica", "Arial", sans-serif;
@@ -989,6 +991,24 @@ table {
 .table_icon_invisible {
   visibility: hidden;
   position: absolute;
+}
+
+.confirmation_choices {
+  flex-direction: row;
+  align-items: center;
+  gap: 1.875em;
+}
+.confirmation_choices .modal_section_content_form_submit_btn_container {
+  flex: 1;
+}
+.confirmation_choices .modal_section_content_form_submit_btn_container_submit_btn {
+  background-color: var(--red_color);
+}
+.confirmation_choices .no_btn {
+  border: none;
+  color: var(--white_color);
+  background-color: var(--black_color);
+  width: 100%;
 }
 
 /*# sourceMappingURL=app.css.map */

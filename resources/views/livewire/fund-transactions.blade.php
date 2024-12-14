@@ -46,12 +46,11 @@
                 <td class="hel_reg table_body_item_text">{{number_format($transaction->amount/100, 2, ',', ' ')}}&euro;</td>
                 <td class="hel_reg table_body_item_text">
 
-                    <form wire:submit="save({{$transaction->id}})" wire:key="delete-form-{{$transaction->id}}">
+                    <button class="modal_btn hel_bold" wire:key="delete-btn-{{$transaction->id}}" title="{{__('texts.make_this_fund_enclosed')}}" wire:click="dispatchTo('messages.transaction-delete-confirmation-message', 'openModal', [{{$transaction->id}}])">
 
-                        <x-form.submit-button :text="__('texts.delete')" div_class=""
-                                              btn_class="submit_btn button"/>
+                        {{__('texts.delete')}}
 
-                    </form>
+                    </button>
 
                 </td>
 

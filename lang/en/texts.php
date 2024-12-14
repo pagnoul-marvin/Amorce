@@ -86,4 +86,7 @@ return [
     'go_back' => 'Go back',
     'delete' => 'Delete',
     'transactions_linked_to' => 'Transactions linked to',
+    'are_u_sure' => 'Are you sure to delete ?',
+    'yes' => 'Yes',
+    'no' => 'No',
 ];

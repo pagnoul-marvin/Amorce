@@ -6,10 +6,12 @@
 
     <livewire:navigations.go-back-nav :text="__('texts.go_back')" :href="route('funds_and_transactions.index')"/>
 
-    <livewire:fund-edit :$fund/>
+    <livewire:fund-edit :$fund wire:key="fund-show-fund-section"/>
 
-    <livewire:fund-transactions :$fund/>
+    <livewire:fund-transactions :$fund wire:key="fund-show-transactions-section"/>
 
-    <livewire:success-message wire:key="fund-show-success-message"/>
+    <livewire:messages.success-message wire:key="fund-show-success-message"/>
+
+    <livewire:messages.transaction-delete-confirmation-message wire:key="transaction-delete-success-message"/>
 
 </div>

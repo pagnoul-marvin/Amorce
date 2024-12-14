@@ -17,8 +17,10 @@
 
     <livewire:modals.link-a-transaction-to-a-fund-modal wire:key="link-a-transaction-to-a-fund-modal"/>
 
-    <livewire:success-message wire:key="funds-transactions-success-message"/>
+    <livewire:messages.success-message wire:key="funds-transactions-success-message"/>
 
     <livewire:modals.not-allowed-message-modal wire:key="not-allowed-message-modal"/>
+
+    <livewire:messages.fund-enclosed-confirmation-message wire:key="fund-enclosed-confirmation-message"/>
 
 </div>

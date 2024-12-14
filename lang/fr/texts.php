@@ -86,4 +86,7 @@ return [
     'go_back' => 'Revenir en arrière',
     'delete' => 'Supprimer',
     'transactions_linked_to' => 'Les transactions liées à',
+    'are_u_sure' => 'Êtes-vous sûr de vouloir supprimer ?',
+    'yes' => 'Oui',
+    'no' => 'Non',
 ];

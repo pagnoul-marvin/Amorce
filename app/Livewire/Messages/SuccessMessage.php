@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Messages;
 use Livewire\Component;
 
 class SuccessMessage extends Component

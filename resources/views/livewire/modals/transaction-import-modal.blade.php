@@ -33,7 +33,7 @@
 
     </div>
 
-    <livewire:success-message wire:key="donation-import-modal-success-message"/>
+    <livewire:messages.success-message wire:key="donation-import-modal-success-message"/>
 
 </section>
 
