@@ -89,4 +89,5 @@ return [
     'are_u_sure' => 'Are you sure to delete ?',
     'yes' => 'Yes',
     'no' => 'No',
+    'here_is_the_transaction_to_add' => 'Here is the transaction to add :',
 ];

@@ -89,4 +89,5 @@ return [
     'are_u_sure' => 'Êtes-vous sûr de vouloir supprimer ?',
     'yes' => 'Oui',
     'no' => 'Non',
+    'here_is_the_transaction_to_add' => 'Voici la transaction a ajouté :',
 ];

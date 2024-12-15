@@ -23,6 +23,9 @@ class TransactionForm extends Form
     #[Validate]
     public $csv;
 
+    #[Validate]
+    public $hash;
+
     public $transaction;
 
     public function rules(): array
@@ -33,6 +36,7 @@ class TransactionForm extends Form
             'fund_id' => 'required',
             'date' => 'required|date',
             'csv' => 'required|mimes:csv',
+            'hash' => 'required|string',
         ];
     }
 
@@ -76,20 +80,30 @@ class TransactionForm extends Form
             if ($hash === Transaction::where('hash', $hash)) {
                 continue;
             } else {
+                $datas[] = $hash;
                 session(['transactionsNeedToBeLinked' => $datas]);
             }
 
             $transactionsNeedToBeLinked[] = $datas;
-
-            //$toCreate = [
-            //'hash' => $hash,
-            // 'date' => Carbon::parse($datas[0])->format('Y-m-d'),
-            // 'amount' => floatval(str_replace(',', '.', $datas[2])) * 100,
-            //];
-            //Transaction::create($toCreate);
         }
         fclose($handle);
         session(['transactionsNeedToBeLinked' => $transactionsNeedToBeLinked]);
+    }
+
+    public function storeTransactionFromCSV():void
+    {
+        $this->validateOnly('note');
+        $this->validateOnly('amount');
+        $this->validateOnly('fund_id');
+        $this->validateOnly('date');
+        $this->validateOnly('hash');
+        Transaction::create([
+            'note' => $this->note,
+            'amount' => number_format($this->amount*100, 0, '', ''),
+            'fund_id' => $this->fund_id,
+            'date' => $this->date,
+            'hash' => $this->hash,
+        ]);
     }
 
     public function delete(Transaction $transaction): void
