@@ -165,7 +165,7 @@ table {
   background-color: var(--main_nav_active_bg_color);
 }
 
-.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .table, .add_donations_manually_or_import_list_item, .form_user_list_container_title, .search_form_input, .modal_error_text, .transaction_info_title, .transaction_info_texts_container {
+.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .table, .add_donations_manually_or_import_list_item, .form_user_list_container_title, .search_form_input, .modal_error_text, .transaction_info_title, .transaction_info_texts_container, .task_users_form_users_list_container_title, .task_users_form_users_list_item_name, .task_users_form_users_list_item_email {
   font-size: 1.25em;
 }
 
@@ -231,6 +231,14 @@ table {
 
 .input {
   resize: vertical;
+}
+
+select.input {
+  appearance: none;
+  background-image: url("../icons/arrow_down.svg");
+  background-position: right 1.25em center;
+  background-repeat: no-repeat;
+  padding-right: 3.125em;
 }
 
 .button, .input {
@@ -697,12 +705,12 @@ table {
   width: 100%;
 }
 
-.profile_form_section, .fund_details_section {
+.profile_form_section, .fund_details_section, .task_show_section {
   gap: 6.25em;
   align-items: center;
   position: relative;
 }
-.profile_form_section_profile_picture_container, .fund_details_section_profile_picture_container {
+.profile_form_section_profile_picture_container, .fund_details_section_profile_picture_container, .task_show_section_profile_picture_container {
   width: 200px;
   height: 200px;
   overflow: hidden;
@@ -710,20 +718,20 @@ table {
   align-items: center;
   justify-content: center;
 }
-.profile_form_section_profile_picture_container_img, .fund_details_section_profile_picture_container_img {
+.profile_form_section_profile_picture_container_img, .fund_details_section_profile_picture_container_img, .task_show_section_profile_picture_container_img {
   width: 100%;
 }
-.profile_form_section_form, .fund_details_section_form {
+.profile_form_section_form, .fund_details_section_form, .task_show_section_form {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-end;
   gap: 2.5em 5.8125em;
 }
-.profile_form_section_form_label_and_input_container, .fund_details_section_form_label_and_input_container {
+.profile_form_section_form_label_and_input_container, .fund_details_section_form_label_and_input_container, .task_show_section_form_label_and_input_container {
   flex-basis: calc(50% - 5.8125em);
 }
-.profile_form_section_form .submit_btn, .fund_details_section_form .submit_btn {
+.profile_form_section_form .submit_btn, .fund_details_section_form .submit_btn, .task_show_section_form .submit_btn {
   width: 100%;
   height: 100%;
 }
@@ -829,12 +837,7 @@ table {
   background-image: url("../icons/black_euro_icon.svg");
 }
 .modal_section_content_form_input_label_container select.input {
-  appearance: none;
-  background-image: url("../icons/arrow_down.svg");
-  background-position: right 1.25em center;
-  background-repeat: no-repeat;
   width: 14.65em;
-  padding-right: 3.125em;
 }
 .modal_section_content_form_submit_btn_container_submit_btn {
   border: none;
@@ -1020,6 +1023,41 @@ table {
 }
 .transaction_info_texts_container_text {
   flex-direction: row;
+}
+
+.task_users_form_users_list_container {
+  width: 100%;
+}
+.task_users_form_users_list_container .task_users_form_users_list {
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.875em;
+  width: 100%;
+  margin-top: 1.875em;
+  justify-content: space-between;
+}
+.task_users_form_users_list_container .task_users_form_users_list_item {
+  align-items: center;
+  gap: 0.9375em;
+  flex: 1 1 calc(20% - 1.875em);
+  max-width: calc(20% - 1.875em);
+}
+.task_users_form_users_list_container .task_users_form_users_list_item_picture {
+  width: 36px;
+  height: 36px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.task_users_form_users_list_container .task_users_form_users_list_item_form {
+  width: 100%;
+}
+.task_users_form_users_list_container .task_users_form_users_list_item_form_submit_btn_container_btn {
+  width: 100%;
+  font-size: 1em;
+}
+
+.task_show_section {
+  align-items: flex-start;
 }
 
 /*# sourceMappingURL=app.css.map */

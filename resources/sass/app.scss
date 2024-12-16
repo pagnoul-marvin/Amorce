@@ -54,7 +54,7 @@
     background-color: var(--main_nav_active_bg_color);
 }
 
-.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .table, .add_donations_manually_or_import_list_item, .form_user_list_container_title, .search_form_input, .modal_error_text, .transaction_info_title, .transaction_info_texts_container {
+.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .table, .add_donations_manually_or_import_list_item, .form_user_list_container_title, .search_form_input, .modal_error_text, .transaction_info_title, .transaction_info_texts_container, .task_users_form_users_list_container_title, .task_users_form_users_list_item_name, .task_users_form_users_list_item_email {
     font-size: $text_sizeM;
 }
 
@@ -126,6 +126,15 @@
 
 .input {
     resize: vertical;
+}
+
+select.input {
+    appearance: none;
+    background-image: url("../icons/arrow_down.svg");
+    background-position: right $spaceS center;
+    background-repeat: no-repeat;
+
+    padding-right: $spaceXXL;
 }
 
 .button, .input {
@@ -718,7 +727,7 @@
     }
 }
 
-.profile_form_section, .fund_details_section {
+.profile_form_section, .fund_details_section, .task_show_section {
     gap: $spaceDoubleXXL;
     align-items: center;
     position: relative;
@@ -880,12 +889,7 @@
                 }
 
                 select.input {
-                    appearance: none;
-                    background-image: url("../icons/arrow_down.svg");
-                    background-position: right $spaceS center;
-                    background-repeat: no-repeat;
                     width: 14.65em;
-                    padding-right: $spaceXXL;
                 }
             }
 
@@ -1121,4 +1125,47 @@
             flex-direction: row;
         }
     }
+}
+
+.task_users_form_users_list_container {
+    width: 100%;
+
+    .task_users_form_users_list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: $spaceM;
+        width: 100%;
+        margin-top: $spaceM;
+        justify-content: space-between;
+
+        &_item {
+            align-items: center;
+            gap: $spaceXS;
+            flex: 1 1 calc(20% - $spaceM);
+            max-width: calc(20% - $spaceM);
+
+            &_picture {
+                width: 36px;
+                height: 36px;
+                overflow: hidden;
+                border-radius: 50%;
+            }
+
+            &_form {
+                width: 100%;
+
+                &_submit_btn_container {
+                    &_btn {
+                        width: 100%;
+                        font-size: $text_size;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+.task_show_section {
+    align-items: flex-start;
 }

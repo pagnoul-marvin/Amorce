@@ -90,4 +90,12 @@ return [
     'yes' => 'Oui',
     'no' => 'Non',
     'here_is_the_transaction_to_add' => 'Voici la transaction a ajouté :',
+    'admin_space' => 'Espace administrateur',
+    'the_task' => 'La tâche',
+    'see_and_modify_the_task' => 'Voir et modifier la tâche',
+    'created_by' => 'Créée par',
+    'status' => 'Statut',
+    'users_added' => 'Utilisateurs ajoutés',
+    'open' => 'Ouvert',
+    'users_can_be_added' => 'Utilisateurs pouvant être ajoutés',
 ];

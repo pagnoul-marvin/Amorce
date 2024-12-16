@@ -19,7 +19,6 @@ class ProfileModal extends Component
         $this->title = __('texts.profile_navigation');
         $this->links = [
           ['name' => 'Profil', 'url' => '/profil'],
-          ['name' => 'Espace administrateur', 'url' => '/espace-administrateur'],
         ];
     }
 

@@ -90,4 +90,11 @@ return [
     'yes' => 'Yes',
     'no' => 'No',
     'here_is_the_transaction_to_add' => 'Here is the transaction to add :',
+    'admin_space' => 'Admin space',
+    'the_task' => 'La tâche',
+    'see_and_modify_the_task' => 'Voir et modifier la tâche',
+    'created_by' => 'Created by',
+    'status' => 'Status',
+    'users_added' => 'Users added',
+    'users_can_be_added' => 'Users can be added',
 ];

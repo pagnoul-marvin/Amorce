@@ -17,11 +17,20 @@
                 <li class="app_nav_theme_switcher_and_profile_content_modal_list_item">
                     <a class="hel_bold app_nav_theme_switcher_and_profile_content_modal_list_item_link"
                        href="{{$link['url']}}"
-                       title="{{__('texts.page_link')}} {{$link['name']}}">{{$link['name']}}
+                       title="{{__('texts.page_link')}} {{$link['name']}}" wire:navigate>{{$link['name']}}
                     </a>
                 </li>
 
             @endforeach
+
+            @if(Auth::user()->role === \App\Enum\UserRoles::Admin->value)
+                <li class="app_nav_theme_switcher_and_profile_content_modal_list_item">
+                    <a class="hel_bold app_nav_theme_switcher_and_profile_content_modal_list_item_link"
+                       href="/espace-administrateur" wire:navigate
+                       title="{{__('texts.page_link')}} Espace Administrateur">{{__('texts.admin_space')}}
+                    </a>
+                </li>
+            @endif
 
             <li class="app_nav_theme_switcher_and_profile_content_modal_list_item">
 

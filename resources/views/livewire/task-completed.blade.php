@@ -1,6 +1,6 @@
 <li class="todo_list_section_content_list_item flex">
 
-    <a href="" title="{{__('texts.see_details')}} {{$task->title}}"
+    <a href="{{route('tasks.show', $task->id)}}" wire:navigate title="{{__('texts.see_details')}} {{$task->title}}"
        class="todo_list_section_content_list_item_link hel_reg">{{$task->title}}</a>
 
     <ul class="todo_list_section_content_list_item_profile_pictures_list flex">
@@ -21,7 +21,7 @@
 
         @if(count($task->users) > 3)
 
-            <li><p class="hel_reg">...</p></li>
+            <li><span class="hel_reg">...</span></li>
 
         @endif
 

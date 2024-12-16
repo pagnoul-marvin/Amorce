@@ -7,7 +7,14 @@
      x-transition:leave-end="modal-leave-active">
 
     <ul class="flex add_donations_manually_or_import_list">
-        <li class="add_donations_manually_or_import_list_item"><p wire:click="dispatchTo('modals.transaction-create-modal', 'openModal')" class="hel_bold add_donations_manually_or_import_list_item_text">{{__('texts.add_transaction_manually')}}</p></li>
-        <li class="add_donations_manually_or_import_list_item"><p wire:click="dispatchTo('modals.transaction-import-modal', 'openModal')" class="hel_bold add_donations_manually_or_import_list_item_text">{{__('texts.import')}}</p></li>
+        <li class="add_donations_manually_or_import_list_item"><p
+                wire:click="dispatchTo('modals.transaction-create-modal', 'openModal')"
+                class="hel_bold add_donations_manually_or_import_list_item_text">{{__('texts.add_transaction_manually')}}</p>
+        </li>
+        @if(Auth::user()->role === \App\Enum\UserRoles::Admin->value || Auth::user()->role === \App\Enum\UserRoles::Comptable->value)
+            <li class="add_donations_manually_or_import_list_item"><p
+                    wire:click="dispatchTo('modals.transaction-import-modal', 'openModal')"
+                    class="hel_bold add_donations_manually_or_import_list_item_text">{{__('texts.import')}}</p></li>
+        @endif
     </ul>
 </div>

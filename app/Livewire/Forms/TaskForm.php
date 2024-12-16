@@ -21,6 +21,7 @@ class TaskForm extends Form
 
     #[Validate]
     public $description;
+    #[Validate]
     public $user_id;
     public $participants = [];
 
@@ -33,6 +34,7 @@ class TaskForm extends Form
             'title' => 'required|max:255',
             'description' => 'required',
             'date' => 'required|date',
+            'user_id' => 'required|exists:users,id',
         ];
     }
 
@@ -43,11 +45,12 @@ class TaskForm extends Form
         $this->title = $task->title;
         $this->description = $task->description;
         $this->date = $task->date;
+        $this->user_id = $task->user_id;
     }
 
-    public function update(): void
+    public function updateStatus(): void
     {
-        $this->validate();
+        $this->validateOnly('completed');
         $this->task->update(['completed' => $this->completed]);
     }
 
@@ -67,5 +70,11 @@ class TaskForm extends Form
                 TaskUser::create(['task_id' => $task->id, 'user_id' => $participant]);
             }
         }
+    }
+
+    public function update(): void
+    {
+        $this->validate();
+        $this->task->update($this->all());
     }
 }
