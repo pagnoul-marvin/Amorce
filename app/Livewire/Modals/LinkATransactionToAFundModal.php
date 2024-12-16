@@ -20,10 +20,12 @@ class LinkATransactionToAFundModal extends Component
     public function mount(): void
     {
         $this->funds = Fund::where('enclosed', '=', false)->get();
-        $this->form->note = $this->transactions[$this->transactionCounter][8];
-        $this->form->amount = floatval($this->transactions[$this->transactionCounter][2]);
-        $this->form->date = Carbon::parse($this->transactions[$this->transactionCounter][0]);
-        $this->form->hash = $this->transactions[$this->transactionCounter][10];
+        if ($this->transactions) {
+            $this->form->note = $this->transactions[$this->transactionCounter][8];
+            $this->form->amount = floatval(str_replace([',', '.'], '', $this->transactions[$this->transactionCounter][2]));
+            $this->form->date = Carbon::parse($this->transactions[$this->transactionCounter][0]);
+            $this->form->hash = $this->transactions[$this->transactionCounter][10];
+        }
     }
 
     #[Computed]
@@ -31,9 +33,11 @@ class LinkATransactionToAFundModal extends Component
     {
         return session('transactionsNeedToBeLinked', []);
     }
+
     public function openModal(): void
     {
         $this->isOpen = true;
+        $this->dispatch('mount');
     }
 
     public function closeModal(): void
@@ -44,8 +48,11 @@ class LinkATransactionToAFundModal extends Component
     public function save(): void
     {
         $this->form->storeTransactionFromCSV();
-        $this->dispatch('openSuccessMessage', 'La transaction a été ajouté avec succès !');
-        $this->transactionCounter++;
+        $transactions = $this->transactions;
+        unset($transactions[$this->transactionCounter]);
+        $transactions = array_values($transactions); //réindexe le tableau
+        session(['transactionsNeedToBeLinked' => $transactions]);
+        $this->dispatch('openSuccessMessage', 'La transaction a été ajouté au fond ' .Fund::find($this->form->fund_id)->name. ' avec succès !');
         $this->dispatch('mount');
         $this->form->reset();
         $this->dispatch('getFundAmount');

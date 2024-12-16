@@ -77,7 +77,7 @@ class TransactionForm extends Form
             }
             $hash = md5($str);
 
-            if ($hash === Transaction::where('hash', $hash)) {
+            if (Transaction::where('hash', $hash)->exists()) {
                 continue;
             } else {
                 $datas[] = $hash;
@@ -99,7 +99,7 @@ class TransactionForm extends Form
         $this->validateOnly('hash');
         Transaction::create([
             'note' => $this->note,
-            'amount' => number_format($this->amount*100, 0, '', ''),
+            'amount' => $this->amount,
             'fund_id' => $this->fund_id,
             'date' => $this->date,
             'hash' => $this->hash,

@@ -347,11 +347,9 @@ table {
 .table_body_item_text, .table_body_item_longtext {
   border-bottom: 1px solid var(--line_color_switchable);
   padding: 1.25em 1em 1.25em 0;
-  width: 33%;
 }
 .table_body_item_text:last-of-type {
   text-align: right;
-  width: 10%;
   padding-right: 0;
 }
 .table_body_item_longtext {
@@ -980,11 +978,8 @@ table {
   top: calc(50% - 8px);
 }
 
-.fund_transactions_section .table_body_item_text, .fund_transactions_section .table_body_item_longtext {
-  width: 20%;
-}
-.fund_transactions_section .table_body_item_text:nth-of-type(4) {
-  width: 10%;
+.fund_transactions_section .table_body_item_text:last-of-type .modal_btn {
+  width: 100%;
 }
 .fund_transactions_section .table .submit_btn {
   font-size: unset;

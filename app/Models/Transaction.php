@@ -17,7 +17,8 @@ class Transaction extends Model
         'date',
         'note',
         'amount',
-        'fund_id'
+        'fund_id',
+        'hash',
     ];
 
     protected function casts(): array

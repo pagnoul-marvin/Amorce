@@ -267,13 +267,11 @@
             &_text, &_longtext {
                 border-bottom: 1px solid var(--line_color_switchable);
                 padding: 1.25em 1em 1.25em 0;
-                width: 33%;
             }
 
             &_text {
                 &:last-of-type {
                     text-align: right;
-                    width: 10%;
                     padding-right: 0;
                 }
             }
@@ -1066,13 +1064,11 @@
     .table {
         &_body {
             &_item {
-                &_text, &_longtext {
-                    width: 20%;
-                }
-
                 &_text {
-                    &:nth-of-type(4) {
-                        width: 10%;
+                    &:last-of-type {
+                        .modal_btn {
+                            width: 100%;
+                        }
                     }
                 }
             }
