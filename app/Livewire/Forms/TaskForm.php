@@ -39,7 +39,7 @@ class TaskForm extends Form
     public function setTask(Task $task): void
     {
         $this->task = $task;
-        $this->completed = !$task->completed;
+        $this->completed = $task->completed;
         $this->title = $task->title;
         $this->description = $task->description;
         $this->date = $task->date;

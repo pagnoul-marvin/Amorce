@@ -32,7 +32,7 @@ class TransactionForm extends Form
     {
         return [
             'note' => 'nullable|max:255',
-            'amount' => 'required|numeric|min:0',
+            'amount' => 'required|numeric',
             'fund_id' => 'required',
             'date' => 'required|date',
             'csv' => 'required|mimes:csv',

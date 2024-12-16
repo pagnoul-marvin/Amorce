@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('picture')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('role', [UserRoles::Benevole->value, UserRoles::Admin->value])->default(UserRoles::Benevole->value);
+            $table->enum('role', [UserRoles::Benevole->value, UserRoles::Admin->value, UserRoles::Comptable->value])->default(UserRoles::Benevole->value);
             $table->rememberToken();
             $table->timestamps();
         });

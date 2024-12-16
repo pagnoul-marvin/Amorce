@@ -15,13 +15,14 @@ class TaskCompleted extends Component
     {
         $this->task = $task;
         $this->form->setTask($task);
+        $this->form->completed = true;
     }
 
     public function save(): void
     {
         $this->form->update();
         $this->dispatch('refreshTasks');
-        $this->dispatch('openSuccessMessage', 'La tâche '. $this->task->title .' a été achevée avec succès !');
+        $this->dispatch('openSuccessMessage', 'La tâche '. $this->task->title .' a été clôturée avec succès !');
     }
 
     public function render()
