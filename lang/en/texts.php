@@ -97,4 +97,5 @@ return [
     'status' => 'Status',
     'users_added' => 'Users added',
     'users_can_be_added' => 'Users can be added',
+    'no_users' => 'Nobody has been added',
 ];

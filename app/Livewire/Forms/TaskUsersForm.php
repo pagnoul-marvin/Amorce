@@ -9,38 +9,36 @@ use Livewire\Form;
 
 class TaskUsersForm extends Form
 {
-
     #[Validate]
     public $user_id;
 
     #[Validate]
     public $task_id;
 
-
     public function rules(): array
     {
         return [
-            'user_id' => 'required|array',
-            'user_id.*' => 'exists:users,id',
+            'user_id' => 'required|exists:users,id',
             'task_id' => 'required|exists:tasks,id',
         ];
     }
 
-    public function setTaskUsers(Task $task): void
+    public function setTaskUsers(TaskUser $task_user): void
     {
-        $this->task_id = $task->id;
-        $this->user_id = $task->users->pluck('id')->toArray();
+        $this->task_id = $task_user->task_id;
+        $this->user_id = $task_user->user_id;
     }
 
-    public function delete($user): void
+    public function delete($task_id ,$user_id): void
     {
-        $this->validateOnly('task_id');
-        TaskUser::where('task_id', $this->task_id)->where('user_id', $user)->delete();
+        TaskUser::where('task_id', $task_id)->where('user_id', $user_id)->delete();
     }
 
-    public function update($user): void
+    public function store($task_id ,$user_id): void
     {
-        $this->validateOnly('task_id');
-        TaskUser::where('task_id', $this->task_id)->where('user_id', $user)->update();
+        TaskUser::create([
+            'task_id' => $task_id,
+            'user_id' => $user_id,
+        ]);
     }
 }

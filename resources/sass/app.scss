@@ -664,10 +664,6 @@ select.input {
             height: 31.25em; //500
             overflow: scroll;
 
-            &:hover {
-                overflow: visible;
-            }
-
             &_list {
                 gap: $spaceXXS;
 
@@ -684,7 +680,7 @@ select.input {
 
                     &_link {
                         color: var(--white_color_switchable);
-                        flex-basis: 6em;
+                        max-width: 8em;
                         overflow: hidden;
                         text-overflow: ellipsis;
                         white-space: nowrap;
@@ -1130,13 +1126,15 @@ select.input {
 .task_users_form_users_list_container {
     width: 100%;
 
+    .task_users_form_users_list, .no_user {
+        margin-top: $spaceM;
+    }
+
     .task_users_form_users_list {
         flex-direction: row;
         flex-wrap: wrap;
         gap: $spaceM;
         width: 100%;
-        margin-top: $spaceM;
-        justify-content: space-between;
 
         &_item {
             align-items: center;
@@ -1149,6 +1147,13 @@ select.input {
                 height: 36px;
                 overflow: hidden;
                 border-radius: 50%;
+            }
+
+            &_name {
+                max-width: 100%;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
             }
 
             &_form {
@@ -1168,4 +1173,10 @@ select.input {
 
 .task_show_section {
     align-items: flex-start;
+}
+
+.div_space {
+    .section_title {
+        margin-bottom: $spaceXXL;
+    }
 }

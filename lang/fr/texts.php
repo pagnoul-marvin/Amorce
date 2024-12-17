@@ -98,4 +98,5 @@ return [
     'users_added' => 'Utilisateurs ajoutés',
     'open' => 'Ouvert',
     'users_can_be_added' => 'Utilisateurs pouvant être ajoutés',
+    'no_users' => 'Aucun utilisateur n\'a été ajouté',
 ];

@@ -656,9 +656,6 @@ select.input {
   height: 31.25em;
   overflow: scroll;
 }
-.home_sections_container .todo_list_section_content:hover {
-  overflow: visible;
-}
 .home_sections_container .todo_list_section_content_list {
   gap: 0.625em;
 }
@@ -674,7 +671,7 @@ select.input {
 }
 .home_sections_container .todo_list_section_content_list_item_link {
   color: var(--white_color_switchable);
-  flex-basis: 6em;
+  max-width: 8em;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1028,13 +1025,14 @@ select.input {
 .task_users_form_users_list_container {
   width: 100%;
 }
+.task_users_form_users_list_container .task_users_form_users_list, .task_users_form_users_list_container .no_user {
+  margin-top: 1.875em;
+}
 .task_users_form_users_list_container .task_users_form_users_list {
   flex-direction: row;
   flex-wrap: wrap;
   gap: 1.875em;
   width: 100%;
-  margin-top: 1.875em;
-  justify-content: space-between;
 }
 .task_users_form_users_list_container .task_users_form_users_list_item {
   align-items: center;
@@ -1048,6 +1046,12 @@ select.input {
   overflow: hidden;
   border-radius: 50%;
 }
+.task_users_form_users_list_container .task_users_form_users_list_item_name {
+  max-width: 100%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
 .task_users_form_users_list_container .task_users_form_users_list_item_form {
   width: 100%;
 }
@@ -1058,6 +1062,10 @@ select.input {
 
 .task_show_section {
   align-items: flex-start;
+}
+
+.div_space .section_title {
+  margin-bottom: 3.125em;
 }
 
 /*# sourceMappingURL=app.css.map */
