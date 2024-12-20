@@ -1,6 +1,6 @@
 <section class="section space_up space fund_details_section flex">
 
-    <h2 class="section_title hel_bold">{{$form->name}} ({{number_format($fund->transactions->sum('amount')/100, 2, ',', ' ')}}&euro;)</h2>
+    <h2 class="section_title hel_bold">{{$form->name}} <small class="small">({{number_format($fund->transactions->sum('amount')/100, 2, ',', ' ')}}&euro;)</small></h2>
 
     <form wire:submit="save" class="flex fund_details_section_form">
 

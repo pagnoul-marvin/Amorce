@@ -19,7 +19,7 @@
 
         <form wire:submit="save" class="modal_section_content_form flex">
 
-            <x-layout.input-label-container id="title" class="modal_section_content_form_input_label_container"
+            <x-layout.input-label-container id="title" class="modal_section_content_form_input_label_container start"
                                             :label="__('texts.title')">
 
                 <input class="input" id="title" wire:model.blur="form.title" placeholder="{{__('texts.smth')}}" required

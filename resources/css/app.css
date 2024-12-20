@@ -59,6 +59,7 @@ table {
   --white_color_switchable: #000000;
   --red_color: #E34234;
   --green_color: #4ADB15;
+  --dark_green_color: #27750b;
   --blue_color: #00BBFF;
   --modal_bg_color: rgba(0, 0, 0, 0.75);
   --line_color_switchable: rgba(0, 0, 0, 0.5);
@@ -80,6 +81,7 @@ table {
   --white_color_switchable: #FFFFFF;
   --red_color: #E34234;
   --green_color: #4ADB15;
+  --dark_green_color: #27750b;
   --blue_color: #00BBFF;
   --modal_bg_color: rgba(0, 0, 0, 0.75);
   --line_color_switchable: rgba(255, 255, 255, 0.5);
@@ -231,13 +233,14 @@ table {
 
 .task_show_section_list_item_container_text:last-of-type, .input {
   border: 1px solid var(--white_color_switchable);
-  padding: 0.8em 1em;
-  background-color: transparent;
-  color: var(--white_color_switchable);
+  padding: 0.8em;
+  background-color: var(--white_color);
+  color: var(--black_color);
 }
 
 .input {
   resize: vertical;
+  font-family: "Helvetica", "Arial", sans-serif;
 }
 
 select.input {
@@ -665,6 +668,7 @@ select.input {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+  height: 3.65625em;
 }
 .home_sections_container .todo_list_section_content_list_item:not(:last-of-type) {
   padding-bottom: 0.625em;
@@ -725,9 +729,10 @@ select.input {
   justify-content: space-between;
   align-items: flex-end;
   gap: 2.5em;
+  width: 100%;
 }
 .profile_form_section_form_label_and_input_container, .profile_form_section_form_item, .profile_form_section_list_label_and_input_container, .profile_form_section_list_item, .fund_details_section_form_label_and_input_container, .fund_details_section_form_item, .fund_details_section_list_label_and_input_container, .fund_details_section_list_item, .task_show_section_form_label_and_input_container, .task_show_section_form_item, .task_show_section_list_label_and_input_container, .task_show_section_list_item {
-  flex-basis: calc(50% - 2.5em);
+  width: 100%;
 }
 .profile_form_section_form .submit_btn, .profile_form_section_list .submit_btn, .fund_details_section_form .submit_btn, .fund_details_section_list .submit_btn, .task_show_section_form .submit_btn, .task_show_section_list .submit_btn {
   width: 100%;
@@ -1071,6 +1076,11 @@ select.input {
 
 .start {
   align-self: flex-start;
+}
+
+.small {
+  color: var(--dark_green_color);
+  font-size: 0.625em;
 }
 
 /*# sourceMappingURL=app.css.map */

@@ -126,13 +126,14 @@
 
 .task_show_section_list_item_container_text:last-of-type, .input {
     border: 1px solid var(--white_color_switchable);
-    padding: .8em 1em;
-    background-color: transparent;
-    color: var(--white_color_switchable);
+    padding: .8em;
+    background-color: var(--white_color);
+    color: var(--black_color);
 }
 
 .input {
     resize: vertical;
+    font-family: 'Helvetica', 'Arial', sans-serif;
 }
 
 select.input {
@@ -674,6 +675,7 @@ select.input {
                     justify-content: space-between;
                     align-items: center;
                     flex-wrap: wrap;
+                    height: 3.65625em;
 
                     &:not(:last-of-type) {
                         padding-bottom: $spaceXXS;
@@ -749,9 +751,10 @@ select.input {
         justify-content: space-between;
         align-items: flex-end;
         gap: $spaceXL;
+        width: 100%;
 
         &_label_and_input_container, &_item {
-            flex-basis: calc(50% - $spaceXL);
+            width: 100%;
         }
 
         .submit_btn {
@@ -1185,4 +1188,9 @@ select.input {
 
 .start {
     align-self: flex-start;
+}
+
+.small {
+    color: var(--dark_green_color);
+    font-size: $text_sizeXS;
 }
