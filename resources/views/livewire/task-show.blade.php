@@ -11,7 +11,11 @@
 
         <livewire:task-user-delete :$task/>
 
-        <livewire:task-user-store :$task/>
+        @if($task->user_id === Auth::id())
+
+            <livewire:task-user-store :$task/>
+
+        @endif
 
     </section>
 

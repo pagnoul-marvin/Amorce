@@ -2,81 +2,127 @@
 
     <h2 class="section_title hel_bold">{{$form->title}}</h2>
 
-    <form wire:submit="updateTask" class="flex task_show_section_form">
+    @if($task->user_id === Auth::id())
 
-        <x-layout.input-label-container id="title" class="task_show_section_form_label_and_input_container"
-                                        :label="__('texts.title')">
+        <form wire:submit="updateTask" class="flex task_show_section_form">
 
-            <input class="input" type="text" id="title" wire:model.live="form.title" required>
+            <x-layout.input-label-container id="title" class="task_show_section_form_label_and_input_container"
+                                            :label="__('texts.title')">
 
-            @error('form.title')
-            <x-input-error :messages="$errors->get('form.title')"/>
-            @enderror
+                <input class="input" type="text" id="title" wire:model.live="form.title" required>
 
-        </x-layout.input-label-container>
-        <x-layout.input-label-container id="date" class="task_show_section_form_label_and_input_container"
-                                        :label="__('texts.date_form')">
+                @error('form.title')
+                <x-input-error :messages="$errors->get('form.title')"/>
+                @enderror
 
-            <input class="input" type="date" id="date" wire:model.blur="form.date" required>
+            </x-layout.input-label-container>
+            <x-layout.input-label-container id="date" class="task_show_section_form_label_and_input_container"
+                                            :label="__('texts.date_form')">
 
-            @error('form.date')
-            <x-input-error :messages="$errors->get('form.date')"/>
-            @enderror
+                <input class="input" type="date" id="date" wire:model.blur="form.date" required>
 
-        </x-layout.input-label-container>
-        <x-layout.input-label-container id="description" class="task_show_section_form_label_and_input_container"
-                                        :label="__('texts.description')">
+                @error('form.date')
+                <x-input-error :messages="$errors->get('form.date')"/>
+                @enderror
+
+            </x-layout.input-label-container>
+            <x-layout.input-label-container id="created_by" class="task_show_section_form_label_and_input_container"
+                                            :label="__('texts.created_by')">
+
+                <select class="input" id="created_by" wire:model.blur="form.user_id" required>
+
+                    <option value="{{$task->user->id}}">
+                        {{$task->user->firstname}} &ndash; {{$task->user->email}}</option>
+
+                    @foreach($assigned_users as $user)
+
+                        <option wire:key="added_user-{{$user->id}}" value="{{$user->id}}">
+                            {{$user->firstname}} &ndash; {{$user->email}}</option>
+
+                    @endforeach
+
+                </select>
+
+                @error('form.user_id')
+                <x-input-error :messages="$errors->get('form.user_id')"/>
+                @enderror
+
+            </x-layout.input-label-container>
+            <x-layout.input-label-container id="status" class="fund_details_section_form_label_and_input_container"
+                                            :label="__('texts.status')">
+
+                <select class="input" id="status" wire:model.blur="form.completed" required>
+
+                    <option class="option"
+                            value="0">{{$task->completed ? __('texts.enclosed') : __('texts.open')}}</option>
+                    <option class="option"
+                            value="1">{{$task->completed ? __('texts.open') : __('texts.enclosed')}}</option>
+
+                </select>
+
+                @error('form.completed')
+                <x-input-error :messages="$errors->get('form.completed')"/>
+                @enderror
+
+            </x-layout.input-label-container>
+            <x-layout.input-label-container id="description" class="task_show_section_form_label_and_input_container"
+                                            :label="__('texts.description')">
 
                 <textarea class="input" id="description" rows="5" wire:model.blur="form.description"
                           required></textarea>
 
-            @error('form.description')
-            <x-input-error :messages="$errors->get('form.description')"/>
-            @enderror
+                @error('form.description')
+                <x-input-error :messages="$errors->get('form.description')"/>
+                @enderror
 
-        </x-layout.input-label-container>
-        <x-layout.input-label-container id="created_by" class="task_show_section_form_label_and_input_container"
-                                        :label="__('texts.created_by')">
+            </x-layout.input-label-container>
+            <x-form.submit-button :text="__('texts.modify')"
+                                  div_class="fund_details_section_form_label_and_input_container"
+                                  btn_class="fund_details_section_form_submit_btn submit_btn button"/>
 
-            <select class="input" id="created_by" wire:model.blur="form.user_id" required>
+        </form>
 
-                <option value="{{$task->user->id}}">{{$task->user->firstname}} &ndash; {{$task->user->email}}</option>
+    @else
 
-                @foreach($assigned_users as $user)
+        <ul class="flex task_show_section_list">
 
-                    <option wire:key="added_user-{{$user->id}}" value="{{$user->id}}">
-                        {{$user->firstname}} &ndash; {{$user->email}}</option>
+            <li class="task_show_section_list_item">
+                <div class="task_show_section_list_item_container flex">
+                    <p class="hel_bold task_show_section_list_item_container_text">{{__('texts.title')}}</p>
+                    <p class="hel_reg task_show_section_list_item_container_text">{{$task->title}}</p>
+                </div>
+            </li>
 
-                @endforeach
+            <li class="task_show_section_list_item">
+                <div class="task_show_section_list_item_container flex">
+                    <p class="hel_bold task_show_section_list_item_container_text">{{__('texts.date')}}</p>
+                    <p class="hel_reg task_show_section_list_item_container_text">{{$task->date}}</p>
+                </div>
+            </li>
 
-            </select>
+            <li class="task_show_section_list_item">
+                <div class="task_show_section_list_item_container flex">
+                    <p class="hel_bold task_show_section_list_item_container_text">{{__('texts.created_by')}}</p>
+                    <p class="hel_reg task_show_section_list_item_container_text">{{$task->user_id}}</p>
+                </div>
+            </li>
 
-            @error('form.user_id')
-            <x-input-error :messages="$errors->get('form.user_id')"/>
-            @enderror
+            <li class="task_show_section_list_item">
+                <div class="task_show_section_list_item_container flex">
+                    <p class="hel_bold task_show_section_list_item_container_text">{{__('texts.status')}}</p>
+                    <p class="hel_reg task_show_section_list_item_container_text">{{$task->completed ? __('texts.enclosed') : __('texts.open')}}</p>
+                </div>
+            </li>
 
-        </x-layout.input-label-container>
-        <x-layout.input-label-container id="status" class="fund_details_section_form_label_and_input_container"
-                                        :label="__('texts.status')">
+            <li class="task_show_section_list_item">
+                <div class="task_show_section_list_item_container flex">
+                    <p class="hel_bold task_show_section_list_item_container_text">{{__('texts.description')}}</p>
+                    <p class="hel_reg task_show_section_list_item_container_text">{{$task->description}}</p>
+                </div>
+            </li>
 
-            <select class="input" id="status" wire:model.blur="form.completed" required>
+        </ul>
 
-                <option class="option"
-                        value="0">{{$task->completed ? __('texts.enclosed') : __('texts.open')}}</option>
-                <option class="option"
-                        value="1">{{$task->completed ? __('texts.open') : __('texts.enclosed')}}</option>
-
-            </select>
-
-            @error('form.completed')
-            <x-input-error :messages="$errors->get('form.completed')"/>
-            @enderror
-
-        </x-layout.input-label-container>
-        <x-form.submit-button :text="__('texts.modify')"
-                              div_class="fund_details_section_form_label_and_input_container"
-                              btn_class="fund_details_section_form_submit_btn submit_btn button"/>
-
-    </form>
+    @endif
 
 </div>

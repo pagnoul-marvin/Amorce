@@ -54,7 +54,7 @@
     background-color: var(--main_nav_active_bg_color);
 }
 
-.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .table, .add_donations_manually_or_import_list_item, .form_user_list_container_title, .search_form_input, .modal_error_text, .transaction_info_title, .transaction_info_texts_container, .task_users_form_users_list_container_title, .task_users_form_users_list_item_name, .task_users_form_users_list_item_email {
+.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .table, .add_donations_manually_or_import_list_item, .form_user_list_container_title, .search_form_input, .modal_error_text, .transaction_info_title, .transaction_info_texts_container, .task_users_form_users_list_container_title, .task_users_form_users_list_item_name, .task_users_form_users_list_item_email, .task_show_section_list_item {
     font-size: $text_sizeM;
 }
 
@@ -120,8 +120,15 @@
     flex-direction: row;
 }
 
-.input_label_container {
+.input_label_container, .task_show_section_list_item_container {
     gap: $spaceXS;
+}
+
+.task_show_section_list_item_container_text:last-of-type, .input {
+    border: 1px solid var(--white_color_switchable);
+    padding: .8em 1em;
+    background-color: transparent;
+    color: var(--white_color_switchable);
 }
 
 .input {
@@ -137,7 +144,7 @@ select.input {
     padding-right: $spaceXXL;
 }
 
-.button, .input {
+.button, .input, .task_show_section_list_item_container_text:last-of-type {
     border-radius: .5em;
 }
 
@@ -156,11 +163,6 @@ select.input {
     position: relative;
 
     .input {
-        border: 1px solid var(--white_color_switchable);
-        padding: .8em 1em;
-        background-color: transparent;
-        color: var(--white_color_switchable);
-
         &[type = 'checkbox'] {
             appearance: auto;
             height: 24px;
@@ -741,15 +743,15 @@ select.input {
         }
     }
 
-    &_form {
+    &_form, &_list {
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
         align-items: flex-end;
-        gap: $spaceXL 5.8125em;
+        gap: $spaceXL;
 
-        &_label_and_input_container {
-            flex-basis: calc(50% - 5.8125em);
+        &_label_and_input_container, &_item {
+            flex-basis: calc(50% - $spaceXL);
         }
 
         .submit_btn {
@@ -1139,8 +1141,7 @@ select.input {
         &_item {
             align-items: center;
             gap: $spaceXS;
-            flex: 1 1 calc(20% - $spaceM);
-            max-width: calc(20% - $spaceM);
+            flex-basis: calc(20% - $spaceM + $spaceM/5);
 
             &_picture {
                 width: 36px;
@@ -1179,4 +1180,8 @@ select.input {
     .section_title {
         margin-bottom: $spaceXXL;
     }
+}
+
+.start {
+    align-self: flex-start;
 }

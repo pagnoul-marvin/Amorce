@@ -16,23 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $users = User::factory(10)
-            ->has(Task::factory()->count(50), 'tasks')
-            ->create();
-
-        foreach ($users as $user) {
-            $user->tasks->each(function ($task) use ($user) {
-                $task->user_id = $user->id;
-                $task->save();
-
-                $usersToAssign = User::where('id', '!=', $user->id)
-                    ->inRandomOrder()
-                    ->take(rand(1, 3))
-                    ->pluck('id');
-
-                $task->users()->attach($usersToAssign);
-            });
-        }
+        User::factory(10)->create();
 
         $marvin = User::factory()
             ->has(Task::factory()->count(50), 'tasks')
@@ -50,11 +34,29 @@ class DatabaseSeeder extends Seeder
 
             $usersToAssign = User::where('id', '!=', $marvin->id)
                 ->inRandomOrder()
-                ->take(rand(1, 4))
+                ->take(rand(1, 5))
                 ->pluck('id');
 
             $task->users()->attach($usersToAssign);
         });
+
+        $users = User::factory(10)
+            ->has(Task::factory()->count(50), 'tasks')
+            ->create();
+
+        foreach ($users as $user) {
+            $user->tasks->each(function ($task) use ($user) {
+                $task->user_id = $user->id;
+                $task->save();
+
+                $usersToAssign = User::where('id', '!=', $user->id)
+                    ->inRandomOrder()
+                    ->take(rand(1, 5))
+                    ->pluck('id');
+
+                $task->users()->attach($usersToAssign);
+            });
+        }
 
         $general_fund = Fund::factory()
             ->has(Transaction::factory(20), 'transactions')

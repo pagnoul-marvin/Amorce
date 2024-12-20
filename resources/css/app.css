@@ -165,7 +165,7 @@ table {
   background-color: var(--main_nav_active_bg_color);
 }
 
-.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .table, .add_donations_manually_or_import_list_item, .form_user_list_container_title, .search_form_input, .modal_error_text, .transaction_info_title, .transaction_info_texts_container, .task_users_form_users_list_container_title, .task_users_form_users_list_item_name, .task_users_form_users_list_item_email {
+.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .table, .add_donations_manually_or_import_list_item, .form_user_list_container_title, .search_form_input, .modal_error_text, .transaction_info_title, .transaction_info_texts_container, .task_users_form_users_list_container_title, .task_users_form_users_list_item_name, .task_users_form_users_list_item_email, .task_show_section_list_item {
   font-size: 1.25em;
 }
 
@@ -225,8 +225,15 @@ table {
   flex-direction: row;
 }
 
-.input_label_container {
+.input_label_container, .task_show_section_list_item_container {
   gap: 0.9375em;
+}
+
+.task_show_section_list_item_container_text:last-of-type, .input {
+  border: 1px solid var(--white_color_switchable);
+  padding: 0.8em 1em;
+  background-color: transparent;
+  color: var(--white_color_switchable);
 }
 
 .input {
@@ -241,7 +248,7 @@ select.input {
   padding-right: 3.125em;
 }
 
-.button, .input {
+.button, .input, .task_show_section_list_item_container_text:last-of-type {
   border-radius: 0.5em;
 }
 
@@ -258,12 +265,6 @@ select.input {
 .input_error_message {
   gap: 0.3125em;
   position: relative;
-}
-.input_error_message .input {
-  border: 1px solid var(--white_color_switchable);
-  padding: 0.8em 1em;
-  background-color: transparent;
-  color: var(--white_color_switchable);
 }
 .input_error_message .input[type=checkbox] {
   appearance: auto;
@@ -718,17 +719,17 @@ select.input {
 .profile_form_section_profile_picture_container_img, .fund_details_section_profile_picture_container_img, .task_show_section_profile_picture_container_img {
   width: 100%;
 }
-.profile_form_section_form, .fund_details_section_form, .task_show_section_form {
+.profile_form_section_form, .profile_form_section_list, .fund_details_section_form, .fund_details_section_list, .task_show_section_form, .task_show_section_list {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-end;
-  gap: 2.5em 5.8125em;
+  gap: 2.5em;
 }
-.profile_form_section_form_label_and_input_container, .fund_details_section_form_label_and_input_container, .task_show_section_form_label_and_input_container {
-  flex-basis: calc(50% - 5.8125em);
+.profile_form_section_form_label_and_input_container, .profile_form_section_form_item, .profile_form_section_list_label_and_input_container, .profile_form_section_list_item, .fund_details_section_form_label_and_input_container, .fund_details_section_form_item, .fund_details_section_list_label_and_input_container, .fund_details_section_list_item, .task_show_section_form_label_and_input_container, .task_show_section_form_item, .task_show_section_list_label_and_input_container, .task_show_section_list_item {
+  flex-basis: calc(50% - 2.5em);
 }
-.profile_form_section_form .submit_btn, .fund_details_section_form .submit_btn, .task_show_section_form .submit_btn {
+.profile_form_section_form .submit_btn, .profile_form_section_list .submit_btn, .fund_details_section_form .submit_btn, .fund_details_section_list .submit_btn, .task_show_section_form .submit_btn, .task_show_section_list .submit_btn {
   width: 100%;
   height: 100%;
 }
@@ -1037,8 +1038,7 @@ select.input {
 .task_users_form_users_list_container .task_users_form_users_list_item {
   align-items: center;
   gap: 0.9375em;
-  flex: 1 1 calc(20% - 1.875em);
-  max-width: calc(20% - 1.875em);
+  flex-basis: calc(20% - 1.875em + 0.375em);
 }
 .task_users_form_users_list_container .task_users_form_users_list_item_picture {
   width: 36px;
@@ -1066,6 +1066,10 @@ select.input {
 
 .div_space .section_title {
   margin-bottom: 3.125em;
+}
+
+.start {
+  align-self: flex-start;
 }
 
 /*# sourceMappingURL=app.css.map */

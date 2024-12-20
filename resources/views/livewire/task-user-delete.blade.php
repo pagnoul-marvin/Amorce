@@ -20,14 +20,18 @@
                             {{$assigned_user->firstname}} {{$assigned_user->lastname}}
                         </span>
 
-                    <form wire:submit="deleteTaskUsers({{$task->id}},{{$assigned_user->id}})"
-                          class="task_users_form_users_list_item_form">
+                    @if($task->user_id === Auth::id())
 
-                        <x-form.submit-button :text="__('texts.delete')"
-                                              div_class="task_users_form_users_list_item_form_submit_btn_container"
-                                              btn_class="task_users_form_users_list_item_form_submit_btn_container_btn submit_btn button"/>
+                        <form wire:submit="deleteTaskUsers({{$task->id}},{{$assigned_user->id}})"
+                              class="task_users_form_users_list_item_form">
 
-                    </form>
+                            <x-form.submit-button :text="__('texts.delete')"
+                                                  div_class="task_users_form_users_list_item_form_submit_btn_container"
+                                                  btn_class="task_users_form_users_list_item_form_submit_btn_container_btn submit_btn button"/>
+
+                        </form>
+
+                    @endif
 
                 </li>
 

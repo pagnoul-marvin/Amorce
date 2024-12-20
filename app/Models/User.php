@@ -68,4 +68,11 @@ class User extends Authenticatable
                 return $task;
             });
     }
+
+    public function getAssignedTasks()
+    {
+        return $this->belongsToMany(Task::class, 'task_users')
+            ->where('completed', '=', false)
+            ->with('users');
+    }
 }
