@@ -92,6 +92,7 @@ class FundForm extends Form
             'amount' => -$this->amount * 100,
             'fund_id' => $this->from_fund,
             'note' => $this->description,
+            'hash' => 'test', //TODO create a valid hash
             'date' => now()
         ]);
 
@@ -99,6 +100,7 @@ class FundForm extends Form
             'amount' => $this->amount * 100,
             'fund_id' => $this->to_fund,
             'note' => $this->description,
+            'hash' => 'aaaa', //TODO create a valid hash
             'date' => now()
         ]);
     }

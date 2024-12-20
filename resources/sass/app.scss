@@ -46,7 +46,7 @@
     text-decoration: none;
 }
 
-.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type = 'file']::file-selector-button, .close, .add_donations_manually_or_import_list_item_text, .dot, .table_head_item:first-of-type {
+.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type = 'file']::file-selector-button, .close, .add_donations_manually_or_import_list_item_text, .dot, .table_head_item:first-of-type, .list_title_and_button_container:last-of-type .button_title_container_title {
     cursor: pointer;
 }
 
@@ -54,7 +54,7 @@
     background-color: var(--main_nav_active_bg_color);
 }
 
-.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .table, .add_donations_manually_or_import_list_item, .form_user_list_container_title, .search_form_input, .modal_error_text, .transaction_info_title, .transaction_info_texts_container, .task_users_form_users_list_container_title, .task_users_form_users_list_item_name, .task_users_form_users_list_item_email, .task_show_section_list_item {
+.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .table, .add_donations_manually_or_import_list_item, .form_user_list_container_title, .search_form_input, .modal_error_text, .transaction_info_title, .transaction_info_texts_container, .task_users_form_users_list_container_title, .task_users_form_users_list_item_name, .task_users_form_users_list_item_email, .task_show_section_list_item, .assigned_tasks_for_today_title, .tasks_for_today_title {
     font-size: $text_sizeM;
 }
 
@@ -125,8 +125,8 @@
 }
 
 .task_show_section_list_item_container_text:last-of-type, .input {
-    border: 1px solid var(--white_color_switchable);
-    padding: .8em;
+    border: 1px solid var(--lightgray);
+    padding: .5em;
     background-color: var(--white_color);
     color: var(--black_color);
 }
@@ -173,7 +173,8 @@ select.input {
         &[type = 'file'] {
             &::file-selector-button {
                 background-color: var(--yellow_color);
-                border: 1px solid var(--white_color_switchable);
+                border: 1px solid var(--lightgray);
+                border-left: none;
                 box-shadow: none;
                 position: absolute;
                 right: -5px;
@@ -216,6 +217,8 @@ select.input {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    gap: $spaceXS;
+    flex-wrap: wrap;
 
     .label {
         font-weight: normal;
@@ -229,14 +232,23 @@ select.input {
 .list_title_and_button_container {
     gap: $spaceM;
     flex: 1;
+    flex-wrap: wrap;
+
+    &:last-of-type {
+        .button_title_container {
+            &_title {
+                user-select: none;
+            }
+        }
+    }
 
     .button_title_container {
         flex-direction: row;
-        justify-content: space-between;
+        flex-wrap: wrap;
         gap: $spaceM;
 
         &:has(:not(div.button_title_container_button_container)) {
-            height: 2.9375em;
+            line-height: 2.9375em;
         }
 
         &_title {
@@ -420,6 +432,7 @@ select.input {
 
 .login_page {
     flex-direction: row-reverse;
+    flex-wrap: wrap;
     height: 100vh;
 
     &_logo_bg, &_content {
@@ -439,10 +452,12 @@ select.input {
             align-self: center;
             flex-grow: 1;
             justify-content: center;
+            align-items: center;
+            width: 100%;
 
             &_form {
                 gap: $spaceL;
-                width: 29.6875em; //475
+                width: 75%;
 
                 &_label_and_input {
                     gap: $spaceXL;
@@ -653,19 +668,14 @@ select.input {
 }
 
 .home_sections_container {
-    flex-direction: row;
-    gap: $spaceS;
-    flex-wrap: wrap;
-    position: relative;
-
-    .section {
-        flex: 1;
-    }
 
     .todo_list_section {
         &_content {
-            height: 31.25em; //500
-            overflow: scroll;
+            gap: $spaceDoubleXXL;
+
+            .tasks_for_today, .assigned_tasks_for_today {
+                gap: $spaceS;
+            }
 
             &_list {
                 gap: $spaceXXS;
@@ -684,7 +694,7 @@ select.input {
 
                     &_link {
                         color: var(--white_color_switchable);
-                        max-width: 8em;
+                        max-width: 20em;
                         overflow: hidden;
                         text-overflow: ellipsis;
                         white-space: nowrap;
@@ -777,8 +787,6 @@ select.input {
 
         &_in_process_list, &_enclosed_list {
             gap: $spaceS;
-            height: 22.1875em;
-            overflow: scroll;
 
             &_item {
                 background-color: var(--item_bg_color);
@@ -1144,8 +1152,8 @@ select.input {
         &_item {
             align-items: center;
             gap: $spaceXS;
-            flex-basis: calc(20% - $spaceM + $spaceM/5);
-            max-width: calc(20% - $spaceM + $spaceM/5);
+            flex-basis: calc(20% - $spaceM + $spaceM / 5);
+            max-width: calc(20% - $spaceM + $spaceM / 5);
 
             &_picture {
                 width: 36px;

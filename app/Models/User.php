@@ -61,18 +61,14 @@ class User extends Authenticatable
         return $this->tasks()
         ->where('date', today())
         ->where('completed', '=', false)
-        ->with('users')
-        ->get()
-            ->map(function ($task) {
-                $task->users = $task->users->where('id', '!=', $task->owner);
-                return $task;
-            });
+        ->with('users');
     }
 
-    public function getAssignedTasks()
+    public function getAssignedTasksForToday()
     {
         return $this->belongsToMany(Task::class, 'task_users')
             ->where('completed', '=', false)
+            ->where('date', today())
             ->with('users');
     }
 }

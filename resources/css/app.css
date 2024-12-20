@@ -68,6 +68,7 @@ table {
   --black_placeholder_color_switchable: rgba(255, 255, 255, 0.6);
   --main_nav_active_bg_color: rgba(0, 0, 0, 0.25);
   --black_line_color: rgba(0, 0, 0, 0.5);
+  --lightgray: #D3D3D3FF;
 }
 
 .body.dark-theme {
@@ -81,7 +82,7 @@ table {
   --white_color_switchable: #FFFFFF;
   --red_color: #E34234;
   --green_color: #4ADB15;
-  --dark_green_color: #27750b;
+  --dark_green_color: #4ADB15;
   --blue_color: #00BBFF;
   --modal_bg_color: rgba(0, 0, 0, 0.75);
   --line_color_switchable: rgba(255, 255, 255, 0.5);
@@ -90,6 +91,7 @@ table {
   --black_placeholder_color_switchable: rgba(0, 0, 0, 0.6);
   --main_nav_active_bg_color: rgba(0, 0, 0, 0.25);
   --black_line_color: rgba(0, 0, 0, 0.5);
+  --lightgray: #D3D3D3FF;
 }
 
 .profile-modal-transition, .success-message-transition, .modal-transition {
@@ -159,7 +161,7 @@ table {
   text-decoration: none;
 }
 
-.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type=file]::file-selector-button, .close, .add_donations_manually_or_import_list_item_text, .dot, .table_head_item:first-of-type {
+.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type=file]::file-selector-button, .close, .add_donations_manually_or_import_list_item_text, .dot, .table_head_item:first-of-type, .list_title_and_button_container:last-of-type .button_title_container_title {
   cursor: pointer;
 }
 
@@ -167,7 +169,7 @@ table {
   background-color: var(--main_nav_active_bg_color);
 }
 
-.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .table, .add_donations_manually_or_import_list_item, .form_user_list_container_title, .search_form_input, .modal_error_text, .transaction_info_title, .transaction_info_texts_container, .task_users_form_users_list_container_title, .task_users_form_users_list_item_name, .task_users_form_users_list_item_email, .task_show_section_list_item {
+.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .table, .add_donations_manually_or_import_list_item, .form_user_list_container_title, .search_form_input, .modal_error_text, .transaction_info_title, .transaction_info_texts_container, .task_users_form_users_list_container_title, .task_users_form_users_list_item_name, .task_users_form_users_list_item_email, .task_show_section_list_item, .assigned_tasks_for_today_title, .tasks_for_today_title {
   font-size: 1.25em;
 }
 
@@ -232,8 +234,8 @@ table {
 }
 
 .task_show_section_list_item_container_text:last-of-type, .input {
-  border: 1px solid var(--white_color_switchable);
-  padding: 0.8em;
+  border: 1px solid var(--lightgray);
+  padding: 0.5em;
   background-color: var(--white_color);
   color: var(--black_color);
 }
@@ -276,7 +278,8 @@ select.input {
 }
 .input_error_message .input[type=file]::file-selector-button {
   background-color: var(--yellow_color);
-  border: 1px solid var(--white_color_switchable);
+  border: 1px solid var(--lightgray);
+  border-left: none;
   box-shadow: none;
   position: absolute;
   right: -5px;
@@ -312,6 +315,8 @@ select.input {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  gap: 0.9375em;
+  flex-wrap: wrap;
 }
 .stay_connected_forgot_password .label {
   font-weight: normal;
@@ -323,14 +328,18 @@ select.input {
 .list_title_and_button_container {
   gap: 1.875em;
   flex: 1;
+  flex-wrap: wrap;
+}
+.list_title_and_button_container:last-of-type .button_title_container_title {
+  user-select: none;
 }
 .list_title_and_button_container .button_title_container {
   flex-direction: row;
-  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 1.875em;
 }
 .list_title_and_button_container .button_title_container:has(:not(div.button_title_container_button_container)) {
-  height: 2.9375em;
+  line-height: 2.9375em;
 }
 .list_title_and_button_container .button_title_container_title {
   font-size: 1.875em;
@@ -469,6 +478,7 @@ select.input {
 
 .login_page {
   flex-direction: row-reverse;
+  flex-wrap: wrap;
   height: 100vh;
 }
 .login_page_logo_bg, .login_page_content {
@@ -486,10 +496,12 @@ select.input {
   align-self: center;
   flex-grow: 1;
   justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 .login_page_content .login_section_form {
   gap: 2.1875em;
-  width: 29.6875em;
+  width: 75%;
 }
 .login_page_content .login_section_form_label_and_input {
   gap: 2.5em;
@@ -647,18 +659,11 @@ select.input {
   color: var(--white_color_switchable);
 }
 
-.home_sections_container {
-  flex-direction: row;
-  gap: 1.25em;
-  flex-wrap: wrap;
-  position: relative;
-}
-.home_sections_container .section {
-  flex: 1;
-}
 .home_sections_container .todo_list_section_content {
-  height: 31.25em;
-  overflow: scroll;
+  gap: 6.25em;
+}
+.home_sections_container .todo_list_section_content .tasks_for_today, .home_sections_container .todo_list_section_content .assigned_tasks_for_today {
+  gap: 1.25em;
 }
 .home_sections_container .todo_list_section_content_list {
   gap: 0.625em;
@@ -676,7 +681,7 @@ select.input {
 }
 .home_sections_container .todo_list_section_content_list_item_link {
   color: var(--white_color_switchable);
-  max-width: 8em;
+  max-width: 20em;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -751,8 +756,6 @@ select.input {
 }
 .funds_section_lists_container_in_process_list, .funds_section_lists_container_enclosed_list {
   gap: 1.25em;
-  height: 22.1875em;
-  overflow: scroll;
 }
 .funds_section_lists_container_in_process_list_item, .funds_section_lists_container_enclosed_list_item {
   background-color: var(--item_bg_color);

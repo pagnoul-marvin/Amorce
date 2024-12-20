@@ -52,7 +52,7 @@
                 @enderror
 
             </x-layout.input-label-container>
-            <x-layout.input-label-container id="fund" class="modal_section_content_form_input_label_container"
+            <x-layout.input-label-container id="fund" class="modal_section_content_form_input_label_container start"
                                             :label="__('texts.funds_form')">
 
                 <select class="input" id="fund" wire:model.blur="form.fund_id" required value="{{old('form.fund_id')}}">

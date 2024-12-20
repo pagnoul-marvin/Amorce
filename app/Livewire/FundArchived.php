@@ -6,7 +6,7 @@ use App\Livewire\Forms\FundForm;
 use App\Models\Fund;
 use Livewire\Component;
 
-class FundEnclosed extends Component
+class FundArchived extends Component
 {
     public FundForm $form;
     public $fund;

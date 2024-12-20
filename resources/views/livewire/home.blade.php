@@ -4,12 +4,11 @@
 
     <div class="home_sections_container flex">
 
-        <section class="todo_list_section section flex">
+        <section class="todo_list_section section flex space">
 
             <div class="todo_list_section_title_and_buttons flex section_title_and_button">
 
-                <h2 class="section_title hel_bold">{{__('texts.todo_list_title')}}
-                    ({{count($tasks) + count($assigned_tasks)}} items)</h2>
+                <h2 class="section_title hel_bold">{{__('texts.todo_list_title')}}</h2>
 
                 <livewire:buttons.modal-button type="add" :title="__('texts.add_a_task_for_today')"
                                                to="modals.task-create-for-today-modal" event="openModal"
@@ -17,31 +16,11 @@
 
             </div>
 
-            <div class="todo_list_section_content">
+            <div class="todo_list_section_content flex">
 
-                @if(count($this->tasks) > 0)
+                <livewire:tasks-for-today/>
 
-                    <ul class="todo_list_section_content_list flex">
-
-                        @foreach($this->tasks as $task)
-
-                            <livewire:task-completed :$task wire:key="task-completed-{{$task->id}}"/>
-
-                        @endforeach
-
-                        @foreach($assigned_tasks as $assigned_task)
-
-                            <livewire:home-assigned-tasks :$assigned_task wire:key="assigned-task-{{$assigned_task->id}}"/>
-
-                        @endforeach
-
-                    </ul>
-
-                @else
-
-                    <p class="hel_bold todo_list_section_content_no_tasks">{{__('texts.no_tasks_for_today')}}</p>
-
-                @endif
+                <livewire:assigned-tasks-for-today/>
 
             </div>
 
