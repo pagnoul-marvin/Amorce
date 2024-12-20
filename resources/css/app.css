@@ -1039,6 +1039,7 @@ select.input {
   align-items: center;
   gap: 0.9375em;
   flex-basis: calc(20% - 1.875em + 0.375em);
+  max-width: calc(20% - 1.875em + 0.375em);
 }
 .task_users_form_users_list_container .task_users_form_users_list_item_picture {
   width: 36px;

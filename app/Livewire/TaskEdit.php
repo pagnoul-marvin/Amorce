@@ -11,6 +11,7 @@ class TaskEdit extends Component
     public $task;
     public TaskForm $form;
     public $assigned_users = [];
+    protected $listeners = ['mount' => 'mount'];
 
     public function mount(Task $task): void
     {

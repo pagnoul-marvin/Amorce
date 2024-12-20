@@ -53,10 +53,8 @@
 
                 <select class="input" id="status" wire:model.blur="form.completed" required>
 
-                    <option class="option"
-                            value="0">{{$task->completed ? __('texts.enclosed') : __('texts.open')}}</option>
-                    <option class="option"
-                            value="1">{{$task->completed ? __('texts.open') : __('texts.enclosed')}}</option>
+                    <option class="option" value="{{$task->completed ? 1 : 0}}">{{$task->completed ? __('texts.enclosed') : __('texts.open')}}</option>
+                    <option class="option" value="{{$task->completed ? 0 : 1}}">{{$task->completed ? __('texts.open') : __('texts.enclosed')}}</option>
 
                 </select>
 
