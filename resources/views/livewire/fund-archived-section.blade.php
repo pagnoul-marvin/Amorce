@@ -1,4 +1,4 @@
-<div class="list_title_and_button_container flex">
+<div class="list_title_and_button_container flex" x-data="{open: @entangle('fundArchivedIsOpen')}">
 
     <div class="button_title_container flex">
 
@@ -24,7 +24,7 @@
 
     </div>
 
-    <div x-data="{open: @entangle('fundArchivedIsOpen')}" x-show="open">
+    <div x-show="open">
 
         <ul class="funds_section_lists_container_enclosed_list flex">
 
@@ -38,6 +38,8 @@
 
     </div>
 
-    {{ $this->fundEnclosed()->links('vendor.livewire.custom', data:['scrollTo'=>false]) }}
+    <div x-show="open">
+        {{ $this->fundEnclosed()->links('vendor.livewire.custom', data:['scrollTo'=>false]) }}
+    </div>
 
 </div>

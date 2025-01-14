@@ -5,7 +5,7 @@
 
     <ul class="todo_list_section_content_list_item_profile_pictures_list flex">
 
-        @foreach($assigned_task->users->take(3) as $user)
+        @foreach($assigned_task->users as $user)
 
             <li class="todo_list_section_content_list_item_profile_pictures_list_item" wire:key="assigned-task-user-{{$user->id}}">
 
@@ -18,12 +18,6 @@
             </li>
 
         @endforeach
-
-        @if(count($assigned_task->users) > 3)
-
-            <li><span class="hel_reg">...</span></li>
-
-        @endif
 
     </ul>
 

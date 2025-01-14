@@ -21,7 +21,7 @@
 
 <main class="flex welcome_page_content">
 
-    <img src="{{asset('img/logo650x269.png')}}" alt="{{__('texts.amorce_logo')}}" width="650" height="269">
+    <x-logo class="logo_large"/>
 
     <div class="flex welcome_page_content_button_and_themes">
 

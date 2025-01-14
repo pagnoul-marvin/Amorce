@@ -20,7 +20,7 @@
 
     <div class="login_page_logo_bg flex">
 
-        <img src="{{asset('img/logo650x269.png')}}" alt="Logo de l'Amorce" width="650" height="269">
+        <x-logo class="logo_large"/>
 
     </div>
 

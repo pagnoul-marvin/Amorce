@@ -153,6 +153,13 @@ table {
   flex-direction: column;
 }
 
+.logo_small {
+  width: 120px;
+}
+.logo_large {
+  width: 400px;
+}
+
 .header, .body.yellow_bg, .submit_btn, .app_nav_theme_switcher_and_profile_content_modal, .login_page_logo_bg, .footer {
   background-color: var(--yellow_color);
 }
@@ -161,7 +168,7 @@ table {
   text-decoration: none;
 }
 
-.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type=file]::file-selector-button, .close, .add_donations_manually_or_import_list_item_text, .dot, .table_head_item:first-of-type, .list_title_and_button_container:last-of-type .button_title_container_title {
+.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type=file]::file-selector-button, .close, .add_donations_manually_or_import_list_item_text, .dot, .table_head_item:first-of-type, .list_title_and_button_container:last-of-type .button_title_container_title, .tasks_for_today_title, .assigned_tasks_for_today_title {
   cursor: pointer;
 }
 
@@ -407,9 +414,6 @@ select.input {
   align-items: flex-start;
   position: relative;
 }
-.section_title_and_button .section_title {
-  flex-basis: 377px;
-}
 
 .themes {
   flex-direction: row;
@@ -536,16 +540,17 @@ select.input {
 }
 
 .header {
-  height: calc(100vh - 5em + 0.9375em);
+  height: calc(100vh - 5em);
   position: fixed;
   z-index: 1;
   top: 0;
   left: 0;
-  width: 13.6875em;
-  padding: 2.5em 1.25em 1.5625em 1.875em;
+  max-width: 14.3125em;
+  padding: 2.5em 1.25em;
 }
 .header .app_nav {
   justify-content: space-between;
+  align-items: center;
   height: 100%;
 }
 .header .app_nav_logo {
@@ -592,8 +597,8 @@ select.input {
   border-radius: 0.625em;
 }
 .header .app_nav_theme_switcher_and_profile_content_image {
-  min-width: 55px;
-  height: 55px;
+  max-width: 55px;
+  max-height: 55px;
   border-radius: 50%;
   overflow: hidden;
 }
@@ -650,7 +655,7 @@ select.input {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 3.125em 1.875em;
+  padding: 2.1875em 1.875em;
   width: calc(100vw - 3.75em - 16.8125em);
 }
 
@@ -681,7 +686,6 @@ select.input {
 }
 .home_sections_container .todo_list_section_content_list_item_link {
   color: var(--white_color_switchable);
-  max-width: 20em;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

@@ -1,10 +1,27 @@
-<div class="assigned_tasks_for_today flex">
+<div class="assigned_tasks_for_today flex" x-data="{open : @entangle('isAssignedTasksForTodayOpen')}">
 
-    <h3 class="hel_bold assigned_tasks_for_today_title">Les tâches où vous avez été assigné</h3>
+    <h3 class="hel_bold assigned_tasks_for_today_title" wire:click="openAssignedTasksForToday">
+        Les tâches où vous avez été assigné
+        <svg class="{{$icon_visible ? '' : 'table_icon_invisible'}}" width="22" height="18"
+             viewBox="0 0 22 18" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <style>
+                    .table_icon {
+                        fill: var(--white_color_switchable);
+                    }
+                </style>
+            </defs>
+            <path class="table_icon" d="M11 18L21.3923 0L0.607696 0L11 18Z"/>
+        </svg>
+        <svg class="{{$icon_visible ? 'table_icon_invisible' : ''}}" width="22" height="18"
+             viewBox="0 0 22 18" xmlns="http://www.w3.org/2000/svg">
+            <path class="table_icon" d="M11 0L0.607697 18H21.3923L11 0Z"/>
+        </svg>
+    </h3>
 
     @if(count($this->assignedTasks()))
 
-        <ul>
+        <ul x-show="open">
 
             @foreach($this->assignedTasks() as $assigned_task)
 
@@ -16,10 +33,13 @@
 
     @else
 
-        <p class="hel_bold todo_list_section_content_no_tasks">Vous n'avez été assigné à aucune tâche pour aujourd'hui</p>
+        <p class="hel_bold todo_list_section_content_no_tasks">Vous n'avez été assigné à aucune tâche pour
+            aujourd'hui</p>
 
     @endif
 
-    {{ $this->assignedTasks()->links('vendor.livewire.custom', data:['scrollTo'=>false]) }}
+    <div x-show="open">
+        {{ $this->assignedTasks()->links('vendor.livewire.custom', data:['scrollTo'=>false]) }}
+    </div>
 
 </div>
