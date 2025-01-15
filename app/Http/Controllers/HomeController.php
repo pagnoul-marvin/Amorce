@@ -10,7 +10,7 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $tasks = $user?->getTasksForToday();
+        $tasks = $user?->getTasksForTheDay();
         $actual_detente = '';
         return view('home', compact('user', 'tasks', 'actual_detente'));
     }

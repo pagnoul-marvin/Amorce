@@ -565,7 +565,7 @@ select.input {
 .header .app_nav_logo_and_close_icon {
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: start;
 }
 .header .app_nav_logo_and_close_icon_icon {
   width: 60px;
@@ -676,6 +676,14 @@ select.input {
   align-items: center;
   flex-wrap: wrap;
   height: 3.65625em;
+  gap: 1em;
+}
+.home_sections_container .todo_list_section_content_list_item .picture_and_form_container {
+  flex-direction: row;
+  flex: 1;
+  justify-content: right;
+  gap: 1.875em;
+  flex-wrap: wrap;
 }
 .home_sections_container .todo_list_section_content_list_item:not(:last-of-type) {
   padding-bottom: 0.625em;
@@ -700,6 +708,7 @@ select.input {
   flex-direction: row;
   gap: 0.3125em;
   align-items: flex-end;
+  flex-wrap: wrap;
 }
 .home_sections_container .todo_list_section_content_list_item_profile_pictures_list_item {
   width: 36px;
@@ -799,8 +808,22 @@ select.input {
 .modal_section_content {
   background-color: var(--yellow_color);
   padding: 3.125em;
-  gap: 6.25em;
+  gap: 3.125em;
   border-radius: 1.25em;
+  max-height: 80%;
+  overflow: scroll;
+}
+.modal_section_content::-webkit-scrollbar {
+  width: 10px;
+  height: 100%;
+}
+.modal_section_content::-webkit-scrollbar-thumb {
+  background-color: var(--white_color_switchable);
+  border-radius: 10px;
+}
+.modal_section_content::-webkit-scrollbar-track:hover {
+  background-color: var(--white_placeholder_color);
+  border-radius: 10px;
 }
 .modal_section_content.error_modal {
   background-color: var(--red_color);
@@ -815,14 +838,14 @@ select.input {
 }
 .modal_section_content_form {
   flex-direction: row;
-  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-end;
+  flex-wrap: wrap;
   gap: 2.5em 1.875em;
-  width: 40.625em;
+  max-width: 40em;
 }
-.modal_section_content_form_input_label_container, .modal_section_content_form_submit_btn_container {
-  flex-basis: calc(50% - 1.875em);
+.modal_section_content_form_input_label_container {
+  width: 100%;
 }
 .modal_section_content_form_input_label_container .input, .modal_section_content_form_input_label_container .label {
   color: var(--black_color);
@@ -843,8 +866,8 @@ select.input {
 .modal_section_content_form_input_label_container .input[id=amount] {
   background-image: url("../icons/black_euro_icon.svg");
 }
-.modal_section_content_form_input_label_container select.input {
-  width: 14.65em;
+.modal_section_content_form_submit_btn_container {
+  width: 100%;
 }
 .modal_section_content_form_submit_btn_container_submit_btn {
   border: none;
@@ -858,31 +881,6 @@ select.input {
   align-items: center;
   flex-wrap: wrap;
   gap: 1.875em;
-}
-.custom-pagination .circle-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: var(--yellow_color);
-  color: var(--black_color);
-  cursor: pointer;
-  transition: transform 0.2s ease;
-  border: none;
-}
-.custom-pagination .circle-btn .icon {
-  width: 24px;
-  height: 24px;
-}
-.custom-pagination .circle-btn:hover {
-  transform: scale(1.05);
-}
-.custom-pagination .circle-btn.disabled {
-  background-color: var(--yellow_color);
-  cursor: not-allowed;
-  opacity: 0.6;
 }
 .custom-pagination .dotted-line {
   display: flex;
@@ -902,6 +900,32 @@ select.input {
 .custom-pagination .dotted-line .dot.active {
   background-color: var(--yellow_color);
   color: var(--black_color);
+}
+
+.circle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--yellow_color);
+  color: var(--black_color);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  border: none;
+}
+.circle-btn .icon {
+  width: 24px;
+  height: 24px;
+}
+.circle-btn:hover {
+  transform: scale(1.05);
+}
+.circle-btn.disabled {
+  background-color: var(--yellow_color);
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .add_donations_manually_or_import {
@@ -934,11 +958,11 @@ select.input {
 
 .form_user_list_container, .form_fund_list_container {
   gap: 0.9375em;
-  flex-basis: calc(50% - 1.875em);
+  width: 100%;
 }
 .form_user_list_container .form_user_list, .form_user_list_container .form_fund_list, .form_fund_list_container .form_user_list, .form_fund_list_container .form_fund_list {
   gap: 0.9375em;
-  height: 12.5em;
+  height: 15em;
   overflow: scroll;
   border: 1px solid var(--black_color);
   border-radius: 0.625em;
@@ -955,6 +979,7 @@ select.input {
 }
 .form_user_list_container .form_user_list_item_label, .form_user_list_container .form_fund_list_item_label, .form_fund_list_container .form_user_list_item_label, .form_fund_list_container .form_fund_list_item_label {
   gap: 0.9375em;
+  flex: 1;
 }
 .form_user_list_container .form_user_list_item_label_username_and_picture_container, .form_user_list_container .form_fund_list_item_label_username_and_picture_container, .form_fund_list_container .form_user_list_item_label_username_and_picture_container, .form_fund_list_container .form_fund_list_item_label_username_and_picture_container {
   flex-direction: row;
@@ -994,6 +1019,12 @@ select.input {
 .fund_transactions_section .table .submit_btn {
   font-size: unset;
   padding: 0.9375em;
+}
+
+.task_index_tasks_manager_section_title_and_buttons_container {
+  align-items: center;
+  flex-direction: row;
+  gap: 2.1875em;
 }
 
 .table_icon_invisible {

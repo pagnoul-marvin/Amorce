@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Livewire\ProfileEdit;
+use App\Livewire\Profile\ProfileEdit;
 
 Route::middleware('auth')->group(function () {
     Route::get('/profil', ProfileEdit::class)->name('profile.edit');

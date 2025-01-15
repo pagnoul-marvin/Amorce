@@ -17,7 +17,7 @@ return [
     'page_link' => 'Aller vers la page',
     'home' => 'Accueil',
     'projects' => 'Projets',
-    'todo_list' => 'To do list',
+    'todo_list' => 'Todo list',
     'reports' => 'Comptes-rendus',
     'newsletter' => 'Newsletter',
     'account_transactions' => 'Fonds et transactions',
@@ -99,4 +99,8 @@ return [
     'open' => 'Ouvert',
     'users_can_be_added' => 'Utilisateurs pouvant être ajoutés',
     'no_users' => 'Aucun utilisateur n\'a été ajouté',
+    'add_modify_create_todo_list' => 'Ajouter, modifier, créer ou retirer une chose à faire de votre todo list',
+    'today' => 'Aujourd\'hui',
+    'yesterday' => 'Hier',
+    'tomorrow' => 'Demain',
 ];

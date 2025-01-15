@@ -17,7 +17,7 @@ return [
     'page_link' => 'Go to page',
     'home' => 'Home',
     'projects' => 'Projects',
-    'todo_list' => 'To do list',
+    'todo_list' => 'Todo list',
     'reports' => 'Reports',
     'newsletter' => 'Newsletter',
     'account_transactions' => 'Accounts and transactions',
@@ -98,4 +98,8 @@ return [
     'users_added' => 'Users added',
     'users_can_be_added' => 'Users can be added',
     'no_users' => 'Nobody has been added',
+    'add_modify_create_todo_list' => 'Add, modify, create and delete a task in your todo list',
+    'today' => 'Today',
+    'yesterday' => 'Yesterday',
+    'tomorrow' => 'Tomorrow',
 ];

@@ -173,7 +173,6 @@ select.input {
     background-image: url("../icons/arrow_down.svg");
     background-position: right $spaceS center;
     background-repeat: no-repeat;
-
     padding-right: $spaceXXL;
 }
 
@@ -538,7 +537,7 @@ select.input {
         &_logo_and_close_icon {
             flex-direction: row;
             justify-content: space-between;
-            align-items: center;
+            align-items: start;
 
             &_icon {
                 width: 60px;
@@ -696,6 +695,15 @@ select.input {
                     align-items: center;
                     flex-wrap: wrap;
                     height: 3.65625em;
+                    gap: $space;
+
+                    .picture_and_form_container {
+                        flex-direction: row;
+                        flex: 1;
+                        justify-content: right;
+                        gap: $spaceM;
+                        flex-wrap: wrap;
+                    }
 
                     &:not(:last-of-type) {
                         padding-bottom: $spaceXXS;
@@ -726,6 +734,7 @@ select.input {
                         flex-direction: row;
                         gap: $spaceXXXS;
                         align-items: flex-end;
+                        flex-wrap: wrap;
 
                         &_item {
                             width: 36px;
@@ -847,8 +856,25 @@ select.input {
     &_content {
         background-color: var(--yellow_color);
         padding: $spaceXXL;
-        gap: $spaceDoubleXXL;
+        gap: $spaceXXL;
         border-radius: 1.25em;
+        max-height: 80%;
+        overflow: scroll;
+
+        &::-webkit-scrollbar {
+            width: 10px;
+            height: 100%;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: var(--white_color_switchable);
+            border-radius: 10px;
+        }
+
+        &::-webkit-scrollbar-track:hover {
+            background-color: var(--white_placeholder_color);
+            border-radius: 10px;
+        }
 
         &.error_modal {
             background-color: var(--red_color);
@@ -866,17 +892,15 @@ select.input {
 
         &_form {
             flex-direction: row;
-            flex-wrap: wrap;
             justify-content: space-between;
             align-items: flex-end;
+            flex-wrap: wrap;
             gap: $spaceXL $spaceM;
-            width: 40.625em;
-
-            &_input_label_container, &_submit_btn_container {
-                flex-basis: calc(50% - $spaceM);
-            }
+            max-width: 40em;
 
             &_input_label_container {
+                width: 100%;
+
                 .input, .label {
                     color: var(--black_color);
                     border-color: var(--black_color);
@@ -905,13 +929,10 @@ select.input {
                         background-image: url("../icons/black_euro_icon.svg");
                     }
                 }
-
-                select.input {
-                    width: 14.65em;
-                }
             }
 
             &_submit_btn_container {
+                width: 100%;
 
                 &_submit_btn {
                     border: none;
@@ -929,35 +950,6 @@ select.input {
     align-items: center;
     flex-wrap: wrap;
     gap: $spaceM;
-
-    .circle-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background-color: var(--yellow_color);
-        color: var(--black_color);
-        cursor: pointer;
-        transition: transform 0.2s ease;
-        border: none;
-
-        .icon {
-            width: 24px;
-            height: 24px;
-        }
-
-        &:hover {
-            transform: scale(1.05);
-        }
-
-        &.disabled {
-            background-color: var(--yellow_color);
-            cursor: not-allowed;
-            opacity: 0.6;
-        }
-    }
 
     .dotted-line {
         display: flex;
@@ -979,6 +971,35 @@ select.input {
                 color: var(--black_color);
             }
         }
+    }
+}
+
+.circle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--yellow_color);
+    color: var(--black_color);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    border: none;
+
+    .icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &.disabled {
+        background-color: var(--yellow_color);
+        cursor: not-allowed;
+        opacity: 0.6;
     }
 }
 
@@ -1021,11 +1042,11 @@ select.input {
 
 .form_user_list_container, .form_fund_list_container {
     gap: $spaceXS;
-    flex-basis: calc(50% - $spaceM);
+    width: 100%;
 
     .form_user_list, .form_fund_list {
         gap: $spaceXS;
-        height: 12.5em;
+        height: 15em;
         overflow: scroll;
         border: 1px solid var(--black_color);
         border-radius: .625em;
@@ -1043,6 +1064,7 @@ select.input {
 
             &_label {
                 gap: $spaceXS;
+                flex: 1;
 
                 &_username_and_picture_container {
                     flex-direction: row;
@@ -1100,6 +1122,15 @@ select.input {
             font-size: unset;
             padding: $spaceXS;
         }
+    }
+}
+
+.task_index_tasks_manager_section {
+
+    &_title_and_buttons_container {
+        align-items: center;
+        flex-direction: row;
+        gap: $spaceL;
     }
 }
 

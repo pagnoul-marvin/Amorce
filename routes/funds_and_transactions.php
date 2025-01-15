@@ -1,7 +1,7 @@
 <?php
 
-use App\Livewire\FundsAndTransactions;
-use App\Livewire\FundShow;
+use App\Livewire\FundsAndTransactions\FundsAndTransactions;
+use App\Livewire\FundsAndTransactions\FundShow;
 
 Route::group(['middleware' => ['auth', 'verified',]], function () {
     Route::get('/fonds-et-transactions', FundsAndTransactions::class)->name('funds_and_transactions.index');
