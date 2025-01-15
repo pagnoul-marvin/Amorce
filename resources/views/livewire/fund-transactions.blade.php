@@ -1,4 +1,4 @@
-<section class="section fund_transactions_section flex" x-data="{open : @entangle('orderDirection')}">
+<section class="section fund_transactions_section flex" x-data="{order : @entangle('orderDirection')}">
 
     <h2 class="section_title hel_bold">{{__('texts.transactions_linked_to')}} {{$fund->name}}</h2>
 
@@ -8,7 +8,7 @@
 
             <tr>
                 <th class="hel_reg_underline table_head_item" wire:click="switchOrderOfDate">{{__('texts.date')}}
-                    <svg :class="open == 'desc' ? '' : 'table_icon_invisible'" width="22" height="18" viewBox="0 0 22 18" xmlns="http://www.w3.org/2000/svg">
+                    <svg :class="order == 'desc' ? '' : 'table_icon_invisible'" width="22" height="18" viewBox="0 0 22 18" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <style>
                                 .table_icon {
@@ -18,7 +18,7 @@
                         </defs>
                         <path class="table_icon" d="M11 18L21.3923 0L0.607696 0L11 18Z"/>
                     </svg>
-                    <svg :class="open == 'desc' ? 'table_icon_invisible' : ''" width="22" height="18" viewBox="0 0 22 18" xmlns="http://www.w3.org/2000/svg">
+                    <svg :class="order == 'desc' ? 'table_icon_invisible' : ''" width="22" height="18" viewBox="0 0 22 18" xmlns="http://www.w3.org/2000/svg">
                         <path class="table_icon" d="M11 0L0.607697 18H21.3923L11 0Z"/>
                     </svg>
                 </th>

@@ -12,7 +12,6 @@ class Transactions extends Component
     use WithPagination;
     protected $listeners = ['transactions' => 'transactions'];
     public $orderDirection = 'desc';
-    public $icon_visible = true;
 
     #[Computed]
     public function transactions()
@@ -23,7 +22,6 @@ class Transactions extends Component
     public function switchOrderOfDate(): void
     {
         $this->orderDirection = $this->orderDirection === 'desc' ? 'asc' : 'desc';
-        $this->icon_visible = !$this->icon_visible;
     }
 }
 

@@ -1,4 +1,4 @@
-<section class="section donations_section flex">
+<section class="section donations_section flex" x-data="{order : @entangle('orderDirection')}">
 
     <div class="section_title_and_button flex">
 
@@ -16,7 +16,7 @@
 
         <tr>
             <th class="hel_reg_underline table_head_item" wire:click="switchOrderOfDate">{{__('texts.date')}}
-                <svg class="{{$icon_visible ? '' : 'table_icon_invisible'}}" width="22" height="18" viewBox="0 0 22 18" xmlns="http://www.w3.org/2000/svg">
+                <svg :class="order == 'desc' ? '' : 'table_icon_invisible'" width="22" height="18" viewBox="0 0 22 18" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <style>
                             .table_icon {
@@ -26,7 +26,7 @@
                     </defs>
                     <path class="table_icon" d="M11 18L21.3923 0L0.607696 0L11 18Z"/>
                 </svg>
-                <svg class="{{$icon_visible ? 'table_icon_invisible' : ''}}" width="22" height="18" viewBox="0 0 22 18" xmlns="http://www.w3.org/2000/svg">
+                <svg :class="order == 'desc' ? 'table_icon_invisible' : ''" width="22" height="18" viewBox="0 0 22 18" xmlns="http://www.w3.org/2000/svg">
                     <path class="table_icon" d="M11 0L0.607697 18H21.3923L11 0Z"/>
                 </svg>
             </th>
