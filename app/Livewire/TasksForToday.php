@@ -13,17 +13,15 @@ class TasksForToday extends Component
 
     protected $listeners = ['refreshTasks' => 'tasks'];
     public bool $isTaskForTodayOpen = true;
-    public bool $icon_visible = true;
 
     #[Computed]
     public function tasks()
     {
-        return Auth::user()->getTasksForToday()->orderBy('title')->paginate(2);
+        return Auth::user()->getTasksForToday()->orderBy('title')->paginate(5);
     }
 
     public function openTaskForToday(): void
     {
         $this->isTaskForTodayOpen = !$this->isTaskForTodayOpen;
-        $this->icon_visible = !$this->icon_visible;
     }
 }

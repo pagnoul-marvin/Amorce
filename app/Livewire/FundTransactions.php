@@ -12,7 +12,6 @@ class FundTransactions extends Component
 
     public $fund;
     public $orderDirection = 'desc';
-    public $icon_visible = true;
 
     protected $listeners = ['transactions' => 'transactions', 'fund' => 'mount'];
 
@@ -30,6 +29,5 @@ class FundTransactions extends Component
     public function switchOrderOfDate(): void
     {
         $this->orderDirection = $this->orderDirection === 'desc' ? 'asc' : 'desc';
-        $this->icon_visible = !$this->icon_visible;
     }
 }

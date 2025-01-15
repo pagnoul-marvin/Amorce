@@ -11,8 +11,6 @@ class FundArchivedSection extends Component
 {
     use WithPagination;
 
-    public $icon_visible = false;
-
     public $fundArchivedIsOpen = false;
 
     protected $listeners = ['fundEnclosed' => 'fundEnclosed', 'fundOpened' => 'fundOpened'];
@@ -26,6 +24,5 @@ class FundArchivedSection extends Component
     public function openArchivedFunds(): void
     {
         $this->fundArchivedIsOpen = !$this->fundArchivedIsOpen;
-        $this->icon_visible = !$this->icon_visible;
     }
 }

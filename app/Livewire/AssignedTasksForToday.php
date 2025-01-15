@@ -12,17 +12,15 @@ class AssignedTasksForToday extends Component
     use WithPagination;
 
     public bool $isAssignedTasksForTodayOpen = false;
-    public bool $icon_visible = false;
 
     #[Computed]
     public function assignedTasks()
     {
-        return Auth::user()->getAssignedTasksForToday()->orderBy('title')->paginate(2);
+        return Auth::user()->getAssignedTasksForToday()->orderBy('title')->paginate(5);
     }
 
     public function openAssignedTasksForToday(): void
     {
         $this->isAssignedTasksForTodayOpen = !$this->isAssignedTasksForTodayOpen;
-        $this->icon_visible = !$this->icon_visible;
     }
 }

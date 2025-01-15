@@ -11,7 +11,31 @@
 
 .body {
     background-color: var(--background_color);
+
+    .layout {
+        flex-direction: row;
+
+        .header {
+            position: fixed;
+            z-index: 1;
+        }
+
+        .main {
+            flex: 1;
+            padding: $spaceXXL;
+            color: var(--white_color_switchable);
+        }
+    }
+
+    .footer {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: $spaceL $spaceM;
+        width: calc(100vw - ($spaceM * 2) - 16.8125em);
+    }
 }
+
 
 .hel_reg, .hel_reg_it, .hel_bold, .hel_reg_underline {
     font-family: 'Helvetica', 'Arial', sans-serif;
@@ -56,7 +80,7 @@
     text-decoration: none;
 }
 
-.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type = 'file']::file-selector-button, .close, .add_donations_manually_or_import_list_item_text, .dot, .table_head_item:first-of-type, .list_title_and_button_container:last-of-type .button_title_container_title, .tasks_for_today_title, .assigned_tasks_for_today_title {
+.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type = 'file']::file-selector-button, .close, .add_donations_manually_or_import_list_item_text, .dot, .table_head_item:first-of-type, .list_title_and_button_container:last-of-type .button_title_container_title, .tasks_for_today_title, .assigned_tasks_for_today_title, .app_nav_logo_and_close_icon_icon {
     cursor: pointer;
 }
 
@@ -508,21 +532,19 @@ select.input {
 }
 
 .header {
-    height: calc(100vh - ($spaceXL * 2));
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    max-width: calc(16.8125em - ($spaceS * 2));
-    padding: $spaceXL $spaceS;
-
     .app_nav {
         justify-content: space-between;
-        align-items: center;
-        height: 100%;
+        height: calc(100vh - ($spaceXL * 2));
+        margin: $spaceXL $spaceS;
 
-        &_logo {
-            padding-left: $spaceXXS;
+        &_logo_and_close_icon {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            &_icon {
+                width: 60px;
+            }
         }
 
         &_main {
@@ -655,23 +677,6 @@ select.input {
     .page_title {
         margin-bottom: 0.6667em;
     }
-}
-
-.main, .footer {
-    margin-left: calc(16.8125em);
-}
-
-.footer {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: $spaceL $spaceM;
-    width: calc(100vw - ($spaceM * 2) - 16.8125em);
-}
-
-.main {
-    padding: $spaceXXL;
-    color: var(--white_color_switchable);
 }
 
 .home_sections_container {

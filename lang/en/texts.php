@@ -12,7 +12,7 @@ return [
     'mail_address' => 'Mail address*',
     'password' => 'Password*',
     'profile_photo_form' => 'Profile photo',
-    'main_navigation' => 'Main navigation',
+    'main_navigation' => 'MainLinks navigation',
     'profile_navigation' => 'Profile navigation',
     'page_link' => 'Go to page',
     'home' => 'Home',

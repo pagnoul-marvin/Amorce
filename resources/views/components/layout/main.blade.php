@@ -12,24 +12,25 @@
     @vite('resources/css/app.css')
 </head>
 
-<body class="body"
-      x-data="{ theme: '{{ session('theme', 'light') }}' }"
+<body class="body flex"
+      x-data="{ theme: '{{ session('theme', 'light') }}', openMarginLeft: '16.8125em', closeMarginLeft: '6.50em', marginLeft: '16.8125em' }"
       x-bind:class="theme + '-theme'"
-      @theme-updated.window="theme = $event.detail[0].theme">
+      @theme-updated.window="theme = $event.detail[0].theme"
+      @toggle-nav.window="marginLeft = $event.detail[0].isNavVisible ? openMarginLeft : closeMarginLeft">
 
-    <h1 class="hidden">Amorce</h1>
+<h1 class="hidden">Amorce</h1>
 
-<header class="header">
+<div class="layout flex">
 
-    <x-navigations.main/>
+    <header class="header">
+        <livewire:navigations.main/>
+    </header>
 
-</header>
+    <main class="main" x-bind:style="{ marginLeft: marginLeft }">
+        {{$slot}}
+    </main>
 
-<main class="main">
-
-    {{$slot}}
-
-</main>
+</div>
 
 <x-footer/>
 
