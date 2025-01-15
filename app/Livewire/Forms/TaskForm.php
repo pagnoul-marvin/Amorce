@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Forms;
 
+use App\Enum\TaskCategories;
 use App\Models\Task;
 use App\Models\TaskUser;
 use Auth;
@@ -11,7 +12,7 @@ use Livewire\Form;
 class TaskForm extends Form
 {
     #[Validate]
-    public $completed;
+    public $category;
 
     #[Validate]
     public $title;
@@ -21,6 +22,7 @@ class TaskForm extends Form
 
     #[Validate]
     public $description;
+
     #[Validate]
     public $user_id;
     public $participants = [];
@@ -30,7 +32,7 @@ class TaskForm extends Form
     public function rules(): array
     {
         return [
-            'completed' => 'required|boolean',
+            'category' => 'required|in:'.implode(',', TaskCategories::values()),
             'title' => 'required|max:255',
             'description' => 'required',
             'date' => 'required|date',
@@ -41,7 +43,7 @@ class TaskForm extends Form
     public function setTask(Task $task): void
     {
         $this->task = $task;
-        $this->completed = $task->completed;
+        $this->category = $task->category;
         $this->title = $task->title;
         $this->description = $task->description;
         $this->date = $task->date;
@@ -51,13 +53,13 @@ class TaskForm extends Form
     public function updateStatus(): void
     {
         $this->validateOnly('completed');
-        $this->task->update(['completed' => $this->completed]);
+        $this->task->update(['category' => TaskCategories::Archived->value]);
     }
 
     public function store(): void
     {
         $this->user_id = Auth::id();
-        $this->completed = false;
+        $this->category = TaskCategories::Todo->value;
         if (empty($this->date)) {
             $this->date = now();
         }

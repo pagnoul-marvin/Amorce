@@ -3,6 +3,7 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Enum\TaskCategories;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -61,17 +62,17 @@ class User extends Authenticatable
     {
         $date = $date ?? Carbon::today();
         return $this->tasks()
-        ->where('date', $date)
-        ->where('completed', '=', false)
-        ->with('users');
+            ->where('date', $date)
+            ->whereIn('category', [TaskCategories::Todo->value, TaskCategories::InProgress->value])
+            ->with('users');
     }
 
     public function getAssignedTasksForTheDay(Carbon $date = null)
     {
         $date = $date ?? Carbon::today();
         return $this->belongsToMany(Task::class, 'task_users')
-            ->where('completed', '=', false)
             ->where('date', $date)
+            ->whereIn('category', [TaskCategories::Todo->value, TaskCategories::InProgress->value])
             ->with('users');
     }
 }

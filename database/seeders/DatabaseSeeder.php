@@ -16,8 +16,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(10)->create();
-
         $marvin = User::factory()
             ->has(Task::factory()->count(50), 'tasks')
             ->create([

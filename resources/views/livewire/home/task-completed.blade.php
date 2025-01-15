@@ -1,7 +1,7 @@
 <li class="todo_list_section_content_list_item flex">
 
     <a href="{{route('tasks.show', $task->id)}}" wire:navigate title="{{__('texts.see_details')}} {{$task->title}}"
-       class="todo_list_section_content_list_item_link hel_reg">{{$task->title}}</a>
+       class="todo_list_section_content_list_item_link hel_reg">{{$task->title}} ({{$task->category}})</a>
 
     <div class="flex picture_and_form_container">
 
@@ -25,7 +25,7 @@
 
         <form wire:submit="save">
 
-            <input type="hidden" wire:model.blur="form.completed">
+            <input type="hidden" wire:model.blur="form.category">
 
             <x-buttons.submit-button type="checked" :title="__('texts.make_this_task_completed')"/>
 

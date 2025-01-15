@@ -39,7 +39,7 @@ return [
     'actual_detente' => 'Actual detente',
     'create_and_exchange_between_funds' => 'Create and exchange between funds and see all the transactions',
     'funds' => 'Funds',
-    'enclosed' => 'Archived',
+    'archived' => 'Archived',
     'in_process' => 'In process',
     'perform_exchange' => 'Perform an exchange between funds',
     'create_fund' => 'Create a fund',
@@ -102,4 +102,5 @@ return [
     'today' => 'Today',
     'yesterday' => 'Yesterday',
     'tomorrow' => 'Tomorrow',
+    'todo' => 'To do'
 ];

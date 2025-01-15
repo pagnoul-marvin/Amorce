@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enum\TaskCategories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,7 +20,7 @@ class TaskFactory extends Factory
         return [
             'title' => $this->faker->sentence(rand(1, 5)),
             'description' => $this->faker->paragraph(rand(1, 5)),
-            'completed' => $this->faker->boolean(),
+            'category' => TaskCategories::cases()[array_rand(TaskCategories::cases())]->value,
             'date' => $this->faker->dateTimeBetween('-2 days', '+2 days'),
         ];
     }

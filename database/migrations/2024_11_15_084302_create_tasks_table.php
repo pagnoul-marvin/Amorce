@@ -1,11 +1,11 @@
 <?php
 
+use App\Enum\TaskCategories;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('title');
             $table->longText('description');
             $table->date('date')->default(now());
-            $table->boolean('completed')->default(false);
+            $table->enum('category', [TaskCategories::Archived->value, TaskCategories::Todo->value, TaskCategories::InProgress->value])->default(TaskCategories::Todo->value);
             $table->timestamps();
         });
     }

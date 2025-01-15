@@ -18,7 +18,7 @@ class Task extends Model
         'title',
         'description',
         'date',
-        'completed',
+        'category',
     ];
 
     public function casts(): array

@@ -51,10 +51,11 @@
             <x-layout.input-label-container id="status" class="fund_details_section_form_label_and_input_container"
                                             :label="__('texts.status')">
 
-                <select class="input" id="status" wire:model.blur="form.completed" required>
+                <select class="input" id="status" wire:model.blur="form.category" required>
 
-                    <option class="option" value="{{$task->completed ? 1 : 0}}">{{$task->completed ? __('texts.enclosed') : __('texts.open')}}</option>
-                    <option class="option" value="{{$task->completed ? 0 : 1}}">{{$task->completed ? __('texts.open') : __('texts.enclosed')}}</option>
+                    <option class="option" value="{{\App\Enum\TaskCategories::Todo->value}}">{{__('texts.todo')}}</option>
+                    <option class="option" value="{{\App\Enum\TaskCategories::InProgress->value}}">{{__('texts.in_process')}}</option>
+                    <option class="option" value="{{\App\Enum\TaskCategories::Archived->value}}">{{__('texts.archived')}}</option>
 
                 </select>
 

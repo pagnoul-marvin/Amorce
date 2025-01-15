@@ -39,7 +39,7 @@ return [
     'actual_detente' => 'La détente actuelle',
     'create_and_exchange_between_funds' => 'Créer et échanger entre fonds et voir les transactions',
     'funds' => 'Les fonds',
-    'enclosed' => 'Clôturés',
+    'archived' => 'Clôturés',
     'in_process' => 'En cours',
     'perform_exchange' => 'Effectuer un échange entre fonds',
     'create_fund' => 'Créer un fond',
@@ -103,4 +103,5 @@ return [
     'today' => 'Aujourd\'hui',
     'yesterday' => 'Hier',
     'tomorrow' => 'Demain',
+    'todo' => 'À faire',
 ];
