@@ -5,7 +5,7 @@ namespace App\Livewire\Todolist;
 use App\Models\Task;
 use Livewire\Component;
 
-class OwnerTasksForTodayListItem extends Component
+class OwnerToDoTasksOfTheDayListItem extends Component
 {
     public Task $task;
     public $assignedUsers;

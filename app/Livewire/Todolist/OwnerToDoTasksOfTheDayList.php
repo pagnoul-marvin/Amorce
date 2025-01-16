@@ -2,13 +2,17 @@
 
 namespace App\Livewire\Todolist;
 
+use App\Enum\TaskCategories;
 use Auth;
 use Carbon\Carbon;
 use Livewire\Attributes\Computed;
 use Livewire\Component;
+use Livewire\WithPagination;
 
-class OwnerTasksForTodayList extends Component
+class OwnerToDoTasksOfTheDayList extends Component
 {
+    use WithPagination;
+
     public $date;
 
     protected $listeners = ['updatedDate' => 'updateDate'];
@@ -27,7 +31,7 @@ class OwnerTasksForTodayList extends Component
     public function tasksOfTheDay()
     {
         return Auth::user()
-            ->getTasksForTheDay($this->date)
+            ->getToDoTasksForTheDay($this->date)
             ->orderBy('title')
             ->paginate(5);
     }

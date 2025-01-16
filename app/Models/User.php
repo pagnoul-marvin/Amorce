@@ -75,4 +75,22 @@ class User extends Authenticatable
             ->whereIn('category', [TaskCategories::Todo->value, TaskCategories::InProgress->value])
             ->with('users');
     }
+
+    public function getToDoTasksForTheDay(Carbon $date = null)
+    {
+        $date = $date ?? Carbon::today();
+        return $this->tasks()
+            ->where('date', $date)
+            ->where('category', '=', TaskCategories::Todo->value)
+            ->with('users');
+    }
+
+    public function getAssignedToDoTasksForTheDay(Carbon $date = null)
+    {
+        $date = $date ?? Carbon::today();
+        return $this->belongsToMany(Task::class, 'task_users')
+            ->where('date', $date)
+            ->where('category', '=', TaskCategories::Todo->value)
+            ->with('users');
+    }
 }

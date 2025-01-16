@@ -106,4 +106,7 @@ return [
     'todo' => 'À faire',
     'task_where_you_are_owner' => 'Les tâches dont vous êtes le propriétaire',
     'task_where_you_are_assigned' => 'Les tâches où vous avez été assigné',
+    'todo_tasks' => 'Tâches à faire',
+    'in_process_tasks' => 'Tâches en cours',
+    'archived_tasks' => 'Tâches clôturées',
 ];

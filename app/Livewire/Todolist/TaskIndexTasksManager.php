@@ -12,6 +12,8 @@ class TaskIndexTasksManager extends Component
 
     public $date;
 
+    public bool $isToDoSectionVisible = true;
+
     public function mount(): void
     {
         $this->date = Carbon::today();
@@ -27,6 +29,10 @@ class TaskIndexTasksManager extends Component
     {
         $this->date = $this->date->copy()->addDay();
         $this->dispatch('updatedDate', $this->date->toDateString());
+    }
+
+    public function toggleToDoSection() {
+        $this->isToDoSectionVisible = !$this->isToDoSectionVisible;
     }
 
     public function getFormattedDateProperty()

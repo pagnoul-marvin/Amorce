@@ -69,7 +69,7 @@ table {
   --main_nav_active_bg_color: rgba(0, 0, 0, 0.25);
   --black_line_color: rgba(0, 0, 0, 0.5);
   --lightgray: #D3D3D3FF;
-  --orange_color: #c04d00;
+  --orange_color: #c06500;
 }
 
 .body.dark-theme {
@@ -93,7 +93,7 @@ table {
   --main_nav_active_bg_color: rgba(0, 0, 0, 0.25);
   --black_line_color: rgba(0, 0, 0, 0.5);
   --lightgray: #D3D3D3FF;
-  --orange_color: #ff5800;
+  --orange_color: #ff8800;
 }
 
 .profile-modal-transition, .success-message-transition, .modal-transition {
@@ -198,7 +198,7 @@ table {
   text-decoration: none;
 }
 
-.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type=file]::file-selector-button, .close, .add_donations_manually_or_import_list_item_text, .dot, .table_head_item:first-of-type, .list_title_and_button_container:last-of-type .button_title_container_title, .tasks_for_today_title, .assigned_tasks_for_today_title, .app_nav_logo_and_close_icon_icon {
+.button, .input_error_message_show_password_button, .themes_light, .themes_dark, .app_nav_theme_switcher_and_profile_content, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .modal_btn, .input[type=file]::file-selector-button, .close, .add_donations_manually_or_import_list_item_text, .dot, .table_head_item:first-of-type, .list_title_and_button_container:last-of-type .button_title_container_title, .tasks_for_today_title, .assigned_tasks_for_today_title, .app_nav_logo_and_close_icon_icon, .task_index_tasks_manager_section_lists_container_section_title {
   cursor: pointer;
 }
 
@@ -206,7 +206,7 @@ table {
   background-color: var(--main_nav_active_bg_color);
 }
 
-.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .table, .add_donations_manually_or_import_list_item, .form_user_list_container_title, .search_form_input, .modal_error_text, .transaction_info_title, .transaction_info_texts_container, .task_users_form_users_list_container_title, .task_users_form_users_list_item_name, .task_users_form_users_list_item_email, .task_show_section_list_item, .assigned_tasks_for_today_title, .tasks_for_today_title {
+.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .table, .add_donations_manually_or_import_list_item, .form_user_list_container_title, .search_form_input, .modal_error_text, .transaction_info_title, .transaction_info_texts_container, .task_users_form_users_list_container_title, .task_users_form_users_list_item_name, .task_users_form_users_list_item_email, .task_show_section_list_item, .assigned_tasks_for_today_title, .tasks_for_today_title, .task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list_item_fake_link, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list_item_fake_link {
   font-size: 1.25em;
 }
 
@@ -553,12 +553,12 @@ select.input {
   align-self: flex-start;
 }
 
-.app_nav_main_list_item_link, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_theme_switcher_and_profile_content_modal_list_item_link, .todo_list_section_content_list_item_link, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .add_donations_manually_or_import_list_item_text {
+.app_nav_main_list_item_link, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_theme_switcher_and_profile_content_modal_list_item_link, .todo_list_section_content_list_item_link, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .add_donations_manually_or_import_list_item_text, .task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list_item_fake_link, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list_item_fake_link {
   text-decoration: none;
   position: relative;
   color: var(--black_color);
 }
-.app_nav_main_list_item_link::after, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn::after, .app_nav_theme_switcher_and_profile_content_modal_list_item_link::after, .todo_list_section_content_list_item_link::after, .funds_section_lists_container_enclosed_list_item_link::after, .funds_section_lists_container_in_process_list_item_link::after, .add_donations_manually_or_import_list_item_text::after {
+.app_nav_main_list_item_link::after, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn::after, .app_nav_theme_switcher_and_profile_content_modal_list_item_link::after, .todo_list_section_content_list_item_link::after, .funds_section_lists_container_enclosed_list_item_link::after, .funds_section_lists_container_in_process_list_item_link::after, .add_donations_manually_or_import_list_item_text::after, .task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list_item_fake_link::after, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list_item_fake_link::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -776,10 +776,10 @@ select.input {
   flex-wrap: wrap;
   gap: 2.5em;
 }
-.funds_section_lists_container_in_process_list, .funds_section_lists_container_enclosed_list, .funds_section_lists_container_owner_task_list, .task_index_tasks_manager_section_lists_container_in_process_list, .task_index_tasks_manager_section_lists_container_enclosed_list, .task_index_tasks_manager_section_lists_container_owner_task_list {
+.funds_section_lists_container_in_process_list, .funds_section_lists_container_enclosed_list, .funds_section_lists_container_section_content_owner_task_to_do_list, .funds_section_lists_container_section_content_assigned_task_to_do_list, .task_index_tasks_manager_section_lists_container_in_process_list, .task_index_tasks_manager_section_lists_container_enclosed_list, .task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list {
   gap: 1.25em;
 }
-.funds_section_lists_container_in_process_list_item, .funds_section_lists_container_enclosed_list_item, .funds_section_lists_container_owner_task_list_item, .task_index_tasks_manager_section_lists_container_in_process_list_item, .task_index_tasks_manager_section_lists_container_enclosed_list_item, .task_index_tasks_manager_section_lists_container_owner_task_list_item {
+.funds_section_lists_container_in_process_list_item, .funds_section_lists_container_enclosed_list_item, .funds_section_lists_container_section_content_owner_task_to_do_list_item, .funds_section_lists_container_section_content_assigned_task_to_do_list_item, .task_index_tasks_manager_section_lists_container_in_process_list_item, .task_index_tasks_manager_section_lists_container_enclosed_list_item, .task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list_item, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list_item {
   background-color: var(--item_bg_color);
   border-radius: 0.625em;
   padding: 0.9375em 1.25em;
@@ -788,19 +788,71 @@ select.input {
   flex-wrap: wrap;
   gap: 1.25em;
 }
-.funds_section_lists_container_in_process_list_item_amount_text, .funds_section_lists_container_enclosed_list_item_amount_text, .funds_section_lists_container_owner_task_list_item_amount_text, .task_index_tasks_manager_section_lists_container_in_process_list_item_amount_text, .task_index_tasks_manager_section_lists_container_enclosed_list_item_amount_text, .task_index_tasks_manager_section_lists_container_owner_task_list_item_amount_text {
+.funds_section_lists_container_in_process_list_item_amount_text, .funds_section_lists_container_enclosed_list_item_amount_text, .funds_section_lists_container_section_content_owner_task_to_do_list_item_amount_text, .funds_section_lists_container_section_content_assigned_task_to_do_list_item_amount_text, .task_index_tasks_manager_section_lists_container_in_process_list_item_amount_text, .task_index_tasks_manager_section_lists_container_enclosed_list_item_amount_text, .task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list_item_amount_text, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list_item_amount_text {
   font-size: 0.9375em;
   margin-bottom: 0.75em;
 }
-.funds_section_lists_container_in_process_list_item_link, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_owner_task_list_item_link, .task_index_tasks_manager_section_lists_container_in_process_list_item_link, .task_index_tasks_manager_section_lists_container_enclosed_list_item_link, .task_index_tasks_manager_section_lists_container_owner_task_list_item_link {
+.funds_section_lists_container_in_process_list_item_link, .funds_section_lists_container_in_process_list_item_fake_link, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_enclosed_list_item_fake_link, .funds_section_lists_container_section_content_owner_task_to_do_list_item_link, .funds_section_lists_container_section_content_owner_task_to_do_list_item_fake_link, .funds_section_lists_container_section_content_assigned_task_to_do_list_item_link, .funds_section_lists_container_section_content_assigned_task_to_do_list_item_fake_link, .task_index_tasks_manager_section_lists_container_in_process_list_item_link, .task_index_tasks_manager_section_lists_container_in_process_list_item_fake_link, .task_index_tasks_manager_section_lists_container_enclosed_list_item_link, .task_index_tasks_manager_section_lists_container_enclosed_list_item_fake_link, .task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list_item_link, .task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list_item_fake_link, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list_item_link, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list_item_fake_link {
   color: var(--white_color_switchable);
 }
-.funds_section_lists_container_in_process_list_item_link::after, .funds_section_lists_container_enclosed_list_item_link::after, .funds_section_lists_container_owner_task_list_item_link::after, .task_index_tasks_manager_section_lists_container_in_process_list_item_link::after, .task_index_tasks_manager_section_lists_container_enclosed_list_item_link::after, .task_index_tasks_manager_section_lists_container_owner_task_list_item_link::after {
+.funds_section_lists_container_in_process_list_item_link::after, .funds_section_lists_container_in_process_list_item_fake_link::after, .funds_section_lists_container_enclosed_list_item_link::after, .funds_section_lists_container_enclosed_list_item_fake_link::after, .funds_section_lists_container_section_content_owner_task_to_do_list_item_link::after, .funds_section_lists_container_section_content_owner_task_to_do_list_item_fake_link::after, .funds_section_lists_container_section_content_assigned_task_to_do_list_item_link::after, .funds_section_lists_container_section_content_assigned_task_to_do_list_item_fake_link::after, .task_index_tasks_manager_section_lists_container_in_process_list_item_link::after, .task_index_tasks_manager_section_lists_container_in_process_list_item_fake_link::after, .task_index_tasks_manager_section_lists_container_enclosed_list_item_link::after, .task_index_tasks_manager_section_lists_container_enclosed_list_item_fake_link::after, .task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list_item_link::after, .task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list_item_fake_link::after, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list_item_link::after, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list_item_fake_link::after {
   background-color: var(--white_color_switchable);
   left: 0;
   width: 100%;
 }
-.funds_section_lists_container_in_process_list_item_link:hover::after, .funds_section_lists_container_enclosed_list_item_link:hover::after, .funds_section_lists_container_owner_task_list_item_link:hover::after, .task_index_tasks_manager_section_lists_container_in_process_list_item_link:hover::after, .task_index_tasks_manager_section_lists_container_enclosed_list_item_link:hover::after, .task_index_tasks_manager_section_lists_container_owner_task_list_item_link:hover::after {
+.funds_section_lists_container_in_process_list_item_link:hover::after, .funds_section_lists_container_in_process_list_item_fake_link:hover::after, .funds_section_lists_container_enclosed_list_item_link:hover::after, .funds_section_lists_container_enclosed_list_item_fake_link:hover::after, .funds_section_lists_container_section_content_owner_task_to_do_list_item_link:hover::after, .funds_section_lists_container_section_content_owner_task_to_do_list_item_fake_link:hover::after, .funds_section_lists_container_section_content_assigned_task_to_do_list_item_link:hover::after, .funds_section_lists_container_section_content_assigned_task_to_do_list_item_fake_link:hover::after, .task_index_tasks_manager_section_lists_container_in_process_list_item_link:hover::after, .task_index_tasks_manager_section_lists_container_in_process_list_item_fake_link:hover::after, .task_index_tasks_manager_section_lists_container_enclosed_list_item_link:hover::after, .task_index_tasks_manager_section_lists_container_enclosed_list_item_fake_link:hover::after, .task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list_item_link:hover::after, .task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list_item_fake_link:hover::after, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list_item_link:hover::after, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list_item_fake_link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.task_index_tasks_manager_section_lists_container {
+  flex-direction: column;
+  gap: 3.125em;
+  flex-wrap: wrap;
+}
+.task_index_tasks_manager_section_lists_container_section {
+  gap: 1.875em;
+  flex-wrap: wrap;
+}
+.task_index_tasks_manager_section_lists_container_section_title {
+  font-size: 1.5625em;
+}
+.task_index_tasks_manager_section_lists_container_section .horizontal_flex {
+  flex-direction: row;
+  gap: 1.25em;
+  flex-wrap: wrap;
+}
+.task_index_tasks_manager_section_lists_container_section_content {
+  gap: 1.25em;
+  flex: 1;
+  flex-wrap: wrap;
+}
+.task_index_tasks_manager_section_lists_container_section_content_title_and_button_container {
+  flex-direction: row;
+  gap: 1.875em;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.task_index_tasks_manager_section_lists_container_section_content_title_and_button_container:has(:not(div.button_title_container_button_container)) {
+  line-height: 2.9375em;
+}
+.task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list_item, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list_item {
+  align-items: center;
+  position: relative;
+}
+.task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list_item_link, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list_item_link {
+  position: absolute;
+  width: calc(100% - 1px);
+  height: calc(100% - 1px);
+  border-radius: 0.625em;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list_item_link:hover, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list_item_link:hover {
+  border: 1px solid var(--dark_green_color);
+}
+.task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list_item_link:hover + .task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list_item_fake_link::after, .task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list_item_link:hover + .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list_item_fake_link::after, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list_item_link:hover + .task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list_item_fake_link::after, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list_item_link:hover + .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list_item_fake_link::after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
