@@ -35,6 +35,20 @@
     }
 }
 
+.text {
+    &_green {
+        color: var(--dark_green_color);
+    }
+
+    &_red {
+        color: var(--red_color);
+    }
+
+    &_orange {
+        color: var(--orange_color);
+    }
+}
+
 .hel_reg, .hel_reg_it, .hel_bold, .hel_reg_underline {
     font-family: 'Helvetica', 'Arial', sans-serif;
 }
@@ -796,14 +810,14 @@ select.input {
     align-items: flex-start;
 }
 
-.funds_section {
+.funds_section, .task_index_tasks_manager_section {
     &_lists_container {
         flex-direction: row;
         justify-content: space-between;
         flex-wrap: wrap;
         gap: $spaceXL;
 
-        &_in_process_list, &_enclosed_list {
+        &_in_process_list, &_enclosed_list, &_owner_task_list {
             gap: $spaceS;
 
             &_item {

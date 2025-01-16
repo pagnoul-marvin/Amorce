@@ -20,16 +20,10 @@
 
     </div>
 
-    <ul>
+    <div class="task_index_tasks_manager_section_lists_container flex">
 
-        @foreach($this->tasksOfTheDay() as $task)
+        <livewire:todolist.owner-tasks-for-today-list :$date/>
 
-            <li>{{$task->title}}</li>
-
-        @endforeach
-
-    </ul>
-
-    {{ $this->tasksOfTheDay()->links('vendor.livewire.custom', data:['scrollTo'=>false]) }}
+    </div>
 
 </section>

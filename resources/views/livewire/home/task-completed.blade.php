@@ -1,7 +1,7 @@
 <li class="todo_list_section_content_list_item flex">
 
     <a href="{{route('tasks.show', $task->id)}}" wire:navigate title="{{__('texts.see_details')}} {{$task->title}}"
-       class="todo_list_section_content_list_item_link hel_reg">{{$task->title}} ({{$task->category}})</a>
+       class="todo_list_section_content_list_item_link hel_reg">{{$task->title}} (<span class="text_{{$this->getCorrectCategoryName()[1]}}">{{$this->getCorrectCategoryName()[0]}}</span>)</a>
 
     <div class="flex picture_and_form_container">
 

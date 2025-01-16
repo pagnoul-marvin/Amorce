@@ -102,5 +102,7 @@ return [
     'today' => 'Today',
     'yesterday' => 'Yesterday',
     'tomorrow' => 'Tomorrow',
-    'todo' => 'To do'
+    'todo' => 'To do',
+    'task_where_you_are_owner' => 'The tasks that you are the owner',
+    'task_where_you_are_assigned' => 'The tasks that you are assigned',
 ];

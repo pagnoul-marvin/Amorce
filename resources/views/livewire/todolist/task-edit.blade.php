@@ -102,7 +102,7 @@
             <li class="task_show_section_list_item">
                 <div class="task_show_section_list_item_container flex">
                     <p class="hel_bold task_show_section_list_item_container_text">{{__('texts.created_by')}}</p>
-                    <p class="hel_reg task_show_section_list_item_container_text">{{$task->user_id}}</p>
+                    <p class="hel_reg task_show_section_list_item_container_text">{{$task->user->firstname}} {{$task->user->lastname}} &ndash; {{$task->user->email}}</p>
                 </div>
             </li>
 

@@ -1,7 +1,7 @@
 <div class="tasks_for_today flex" x-data="{open : @entangle('isTaskForTodayOpen')}">
 
     <h3 class="hel_bold tasks_for_today_title" wire:click="openTaskForToday">
-        Les tâches dont vous êtes le propriétaire
+        {{__('texts.task_where_you_are_owner')}}
         <svg x-show="open" width="22" height="18"
              viewBox="0 0 22 18" xmlns="http://www.w3.org/2000/svg">
             <defs>

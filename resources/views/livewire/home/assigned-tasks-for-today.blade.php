@@ -1,7 +1,7 @@
 <div class="assigned_tasks_for_today flex" x-data="{open : @entangle('isAssignedTasksForTodayOpen')}">
 
     <h3 class="hel_bold assigned_tasks_for_today_title" wire:click="openAssignedTasksForToday">
-        Les tâches où vous avez été assigné
+        {{__('texts.task_where_you_are_assigned')}}
         <svg x-show="open" width="22" height="18"
              viewBox="0 0 22 18" xmlns="http://www.w3.org/2000/svg">
             <defs>

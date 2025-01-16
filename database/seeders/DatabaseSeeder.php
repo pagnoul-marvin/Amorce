@@ -26,6 +26,10 @@ class DatabaseSeeder extends Seeder
                 'role' => UserRoles::Admin->value
             ]);
 
+        $users = User::factory(10)
+            ->has(Task::factory()->count(50), 'tasks')
+            ->create();
+
         $marvin->tasks->each(function ($task) use ($marvin) {
             $task->user_id = $marvin->id;
             $task->save();
@@ -37,10 +41,6 @@ class DatabaseSeeder extends Seeder
 
             $task->users()->attach($usersToAssign);
         });
-
-        $users = User::factory(10)
-            ->has(Task::factory()->count(50), 'tasks')
-            ->create();
 
         foreach ($users as $user) {
             $user->tasks->each(function ($task) use ($user) {

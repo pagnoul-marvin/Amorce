@@ -69,6 +69,7 @@ table {
   --main_nav_active_bg_color: rgba(0, 0, 0, 0.25);
   --black_line_color: rgba(0, 0, 0, 0.5);
   --lightgray: #D3D3D3FF;
+  --orange_color: #c04d00;
 }
 
 .body.dark-theme {
@@ -92,6 +93,7 @@ table {
   --main_nav_active_bg_color: rgba(0, 0, 0, 0.25);
   --black_line_color: rgba(0, 0, 0, 0.5);
   --lightgray: #D3D3D3FF;
+  --orange_color: #ff5800;
 }
 
 .profile-modal-transition, .success-message-transition, .modal-transition {
@@ -145,6 +147,16 @@ table {
   justify-content: space-between;
   align-items: center;
   padding: 2.1875em 1.875em;
+}
+
+.text_green {
+  color: var(--dark_green_color);
+}
+.text_red {
+  color: var(--red_color);
+}
+.text_orange {
+  color: var(--orange_color);
 }
 
 .hel_reg, .hel_reg_it, .hel_bold, .hel_reg_underline {
@@ -758,16 +770,16 @@ select.input {
   align-items: flex-start;
 }
 
-.funds_section_lists_container {
+.funds_section_lists_container, .task_index_tasks_manager_section_lists_container {
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 2.5em;
 }
-.funds_section_lists_container_in_process_list, .funds_section_lists_container_enclosed_list {
+.funds_section_lists_container_in_process_list, .funds_section_lists_container_enclosed_list, .funds_section_lists_container_owner_task_list, .task_index_tasks_manager_section_lists_container_in_process_list, .task_index_tasks_manager_section_lists_container_enclosed_list, .task_index_tasks_manager_section_lists_container_owner_task_list {
   gap: 1.25em;
 }
-.funds_section_lists_container_in_process_list_item, .funds_section_lists_container_enclosed_list_item {
+.funds_section_lists_container_in_process_list_item, .funds_section_lists_container_enclosed_list_item, .funds_section_lists_container_owner_task_list_item, .task_index_tasks_manager_section_lists_container_in_process_list_item, .task_index_tasks_manager_section_lists_container_enclosed_list_item, .task_index_tasks_manager_section_lists_container_owner_task_list_item {
   background-color: var(--item_bg_color);
   border-radius: 0.625em;
   padding: 0.9375em 1.25em;
@@ -776,19 +788,19 @@ select.input {
   flex-wrap: wrap;
   gap: 1.25em;
 }
-.funds_section_lists_container_in_process_list_item_amount_text, .funds_section_lists_container_enclosed_list_item_amount_text {
+.funds_section_lists_container_in_process_list_item_amount_text, .funds_section_lists_container_enclosed_list_item_amount_text, .funds_section_lists_container_owner_task_list_item_amount_text, .task_index_tasks_manager_section_lists_container_in_process_list_item_amount_text, .task_index_tasks_manager_section_lists_container_enclosed_list_item_amount_text, .task_index_tasks_manager_section_lists_container_owner_task_list_item_amount_text {
   font-size: 0.9375em;
   margin-bottom: 0.75em;
 }
-.funds_section_lists_container_in_process_list_item_link, .funds_section_lists_container_enclosed_list_item_link {
+.funds_section_lists_container_in_process_list_item_link, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_owner_task_list_item_link, .task_index_tasks_manager_section_lists_container_in_process_list_item_link, .task_index_tasks_manager_section_lists_container_enclosed_list_item_link, .task_index_tasks_manager_section_lists_container_owner_task_list_item_link {
   color: var(--white_color_switchable);
 }
-.funds_section_lists_container_in_process_list_item_link::after, .funds_section_lists_container_enclosed_list_item_link::after {
+.funds_section_lists_container_in_process_list_item_link::after, .funds_section_lists_container_enclosed_list_item_link::after, .funds_section_lists_container_owner_task_list_item_link::after, .task_index_tasks_manager_section_lists_container_in_process_list_item_link::after, .task_index_tasks_manager_section_lists_container_enclosed_list_item_link::after, .task_index_tasks_manager_section_lists_container_owner_task_list_item_link::after {
   background-color: var(--white_color_switchable);
   left: 0;
   width: 100%;
 }
-.funds_section_lists_container_in_process_list_item_link:hover::after, .funds_section_lists_container_enclosed_list_item_link:hover::after {
+.funds_section_lists_container_in_process_list_item_link:hover::after, .funds_section_lists_container_enclosed_list_item_link:hover::after, .funds_section_lists_container_owner_task_list_item_link:hover::after, .task_index_tasks_manager_section_lists_container_in_process_list_item_link:hover::after, .task_index_tasks_manager_section_lists_container_enclosed_list_item_link:hover::after, .task_index_tasks_manager_section_lists_container_owner_task_list_item_link:hover::after {
   transform: scaleX(1);
   transform-origin: bottom left;
 }
