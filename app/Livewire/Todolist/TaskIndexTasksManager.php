@@ -13,6 +13,8 @@ class TaskIndexTasksManager extends Component
     public $date;
 
     public bool $isToDoSectionVisible = true;
+    public bool $isInProcessSectionVisible = true;
+    public bool $isArchivedSectionVisible = true;
 
     public function mount(): void
     {
@@ -31,8 +33,19 @@ class TaskIndexTasksManager extends Component
         $this->dispatch('updatedDate', $this->date->toDateString());
     }
 
-    public function toggleToDoSection() {
+    public function toggleToDoSection(): void
+    {
         $this->isToDoSectionVisible = !$this->isToDoSectionVisible;
+    }
+
+    public function toggleInProcessSection(): void
+    {
+        $this->isInProcessSectionVisible = !$this->isInProcessSectionVisible;
+    }
+
+    public function toggleArchivedSection(): void
+    {
+        $this->isArchivedSectionVisible = !$this->isArchivedSectionVisible;
     }
 
     public function getFormattedDateProperty()

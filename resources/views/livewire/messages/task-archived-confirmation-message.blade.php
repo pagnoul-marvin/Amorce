@@ -12,8 +12,8 @@
 
             <h2 class="modal_section_content_title_and_close_container_title hel_bold">{{__('texts.are_u_sure')}}</h2>
 
-            <livewire:icons.close to="messages.transaction-delete-confirmation-message" event="closeModal"
-                                  wire:key="transaction-delete-confirmation-message-close-icon"/>
+            <livewire:icons.close to="messages.task-archived-confirmation-message" event="closeModal"
+                                  wire:key="task-archived-confirmation-message-close-icon"/>
 
         </div>
 
@@ -34,3 +34,7 @@
     </div>
 
 </section>
+
+
+
+

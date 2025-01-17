@@ -19,7 +19,7 @@
 
         <div class="confirmation_choices flex">
 
-            <form wire:submit="save" class="modal_section_content_form flex">
+            <form wire:submit="save" class="form">
 
                 <input type="hidden" wire:model.blur="form.enclosed">
 

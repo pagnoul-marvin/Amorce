@@ -12,8 +12,8 @@
 
             <h2 class="modal_section_content_title_and_close_container_title hel_bold">{{__('texts.add_a_task_for_today')}}</h2>
 
-            <livewire:icons.close to="modals.task-create-for-today-modal" event="closeModal"
-                                  wire:key="task-create-for-today-modal-close-icon"/>
+            <livewire:icons.close to="modals.task-create-modal" event="closeModal"
+                                  wire:key="task-create-close-icon"/>
 
         </div>
 
@@ -35,6 +35,16 @@
 
                 <textarea class="input" rows="5" id="description" wire:model.blur="form.description"
                           placeholder="{{__('texts.do_smth')}}" required value="{{old('form.description')}}"></textarea>
+
+                @error('form.description')
+                <x-input-error :messages="$errors->get('form.description')"/>
+                @enderror
+
+            </x-layout.input-label-container>
+            <x-layout.input-label-container id="date" class="modal_section_content_form_input_label_container"
+                                            :label="__('texts.date_form')">
+
+                <input type="date" class="input" wire:model.blur="form.date" required id="date">
 
                 @error('form.description')
                 <x-input-error :messages="$errors->get('form.description')"/>

@@ -108,4 +108,5 @@ return [
     'todo_tasks' => 'Todo tasks',
     'in_process_tasks' => 'In process tasks',
     'archived_tasks' => 'Archived tasks',
+    'delete_this_task' => 'Delete this task',
 ];

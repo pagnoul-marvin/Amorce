@@ -32,7 +32,7 @@ class TaskForm extends Form
     public function rules(): array
     {
         return [
-            'category' => 'required|in:'.implode(',', TaskCategories::values()),
+            'category' => 'required|in:' . implode(',', TaskCategories::values()),
             'title' => 'required|max:255',
             'description' => 'required',
             'date' => 'required|date',
@@ -72,6 +72,11 @@ class TaskForm extends Form
                 TaskUser::create(['task_id' => $task->id, 'user_id' => $participant]);
             }
         }
+    }
+
+    public function delete(): void
+    {
+        $this->task->delete();
     }
 
     public function update(): void

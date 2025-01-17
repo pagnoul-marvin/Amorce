@@ -5,7 +5,7 @@
         <h3 class="hel_bold task_index_tasks_manager_section_lists_container_section_content_title_and_button_container_title">{{__('texts.task_where_you_are_owner')}}</h3>
 
         <livewire:buttons.modal-button type="add" :title="__('texts.create_todo_task')"
-                                       to="" event=""
+                                       to="modals.task-create-modal" event="openModal"
                                        wire:key="create-task-btn"/>
 
     </div>
