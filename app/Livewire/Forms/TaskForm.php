@@ -50,10 +50,9 @@ class TaskForm extends Form
         $this->user_id = $task->user_id;
     }
 
-    public function updateStatus(): void
+    public function updateStatus(string $category): void
     {
-        $this->validateOnly('completed');
-        $this->task->update(['category' => TaskCategories::Archived->value]);
+        $this->task->update(['category' => $category]);
     }
 
     public function store(): void
@@ -74,9 +73,9 @@ class TaskForm extends Form
         }
     }
 
-    public function delete(): void
+    public function delete(Task $task): void
     {
-        $this->task->delete();
+        $task->delete();
     }
 
     public function update(): void

@@ -109,4 +109,6 @@ return [
     'in_process_tasks' => 'In process tasks',
     'archived_tasks' => 'Archived tasks',
     'delete_this_task' => 'Delete this task',
+    'make_this_task_in_process' => 'Make this task in a process mode',
+    'make_this_task_to_do' => 'Make this task to a process mode',
 ];

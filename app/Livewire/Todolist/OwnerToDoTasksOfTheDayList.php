@@ -2,7 +2,6 @@
 
 namespace App\Livewire\Todolist;
 
-use App\Enum\TaskCategories;
 use Auth;
 use Carbon\Carbon;
 use Livewire\Attributes\Computed;
@@ -15,7 +14,8 @@ class OwnerToDoTasksOfTheDayList extends Component
 
     public $date;
 
-    protected $listeners = ['updatedDate' => 'updateDate'];
+
+    protected $listeners = ['updatedDate' => 'updateDate', 'refreshTasks' => 'tasksOfTheDay'];
 
     public function mount($date): void
     {

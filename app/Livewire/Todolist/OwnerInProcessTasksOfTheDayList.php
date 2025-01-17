@@ -14,7 +14,7 @@ class OwnerInProcessTasksOfTheDayList extends Component
 
     public $date;
 
-    protected $listeners = ['updatedDate' => 'updateDate'];
+    protected $listeners = ['updatedDate' => 'updateDate', 'refreshTasks' => 'inProcessTasksOfTheDay'];
 
     public function mount($date): void
     {

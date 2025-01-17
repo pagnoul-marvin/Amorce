@@ -10,13 +10,15 @@
 
         @foreach($this->archivedTasksOfTheDay() as $task)
 
-            <livewire:todolist.owner-archived-tasks-of-the-day-list-item :$task wire:key="owner-archived-task-{{$task->id}}"/>
+            <livewire:todolist.owner-archived-tasks-of-the-day-list-item :$task
+                                                                         wire:key="owner-archived-task-{{$task->id}}"/>
 
         @endforeach
 
-        {{ $this->archivedTasksOfTheDay()->links('vendor.livewire.custom', data:['scrollTo'=>false]) }}
 
     </ul>
+
+    {{ $this->archivedTasksOfTheDay()->links('vendor.livewire.custom', data:['scrollTo'=>false]) }}
 
 </div>
 

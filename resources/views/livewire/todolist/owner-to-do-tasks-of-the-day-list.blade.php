@@ -18,9 +18,10 @@
 
         @endforeach
 
-        {{ $this->tasksOfTheDay()->links('vendor.livewire.custom', data:['scrollTo'=>false]) }}
 
     </ul>
+
+    {{ $this->tasksOfTheDay()->links('vendor.livewire.custom', data:['scrollTo'=>false]) }}
 
 </div>
 

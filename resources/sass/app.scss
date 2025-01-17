@@ -122,13 +122,16 @@
     }
 }
 
+.form_btn, .modal_btn {
+    z-index: 2;
+}
+
 .modal_btn {
     border: none;
     padding: .75em 1em;
     border-radius: .625em;
     background-color: var(--yellow_color);
     display: inline-block;
-    z-index: 2;
 
     &.delete {
         background-color: var(--red_color);
@@ -818,7 +821,7 @@ select.input {
         flex-wrap: wrap;
         gap: $spaceXL;
 
-        &_in_process_list, &_enclosed_list, &_section_content_owner_task_to_do_list,  &_section_content_assigned_task_to_do_list, &_section_content_owner_task_in_process_list, &_section_content_assigned_task_in_process_list, &_section_content_owner_task_archived_list, &_section_content_assigned_task_archived_list {
+        &_in_process_list, &_enclosed_list, &_section_content_owner_task_to_do_list, &_section_content_assigned_task_to_do_list, &_section_content_owner_task_in_process_list, &_section_content_assigned_task_in_process_list, &_section_content_owner_task_archived_list, &_section_content_assigned_task_archived_list {
             gap: $spaceS;
 
             &_item {
@@ -884,7 +887,6 @@ select.input {
                 flex-direction: row;
                 gap: $spaceM;
                 align-items: center;
-                flex-wrap: wrap;
 
                 &:has(:not(div.button_title_container_button_container)) {
                     line-height: 2.9375em;
@@ -892,9 +894,19 @@ select.input {
             }
 
             &_owner_task_to_do_list, &_assigned_task_to_do_list, &_owner_task_in_process_list, &_assigned_task_in_process_list, &_owner_task_archived_list, &_assigned_task_archived_list {
+                flex: 1;
+
                 &_item {
                     align-items: center;
                     position: relative;
+                    flex-wrap: nowrap;
+                    flex: 1;
+                    max-height: 2.96875em;
+
+                    &_btn_container {
+                        flex-direction: row;
+                        gap: $spaceS;
+                    }
 
                     &_link {
                         position: absolute;

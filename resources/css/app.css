@@ -226,13 +226,16 @@ table {
   transform: scale(1.05);
 }
 
+.form_btn, .modal_btn {
+  z-index: 2;
+}
+
 .modal_btn {
   border: none;
   padding: 0.75em 1em;
   border-radius: 0.625em;
   background-color: var(--yellow_color);
   display: inline-block;
-  z-index: 2;
 }
 .modal_btn.delete {
   background-color: var(--red_color);
@@ -832,14 +835,23 @@ select.input {
   flex-direction: row;
   gap: 1.875em;
   align-items: center;
-  flex-wrap: wrap;
 }
 .task_index_tasks_manager_section_lists_container_section_content_title_and_button_container:has(:not(div.button_title_container_button_container)) {
   line-height: 2.9375em;
 }
+.task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list, .task_index_tasks_manager_section_lists_container_section_content_owner_task_in_process_list, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_in_process_list, .task_index_tasks_manager_section_lists_container_section_content_owner_task_archived_list, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_archived_list {
+  flex: 1;
+}
 .task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list_item, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list_item, .task_index_tasks_manager_section_lists_container_section_content_owner_task_in_process_list_item, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_in_process_list_item, .task_index_tasks_manager_section_lists_container_section_content_owner_task_archived_list_item, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_archived_list_item {
   align-items: center;
   position: relative;
+  flex-wrap: nowrap;
+  flex: 1;
+  max-height: 2.96875em;
+}
+.task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list_item_btn_container, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list_item_btn_container, .task_index_tasks_manager_section_lists_container_section_content_owner_task_in_process_list_item_btn_container, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_in_process_list_item_btn_container, .task_index_tasks_manager_section_lists_container_section_content_owner_task_archived_list_item_btn_container, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_archived_list_item_btn_container {
+  flex-direction: row;
+  gap: 1.25em;
 }
 .task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list_item_link, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list_item_link, .task_index_tasks_manager_section_lists_container_section_content_owner_task_in_process_list_item_link, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_in_process_list_item_link, .task_index_tasks_manager_section_lists_container_section_content_owner_task_archived_list_item_link, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_archived_list_item_link {
   position: absolute;

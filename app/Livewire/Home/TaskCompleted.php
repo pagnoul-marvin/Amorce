@@ -23,7 +23,7 @@ class TaskCompleted extends Component
 
     public function save(): void
     {
-        $this->form->updateStatus();
+        $this->form->updateStatus(TaskCategories::Archived->value);
         $this->dispatch('refreshTasks');
         $this->dispatch('openSuccessMessage', 'La tâche ' . $this->task->title . ' a été clôturée avec succès !');
     }

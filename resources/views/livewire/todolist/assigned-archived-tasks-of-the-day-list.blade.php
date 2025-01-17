@@ -10,13 +10,15 @@
 
         @foreach($this->assignedArchivedTasksForTheDay() as $assignedTask)
 
-            <livewire:todolist.assigned-archived-tasks-of-the-day-list-item :$assignedTask wire:key="assigned-archived-task-{{$assignedTask->id}}"/>
+            <livewire:todolist.assigned-archived-tasks-of-the-day-list-item :$assignedTask
+                                                                            wire:key="assigned-archived-task-{{$assignedTask->id}}"/>
 
         @endforeach
 
-        {{ $this->assignedArchivedTasksForTheDay()->links('vendor.livewire.custom', data:['scrollTo'=>false]) }}
 
     </ul>
+
+    {{ $this->assignedArchivedTasksForTheDay()->links('vendor.livewire.custom', data:['scrollTo'=>false]) }}
 
 </div>
 

@@ -25,8 +25,6 @@
 
         <form wire:submit="save">
 
-            <input type="hidden" wire:model.blur="form.category">
-
             <x-buttons.submit-button type="checked" :title="__('texts.make_this_task_completed')"/>
 
         </form>

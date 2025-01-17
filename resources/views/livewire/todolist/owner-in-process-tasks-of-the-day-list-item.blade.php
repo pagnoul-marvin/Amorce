@@ -4,4 +4,20 @@
 
     <p class="hel_reg task_index_tasks_manager_section_lists_container_section_content_owner_task_in_process_list_item_fake_link">{{$task->title}}</p>
 
+    <div class="task_index_tasks_manager_section_lists_container_section_content_owner_task_in_process_list_item_btn_container flex">
+
+        <form wire:submit="makeThisTaskToDo" class="form_btn">
+
+            <x-buttons.submit-button type="up" :title="__('texts.make_this_task_to_do')"/>
+
+        </form>
+
+        <form wire:submit="makeThisTaskArchived" class="form_btn">
+
+            <x-buttons.submit-button type="down" :title="__('texts.make_this_task_completed')"/>
+
+        </form>
+
+    </div>
+
 </li>

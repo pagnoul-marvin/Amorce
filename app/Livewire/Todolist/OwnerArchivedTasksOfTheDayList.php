@@ -14,7 +14,7 @@ class OwnerArchivedTasksOfTheDayList extends Component
 
     public $date;
 
-    protected $listeners = ['updatedDate' => 'updateDate'];
+    protected $listeners = ['updatedDate' => 'updateDate', 'taskDeleted' => 'archivedTasksOfTheDay', 'refreshTasks' => 'archivedTasksOfTheDay'];
 
     public function mount($date): void
     {

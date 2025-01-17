@@ -10,13 +10,15 @@
 
         @foreach($this->inProcessTasksOfTheDay() as $task)
 
-            <livewire:todolist.owner-in-process-tasks-of-the-day-list-item :$task wire:key="owner-in-process-task-{{$task->id}}"/>
+            <livewire:todolist.owner-in-process-tasks-of-the-day-list-item :$task
+                                                                           wire:key="owner-in-process-task-{{$task->id}}"/>
 
         @endforeach
 
-        {{ $this->inProcessTasksOfTheDay()->links('vendor.livewire.custom', data:['scrollTo'=>false]) }}
 
     </ul>
+
+    {{ $this->inProcessTasksOfTheDay()->links('vendor.livewire.custom', data:['scrollTo'=>false]) }}
 
 </div>
 

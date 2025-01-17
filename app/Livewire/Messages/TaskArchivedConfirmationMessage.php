@@ -17,7 +17,6 @@ class TaskArchivedConfirmationMessage extends Component
     {
         $this->isOpen = true;
         $this->task = Task::find($id);
-        $this->form->setTask($this->task);
     }
 
     public function closeModal(): void
@@ -27,8 +26,9 @@ class TaskArchivedConfirmationMessage extends Component
 
     public function save(): void
     {
-            $this->form->delete();
-            $this->dispatch('closeModal');
-            $this->dispatch('openSuccessMessage', 'La ' . $this->task->title . ' a été supprimée avec succès !');
+        $this->form->delete($this->task);
+        $this->dispatch('closeModal');
+        $this->dispatch('taskDeleted');
+        $this->dispatch('openSuccessMessage', 'La ' . $this->task->title . ' a été supprimée avec succès !');
     }
 }

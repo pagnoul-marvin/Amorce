@@ -16,7 +16,7 @@
 
         <input type="hidden" wire:model.blur="form.enclosed">
 
-        <x-buttons.submit-button type="checked" :title="__('texts.make_this_fund_enclosed')"/>
+        <x-buttons.submit-button type="checked" :title="__('texts.make_this_fund_opened')"/>
 
     </form>
 

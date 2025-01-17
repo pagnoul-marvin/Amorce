@@ -109,5 +109,7 @@ return [
     'todo_tasks' => 'Tâches à faire',
     'in_process_tasks' => 'Tâches en cours',
     'archived_tasks' => 'Tâches clôturées',
-    'delete_this_task' => 'Supprimer cette tâche'
+    'delete_this_task' => 'Supprimer cette tâche',
+    'make_this_task_in_process' => 'Rendre cette tâche en cours',
+    'make_this_task_to_do' => 'Rendre cette à faire',
 ];
