@@ -49,14 +49,14 @@
                 @enderror
 
             </x-layout.input-label-container>
-            <x-layout.input-label-container id="password" class="profile_form_section_form_label_and_input_container"
-                                            :label="__('texts.password')">
+            <x-layout.input-label-container id="phone" class="profile_form_section_form_label_and_input_container"
+                                            :label="__('texts.phone')">
 
-                <input class="input" type="password" id="password" wire:model.blur="form.password"
-                       required value="{{old('form.password')}}">
+                <input class="input" type="text" id="phone" wire:model.blur="form.phone"
+                       required value="{{old('form.phone')}}">
 
-                @error('form.password')
-                <x-input-error :messages="$errors->get('form.password')"/>
+                @error('form.phone')
+                <x-input-error :messages="$errors->get('form.phone')"/>
                 @enderror
 
             </x-layout.input-label-container>
@@ -78,7 +78,21 @@
 
         </form>
 
+        <div class="profile_form_section_form_label_and_input_container">
+
+            <button class="profile_form_section_form_submit_btn submit_btn button hel_bold" wire:click="dispatchTo('modals.modify-profile-password-modal' ,'openModifyProfilePasswordModal', [{{Auth::user()}}])">
+
+                {{__('texts.modify_password')}}
+
+            </button>
+
+        </div>
+
         <livewire:messages.success-message wire:key="profile-success-message"/>
+        <livewire:messages.error-message wire:key="profile-error-message"/>
 
     </section>
+
+    <livewire:modals.modify-profile-password-modal/>
+
 </div>

@@ -1,39 +1,44 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('password.store') }}">
-        @csrf
 
-        <!-- Password Reset Token -->
-        <input type="hidden" name="token" value="{{ $request->route('token') }}">
+    <section class="login_section flex">
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+        <h2 class="hidden">{{__('texts.reset_password_form')}}</h2>
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-            <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+        <form action="{{ route('password.store')}}" method="POST" class="flex login_section_form">
 
-        <!-- Confirm Password -->
-        <div class="mt-4">
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
+            @csrf
 
-            <x-text-input id="password_confirmation" class="block mt-1 w-full"
-                                type="password"
-                                name="password_confirmation" required autocomplete="new-password" />
+            <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
-            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-        </div>
+            <div class="login_section_form_label_and_input flex">
 
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Reset Password') }}
-            </x-primary-button>
-        </div>
-    </form>
+                <x-form.input class="login_section_form_content" type="email" id="email"
+                              :label="__('texts.mail_address')"
+                              :value="old('email', $request->email)"
+                              placeholder="patrick@exemple.com" required/>
+
+                <livewire:show-password
+                    id="password"
+                    :label="__('texts.new_password')"
+                    :value="false"
+                    class="login_section_form_content"/>
+
+                <livewire:show-password
+                    id="password_confirmation"
+                    :label="__('texts.confirm_new_password')"
+                    :value="false"
+                    class="login_section_form_content"/>
+
+            </div>
+
+            <div class="login_section_form_stay_connected_forgot_password_and_button flex">
+
+                <x-form.submit-button :text="__('texts.confirm')" div_class="login_section_form_stay_connected_forgot_password_and_button_btn_container" btn_class="login_section_form_stay_connected_forgot_password_and_button_btn_container_btn submit_btn button"/>
+
+            </div>
+
+        </form>
+
+    </section>
+
 </x-guest-layout>

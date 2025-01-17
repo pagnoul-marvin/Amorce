@@ -9,6 +9,7 @@ use Livewire\WithFileUploads;
 class ProfileEdit extends Component
 {
     use WithFileUploads;
+
     public ProfileForm $form;
 
     public function mount(): void

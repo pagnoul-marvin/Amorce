@@ -7,12 +7,13 @@
 
         <a class="funds_section_lists_container_enclosed_list_item_link hel_reg" wire:navigate
            href="{{route('funds_and_transactions.show', $fund)}}"
-           title="{{__('texts.see_details')}} {{$fund->name}}">{{$fund->name}} &ndash; {{$fund->pourcentage}}
-            %</a>
+           title="{{__('texts.see_details')}} {{$fund->name}}"></a>
+
+        <p class="funds_section_lists_container_enclosed_list_item_fake_link hel_reg">{{$fund->name}} &ndash; {{$fund->pourcentage}}%</p>
 
     </div>
 
-    <form wire:submit="save">
+    <form wire:submit="save" class="form_btn">
 
         <input type="hidden" wire:model.blur="form.enclosed">
 

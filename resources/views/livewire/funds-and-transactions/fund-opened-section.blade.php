@@ -2,7 +2,7 @@
 
     <div class="button_title_container flex">
 
-        <h3 class="hel_reg button_title_container_title">{{__('texts.in_process')}}</h3>
+        <h3 class="hel_reg button_title_container_title text_green">{{__('texts.in_process')}}</h3>
 
         <div class="button_title_container_button_container flex">
 
@@ -17,7 +17,7 @@
 
     </div>
 
-    <div>
+    <div class="flex large">
         <ul class="funds_section_lists_container_in_process_list flex">
 
             @foreach($this->fundOpened() as $fund)

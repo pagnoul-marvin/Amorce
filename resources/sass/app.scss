@@ -100,7 +100,7 @@
     background-color: var(--main_nav_active_bg_color);
 }
 
-.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .table, .add_donations_manually_or_import_list_item, .form_user_list_container_title, .search_form_input, .modal_error_text, .transaction_info_title, .transaction_info_texts_container, .task_users_form_users_list_container_title, .task_users_form_users_list_item_name, .task_users_form_users_list_item_email, .task_show_section_list_item, .assigned_tasks_for_today_title, .tasks_for_today_title, .task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list_item_fake_link, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list_item_fake_link, .task_index_tasks_manager_section_lists_container_section_content_owner_task_in_process_list_item_fake_link, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_in_process_list_item_fake_link, .task_index_tasks_manager_section_lists_container_section_content_owner_task_archived_list_item_fake_link, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_archived_list_item_fake_link {
+.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .error_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .table, .add_donations_manually_or_import_list_item, .form_user_list_container_title, .search_form_input, .modal_error_text, .transaction_info_title, .transaction_info_texts_container, .task_users_form_users_list_container_title, .task_users_form_users_list_item_name, .task_users_form_users_list_item_email, .task_show_section_list_item, .assigned_tasks_for_today_title, .tasks_for_today_title, {
     font-size: $text_sizeM;
 }
 
@@ -146,13 +146,12 @@
     }
 }
 
-.success_message {
-    background-color: var(--green_color);
+.error_message_modal, .success_message {
     padding: $spaceS;
     border-radius: .625em;
     flex-direction: row;
     justify-content: space-between;
-    z-index: 3;
+    z-index: 4;
     align-items: center;
     gap: $spaceM;
     position: fixed;
@@ -162,6 +161,14 @@
     &_text {
         color: var(--black_color);
     }
+}
+
+.success_message {
+    background-color: var(--green_color);
+}
+
+.error_message_modal {
+    background-color: var(--red_color);
 }
 
 .go_back_btn {
@@ -366,6 +373,7 @@ select.input {
 .submit_btn {
     border: none;
     color: var(--black_color);
+    width: 100%;
 }
 
 .section {
@@ -802,11 +810,6 @@ select.input {
         &_label_and_input_container, &_item {
             width: 100%;
         }
-
-        .submit_btn {
-            width: 100%;
-            height: 100%;
-        }
     }
 }
 
@@ -821,8 +824,33 @@ select.input {
         flex-wrap: wrap;
         gap: $spaceXL;
 
+        .large {
+            flex: 1;
+        }
+
+        &_in_process_list {
+            &_item {
+                &_link {
+                    &:hover {
+                        border: 2px solid var(--dark_green_color);
+                    }
+                }
+            }
+        }
+
+        &_enclosed_list {
+            &_item {
+                &_link {
+                    &:hover {
+                        border: 2px solid var(--red_color);
+                    }
+                }
+            }
+        }
+
         &_in_process_list, &_enclosed_list, &_section_content_owner_task_to_do_list, &_section_content_assigned_task_to_do_list, &_section_content_owner_task_in_process_list, &_section_content_assigned_task_in_process_list, &_section_content_owner_task_archived_list, &_section_content_assigned_task_archived_list {
             gap: $spaceS;
+            flex: 1;
 
             &_item {
                 background-color: var(--item_bg_color);
@@ -830,29 +858,30 @@ select.input {
                 padding: 0.9375em 1.25em;
                 flex-direction: row;
                 justify-content: space-between;
-                flex-wrap: wrap;
                 gap: $spaceS;
+                position: relative;
+                max-height: 2.96875em;
+                align-items: center;
+                flex-wrap: nowrap;
+                flex: 1;
 
                 &_amount_text {
                     font-size: $text_sizeS;
                     margin-bottom: .75em;
                 }
 
-                &_link, &_fake_link {
+                &_fake_link {
                     color: var(--white_color_switchable);
+                }
 
-                    &::after {
-                        background-color: var(--white_color_switchable);
-                        left: 0;
-                        width: 100%;
-                    }
-
-                    &:hover {
-                        &::after {
-                            transform: scaleX(1);
-                            transform-origin: bottom left;
-                        }
-                    }
+                &_link {
+                    position: absolute;
+                    width: calc(100% - 2px);
+                    height: calc(100% - 2px);
+                    border-radius: .625em;
+                    top: 0;
+                    left: 0;
+                    z-index: 1;
                 }
             }
         }
@@ -894,15 +923,7 @@ select.input {
             }
 
             &_owner_task_to_do_list, &_assigned_task_to_do_list, &_owner_task_in_process_list, &_assigned_task_in_process_list, &_owner_task_archived_list, &_assigned_task_archived_list {
-                flex: 1;
-
                 &_item {
-                    align-items: center;
-                    position: relative;
-                    flex-wrap: nowrap;
-                    flex: 1;
-                    max-height: 2.96875em;
-
                     &_btn_container {
                         flex-direction: row;
                         gap: $spaceS;

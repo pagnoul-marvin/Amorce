@@ -2,7 +2,7 @@
 
     <div class="button_title_container flex">
 
-        <h3 class="hel_reg button_title_container_title" wire:click="openArchivedFunds">{{__('texts.archived')}}
+        <h3 class="hel_reg button_title_container_title text_red" wire:click="openArchivedFunds">{{__('texts.archived')}}
 
             <svg x-show="open" width="22" height="18"
                  viewBox="0 0 22 18" xmlns="http://www.w3.org/2000/svg">
@@ -24,7 +24,7 @@
 
     </div>
 
-    <div x-show="open">
+    <div x-show="open" class="flex large">
 
         <ul class="funds_section_lists_container_enclosed_list flex">
 

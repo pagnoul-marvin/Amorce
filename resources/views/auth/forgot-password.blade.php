@@ -1,25 +1,34 @@
 <x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
-    </div>
 
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+    <section class="login_section flex">
 
-    <form method="POST" action="{{ route('password.email') }}">
-        @csrf
+        <h2 class="hidden">{{__('texts.reset_password_form')}}</h2>
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+        <x-auth-session-status class="mb-4" :status="session('status')"/>
 
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Email Password Reset Link') }}
-            </x-primary-button>
-        </div>
-    </form>
+        <form action="{{route('forgot-password-send-email')}}" method="POST" class="flex login_section_form">
+
+            @csrf
+
+            <div class="login_section_form_label_and_input flex">
+
+                <x-form.input class="login_section_form_content" type="email" id="email"
+                              :label="__('texts.mail_address')"
+                              :value="false"
+                              placeholder="patrick@exemple.com" required/>
+
+            </div>
+
+            <div class="login_section_form_stay_connected_forgot_password_and_button flex">
+
+                <x-form.submit-button :text="__('texts.send_email')"
+                                      div_class="login_section_form_stay_connected_forgot_password_and_button_btn_container"
+                                      btn_class="login_section_form_stay_connected_forgot_password_and_button_btn_container_btn submit_btn button"/>
+
+            </div>
+
+        </form>
+
+    </section>
+
 </x-guest-layout>

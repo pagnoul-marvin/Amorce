@@ -2,8 +2,11 @@
 
 namespace App\Livewire\Forms;
 
+use App\Enum\TaskCategories;
+use App\Enum\UserRoles;
 use App\Models\User;
 use Auth;
+use Hash;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Validation\Rule;
@@ -26,7 +29,17 @@ class ProfileForm extends Form
     public $password;
 
     #[Validate]
+    public $phone;
+
+    #[Validate]
     public $picture = null;
+    #[Validate]
+    public $old_password;
+    #[Validate]
+    public $new_password;
+
+    #[Validate]
+    public $role;
 
     public function rules(): array
     {
@@ -34,8 +47,12 @@ class ProfileForm extends Form
             'firstname' => ['required', 'string', 'max:255', 'min:3'],
             'lastname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore(Auth::id()),],
-            'password' => ['required'],
+            'phone' => ['required', 'numeric', 'digits:10', Rule::unique(User::class)->ignore(Auth::id()),],
+            'password' => ['required', 'min:10', 'regex:/^(?=.*[0-9])(?=.*[\W_]).+$/'],
+            'old_password' => ['required', 'min:10', 'regex:/^(?=.*[0-9])(?=.*[\W_]).+$/'],
+            'new_password' => ['required', 'min:10', 'regex:/^(?=.*[0-9])(?=.*[\W_]).+$/'],
             'picture' => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
+            'role' => ['required','in:'.implode(',', UserRoles::values())],
         ];
     }
 
@@ -45,12 +62,18 @@ class ProfileForm extends Form
         $this->firstname = $user->firstname;
         $this->lastname = $user->lastname;
         $this->email = $user->email;
+        $this->phone = $user->phone;
+        $this->role = $user->role;
         $this->password = $user->password;
     }
 
     public function update(): void
     {
-        $this->validate();
+        $this->validateOnly('firstname');
+        $this->validateOnly('lastname');
+        $this->validateOnly('email');
+        $this->validateOnly('phone');
+        $this->validateOnly('picture');
 
         if ($this->picture) {
             $picture_path = Storage::putFile('users/' . Auth::id() . '/original', $this->picture);
@@ -80,7 +103,36 @@ class ProfileForm extends Form
             }
         }
         $data = $this->all();
-        $data['picture'] = $picture_path;
+        if ($this->picture) {
+            $data['picture'] = $picture_path;
+        }
         Auth::user()->update($data);
+    }
+
+    public function updatePassword(): void
+    {
+        $this->validateOnly('new_password');
+        $this->validateOnly('old_password');
+
+        Auth::user()->update(['password' => Hash::make($this->new_password)]);
+    }
+
+    public function create(): void
+    {
+        $this->validateOnly('firstname');
+        $this->validateOnly('lastname');
+        $this->validateOnly('email');
+        $this->validateOnly('phone');
+        $this->validateOnly('password');
+        $this->validateOnly('role');
+
+        User::create([
+            'firstname' => $this->firstname,
+            'lastname' => $this->lastname,
+            'email' => $this->email,
+            'phone' => $this->phone,
+            'password' => Hash::make($this->new_password),
+            'role' => $this->role,
+        ]);
     }
 }
