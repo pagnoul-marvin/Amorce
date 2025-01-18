@@ -2,7 +2,6 @@
 
 namespace App\Livewire\Forms;
 
-use App\Enum\TaskCategories;
 use App\Enum\UserRoles;
 use App\Models\User;
 use Auth;
@@ -46,8 +45,8 @@ class ProfileForm extends Form
         return [
             'firstname' => ['required', 'string', 'max:255', 'min:3'],
             'lastname' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'lowercase', 'email', 'max:255', Rule::unique(User::class)->ignore(Auth::id()),],
-            'phone' => ['required', 'numeric', 'digits:10', Rule::unique(User::class)->ignore(Auth::id()),],
+            'email' => ['required', 'lowercase', 'email', 'max:255',],
+            'phone' => ['required', 'numeric', 'digits:10',],
             'password' => ['required', 'min:10', 'regex:/^(?=.*[0-9])(?=.*[\W_]).+$/'],
             'old_password' => ['required', 'min:10', 'regex:/^(?=.*[0-9])(?=.*[\W_]).+$/'],
             'new_password' => ['required', 'min:10', 'regex:/^(?=.*[0-9])(?=.*[\W_]).+$/'],
@@ -71,8 +70,21 @@ class ProfileForm extends Form
     {
         $this->validateOnly('firstname');
         $this->validateOnly('lastname');
-        $this->validateOnly('email');
-        $this->validateOnly('phone');
+        $this->validateOnly('email', [
+            'email' => [
+                'required',
+                'email',
+                Rule::unique('users', 'email')->ignore(Auth::id()),
+            ],
+        ]);
+        $this->validateOnly('phone', [
+            'phone' => [
+                'required',
+                'digits:10',
+                'numeric',
+                Rule::unique('users', 'phone')->ignore(Auth::id()),
+            ],
+        ]);
         $this->validateOnly('picture');
 
         if ($this->picture) {
@@ -121,8 +133,21 @@ class ProfileForm extends Form
     {
         $this->validateOnly('firstname');
         $this->validateOnly('lastname');
-        $this->validateOnly('email');
-        $this->validateOnly('phone');
+        $this->validateOnly('email', [
+            'email' => [
+                'required',
+                'email',
+                Rule::unique('users', 'email'),
+            ],
+        ]);
+        $this->validateOnly('phone', [
+            'phone' => [
+                'required',
+                'digits:10',
+                'numeric',
+                Rule::unique('users', 'phone'),
+            ],
+        ]);
         $this->validateOnly('password');
         $this->validateOnly('role');
 

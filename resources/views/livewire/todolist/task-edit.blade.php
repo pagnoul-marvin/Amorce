@@ -109,7 +109,16 @@
             <li class="task_show_section_list_item">
                 <div class="task_show_section_list_item_container flex">
                     <p class="hel_bold task_show_section_list_item_container_text">{{__('texts.status')}}</p>
-                    <p class="hel_reg task_show_section_list_item_container_text">{{$task->completed ? __('texts.enclosed') : __('texts.open')}}</p>
+                    <p class="hel_reg task_show_section_list_item_container_text">
+                        @if($task->category == \App\Enum\TaskCategories::Todo->value)
+                            {{ __('texts.todo_tasks') }}
+                        @elseif($task->category == \App\Enum\TaskCategories::InProgress->value)
+                            {{ __('texts.in_process_tasks') }}
+                        @elseif($task->category == \App\Enum\TaskCategories::Archived->value)
+                            {{ __('texts.archived_tasks') }}
+                        @else
+                            ''
+                        @endif</p>
                 </div>
             </li>
 

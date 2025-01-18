@@ -10,6 +10,7 @@ class ModalButton extends Component
     public $type;
     public $to;
     public $event;
+    public $params = null;
 
     public function render()
     {

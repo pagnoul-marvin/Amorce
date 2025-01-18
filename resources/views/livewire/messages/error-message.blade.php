@@ -15,6 +15,5 @@
 
     <p class="error_message_modal_text hel_reg">{{$text}}</p>
 
-    <livewire:icons.close to="error-message" event="closeErrorMessage"/>
 </div>
 

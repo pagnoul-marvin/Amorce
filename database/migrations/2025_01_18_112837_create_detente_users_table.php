@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('detentes', function (Blueprint $table) {
+        Schema::create('detente_users', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('starting_at');
-            $table->timestamp('ending_at');
+            $table->unsignedBigInteger('detente_id');
+            $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('detentes');
+        Schema::dropIfExists('detente_users');
     }
 };

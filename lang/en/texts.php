@@ -124,4 +124,11 @@ return [
     'create_user' => 'Create a user',
     'role' => 'Role*',
     'choose_a_role' => 'Choose a role',
+    'see_the_profile_of' => 'See the profile of',
+    'detentes' => 'Detentes',
+    'create_detente' => 'Create a detente',
+    'manage_this_detente' => 'Manage this detente',
+    'starting_at' => 'Starting at*',
+    'ending_at' => 'Ending at*',
+    'no_detente' => 'There is no detente for the moment',
 ];

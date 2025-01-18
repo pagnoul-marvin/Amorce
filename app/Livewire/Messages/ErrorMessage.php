@@ -8,6 +8,7 @@ class ErrorMessage extends Component
 {
     public $text;
     public $visible = false;
+
     protected $listeners = ['closeErrorMessage' => 'closeErrorMessage', 'openErrorMessage' => 'openErrorMessage'];
 
     public function openErrorMessage(string $text): void
@@ -15,10 +16,5 @@ class ErrorMessage extends Component
         $this->text = $text;
         $this->visible = true;
         $this->dispatch('start-error-message-timer');
-    }
-
-    public function closeErrorMessage(): void
-    {
-        $this->visible = false;
     }
 }

@@ -26,20 +26,36 @@
 
         </section>
 
-        <section class="section">
+        <section class="section home_detente_section flex">
 
             <h2 class="section_title hel_bold">{{__('texts.actual_detente')}}</h2>
 
-            <ul>
+            <div class="home_detente_section_content">
 
+                @if($actualDetente)
 
-            </ul>
+                    <ul class="flex home_detente_section_content_list">
+
+                        @foreach($detenteUsers as $user)
+                            <livewire:home.detente-user-list-item :$user wire-key="detente-user-{{$user->id}}"/>
+                        @endforeach
+
+                    </ul>
+
+                @else
+
+                    <p class="hel_reg">{{__('texts.no_detente')}}</p>
+
+                @endif
+
+            </div>
 
         </section>
 
-        <livewire:messages.success-message wire:key="task-completed-success-message"/>
 
     </div>
+
+    <livewire:messages.success-message wire:key="task-completed-success-message"/>
 
     <livewire:modals.task-create-for-today-modal wire:key="task-create-for-today-modal"/>
 

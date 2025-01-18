@@ -15,9 +15,4 @@ class SuccessMessage extends Component
         $this->visible = true;
         $this->dispatch('start-success-message-timer');
     }
-
-    public function closeSuccessMessage(): void
-    {
-        $this->visible = false;
-    }
 }

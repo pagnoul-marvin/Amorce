@@ -4,4 +4,14 @@
 
     <livewire:administrator-space.create-user/>
 
+    <livewire:administrator-space.detente-section/>
+
+    <livewire:modals.create-detente-modal/>
+
+    <livewire:modals.manage-detente-modal/>
+
+    <livewire:messages.success-message/>
+
+    <livewire:messages.error-message/>
+
 </div>

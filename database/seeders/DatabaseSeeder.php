@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Enum\UserRoles;
+use App\Models\Detente;
 use App\Models\Transaction;
 use App\Models\Fund;
 use App\Models\Task;
@@ -93,6 +94,18 @@ class DatabaseSeeder extends Seeder
             $fund->transactions->each(function ($transaction) use ($fund) {
                 $transaction->fund_id = $fund;
             });
+        }
+
+        $startDate = '2025-01-01';
+        $detenteCount = 10;
+        $detentes = Detente::factory()->generateConsecutivePeriods($startDate, $detenteCount);
+
+        foreach ($detentes as $period) {
+            $detente = Detente::create($period);
+
+            $allUsers = $users->concat([$marvin]);
+            $selectedUsers = $allUsers->random(9);
+            $detente->users()->attach($selectedUsers->pluck('id'));
         }
     }
 }

@@ -22,6 +22,14 @@ return new class extends Migration {
         Schema::table('transactions', function (Blueprint $table) {
             $table->foreign('fund_id')->references('id')->on('funds')->onDelete('cascade');
         });
+
+        Schema::table('detente_users', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+        });
+
+        Schema::table('detente_users', function (Blueprint $table) {
+            $table->foreign('detente_id')->references('id')->on('detentes')->onDelete('cascade');
+        });
     }
 
     /**
@@ -40,6 +48,14 @@ return new class extends Migration {
 
         Schema::table('transactions', function (Blueprint $table) {
             $table->dropForeign('fund_id');
+        });
+
+        Schema::table('detente_users', function (Blueprint $table) {
+            $table->dropForeign('user_id');
+        });
+
+        Schema::table('detente_users', function (Blueprint $table) {
+            $table->dropForeign('detente_id');
         });
     }
 };

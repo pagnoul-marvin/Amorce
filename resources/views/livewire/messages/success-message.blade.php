@@ -15,5 +15,4 @@
 
     <p class="success_message_text hel_reg">{{$text}}</p>
 
-    <livewire:icons.close to="success-message" event="closeSuccessMessage"/>
 </div>

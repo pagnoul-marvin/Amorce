@@ -1,4 +1,4 @@
-<button class="modal_btn {{$type}}" title="{{$title}}" wire:click="dispatchTo('{{$to}}', '{{$event}}')">
+<button class="modal_btn {{$type}}" title="{{$title}}" wire:click="dispatchTo('{{$to}}', '{{$event}}', {{$params}})">
     @if($type === 'add')
         <svg class="modal_btn_icon" width="25" height="24" viewBox="0 0 25 24" fill="none"
              xmlns="http://www.w3.org/2000/svg">

@@ -124,4 +124,11 @@ return [
     'create_user' => 'Créer un utilisateur',
     'role' => 'Rôle*',
     'choose_a_role' => 'Choisissez un rôle',
+    'see_the_profile_of' => 'Voir les informations du profil de',
+    'detentes' => 'Les détentes',
+    'create_detente' => 'Créer une détente',
+    'manage_this_detente' => 'Gérer cette détente',
+    'starting_at' => 'Commence le*',
+    'ending_at' => 'Fini le*',
+    'no_detente' => 'Il n\'y a pas de détente actuellement',
 ];

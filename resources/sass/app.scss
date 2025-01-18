@@ -88,7 +88,7 @@
     background-color: var(--yellow_color);
 }
 
-.button, .go_back_btn, .app_nav_main_list_item, .app_nav_theme_switcher_and_profile_content_modal_list_item_link, .funds_section_lists_container_in_process_list_item_link, .funds_section_lists_container_enclosed_list_item_link, {
+.button, .go_back_btn, .app_nav_main_list_item, .app_nav_theme_switcher_and_profile_content_modal_list_item_link, .funds_section_lists_container_in_process_list_item_link, .funds_section_lists_container_enclosed_list_item_link, .home_detente_section_content_list_item_name_and_profile_container_name, .detente_section_content_users_list_item_name_and_profile_container_name {
     text-decoration: none;
 }
 
@@ -100,7 +100,7 @@
     background-color: var(--main_nav_active_bg_color);
 }
 
-.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .error_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .table, .add_donations_manually_or_import_list_item, .form_user_list_container_title, .search_form_input, .modal_error_text, .transaction_info_title, .transaction_info_texts_container, .task_users_form_users_list_container_title, .task_users_form_users_list_item_name, .task_users_form_users_list_item_email, .task_show_section_list_item, .assigned_tasks_for_today_title, .tasks_for_today_title, {
+.label, .go_back_btn, .input, .forgot_password, .app_nav_theme_switcher_and_profile_content_modal_list_item:not(:last-of-type), .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_main_list_item_link, .footer_copy, .page_description, .todo_list_section_content_list_item_link, .success_message_text, .error_message_text, .todo_list_section_content_no_tasks, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .table, .add_donations_manually_or_import_list_item, .form_user_list_container_title, .search_form_input, .modal_error_text, .transaction_info_title, .transaction_info_texts_container, .task_users_form_users_list_container_title, .task_users_form_users_list_item_name, .task_users_form_users_list_item_email, .task_show_section_list_item, .assigned_tasks_for_today_title, .tasks_for_today_title, .home_detente_section_content_list_item_name_and_profile_container_name, .detente_section_content_users_list_item_name_and_profile_container_name {
     font-size: $text_sizeM;
 }
 
@@ -285,6 +285,25 @@ select.input {
     }
 }
 
+.button_title_container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: $spaceM;
+
+    &:has(:not(div.button_title_container_button_container)) {
+        line-height: 2.9375em;
+    }
+
+    &_title {
+        font-size: $text_sizeL;
+    }
+
+    &_button_container {
+        flex-direction: row;
+        gap: $spaceXS;
+    }
+}
+
 .list_title_and_button_container {
     gap: $spaceM;
     flex: 1;
@@ -295,25 +314,6 @@ select.input {
             &_title {
                 user-select: none;
             }
-        }
-    }
-
-    .button_title_container {
-        flex-direction: row;
-        flex-wrap: wrap;
-        gap: $spaceM;
-
-        &:has(:not(div.button_title_container_button_container)) {
-            line-height: 2.9375em;
-        }
-
-        &_title {
-            font-size: $text_sizeL;
-        }
-
-        &_button_container {
-            flex-direction: row;
-            gap: $spaceXS;
         }
     }
 }
@@ -537,7 +537,7 @@ select.input {
     }
 }
 
-.app_nav_main_list_item_link, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_theme_switcher_and_profile_content_modal_list_item_link, .todo_list_section_content_list_item_link, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .add_donations_manually_or_import_list_item_text, .task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list_item_fake_link, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list_item_fake_link, .task_index_tasks_manager_section_lists_container_section_content_owner_task_in_process_list_item_fake_link, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_in_process_list_item_fake_link, .task_index_tasks_manager_section_lists_container_section_content_owner_task_archived_list_item_fake_link, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_archived_list_item_fake_link {
+.app_nav_main_list_item_link, .app_nav_theme_switcher_and_profile_content_modal_list_item_form_btn, .app_nav_theme_switcher_and_profile_content_modal_list_item_link, .todo_list_section_content_list_item_link, .funds_section_lists_container_enclosed_list_item_link, .funds_section_lists_container_in_process_list_item_link, .add_donations_manually_or_import_list_item_text, .task_index_tasks_manager_section_lists_container_section_content_owner_task_to_do_list_item_fake_link, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_to_do_list_item_fake_link, .task_index_tasks_manager_section_lists_container_section_content_owner_task_in_process_list_item_fake_link, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_in_process_list_item_fake_link, .task_index_tasks_manager_section_lists_container_section_content_owner_task_archived_list_item_fake_link, .task_index_tasks_manager_section_lists_container_section_content_assigned_task_archived_list_item_fake_link, .home_detente_section_content_list_item_name_and_profile_container_name, .detente_section_content_users_list_item_name_and_profile_container_name {
     text-decoration: none;
     position: relative;
     color: var(--black_color);
@@ -704,7 +704,7 @@ select.input {
 
 .home_sections_container {
 
-    .todo_list_section {
+    .todo_list_section, .home_detente_section {
         &_content {
             gap: $spaceDoubleXXL;
 
@@ -736,11 +736,8 @@ select.input {
                         border-bottom: 1px solid var(--line_color_switchable);
                     }
 
-                    &_link {
+                    &_link, &_name_and_profile_container_name {
                         color: var(--white_color_switchable);
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        white-space: nowrap;
 
                         &::after {
                             background-color: var(--white_color_switchable);
@@ -779,10 +776,30 @@ select.input {
             }
         }
     }
+
+    .home_detente_section_content {
+        &_list {
+            &_item {
+                &_name_and_profile_container {
+                    flex-direction: row;
+                    gap: $spaceS;
+                    align-items: center;
+
+                    &_profile_picture {
+                        width: 36px;
+                        height: 36px;
+                        overflow: hidden;
+                        border-radius: 50%;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                }
+            }
+        }
+    }
 }
 
 .profile_form_section, .fund_details_section, .task_show_section {
-    gap: $spaceDoubleXXL;
     align-items: center;
     position: relative;
 
@@ -811,6 +828,10 @@ select.input {
             width: 100%;
         }
     }
+}
+
+.profile_form_section {
+    gap: $spaceXXL;
 }
 
 .fund_details_section {
@@ -851,6 +872,7 @@ select.input {
         &_in_process_list, &_enclosed_list, &_section_content_owner_task_to_do_list, &_section_content_assigned_task_to_do_list, &_section_content_owner_task_in_process_list, &_section_content_assigned_task_in_process_list, &_section_content_owner_task_archived_list, &_section_content_assigned_task_archived_list {
             gap: $spaceS;
             flex: 1;
+            min-height: 29.21875em;
 
             &_item {
                 background-color: var(--item_bg_color);
@@ -1371,4 +1393,70 @@ select.input {
 .small {
     color: var(--dark_green_color);
     font-size: $text_sizeXS;
+}
+
+.detente_section {
+    &_content {
+        &_date {
+            flex-direction: row;
+            gap: $spaceM;
+            align-items: center;
+        }
+
+        &_users_list {
+            gap: $spaceXXS;
+            margin-top: $spaceM;
+
+            &_item {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                flex-wrap: wrap;
+                height: 3.65625em;
+                gap: $spaceXXS;
+
+                &:not(:last-of-type) {
+                    border-bottom: 1px solid var(--white_color_switchable);
+                    padding-bottom: $spaceXXS;
+                }
+
+                &_name_and_profile_container {
+                    flex-direction: row;
+                    gap: $spaceXXS;
+                    align-items: center;
+                    flex-wrap: wrap;
+
+                    &_name {
+                        color: var(--white_color_switchable);
+
+                        &::after {
+                            background-color: var(--white_color_switchable);
+                            left: 0;
+                            width: 100%;
+                        }
+
+                        &:hover {
+                            &::after {
+                                transform: scaleX(1);
+                                transform-origin: bottom left;
+                            }
+                        }
+                    }
+
+                    &_profile_picture {
+                        width: 36px;
+                        height: 36px;
+                        overflow: hidden;
+                        border-radius: 50%;
+                        align-items: center;
+                        justify-content: center;
+
+                        &_img {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
