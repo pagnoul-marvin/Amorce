@@ -1330,10 +1330,7 @@ select.input {
 
 .task_users_form_users_list_container {
     width: 100%;
-
-    .task_users_form_users_list, .no_user {
-        margin-top: $spaceM;
-    }
+    gap: $spaceM;
 
     .task_users_form_users_list {
         flex-direction: row;
@@ -1378,6 +1375,7 @@ select.input {
 
 .task_show_section {
     align-items: flex-start;
+    gap: $spaceDoubleXXL;
 }
 
 .div_space {
@@ -1393,6 +1391,11 @@ select.input {
 .small {
     color: var(--dark_green_color);
     font-size: $text_sizeXS;
+
+    &_black {
+        font-size: $text_sizeXS;
+        color: unset;
+    }
 }
 
 .detente_section {
@@ -1459,4 +1462,8 @@ select.input {
             }
         }
     }
+}
+
+.iban_alert {
+    max-width: 40em;
 }

@@ -131,4 +131,10 @@ return [
     'starting_at' => 'Commence le*',
     'ending_at' => 'Fini le*',
     'no_detente' => 'Il n\'y a pas de détente actuellement',
+    'rand_users' => 'Tirer au sort des utilisateurs',
+    'pagination' => 'Pagination',
+    'alert_iban' => 'Avant de continuer, vous devez créer un utilisateur parce que cet IBAN ne correspond avec aucun dans la base de données.',
+    'iban' => 'Numéro IBAN*',
+    'choose_a_user' => 'Choisissez un utilisateur',
+    'user_form' => 'Contributeur*'
 ];

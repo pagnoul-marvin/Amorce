@@ -12,9 +12,6 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
         $marvin = User::factory()
@@ -27,7 +24,7 @@ class DatabaseSeeder extends Seeder
                 'role' => UserRoles::Admin->value
             ]);
 
-        $users = User::factory(10)
+        $users = User::factory(100)
             ->has(Task::factory()->count(50), 'tasks')
             ->create();
 
@@ -57,43 +54,35 @@ class DatabaseSeeder extends Seeder
             });
         }
 
-        $general_fund = Fund::factory()
-            ->has(Transaction::factory(20), 'transactions')
-            ->create([
+        $allUsers = $users->concat([$marvin]);
+
+        $general_fund = Fund::factory()->create([
             'name' => 'General',
             'description' => 'Le fond général est le fond de base de l\'Amorce',
             'pourcentage' => 0,
             'enclosed' => false
         ]);
 
-        $fonctionnement_fund = Fund::factory()
-            ->has(Transaction::factory(20), 'transactions')
-            ->create([
+        $fonctionnement_fund = Fund::factory()->create([
             'name' => 'Fonctionnement',
             'description' => 'Le fond de fonctionnement est le fond qui gère l\'argent qui permet le bon fonctionnement de l\'Amorce',
             'pourcentage' => 0,
             'enclosed' => false
         ]);
 
-        $opened_funds = Fund::factory(5)
-            ->has(Transaction::factory(20), 'transactions')
-            ->create(['enclosed' => false]);
+        $opened_funds = Fund::factory(5)->create(['enclosed' => false]);
 
-        Fund::factory(5)
-            ->create(['enclosed' => true]);
+        Fund::factory(5)->create(['enclosed' => true]);
 
-        $general_fund->transactions->each(function ($transaction) use ($general_fund) {
-           $transaction->fund_id = $general_fund;
-        });
+        $funds = collect([$general_fund, $fonctionnement_fund])->concat($opened_funds);
 
-        $fonctionnement_fund->transactions->each(function ($transaction) use ($fonctionnement_fund) {
-            $transaction->fund_id = $fonctionnement_fund;
-        });
-
-        foreach ($opened_funds as $fund) {
-            $fund->transactions->each(function ($transaction) use ($fund) {
-                $transaction->fund_id = $fund;
-            });
+        foreach ($funds as $fund) {
+            Transaction::factory()->count(20)->create([
+                'fund_id' => $fund->id,
+                'user_id' => function () use ($allUsers) {
+                    return $allUsers->random()->id;
+                }
+            ]);
         }
 
         $startDate = '2025-01-01';
@@ -102,8 +91,6 @@ class DatabaseSeeder extends Seeder
 
         foreach ($detentes as $period) {
             $detente = Detente::create($period);
-
-            $allUsers = $users->concat([$marvin]);
             $selectedUsers = $allUsers->random(9);
             $detente->users()->attach($selectedUsers->pluck('id'));
         }

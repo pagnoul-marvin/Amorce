@@ -12,14 +12,15 @@ class ManageDetenteModal extends Component
 
     public $isOpen = false;
 
+    public $detente;
+
     protected $listeners = ['openModal' => 'openModal', 'closeModal' => 'closeModal'];
 
     public function openModal($id): void
     {
         $this->isOpen = true;
-        $detente = Detente::find($id);
-        $this->form->setDetente($detente);
-
+        $this->detente = Detente::find($id);
+        $this->form->setDetente($this->detente);
     }
 
     public function closeModal(): void

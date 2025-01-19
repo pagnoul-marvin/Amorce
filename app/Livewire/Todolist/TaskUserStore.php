@@ -14,12 +14,30 @@ class TaskUserStore extends Component
 
     public TaskUsersForm $form;
 
+    public $search;
+
     protected $listeners = ['mount' => 'mount'];
 
     public function mount(Task $task): void
     {
         $this->task = $task;
-        $this->users_able_to_be_added = User::whereNotIn('id', array_merge($task->users->pluck('id')->toArray(), [$task->user->id]))->get();
+        $this->getUsersAbleToBeAdded();
+    }
+
+    public function updatedSearch(): void
+    {
+        $this->getUsersAbleToBeAdded();
+    }
+
+    public function getUsersAbleToBeAdded(): void
+    {
+        $this->users_able_to_be_added = User::query()
+            ->whereNotIn('id', array_merge($this->task->users->pluck('id')->toArray(), [$this->task->user->id]))
+            ->where(function ($query) {
+                $query->where('firstname', 'like', '%' . $this->search . '%')
+                    ->orWhere('lastname', 'like', '%' . $this->search . '%');
+            })
+            ->get();
     }
 
     public function addTaskUsers($task_id, $user_id): void

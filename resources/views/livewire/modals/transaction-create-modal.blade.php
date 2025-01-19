@@ -72,6 +72,26 @@
                 @enderror
 
             </x-layout.input-label-container>
+            <x-layout.input-label-container id="user" class="modal_section_content_form_input_label_container start"
+                                            :label="__('texts.user_form')">
+
+                <select class="input" id="user" wire:model.blur="form.user_id" required value="{{old('form.user_id')}}">
+
+                    <option class="option">{{__('texts.choose_a_user')}}</option>
+
+                    @foreach($users as $user)
+
+                        <option class="option" value="{{$user->id}}">{{$user->firstname}} {{$user->lastname}} {{$user->email}}</option>
+
+                    @endforeach
+
+                </select>
+
+                @error('form.user_id')
+                <x-input-error :messages="$errors->get('form.user_id')"/>
+                @enderror
+
+            </x-layout.input-label-container>
 
             <x-form.submit-button :text="__('texts.add')" div_class="modal_section_content_form_submit_btn_container"
                                   btn_class="modal_section_content_form_submit_btn_container_submit_btn button"/>

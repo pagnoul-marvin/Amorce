@@ -26,6 +26,9 @@ class TransactionForm extends Form
     #[Validate]
     public $hash;
 
+    #[Validate]
+    public $user_id;
+
     public $transaction;
 
     public function rules(): array
@@ -34,6 +37,7 @@ class TransactionForm extends Form
             'note' => 'nullable|max:255',
             'amount' => 'required|numeric',
             'fund_id' => 'required',
+            'user_id' => 'required',
             'date' => 'required|date',
             'csv' => 'required|mimes:csv',
             'hash' => 'required|string',
@@ -47,6 +51,7 @@ class TransactionForm extends Form
         $this->amount = $transaction->amount;
         $this->fund_id = $transaction->fund_id;
         $this->date = $transaction->date;
+        $this->user_id = $transaction->user_id;
     }
 
     public function store(): void
@@ -54,12 +59,15 @@ class TransactionForm extends Form
         $this->validateOnly('note');
         $this->validateOnly('amount');
         $this->validateOnly('fund_id');
+        $this->validateOnly('user_id');
         $this->validateOnly('date');
         Transaction::create([
             'note' => $this->note,
             'amount' => $this->amount * 100,
             'fund_id' => $this->fund_id,
             'date' => $this->date,
+            'user_id' => $this->user_id,
+            'hash' => md5(implode(',', [$this->note, $this->amount * 100, $this->fund_id, $this->user_id, $this->date])),
         ]);
     }
 
@@ -90,7 +98,7 @@ class TransactionForm extends Form
         session(['transactionsNeedToBeLinked' => $transactionsNeedToBeLinked]);
     }
 
-    public function storeTransactionFromCSV():void
+    public function storeTransactionFromCSV($user_id):void
     {
         $this->validateOnly('note');
         $this->validateOnly('amount');
@@ -103,6 +111,7 @@ class TransactionForm extends Form
             'fund_id' => $this->fund_id,
             'date' => $this->date,
             'hash' => $this->hash,
+            'user_id' => $user_id,
         ]);
     }
 

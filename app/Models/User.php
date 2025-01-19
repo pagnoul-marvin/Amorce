@@ -29,6 +29,7 @@ class User extends Authenticatable
         'email',
         'password',
         'phone',
+        'IBAN',
     ];
 
     /**
@@ -129,5 +130,15 @@ class User extends Authenticatable
             ->where('date', $date)
             ->where('category', '=', TaskCategories::Archived->value)
             ->with('users');
+    }
+
+    public function detentes(): BelongsToMany
+    {
+        return $this->belongsToMany(Detente::class, 'detente_users')->withTimestamps();
+    }
+
+    public function transactions(): HasMany
+    {
+        return $this->hasMany(Transaction::class);
     }
 }

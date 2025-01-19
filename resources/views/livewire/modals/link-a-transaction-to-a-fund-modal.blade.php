@@ -74,7 +74,156 @@
                     <input type="hidden" wire:model.blur="form.note">
                     <input type="hidden" wire:model.blur="form.hash">
 
-                    <x-form.submit-button :text="__('texts.add')"
+                    @if(\App\Models\User::where('IBAN', $IBAN)->exists())
+
+                        <x-form.submit-button :text="__('texts.add')"
+                                              div_class="modal_section_content_form_submit_btn_container"
+                                              btn_class="modal_section_content_form_submit_btn_container_submit_btn button"/>
+
+                    @endif
+
+                </form>
+
+            </div>
+
+        @endif
+
+        @if(!\App\Models\User::where('IBAN', $IBAN)->exists())
+
+            <div class="transaction_info flex">
+
+                <p class="text_red hel_reg iban_alert">{{__('texts.alert_iban')}}</p>
+
+                <form wire:submit="createUser" class="modal_section_content_form flex">
+
+                    <x-layout.input-label-container id="firstname"
+                                                    class="modal_section_content_form_input_label_container"
+                                                    :label="__('texts.firstname')">
+
+                        <input type="text" class="input" placeholder="Jean" id="firstname"
+                               wire:model.blur="userForm.firstname" required>
+
+                        @error('userForm.firstname')
+                        <x-input-error :messages="$errors->get('userForm.firstname')"/>
+                        @enderror
+
+                    </x-layout.input-label-container>
+
+                    <x-layout.input-label-container id="lastname"
+                                                    class="modal_section_content_form_input_label_container"
+                                                    :label="__('texts.lastname')">
+
+                        <input type="text" class="input" placeholder="Pottier" id="lastname"
+                               wire:model.blur="userForm.lastname" required>
+
+                        @error('userForm.lastname')
+                        <x-input-error :messages="$errors->get('userForm.lastname')"/>
+                        @enderror
+
+                    </x-layout.input-label-container>
+
+                    <x-layout.input-label-container id="email" class="modal_section_content_form_input_label_container"
+                                                    :label="__('texts.mail_address')">
+
+                        <input type="email" placeholder="jean@example.com" class="input" id="email"
+                               wire:model.blur="userForm.email" required>
+
+                        @error('userForm.email')
+                        <x-input-error :messages="$errors->get('userForm.email')"/>
+                        @enderror
+
+                    </x-layout.input-label-container>
+
+                    <x-layout.input-label-container id="password"
+                                                    class="modal_section_content_form_input_label_container"
+                                                    :label="__('texts.password')">
+
+                        <div class="input_error_message flex">
+
+                            <input class="input" type="{{$showPassword ? 'text' : 'password'}}" id="password"
+                                   wire:model.blur="userForm.password"
+                                   placeholder="ch4nge_th1s" required value="{{old('userForm.password')}}">
+
+                            <button type="button" wire:click="togglePasswordVisibility"
+                                    class="input_error_message_show_password_button">
+
+                                @if($showPassword)
+
+                                    <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 24.5 18.5">
+                                        <defs>
+                                            <style>
+                                                .cls-3 {
+                                                    fill: none;
+                                                    stroke: var(--white_color_switchable);
+                                                    stroke-linecap: round;
+                                                    stroke-linejoin: round;
+                                                    stroke-width: 2.5px;
+                                                }
+                                            </style>
+                                        </defs>
+                                        <path class="cls-3"
+                                              d="M1.25,9.25S5.25,1.25,12.25,1.25s11,8,11,8c0,0-4,8-11,8S1.25,9.25,1.25,9.25Z"/>
+                                        <path class="cls-3"
+                                              d="M12.25,12.25c1.66,0,3-1.34,3-3s-1.34-3-3-3-3,1.34-3,3,1.34,3,3,3Z"/>
+                                        <line class="cls-3" x1="1.25" y1="1.25" x2="23.25" y2="17.25"/>
+                                    </svg>
+
+                                @else
+
+                                    <svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg"
+                                         viewBox="0 0 24.5 18.5">
+                                        <defs>
+                                            <style>
+                                                .cls-3 {
+                                                    fill: none;
+                                                    stroke: var(--white_color_switchable);
+                                                    stroke-linecap: round;
+                                                    stroke-linejoin: round;
+                                                    stroke-width: 2.5px;
+                                                }
+                                            </style>
+                                        </defs>
+                                        <path class="cls-3"
+                                              d="M1.25,9.25S5.25,1.25,12.25,1.25s11,8,11,8c0,0-4,8-11,8S1.25,9.25,1.25,9.25Z"/>
+                                        <path class="cls-3"
+                                              d="M12.25,12.25c1.66,0,3-1.34,3-3s-1.34-3-3-3-3,1.34-3,3,1.34,3,3,3Z"/>
+                                    </svg>
+
+                                @endif
+
+                            </button>
+
+                        </div>
+
+                        @error('userForm.password')
+                        <x-input-error :messages="$errors->get('userForm.password')"/>
+                        @enderror
+
+                    </x-layout.input-label-container>
+
+                    <x-layout.input-label-container id="role" class="modal_section_content_form_input_label_container"
+                                                    :label="__('texts.role')">
+
+                        <select class="input" id="role" required wire:model.blur="userForm.role">
+
+                            <option class="option">{{__('texts.choose_a_role')}}</option>
+
+                            @foreach(\App\Enum\UserRoles::values() as $role)
+
+                                <option value="{{$role}}" wire:key="role-{{$role}}">{{$role}}</option>
+
+                            @endforeach
+
+                        </select>
+
+                        @error('userForm.role')
+                        <x-input-error :messages="$errors->get('userForm.role')"/>
+                        @enderror
+
+                    </x-layout.input-label-container>
+
+                    <x-form.submit-button :text="__('texts.create')"
                                           div_class="modal_section_content_form_submit_btn_container"
                                           btn_class="modal_section_content_form_submit_btn_container_submit_btn button"/>
 

@@ -18,6 +18,7 @@ class Transaction extends Model
         'note',
         'amount',
         'fund_id',
+        'user_id',
         'hash',
     ];
 
@@ -30,5 +31,10 @@ class Transaction extends Model
     public function fund(): belongsTo
     {
         return $this->belongsTo(Fund::class);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

@@ -17,11 +17,12 @@ return new class extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('email')->unique();
-            $table->string('phone')->unique();
+            $table->string('phone')->unique()->nullable();
             $table->string('picture')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->enum('role', [UserRoles::Benevole->value, UserRoles::Admin->value, UserRoles::Comptable->value])->default(UserRoles::Benevole->value);
+            $table->string('IBAN')->unique();
             $table->rememberToken();
             $table->timestamps();
         });

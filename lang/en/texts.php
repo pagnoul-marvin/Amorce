@@ -131,4 +131,10 @@ return [
     'starting_at' => 'Starting at*',
     'ending_at' => 'Ending at*',
     'no_detente' => 'There is no detente for the moment',
+    'rand_users' => 'Draw users at random',
+    'pagination' => 'Pagination',
+    'alert_iban' => 'Before keeping going, you have to create a user because this IBAN does not match with any in the database.',
+    'iban' => 'IBAN number*',
+    'choose_a_user' => 'Choose a user',
+    'user_form' => 'Contributor*'
 ];

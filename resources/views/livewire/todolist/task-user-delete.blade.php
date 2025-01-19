@@ -1,6 +1,10 @@
-<div class="task_users_form_users_list_container">
+<div class="task_users_form_users_list_container flex">
 
     <p class="hel_bold task_users_form_users_list_container_title">{{__('texts.users_added')}}</p>
+
+    <label class="hidden" for="search">{{__('texts.search')}}</label>
+    <input class="search_form_input" placeholder="{{__('texts.search')}}" type="text" id="search"
+           name="search" wire:model.live="search">
 
     @if(count($assigned_users) > 0)
 

@@ -11,16 +11,33 @@ class TaskUserDelete extends Component
 {
     public $task;
     public TaskUsersForm $form;
+    public $search;
     public $assigned_users = [];
     protected $listeners = ['mount' => 'mount'];
+
 
     public function mount(Task $task): void
     {
         $this->task = $task;
-        $this->assigned_users = $task->users;
+        $this->getAssignedUsers();
     }
 
-    public function deleteTaskUsers($task_id ,$user_id): void
+    public function updatedSearch(): void
+    {
+        $this->getAssignedUsers();
+    }
+
+    public function getAssignedUsers(): void
+    {
+        $this->assigned_users = $this->task->users()
+            ->where(function ($query) {
+                $query->where('firstname', 'like', '%' . $this->search . '%')
+                    ->orWhere('lastname', 'like', '%' . $this->search . '%');
+            })
+            ->get();
+    }
+
+    public function deleteTaskUsers($task_id, $user_id): void
     {
         $user = User::find($user_id);
         $this->form->delete($task_id, $user_id);

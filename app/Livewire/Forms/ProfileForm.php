@@ -40,18 +40,22 @@ class ProfileForm extends Form
     #[Validate]
     public $role;
 
+    #[Validate]
+    public $IBAN;
+
     public function rules(): array
     {
         return [
             'firstname' => ['required', 'string', 'max:255', 'min:3'],
             'lastname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'lowercase', 'email', 'max:255',],
-            'phone' => ['required', 'numeric', 'digits:10',],
+            'phone' => ['numeric', 'digits:10',],
             'password' => ['required', 'min:10', 'regex:/^(?=.*[0-9])(?=.*[\W_]).+$/'],
             'old_password' => ['required', 'min:10', 'regex:/^(?=.*[0-9])(?=.*[\W_]).+$/'],
             'new_password' => ['required', 'min:10', 'regex:/^(?=.*[0-9])(?=.*[\W_]).+$/'],
             'picture' => ['nullable', 'image', 'mimes:jpg,jpeg,png', 'max:2048'],
             'role' => ['required','in:'.implode(',', UserRoles::values())],
+            'IBAN' => ['required', 'string', 'regex:/^[A-Z]{2}\d{2}[A-Z0-9]{1,30}$/'],
         ];
     }
 
@@ -64,6 +68,7 @@ class ProfileForm extends Form
         $this->phone = $user->phone;
         $this->role = $user->role;
         $this->password = $user->password;
+        $this->IBAN = $user->IBAN;
     }
 
     public function update(): void
@@ -79,7 +84,6 @@ class ProfileForm extends Form
         ]);
         $this->validateOnly('phone', [
             'phone' => [
-                'required',
                 'digits:10',
                 'numeric',
                 Rule::unique('users', 'phone')->ignore(Auth::id()),
@@ -142,10 +146,35 @@ class ProfileForm extends Form
         ]);
         $this->validateOnly('phone', [
             'phone' => [
-                'required',
                 'digits:10',
                 'numeric',
                 Rule::unique('users', 'phone'),
+            ],
+        ]);
+        $this->validateOnly('password');
+        $this->validateOnly('role');
+        $this->validateOnly('IBAN');
+
+        User::create([
+            'firstname' => $this->firstname,
+            'lastname' => $this->lastname,
+            'email' => $this->email,
+            'phone' => $this->phone,
+            'password' => Hash::make($this->new_password),
+            'role' => $this->role,
+            'IBAN' => $this->IBAN,
+        ]);
+    }
+
+    public function createFromCSV(string $iban): void
+    {
+        $this->validateOnly('firstname');
+        $this->validateOnly('lastname');
+        $this->validateOnly('email', [
+            'email' => [
+                'required',
+                'email',
+                Rule::unique('users', 'email'),
             ],
         ]);
         $this->validateOnly('password');
@@ -158,6 +187,7 @@ class ProfileForm extends Form
             'phone' => $this->phone,
             'password' => Hash::make($this->new_password),
             'role' => $this->role,
+            'IBAN' => $iban,
         ]);
     }
 }

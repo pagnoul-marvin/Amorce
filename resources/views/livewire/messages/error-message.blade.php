@@ -2,7 +2,7 @@
      x-data="{ open: @entangle('visible'), startTimer() {
             setTimeout(() => {
                 this.open = false;
-            }, 3000);
+            }, 5000);
         } }"
      x-show="open"
      x-transition:enter="success-message-transition"

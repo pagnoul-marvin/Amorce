@@ -117,6 +117,19 @@
             @enderror
 
         </x-layout.input-label-container>
+        <x-layout.input-label-container id="IBAN"
+                                        class="input_label_container profile_form_section_form_label_and_input_container flex"
+                                        :label="__('texts.iban')">
+
+                <input class="input" type="text" id="IBAN"
+                       wire:model.blur="form.IBAN"
+                       placeholder="BE68 5390 0754 7034" required value="{{old('form.IBAN')}}">
+
+            @error('form.IBAN')
+            <x-input-error :messages="$errors->get('form.IBAN')"/>
+            @enderror
+
+        </x-layout.input-label-container>
         <x-layout.input-label-container id="role"
                                         class="input_label_container profile_form_section_form_label_and_input_container flex"
                                         :label="__('texts.role')">

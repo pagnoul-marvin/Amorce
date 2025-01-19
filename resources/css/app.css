@@ -1169,9 +1169,7 @@ select.input {
 
 .task_users_form_users_list_container {
   width: 100%;
-}
-.task_users_form_users_list_container .task_users_form_users_list, .task_users_form_users_list_container .no_user {
-  margin-top: 1.875em;
+  gap: 1.875em;
 }
 .task_users_form_users_list_container .task_users_form_users_list {
   flex-direction: row;
@@ -1207,6 +1205,7 @@ select.input {
 
 .task_show_section {
   align-items: flex-start;
+  gap: 6.25em;
 }
 
 .div_space .section_title {
@@ -1220,6 +1219,10 @@ select.input {
 .small {
   color: var(--dark_green_color);
   font-size: 0.625em;
+}
+.small_black {
+  font-size: 0.625em;
+  color: unset;
 }
 
 .detente_section_content_date {
@@ -1271,6 +1274,10 @@ select.input {
 }
 .detente_section_content_users_list_item_name_and_profile_container_profile_picture_img {
   width: 100%;
+}
+
+.iban_alert {
+  max-width: 40em;
 }
 
 /*# sourceMappingURL=app.css.map */

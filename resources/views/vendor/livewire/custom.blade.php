@@ -12,7 +12,7 @@
 
 @if ($paginator->hasPages())
     <nav class="custom-pagination">
-        <h2 class="hidden">{{__('texts.transactions_pagination')}}</h2>
+        <h2 class="hidden">{{__('texts.pagination')}}</h2>
             @if ($paginator->onFirstPage())
                 <span class="circle-btn disabled" aria-disabled="true">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
