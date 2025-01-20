@@ -24,6 +24,26 @@ class DatabaseSeeder extends Seeder
                 'role' => UserRoles::Admin->value
             ]);
 
+        $dominique = User::factory()
+            ->has(Task::factory()->count(50), 'tasks')
+            ->create([
+                'firstname' => 'Dominique',
+                'lastname' => 'Vilain',
+                'email' => 'dominique.vilain@hepl.be',
+                'password' => 'Dominique1234@',
+                'role' => UserRoles::Admin->value
+            ]);
+
+        $michael = User::factory()
+            ->has(Task::factory()->count(50), 'tasks')
+            ->create([
+                'firstname' => 'Michaël',
+                'lastname' => 'Lecerf',
+                'email' => 'michael@lecerf.be',
+                'password' => 'Michael1234@',
+                'role' => UserRoles::Admin->value
+            ]);
+
         $users = User::factory(100)
             ->has(Task::factory()->count(50), 'tasks')
             ->create();
@@ -33,6 +53,30 @@ class DatabaseSeeder extends Seeder
             $task->save();
 
             $usersToAssign = User::where('id', '!=', $marvin->id)
+                ->inRandomOrder()
+                ->take(rand(1, 5))
+                ->pluck('id');
+
+            $task->users()->attach($usersToAssign);
+        });
+
+        $dominique->tasks->each(function ($task) use ($dominique) {
+            $task->user_id = $dominique->id;
+            $task->save();
+
+            $usersToAssign = User::where('id', '!=', $dominique->id)
+                ->inRandomOrder()
+                ->take(rand(1, 5))
+                ->pluck('id');
+
+            $task->users()->attach($usersToAssign);
+        });
+
+        $michael->tasks->each(function ($task) use ($michael) {
+            $task->user_id = $michael->id;
+            $task->save();
+
+            $usersToAssign = User::where('id', '!=', $michael->id)
                 ->inRandomOrder()
                 ->take(rand(1, 5))
                 ->pluck('id');
@@ -54,7 +98,7 @@ class DatabaseSeeder extends Seeder
             });
         }
 
-        $allUsers = $users->concat([$marvin]);
+        $allUsers = $users->concat([$marvin, $dominique, $michael]);
 
         $general_fund = Fund::factory()->create([
             'name' => 'General',
